@@ -45,11 +45,6 @@ img .img-icon {
     margin-top: 30px;
 }
 
-.custom-h6{
-    /*margin-top: 30px;*/
-    text-align: center;
-}
-
 .custom-h5{
     text-align: center;
 }
@@ -58,6 +53,38 @@ img .img-icon {
     text-align: center;
 }
 
+.custom-h6-login{
+    text-align: right;
+}
+
 h6 a:hover{
     text-decoration: underline;
+}
+
+.card-panel-custom-reg{
+    max-width: auto;
+    max-height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+#next{
+    margin-top: 40px;
+}
+
+#regbtn{
+    margin-top: 40px;
+}
+
+#gender{
+	margin-top: 35px;
+}
+
+#status{
+	margin-top: 35px;
+}
+
+#faculty{
+	margin-top: 35px;
 }
