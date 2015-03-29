@@ -7,7 +7,7 @@
         <title>KubuBuku</title>
 
         <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>" media="screen,projection"/>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
         <style type="text/css">
@@ -92,7 +92,7 @@
                             <div class="carousel-caption">
                               <h3>First slide label</h3>
                               <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                              <p><a href="<?php echo base_url('index.php/login') ?>" class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" role="button">Go to KubuBuku</a></p>
+                              <p><a class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" href="<?php echo base_url('index.php/login') ?>" role="button">Go to KubuBuku</a></p>
                             </div>
                         </div>
                        

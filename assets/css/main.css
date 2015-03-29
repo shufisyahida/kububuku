@@ -1,3 +1,4 @@
+/*PUNYA SHUFI*/
 .brand-logo {
 	margin-left: 20px;
 }
@@ -6,7 +7,7 @@ nav .input-field label {
 	left: 13rem;
 }
 
-img.img-icon {
+img .img-icon {
 	max-width: 40px;
 	height: auto;
 }
@@ -29,4 +30,34 @@ img.img-icon {
 	margin: 0 auto;
 	max-width: 1280px;
 	width: 90%;
+}
+
+/*PUNYA KOES*/
+.card-panel-custom-cp{
+    max-width: 400px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.btn-custom-btn{
+    margin-top: 30px;
+}
+
+.custom-h6{
+    /*margin-top: 30px;*/
+    text-align: center;
+}
+
+.custom-h5{
+    text-align: center;
+}
+
+.custom-h6{
+    text-align: center;
+}
+
+h6 a:hover{
+    text-decoration: underline;
 }
