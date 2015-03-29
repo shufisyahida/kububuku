@@ -1,3 +1,4 @@
+/*PUNYA SHUFI*/
 .brand-logo {
 	margin-left: 20px;
 }
@@ -6,7 +7,7 @@ nav .input-field label {
 	left: 13rem;
 }
 
-img.img-icon {
+img .img-icon {
 	max-width: 40px;
 	height: auto;
 }
@@ -88,4 +89,118 @@ img.img-logo {
   -webkit-transition: 200ms ease all;
   transition: 200ms ease all;
   opacity: 1;
+
+/*PUNYA KOES*/
+.card-panel-custom-cp{
+    max-width: 400px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
 }
+
+.btn-custom-btn{
+    margin-top: 30px;
+}
+
+.custom-h5{
+    text-align: center;
+}
+
+.custom-h6{
+    text-align: center;
+}
+
+.custom-h6-login{
+    text-align: right;
+}
+
+h6 a:hover{
+    text-decoration: underline;
+}
+
+.card-panel-custom-reg{
+    max-width: auto;
+    max-height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+#next{
+    margin-top: 40px;
+}
+
+#regbtn{
+    margin-top: 40px;
+}
+
+#gender{
+	margin-top: 35px;
+}
+
+#status{
+	margin-top: 35px;
+}
+
+#faculty{
+	margin-top: 35px;
+}
+
+/*HOME*/
+.carousel-fit{
+    max-height: 100vh;
+}
+
+.carousel-inner > .item{
+    max-height: 100vh;
+}
+
+.img-responsive{
+    width: 100% \9;
+}
+
+p a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+/* Mobile */
+/*@media (max-width: 767px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+         width: 80%;
+    }
+}*/
+
+/* tablets */
+/*@media (max-width: 991px) and (min-width: 768px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+}*/
+
+/* laptops */
+/*@media (max-width: 1023px) and (min-width: 992px) {
+    .slider-size {
+         height: 200px;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+}*/
+
+/* desktops */
+/* @media (min-width: 1024px) {
+    .slider-size {
+        height: 300px;
+    }
+    .slider-size > img {
+        width: 60%;
+    }
+}*/
