@@ -11,6 +11,11 @@ img.img-icon {
 	height: auto;
 }
 
+img.img-logo {
+	max-height: 25px;
+	height: auto;
+}
+
 .custom-a {
 	padding-top: 15%;
 }
@@ -29,4 +34,58 @@ img.img-icon {
 	margin: 0 auto;
 	max-width: 1280px;
 	width: 90%;
+}
+
+.side-nav {
+	z-index: 1001;
+}
+
+.header_wrapper {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 997;
+}
+
+.secondary-header {
+	background-color: #fff;
+	padding: 16px 0;
+	opacity: 1;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.secondary-header-inner {
+	max-width: 1160px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.secondary-header .secondary-header-inner>ul {
+  margin: 0;
+  padding: 0;
+}
+
+.secondary-header .secondary-header-inner>ul>li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+
+.secondary-header .secondary-header-inner>ul>li>a {
+  padding: 14px 30px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 300;
+  color: #000;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.secondary-header .secondary-header-inner>ul>li>a:hover, .secondary-header .secondary-header-inner>ul>li>a.active, .secondary-header .secondary-header-inner>ul>li>a:focus, .secondary-header .secondary-header-inner>ul>li>a.visited {
+  text-decoration: none;
+  border-bottom: 4px solid #4CAF50;
+  -webkit-transition: 200ms ease all;
+  transition: 200ms ease all;
+  opacity: 1;
 }
