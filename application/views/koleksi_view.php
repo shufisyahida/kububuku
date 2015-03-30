@@ -2,7 +2,7 @@
     <br><h5 class="custom-h5">Koleksi View</h5>
     <div class="card-panel-custom-cp z-depth-1">
         <div class="row">
-            <form method="post" action="<?php echo base_url('index.php/koleksi/delete') ?>" class="col s12">
+            <form method="post" action="<?php echo base_url('index.php/koleksi/add') ?>" class="col s12">
                 <div class="row">
                     <div class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
