@@ -25,86 +25,118 @@
 
 <div class="container custom-table">
 	<h2>request out here</h2>
-	<div class="card-panel z-depth-1"><table class="bordered hoverable responsive-table">
-        <thead>
-			<tr>
-				<th data-field="id">No.</th>
-				<th data-field="name">Borrower</th>
-				<th data-field="book">Book</th>
-				<th data-field="action">Action</th>
-			</tr>
-        </thead>
+	<div class="card-panel z-depth-1">
+		<table class="bordered hoverable responsive-table">
+	        <thead>
+				<tr>
+					<th data-field="id">No.</th>
+					<th data-field="name">Borrower</th>
+					<th data-field="book">Book</th>
+					<th data-field="action">Action</th>
+				</tr>
+	        </thead>
 
-        <tbody>
-			<tr>
-				<td>1.</td>
-				<td>
-					<div class="borrower">
-						<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-						<div class="custom-borrower">
-							<span>Eclair</span><br>
-							<span>Faculty of X</span>
+	        <tbody>
+				<tr>
+					<td>1.</td>
+					<td>
+						<div class="borrower">
+							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
+							<div class="custom-borrower">
+								<span>Eclair</span><br>
+								<span>Faculty of X</span>
+							</div>
 						</div>
-					</div>
-				</td>
-				<td>$0.87</td>
-				<td>
-					<a href="#!"><i class="green-text small mdi-action-done"></i></a>
-					<a href="#!"><i class="red-text small mdi-content-clear"></i></a>
-					<a href="#!"><i class="blue-text small mdi-action-perm-contact-cal"></i></a>
-				</td>
-			</tr>
-			<tr>
-				<td>2.</td>
-				<td>
-					<div class="borrower">
-						<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-						<div class="custom-borrower">
-							<span>Jellybean</span><br>
-							<span>Faculty of X</span>
+					</td>
+					<td>$0.87</td>
+					<td>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel"></a>
+						<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+					</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>
+						<div class="borrower">
+							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
+							<div class="custom-borrower">
+								<span>Jellybean</span><br>
+								<span>Faculty of X</span>
+							</div>
 						</div>
-					</div>
-				</td>
-				<td>$3.76</td>
-				<td>
-					<a href="#!"><i class="green-text small mdi-action-done"></i></a>
-					<a href="#!"><i class="red-text small mdi-content-clear"></i></a>
-					<a href="#!"><i class="blue-text small mdi-action-perm-contact-cal"></i></a>
-				</td>
-			</tr>
-			<tr>
-				<td>3.</td>
-				<td>
-					<div class="borrower">
-						<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-						<div class="custom-borrower">
-							<span>Lolipop</span><br>
-							<span>Faculty of Y</span>
+					</td>
+					<td>$3.76</td>
+					<td>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel"></a>
+						<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+					</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>
+						<div class="borrower">
+							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
+							<div class="custom-borrower">
+								<span>Lolipop</span><br>
+								<span>Faculty of Y</span>
+							</div>
 						</div>
-					</div>
-				</td>
-				<td>$7.00</td>
-				<td>
-					<a href="#!"><i class="green-text small mdi-action-done-all"></i></a>
-				</td>
-			</tr>
-			<tr>
-				<td>3.</td>
-				<td>
-					<div class="borrower">
-						<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-						<div class="custom-borrower">
-							<span>Melon</span><br>
-							<span>Faculty of Y</span>
-						</div>
-					</div>
-				</td>
-				<td>$7.00</td>
-				<td>
-					<a href="#!"><i class="green-text small mdi-action-done-all"></i></a>
-				</td>
-			</tr>
-        </tbody>
-  </table>
-  </div>
+					</td>
+					<td>$7.00</td>
+					<td>
+						<a class="modal-trigger green-text mdi-action-done-all" href="#modal-return"></a>
+						<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+					</td>
+				</tr>
+	        </tbody>
+  		</table>
+  	</div>
 </div>
+
+<!-- Modal Structure -->
+<div id="modal-cancel" class="modal">
+	<div class="modal-content">
+		<h4>Cancel Request?</h4>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">YES</a>
+	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-contact" class="modal">
+	<div class="modal-content">
+		<h4>Contact</h4>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
+	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-return" class="modal">
+	<div class="modal-content">
+		<h4>Return Book</h4>
+		<p>The book has been returned to Si Y, give some rank.</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">OK</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+	// $(document).ready(function(){
+	// 	$('#modal-accept').openModal();
+	// 	$('#modal-decline').openModal();
+	// 	$('#modal-contact').openModal();
+	// });
+
+	// $(document).ready(function(){
+	// 	$('#modal-accept').closeModal();
+	// 	$('#modal-decline').closeModal();
+	// 	$('#modal-contact').closeModal();
+	// });
+</script>
