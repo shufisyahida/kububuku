@@ -3,13 +3,14 @@
 	margin-left: 20px;
 }
 
-nav .input-field label {
+nav.input-field label {
 	left: 13rem;
 }
 
-img .img-icon {
+img.img-icon {
 	max-width: 40px;
 	height: auto;
+  margin-top: 3px;
 }
 
 img.img-logo {
