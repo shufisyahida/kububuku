@@ -3,9 +3,13 @@
 class Koleksi_model extends CI_Model
 {
 
-	function getAllKoleksi()
+	function getAllKoleksi($username)
 	{
-		return $this->db->get('koleksi')->result();
+		$this->db->select("isbn,is_available");
+ 		$this->db->from('koleksi');
+ 		$this->db->where('username',$username);
+  		$query = $this->db->get();
+  		return $result = $query->result();
 	}
 
 	function deleteKoleksi($username,$isbn)
@@ -16,12 +20,15 @@ class Koleksi_model extends CI_Model
 
 	function addKoleksi($non_admin,$buku)
 	{
+		
 		$this->db->where('username',$non_admin)->where('isbn',$buku);
 		$this->db->set('username',$non_admin);
 		$this->db->set('isbn',$buku);
 		$this->db->set('is_available',true);
 
 		$this->db->insert('koleksi');
+
+
 	}
 
 }

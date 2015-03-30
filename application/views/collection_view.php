@@ -129,3 +129,12 @@
 		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
 	</div>
 </div>
+
+
+     <?php foreach($result as $post){?>
+    
+         <?php echo $post->isbn;?>
+         <?php echo $post->is_available;?>
+      
+     <?php }?>  
+ 

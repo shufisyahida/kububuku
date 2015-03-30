@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Koleksi extends CI_Controller {
-
 	
 	public function delete()
 	{
@@ -42,6 +41,7 @@ class Koleksi extends CI_Controller {
 		{
 			$this->session->set_userdata('error_login_'.$username,true);
 			redirect(base_url('index.php/login'));
+			//masuk form create buku lalalla
 
 		}
 			
