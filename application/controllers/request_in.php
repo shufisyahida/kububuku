@@ -1,0 +1,66 @@
+<?php
+    class Request_in extends CI_Controller
+    {
+        
+        public function index()
+        { 
+            $username = $this->session->userdata('username');
+
+            $this->load->model('pinjaman');
+            $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
+            //var_dump($pinjamanMasuk);
+
+            $book=array();
+            $user=array();
+
+            $this->load->model('non_admin');
+            $this->load->model('buku');
+
+            foreach($pinjamanMasuk as $key=>$value)
+            {                             
+                $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
+                $user[] = $resPengguna;
+                
+                $resBuku = $this->buku->getBook($value->isbn);
+                $book[]= $resBuku;
+
+                $durasi[]=$value->durasi;
+                $id[]=$value->id;
+            }
+
+            $data['book']=$book;
+            $data['user']=$user;
+            $data['durasi']=$durasi;
+            $data['idPinjaman']=$id;
+            
+           
+          /*  $count=0;
+            foreach ($book as $kunci => $nilai ) 
+            {
+                foreach($nilai as $key=>$value)
+                {
+                   // var_dump($value);
+                   
+                    //echo $count;
+                    //echo('\n');
+                    echo $value->judul;    
+                    echo $value->isbn;
+                    echo 'hai';
+                    $coba = $user[$count];
+                   // var_dump($coba);
+                    echo $coba[0]->username;
+                    echo 'hoi';
+                    $count=$count+1;
+                }
+                //var_dump($value);
+            }*/
+
+            
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('request_in_view',$data);
+            $this->load->view('foot_view');
+                        
+        }
+    }
+?>
