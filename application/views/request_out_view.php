@@ -24,7 +24,7 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-	<h2>request out here</h2>
+	<h4>request out here</h4>
 	<div class="card-panel z-depth-1">
 		<table class="bordered hoverable responsive-table">
 	        <thead>

@@ -1,7 +1,7 @@
     <div class="secondary-header">
       <div class="center-align secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/book/book_info') ?>">Book Information</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/book/book_info') ?>">Book Information</a></li>
         </ul>
       </div>
 
@@ -20,6 +20,7 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
-<div class="container">
+<div class="container custom-table">
   <h2>book info here</h2>
+  <a href="<?php echo base_url('index.php/dashboard/collection') ?>"><i class=" green-text small mdi-hardware-keyboard-arrow-left"></i></a>
 </div>
