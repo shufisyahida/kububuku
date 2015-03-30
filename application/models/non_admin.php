@@ -12,14 +12,23 @@ class Non_admin extends CI_Model
 		return $this->db->get('non_admin')->result();
 	}
 
-	function isMember($username,$password)
+	function isMember($email,$password)
 	{
-		$query='select * from non_admin where username ='.$username.'';
-		$row = $this->db->query($squery)->result();
-
-		if(!is_null($row))
+		$this->db->select('password');
+		$this->db->from('non_admin');
+		$this->db->where('email',$email);
+		
+		$query= $this->db->get()->result();
+		
+		foreach ($query as $key => $value) 
 		{
-			$realPass = $row->password;
+			$realPass=$value->password;
+		}
+
+		
+		if(!is_null($realPass))
+		{
+			
 			if($realPass==$password)
 				return true;
 			else
@@ -27,6 +36,22 @@ class Non_admin extends CI_Model
 		}
 		else
 			return false;
+	}
+
+	function getUsername($email)
+	{
+		$this->db->select('username');
+		$this->db->from('non_admin');
+		$this->db->where('email',$email);
+		
+		$query= $this->db->get()->result();
+		
+		foreach ($query as $key => $value) 
+		{
+			$username=$value->username;
+		}
+
+		return $username;
 	}
 }
 
