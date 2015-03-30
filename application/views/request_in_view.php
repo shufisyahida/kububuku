@@ -62,10 +62,25 @@
 						</div>
 						</td>
 						<td>'.$buku[0]->judul.'</td>
-						<td>
-							<a class="modal-trigger green-text mdi-action-done" href="#modal-accept"></a>
-							<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline"></a>
-							<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+						<td>';
+
+						
+						//var_dump($status);
+						if($status[$index]==1)
+						{
+							echo '<a class="modal-trigger green-text mdi-action-done" href="#modal-accept"></a>
+							<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline"></a>';
+						}
+						elseif ($status[$index]==2) 
+						{
+							# gambar jam pasir
+						}
+						elseif ($status[$index]==3) 
+						{
+							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-ranking"></a>';
+						}
+							
+						echo '<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
 						</td>
 						</tr>';
 
