@@ -1,10 +1,7 @@
-	<div class="secondary-header">
-      <div class="secondary-header-inner">
+    <div class="secondary-header">
+      <div class="center-align secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/dashboard/request_in') ?>">Request In</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/request_out') ?>">Request Out</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/collection') ?>">Collection</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/book/book_info') ?>">Book Information</a></li>
         </ul>
       </div>
 
@@ -24,6 +21,6 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-	<h4>Wishlist is gonna be here. Soon..</h4>
-	<h4>After the 1st iteration...</h4>
+  <h2>book info here</h2>
+  <a href="<?php echo base_url('index.php/dashboard/collection') ?>"><i class=" green-text small mdi-hardware-keyboard-arrow-left"></i></a>
 </div>

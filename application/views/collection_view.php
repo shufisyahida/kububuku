@@ -24,88 +24,108 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-	<h2>collection here</h2>
-	<div class="card-panel z-depth-1">
-		<table class="bordered hoverable responsive-table">
-	        <thead>
-				<tr>
-					<th data-field="id">No.</th>
-					<th data-field="name">Borrower</th>
-					<th data-field="book">Book</th>
-					<th data-field="action">Action</th>
-				</tr>
-	        </thead>
+	<div class="col s12 m8 offset-m2 l6 offset-l3">
+		<h4>Borrowed</h4>
+		<div class="row valign-wrapper">
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">The Lord of The Rings</h5>
+					</div>
+				</div>
+	        </div>
 
-	        <tbody>
-				<tr>
-					<td>1.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Eclair</span><br>
-								<span>Faculty of X</span>
-							</div>
-						</div>
-					</td>
-					<td>$0.87</td>
-					<td>
-						<a href="#!"><i class="green-text small mdi-action-done"></i></a>
-						<a href="#!"><i class="red-text small mdi-content-clear"></i></a>
-						<a href="#!"><i class="blue-text small mdi-action-perm-contact-cal"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td>2.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Jellybean</span><br>
-								<span>Faculty of X</span>
-							</div>
-						</div>
-					</td>
-					<td>$3.76</td>
-					<td>
-						<a href="#!"><i class="green-text small mdi-action-done"></i></a>
-						<a href="#!"><i class="red-text small mdi-content-clear"></i></a>
-						<a href="#!"><i class="blue-text small mdi-action-perm-contact-cal"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td>3.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Lolipop</span><br>
-								<span>Faculty of Y</span>
-							</div>
-						</div>
-					</td>
-					<td>$7.00</td>
-					<td>
-						<a href="#!"><i class="green-text small mdi-action-done-all"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td>3.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Melon</span><br>
-								<span>Faculty of Y</span>
-							</div>
-						</div>
-					</td>
-					<td>$7.00</td>
-					<td>
-						<a href="#!"><i class="green-text small mdi-action-done-all"></i></a>
-					</td>
-				</tr>
-	        </tbody>
-  		</table>
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">The Hobbit</h5>
+					</div>
+				</div>
+	        </div>
+		</div>
   	</div>
+
+  	<div class="col s12 m8 offset-m2 l6 offset-l3">
+		<h4>Available</h4>
+		<div class="row valign-wrapper">
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">The Lord of The Rings</h5>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">The Hobbit</h5>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover3.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">Unknown</h5>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
+					</div>
+				</div>
+	        </div>
+
+	        <div class="col s12 m3 l3">
+				<div class="card small">
+					<div class="card-image">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					</div>
+					<div class="card-content">
+						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<p class="divider"></p>
+						<h5 class="truncate">ksjflsakdjflksdajflksdj lksdjflksdaj flksjdf klsaj flkjsdklfj</h5>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
+					</div>
+				</div>
+	        </div>
+
+		</div>
+  	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal-remove" class="modal">
+	<div class="modal-content">
+		<h4>Remove Collection</h4>
+		<p>Are you sure to remove this book from collection?</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+	</div>
 </div>
