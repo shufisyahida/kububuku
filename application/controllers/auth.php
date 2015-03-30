@@ -13,7 +13,7 @@ class Auth extends CI_Controller {
 			$this->load->model('non_admin');
 			$isMember = $this->non_admin->isMember($email,$password);
 
-			var_dump($isMember);
+			
 
 			if ($isMember) 
 			{
