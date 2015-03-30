@@ -1,18 +1,18 @@
 <?php
 
-class Koleksi_model extends CI_Model
+class Buku extends CI_Model
 {
 
-	function getAllKoleksi($username)
+	function retrieveBuku($isbn)
 	{
-		$this->db->select("isbn,is_available");
- 		$this->db->from('koleksi');
- 		$this->db->where('username',$username);
-  		$query = $this->db->get();
+ 		$this->db->where('isbn',$isbn);
+  		$query = $this->db->get('buku');
   		return $result = $query->result();
 	}
 
-	function deleteKoleksi($username,$isbn)
+	
+
+/*	function deleteKoleksi($username,$isbn)
 	{
 		$this->db->where('username',$username)->where('isbn',$isbn);
 		$this->db->delete('koleksi');
@@ -29,7 +29,7 @@ class Koleksi_model extends CI_Model
 		$this->db->insert('koleksi');
 
 	}
-
+*/
 
 }
 

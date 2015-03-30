@@ -24,3 +24,17 @@
   <h2>book info here</h2>
   <a href="<?php echo base_url('index.php/dashboard/collection') ?>"><i class=" green-text small mdi-hardware-keyboard-arrow-left"></i></a>
 </div>
+
+     <?php foreach($result as $post){?>
+    
+         <?php echo $post->isbn;?>
+         <?php echo $post->judul;?>
+         <?php echo $post->pengarang;?>
+         <?php echo $post->deskripsi;?>
+         <?php echo $post->genre;?>
+         <?php echo $post->penerbit;?>
+         <?php echo $post->tahun_terbit;?>
+         <?php echo $post->jumlah_halaman;?>
+         <?php echo $post->sampul;?>
+      
+     <?php }?>  
