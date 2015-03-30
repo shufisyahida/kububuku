@@ -8,7 +8,7 @@
     </ul>
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="#!" class="brand-logo"><img class="img-logo responsive-img" src="assets/img/logo-horizontal.png"></a>
+        <a href="#!" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png')?>"></a>
         <ul class="right hide-on-med-and-down">
           <li>
             <form>
@@ -19,7 +19,7 @@
             </form>
           </li>
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
-          <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="assets/img/elka.png"></a></li>
+          <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="<?php echo base_url('assets/img/elka.png')?>"></a></li>
         </ul>
       </div>
     </nav>
