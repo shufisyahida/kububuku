@@ -1,7 +1,7 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="<?php echo base_url('index.php/dashboard/request_in') ?>">Request In</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/request_out') ?>">Request Out</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/collection') ?>">Collection</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
@@ -37,58 +37,46 @@
 	        </thead>
 
 	        <tbody>
-				<tr>
-					<td>1.</td>
-					<td>
+
+	        	<?php
+
+
+	           	$index=0;
+            	$count=1;
+
+            	foreach($user as $kunci=>$nilai)
+            	{
+            		foreach ($nilai as $key => $value)
+            		{
+            			$buku=$book[$index];
+            		
+            			echo'<tr>
+						<td>'.$count.'</td>
+						<td>
 						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
+							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 							<div class="custom-borrower">
-								<span>Eclair</span><br>
-								<span>Faculty of X</span>
+								<span>'.$value->nama.'</span><br>
+								<span>'.$value->username.'</span>
 							</div>
 						</div>
-					</td>
-					<td>$0.87</td>
-					<td>
-						<a class="modal-trigger green-text mdi-action-done" href="#modal-accept"></a>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline"></a>
-						<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
-					</td>
-				</tr>
-				<tr>
-					<td>2.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Jellybean</span><br>
-								<span>Faculty of X</span>
-							</div>
-						</div>
-					</td>
-					<td>$3.76</td>
-					<td>
-						<a class="modal-trigger green-text mdi-action-done" href="#modal-accept"></a>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline"></a>
-						<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
-					</td>
-				</tr>
-				<tr>
-					<td>3.</td>
-					<td>
-						<div class="borrower">
-							<img class="img-icon-borrower circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>">
-							<div class="custom-borrower">
-								<span>Lolipop</span><br>
-								<span>Faculty of Y</span>
-							</div>
-						</div>
-					</td>
-					<td>$7.00</td>
-					<td>
-						<a class="modal-trigger green-text mdi-action-done-all" href="#modal-ranking"></a>
-					</td>
-				</tr>
+						</td>
+						<td>'.$buku[0]->judul.'</td>
+						<td>
+							<a class="modal-trigger green-text mdi-action-done" href="#modal-accept"></a>
+							<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline"></a>
+							<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+						</td>
+						</tr>';
+
+						$count=$count+1;
+						$index=$index+1;
+            		}
+
+            	}
+
+				?>
+
 	        </tbody>
   		</table>
   	</div>

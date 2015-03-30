@@ -33,22 +33,34 @@
             $data['durasi']=$durasi;
             $data['idPinjaman']=$id;
             
-            //redirect(base_url('index.php/Dashboard/request_in/data)));
+           
+          /*  $count=0;
+            foreach ($book as $kunci => $nilai ) 
+            {
+                foreach($nilai as $key=>$value)
+                {
+                   // var_dump($value);
+                   
+                    //echo $count;
+                    //echo('\n');
+                    echo $value->judul;    
+                    echo $value->isbn;
+                    echo 'hai';
+                    $coba = $user[$count];
+                   // var_dump($coba);
+                    echo $coba[0]->username;
+                    echo 'hoi';
+                    $count=$count+1;
+                }
+                //var_dump($value);
+            }*/
+
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
-            
-            //var_dump($book);
-            //var_dump($user);
-            //var_dump($durasi);
-            //var_dump($id);
-
-         //   echo $book->0;
-
-
-
+                        
         }
     }
 ?>
