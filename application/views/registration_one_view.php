@@ -4,13 +4,15 @@
         <div class="row">
             <form class="col s6">
 				<div class="row">
-					<div class="col s10 offset-s1 input-field file-field">
-						<input class="file-path validate" type="text"/>
-						<button class="btn green">
-							<span class="mdi-image-tag-faces"></span>
-							<input type="file" />
-						</button>
-					</div>
+                    <form action="#">
+                        <div class="col s10 offset-s1 input-field file-field">
+                            <input class="file-path validate" type="text"/>
+                            <div class="btn green">
+                                <span class="mdi-image-tag-faces"></span>
+                                <input type="file" />
+                            </div>
+                        </div>
+                    </form>
 
                     <div class="input-field col s10 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
@@ -41,12 +43,12 @@
                 <div class="row">
                     <div class="col s5 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <label for="gender"></label>
-						<select id="gender" type="text" class="browser-default validate">
-							<option value="" disabled selected>Gender</option>
+						<select id="gender" type="text" class="validate">
+							<option value="" disabled selected>Choose your gender</option>
 							<option value="M">Male</option>
 							<option value="F">Female</option>
 						</select>
+                        <label for="gender">Gender</label>
                     </div>
 
                     <div class="col s4 offset-s1">
@@ -56,23 +58,23 @@
                     </div>
 
                     <div class="col s10 offset-s1">
-                        <label for="status"></label>
-						<select id="status" type="text" class="browser-default validate">
-							<option value="" disabled selected>Status</option>
+						<select id="status" type="text" class="validate">
+							<option value="" disabled selected>Select your status</option>
 							<option value="1">Student</option>
 							<option value="2">Lecturer</option>
 							<option value="3">Staff</option>
 						</select>
+                        <label for="status">Status</label>
                     </div>
 
                     <div class="col s10 offset-s1">
-                        <label for="faculty"></label>
-						<select id="faculty" type="text" class="browser-default validate">
-							<option value="" disabled selected>Faculty</option>
+						<select id="faculty" type="text" class="validate">
+							<option value="" disabled selected>Pick your faculty</option>
 							<option value="1">Faculty of X</option>
 							<option value="2">Faculty of Y</option>
 							<option value="n">Faculty of Z</option>
 						</select>
+                        <label for="faculty">Faculty</label>
                     </div>
 
                     <div class="col s12 offset-s1">
@@ -86,6 +88,12 @@
     </div>
     <h6 class="custom-h6-login">Step 1 of 2</a></h6>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
 
 <script type="text/javascript">
      $('.datepicker').pickadate({

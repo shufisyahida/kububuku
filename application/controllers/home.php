@@ -6,11 +6,11 @@
         	$this->load->view('home_view');
         }
 
-        public function login()
-        {
-            $this->load->view('head_view');
-            $this->load->view('login_view');
-            $this->load->view('foot_view');
-        }
+        // public function login()
+        // {
+        //     $this->load->view('head_view');
+        //     $this->load->view('login_view');
+        //     $this->load->view('foot_view');
+        // }
     }
 ?>

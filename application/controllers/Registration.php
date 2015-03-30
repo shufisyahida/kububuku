@@ -1,5 +1,15 @@
 <?php
-    class Registration extends CI_Controller{
+    class Registration extends CI_Controller
+    {
+        
+        public function __construct()
+        {
+            parent::__construct();
+            $isMember = SSO\SSO::authenticate();
+            var_dump($isMember);
+            
+        }
+
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";

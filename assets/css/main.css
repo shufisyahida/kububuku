@@ -3,13 +3,19 @@
 	margin-left: 20px;
 }
 
-nav .input-field label {
+nav.input-field label {
 	left: 13rem;
 }
 
 img.img-icon {
 	max-width: 40px;
 	height: auto;
+  margin-top: 3px;
+}
+
+img.img-icon-borrower {
+  max-width: 70px;
+  height: auto;
 }
 
 img.img-logo {
@@ -89,6 +95,7 @@ img.img-logo {
   -webkit-transition: 200ms ease all;
   transition: 200ms ease all;
   opacity: 1;
+}
 
 /*PUNYA KOES*/
 .card-panel-custom-cp{
