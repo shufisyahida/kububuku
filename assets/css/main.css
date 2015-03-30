@@ -153,3 +153,18 @@ h6 a:hover{
 #faculty{
 	margin-top: 35px;
 }
+
+.custom-table{
+  margin-top: 150px;
+}
+
+div.borrower{
+  height: 80px;
+  width: auto;
+  margin-top: 10px;
+}
+
+div.custom-borrower{
+  margin-top: -65px;
+  margin-left: 80px;
+}
