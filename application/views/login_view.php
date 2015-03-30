@@ -24,5 +24,5 @@
             </form>
         </div>
     </div>
-    <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/registration/step_one') ?>">Create an account</a></h6>
+    <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/Registration/step_one') ?>">Create an account</a></h6>
 </div>
