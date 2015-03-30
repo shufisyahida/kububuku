@@ -30,7 +30,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
@@ -43,7 +43,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
@@ -61,7 +61,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
@@ -75,7 +75,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
@@ -89,7 +89,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover3.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover3.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
@@ -103,7 +103,7 @@
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img">
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
 						<h6 class="truncate">J.R.R. Tolkien</h6>
