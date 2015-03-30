@@ -53,6 +53,17 @@ class Non_admin extends CI_Model
 
 		return $username;
 	}
+
+	function getUser($username)
+	{
+		$this->db->select('*');
+		$this->db->from('non_admin');
+		$this->db->where('username',$username);
+
+		$query=$this->db->get()->result();
+
+		return $query;
+	}
 }
 
 ?>

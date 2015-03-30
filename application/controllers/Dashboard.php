@@ -21,13 +21,14 @@
             $this->load->view('foot_view');
         }
 
-        function request_in()
+        /*function request_in($data)
         {
+            var_dump($data);
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_in_view');
             $this->load->view('foot_view');
-        }
+        }*/
 
         function request_out()
         {

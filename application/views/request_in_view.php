@@ -1,4 +1,4 @@
-	<div class="secondary-header">
+<div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
           <li><a class="active" href="<?php echo base_url('index.php/dashboard/request_in') ?>">Request In</a></li>
