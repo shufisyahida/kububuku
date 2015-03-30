@@ -4,7 +4,7 @@
         {
             // $data['page_title'] = "CI Hello World App!";
         	$this->load->view('head_view');
-            $this->load->view('login_view');
+            $this->load->view('koleksi_view');
             $this->load->view('foot_view');
         }
     }

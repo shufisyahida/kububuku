@@ -53,6 +53,10 @@ class Non_admin extends CI_Model
 
 		return $username;
 	}
+
+	
+
+
 }
 
 ?>
