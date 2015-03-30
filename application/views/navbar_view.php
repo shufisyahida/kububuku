@@ -60,4 +60,10 @@
   //  $(document).ready(function(){
   //   $('ul.tabs').tabs('select_tab', 'request-in');
   // });
+  
+
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });        
 </script>
