@@ -13,6 +13,11 @@ img.img-icon {
   margin-top: 3px;
 }
 
+img.img-icon-borrower {
+  max-width: 70px;
+  height: auto;
+}
+
 img.img-logo {
 	max-height: 25px;
 	height: auto;
@@ -151,22 +156,36 @@ h6 a:hover{
 
 /*HOME*/
 .carousel-fit{
-    max-height: 100vh;
+  max-height: 100vh;
 }
 
 .carousel-inner > .item{
-    max-height: 100vh;
+  max-height: 100vh;
 }
 
 .img-responsive{
-    width: 100% \9;
+  width: 100% \9;
 }
 
 p a:hover{
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
+div.custom-borrower{
+  margin-top: -65px;
+  margin-left: 80px;
+}
+
+div.borrower{
+  height: 80px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.custom-table{
+  margin-top: 150px;
+}
 /* Mobile */
 /*@media (max-width: 767px) {
     .slider-size {

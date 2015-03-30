@@ -28,7 +28,7 @@
     <!-- <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/dashboard/request_in#request-in') ?>">Request In</a></li>
+          <li><a id="request-in" href="<?php echo base_url('index.php/dashboard/request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/request_out#') ?>">Request Out</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/collection#') ?>">Collection</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/wishlist#') ?>">Wishlist</a></li>
@@ -52,4 +52,12 @@
   $(document).ready(function(){
     $(".dropdown-button").dropdown({hover:false, constraint_width:true, gutter: -70})
   })
+
+  //  $(document).ready(function(){
+  //   $('ul.tabs').tabs();
+  // });
+
+  //  $(document).ready(function(){
+  //   $('ul.tabs').tabs('select_tab', 'request-in');
+  // });
 </script>
