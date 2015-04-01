@@ -8,7 +8,7 @@
 
             $this->load->model('pinjaman');
             $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
-            //var_dump($pinjamanMasuk);
+            
 
             $book=array();
             $user=array();
@@ -26,12 +26,14 @@
 
                 $durasi[]=$value->durasi;
                 $id[]=$value->id;
+                $status[]=$value->status;
             }
 
             $data['book']=$book;
             $data['user']=$user;
             $data['durasi']=$durasi;
             $data['idPinjaman']=$id;
+            $data['status']=$status;
             
            
           /*  $count=0;
