@@ -12,7 +12,7 @@
 
                     <div class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="password" type="text" name="password" class="validate">
+                        <input id="password" type="password" name="password" class="validate">
                         <label for="password">Password</label>
                     </div>
 

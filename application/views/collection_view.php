@@ -24,97 +24,46 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
+	<?php foreach($resultBorrowed as $post){?>
 	<div class="col s12 m8 offset-m2 l6 offset-l3">
 		<h4>Borrowed</h4>
 		<div class="row valign-wrapper">
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+						
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul;?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<h6 class="truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
-						<h5 class="truncate">The Lord of The Rings</h5>
+						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
 					</div>
 				</div>
 	        </div>
-
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
-						<p class="divider"></p>
-						<h5 class="truncate">The Hobbit</h5>
-					</div>
-				</div>
-	        </div>
-		</div>
+		</div> 
+		  <?php }?>  
   	</div>
 
-  	<div class="col s12 m8 offset-m2 l6 offset-l3">
+  	<?php foreach($resultAvailable as $post){?>
+	<div class="col s12 m8 offset-m2 l6 offset-l3">
 		<h4>Available</h4>
 		<div class="row valign-wrapper">
 	        <div class="col s12 m3 l3">
 				<div class="card small">
 					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul; ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
+						<h6 class="truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
-						<h5 class="truncate">The Lord of The Rings</h5>
+						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
 						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
 					</div>
 				</div>
 	        </div>
-
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
-						<p class="divider"></p>
-						<h5 class="truncate">The Hobbit</h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
-					</div>
-				</div>
-	        </div>
-
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover3.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
-						<p class="divider"></p>
-						<h5 class="truncate">Unknown</h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
-					</div>
-				</div>
-	        </div>
-
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="truncate">J.R.R. Tolkien</h6>
-						<p class="divider"></p>
-						<h5 class="truncate">ksjflsakdjflksdajflksdj lksdjflksdaj flksjdf klsaj flkjsdklfj</h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
-					</div>
-				</div>
-	        </div>
-
 		</div>
+		  <?php }?>  
   	</div>
 </div>
 
@@ -129,3 +78,7 @@
 		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
 	</div>
 </div>
+
+
+
+ 

@@ -12,6 +12,10 @@
 
             $book=array();
             $user=array();
+            $durasi=array();
+            $id=array();
+            $status=array();
+            $kontak=array();
 
             $this->load->model('non_admin');
             $this->load->model('buku');
@@ -27,6 +31,7 @@
                 $durasi[]=$value->durasi;
                 $id[]=$value->id;
                 $status[]=$value->status;
+                $kontak[]=$this->non_admin->getContact($value->username_peminjam);
             }
 
             $data['book']=$book;
@@ -34,6 +39,7 @@
             $data['durasi']=$durasi;
             $data['idPinjaman']=$id;
             $data['status']=$status;
+            $data['kontak']=$kontak;
             
            
           /*  $count=0;
@@ -62,7 +68,27 @@
             $this->load->view('navbar_view');
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
+
+
+            $query=   $this->non_admin->getContact($username);
+
+           /*$res = $kontak[0];
+           foreach ($res as $key => $value) 
+           {
+                
+
+                echo $value->email_kontak;
+                echo $value->fb;
+                echo $value->twitter;
+                echo $value->line_id;
+                echo $value->hp;
+                echo $value->bbm;
+                echo $value->wa;
+                
+               // var_dump(   $kontak);
+                //if(!is_null($result))
+                  //  $kontak['email']=;
+            }*/
                         
         }
     }
-?>
