@@ -6,8 +6,12 @@ class Koleksi extends CI_Controller {
 	{
 		if(isset($_POST))
 		{
-			$username = $this->input->post('username');
-			$isbn = $this->input->post('isbn');	
+			//$username = $this->input->post('username');
+			$username = $this->session->userdata('username'); 
+
+			//$isbn = $this->input->post('isbn');
+			$isbn = $this->session->userdata('isbn'); 
+	
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->deleteKoleksi($username,$isbn);

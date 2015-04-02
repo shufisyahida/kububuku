@@ -75,8 +75,8 @@
 		<p>Are you sure to remove this book from collection?</p>
 	</div>
 	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+		<a href="?php echo base_url('index.php/dashboard/collection')?>" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+		<a href="?php echo base_url('index.php/dashboard/collection')?>" class="waves-effect waves-green btn-flat modal-action modal-close" onClick="koleksi->delete();">remove</a>
 	</div>
 </div>
 
