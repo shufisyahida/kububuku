@@ -65,4 +65,31 @@
 			return $query;
 		}
 	}
+<<<<<<< HEAD
+
+	function getContact($username)
+	{
+		//email
+		$this->db->select('email_kontak,fb,twitter,line_id,hp,bbm,wa');
+		$this->db->from('non_admin');
+		$this->db->where('username',$username);
+		
+		$query= $this->db->get()->result();
+
+		return $query;
+		
+		/*
+		foreach ($query as $key => $value) 
+		{
+			$result = $value->email_kontak;
+			if(!is_null($result))
+				$kontak['email']=;
+		}*/
+	}
+
+
+}
+
+=======
+>>>>>>> 83315a3419307b5b5d333321fb154d8e1a5d8f11
 ?>
