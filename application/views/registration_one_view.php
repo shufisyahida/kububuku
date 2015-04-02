@@ -34,7 +34,7 @@
 
                     <div class="input-field col s10 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="password" type="text" class="validate">
+                        <input id="password" type="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div>
