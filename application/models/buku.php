@@ -45,4 +45,9 @@ class Buku extends CI_Model
 		
 	}
 
+	function searchBook($terms)
+	{
+		
+	}
+
 ?>

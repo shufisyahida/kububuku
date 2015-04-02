@@ -43,10 +43,13 @@
             $username = $this->session->userdata('username'); 
 
             $this->load->model('koleksi_model');
-            $data['result'] = $this->koleksi_model->getAllKoleksi($username);
+            $data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
+            $this->load->model('koleksi_model');
+            $data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('collection_view', $data);
+            //$this->load->view('collection_view', $data2);
             $this->load->view('foot_view');
         }
 
