@@ -9,6 +9,7 @@
             $this->load->model('pinjaman');
             $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
             
+            var_dump($pinjamanMasuk);
 
             $book=array();
             $user=array();
@@ -21,6 +22,7 @@
                 $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
                 $user[] = $resPengguna;
                 
+                var_dump($value->isbn);
                 $resBuku = $this->buku->getBook($value->isbn);
                 $book[]= $resBuku;
 
@@ -65,26 +67,6 @@
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
 
-
-            $query=   $this->non_admin->getContact($username);
-
-           /*$res = $kontak[0];
-           foreach ($res as $key => $value) 
-           {
-                
-
-                echo $value->email_kontak;
-                echo $value->fb;
-                echo $value->twitter;
-                echo $value->line_id;
-                echo $value->hp;
-                echo $value->bbm;
-                echo $value->wa;
-                
-               // var_dump(   $kontak);
-                //if(!is_null($result))
-                  //  $kontak['email']=;
-            }*/
                         
         }
     }
