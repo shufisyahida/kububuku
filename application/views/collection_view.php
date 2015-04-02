@@ -48,7 +48,7 @@
 
   	<?php foreach($resultAvailable as $post){?>
 	<div class="col s12 m8 offset-m2 l6 offset-l3">
-		<h4>Borrowed</h4>
+		<h4>Available</h4>
 		<div class="row valign-wrapper">
 	        <div class="col s12 m3 l3">
 				<div class="card small">
