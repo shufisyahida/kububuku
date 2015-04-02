@@ -80,7 +80,45 @@
 							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-ranking"></a>';
 						}
 							
-						echo '<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact"></a>
+						
+						echo '
+							<div id="modal-contact'.$index.'" class="modal">
+								<div class="modal-content">
+									<h4>Contact</h4><br>';
+									$res = $kontak[$index];
+						           	foreach ($res as $key => $value) 
+           							{
+						               	$email = $value->email_kontak;
+						                $fb = $value->fb; 
+						                $twitter = $value->twitter;
+						                $line = $value->line_id;
+						                $hp = $value->hp;
+						                $bbm = $value->bbm;
+						                $wa = $value->wa;
+	    		       				    
+	    		       				    if(!is_null($email))
+	    		       				    	echo'<p>Email: '.$email.'</p>';
+	    		       				    if(!is_null($fb))
+	    		       				    	echo'<p>FB: '.$fb.'</p>';
+	    		       				    if(!is_null($twitter))
+	    		       				    	echo'<p>Twitter: '.$twitter.'</p>';
+	    		       				    if(!is_null($line))
+	    		       				    	echo'<p>Line: '.$line.'</p>';
+	    		       				    if(!is_null($hp))
+	    		       				    	echo'<p>HP: '.$hp.'</p>';
+	    		       				    if(!is_null($bbm))
+	    		       				    	echo'<p>BBM: '.$bbm.'</p>';
+	    		       				    if(!is_null($wa))
+	    		       				    	echo'<p>WA: '.$wa.'</p>';
+           							}
+									
+						 echo'</div>
+							<div class="modal-footer">
+								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
+								</div>
+							</div>';
+
+						echo '<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
 						</td>
 						</tr>';
 
@@ -121,16 +159,7 @@
 	</div>
 </div>
 
-<!-- Modal Structure -->
-<div id="modal-contact" class="modal">
-	<div class="modal-content">
-		<h4>Contact</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
-	</div>
-</div>
+
 
 <!-- Modal Structure -->
 <div id="modal-ranking" class="modal">
