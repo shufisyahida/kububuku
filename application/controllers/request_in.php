@@ -8,7 +8,7 @@
 
             $this->load->model('pinjaman');
             $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
-            
+           // var_dump($pinjamanMasuk);
 
             $book=array();
             $user=array();
@@ -35,7 +35,7 @@
             $data['idPinjaman']=$id;
             $data['status']=$status;
             
-           
+          
           /*  $count=0;
             foreach ($book as $kunci => $nilai ) 
             {
@@ -62,6 +62,9 @@
             $this->load->view('navbar_view');
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
+            
+
+
                         
         }
     }
