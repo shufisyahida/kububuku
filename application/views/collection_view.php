@@ -38,8 +38,8 @@
 						<h6 class="truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
 						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove" var="<?php echo $post->isbn;?>"></a>
-					</div>
+						//<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove" </a>
+
 				</div>
 	        </div>
 		</div> 

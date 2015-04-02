@@ -12,6 +12,10 @@
 
             $book=array();
             $user=array();
+            $durasi=array();
+            $id=array();
+            $status=array();
+            $kontak=array();
 
             $this->load->model('non_admin');
             $this->load->model('buku');
