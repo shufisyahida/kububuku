@@ -108,8 +108,8 @@ img.img-logo {
     background-color: white;
 }
 
-.btn-custom-btn{
-    margin-top: 30px;
+.custom-btn{
+    margin-top: 25px;
 }
 
 .custom-h5{
@@ -169,4 +169,12 @@ div.borrower{
 div.custom-borrower{
   margin-top: -65px;
   margin-left: 80px;
+}
+
+h6.book-author{
+  font-size: 0.8em;
+}
+
+h5.book-title{
+  font-size: 1.2em;
 }

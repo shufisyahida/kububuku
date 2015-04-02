@@ -5,18 +5,18 @@
             <form method="post" action="<?php echo base_url('index.php/auth/login') ?>" class="col s12">
                 <div class="row">
                     <div class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <i class="mdi-communication-email prefix"></i>
                         <input id="email" type="text" name="email" class="validate">
                         <label for="email">Email</label>
                     </div>
 
                     <div class="input-field col s10 m8 l8 offset-s1 offset-m2 offset-l2">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <i class="mdi-action-lock prefix"></i>
                         <input id="password" type="password" name="password" class="validate">
                         <label for="password">Password</label>
                     </div>
 
-                    <div class="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
+                    <div class="col s6 m6 l6 offset-s1 offset-m2 offset-l2">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
                         <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action">LOG IN</button>
                     </div>

@@ -14,7 +14,7 @@
                         </div>
                     </form> -->
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
                         <input id="pic" type="text" class="validate">
                         <label for="pic">Photo URL</label>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="name" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <!-- <i class="mdi-communication-email prefix"></i> -->
                         <input id="email" type="text" class="validate">
                         <label for="email">Email</label>
                     </div>
