@@ -60,9 +60,9 @@
 			$this->db->from('non_admin');
 			$this->db->where('username',$username);
 
-			$query=$this->db->get()->result();
+			$query=$this->db->get();
 
-			return $query;
+			return $user = $query->result();
 		}
 
 		function getContact($username)

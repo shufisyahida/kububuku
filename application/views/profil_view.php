@@ -23,17 +23,82 @@
 		<div class="col s12 m6 l3">
 			<div class="card">
 				<div class="container custom-container-a">
-					<img class="avatar-property circle" src="<?php echo base_url('assets/img/fallon.jpg') ?>">
+					<img class="avatar-property circle" src="<?php echo $user->foto;?>">
 				</div>
-				<div class="green-text name-property">Fallon Candra</div>
+
+				<div class="green-text name-property"><?php echo $user->nama;?></div>
 				<div class="divider"></div>				
 				<div class="custom-container-b">
 					<ul>
-						<li><i class="green-text tiny mdi-maps-beenhere"></i> Computer Science</li>
-						<li><i class="green-text tiny mdi-social-person-outline"></i> Student</li>
-						<li><i class="green-text tiny mdi-social-person"></i> Male</li>
-						<li><i class="green-text tiny mdi-action-event"></i> May 3rd, 1994</li>
-						<li><i class="green-text tiny mdi-maps-place"></i> Depok</li>
+						<li><i class="green-text tiny mdi-maps-beenhere"></i> <?php
+						$n = $user->fakultas;
+						if($n == 1) {
+							echo 'FK';
+						}
+						elseif($n == 2) {
+							echo 'FKG';
+						}
+						elseif($n == 3) {
+							echo 'FMIPA';
+						}
+						elseif($n == 4) {
+							echo 'FF';
+						}
+						elseif($n == 5) {
+							echo 'FT';
+						}
+						elseif($n == 6) {
+							echo 'FH';
+						}
+						elseif($n == 7) {
+							echo 'FEB';
+						}
+						elseif($n == 8) {
+							echo 'FIB';
+						}
+						elseif($n == 9) {
+							echo 'FPsi';
+						}
+						elseif($n == 10) {
+							echo 'FISIP';
+						}
+						elseif($n == 11) {
+							echo 'FKM';
+						}
+						elseif($n == 12) {
+							echo 'Fasilkom';
+						}
+						elseif($n == 13) {
+							echo 'FIK';
+						}
+						else {
+							echo 'Vokasi';
+						}
+	    		       				    	
+						?></li>
+						<li><i class="green-text tiny mdi-social-person-outline"></i> <?php
+						$n = $user->status;
+						if($n == 1) {
+							echo 'Student';
+						}
+						elseif($n == 2) {
+							echo 'Lecturer';
+						}
+						else {
+							echo 'Janitor';
+						}
+						?></li>
+						<li><i class="green-text tiny mdi-social-person"></i> <?php
+						$n = $user->status;
+						if($n == 'M') {
+							echo 'Male';
+						}
+						else {
+							echo 'Female';
+						}
+						?></li>
+						<li><i class="green-text tiny mdi-action-event"></i><?php echo $user->tanggal_lahir;?></li>
+						<li><i class="green-text tiny mdi-maps-place"></i><?php echo $user->domisili;?></li>
 					</ul>
 				</div>
 				<div class="divider"></div>
@@ -52,57 +117,24 @@
 			<div class="row custom-margin-bottom">
 				<h4>Borrowed</h4>
 				<div class="row valign-wrapper">
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+					<?php
+					foreach ($koleksiBorrowed as $key => $value)
+            		{
+            			echo'
+				        <div class="col s12 m3 l3">
+							<div class="card small">
+								<div class="card-image">
+									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								</div>
+								<div class="card-content">
+									<h6 class="truncate">'.$value->pengarang.'</h6>
+									<p class="divider"></p>
+									<h5 class="truncate">'.$value->judul.'</h5>
+								</div>
 							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Lord of The Rings</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Hobbit</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Lord of The Rings</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Hobbit</h5>
-							</div>
-						</div>
-			        </div>
+				        </div>';
+				    }
+			       ?>
 
 
 				</div>
@@ -114,57 +146,24 @@
 			<div class="row custom-margin-bottom">
 				<h4>Available</h4>
 				<div class="row valign-wrapper">
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
+			        <?php
+					foreach ($koleksiAvailable as $key => $value)
+            		{
+            			echo'
+				        <div class="col s12 m3 l3">
+							<div class="card small">
+								<div class="card-image">
+									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								</div>
+								<div class="card-content">
+									<h6 class="truncate">'.$value->pengarang.'</h6>
+									<p class="divider"></p>
+									<h5 class="truncate">'.$value->judul.'</h5>
+								</div>
 							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Lord of The Rings</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Hobbit</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover1.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Lord of The Rings</h5>
-							</div>
-						</div>
-			        </div>
-
-			        <div class="col s12 m3 l3">
-						<div class="card small">
-							<div class="card-image">
-								<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo base_url('assets/img/cover2.jpg') ?>" alt="book-cover" class="responsive-img"></a>
-							</div>
-							<div class="card-content">
-								<h6 class="truncate">J.R.R. Tolkien</h6>
-								<p class="divider"></p>
-								<h5 class="truncate">The Hobbit</h5>
-							</div>
-						</div>
-			        </div>
+				        </div>';
+				    }
+			       ?>
 
 
 				</div>
