@@ -42,7 +42,7 @@
               <h6 class="black-text"><?php echo $post->pengarang;?></h6>
             </div>
             <div class="col s12 m12 l12">
-              <span class="new badge tag-property white-text green"><?php echo $post->genre;?></span>
+              <span class="tag-property white-text green"><?php echo $post->genre;?></span>
             </div>
           </div>
           <div class="divider"></div>
