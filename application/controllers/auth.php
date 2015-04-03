@@ -30,9 +30,14 @@ class Auth extends CI_Controller {
 			{
 				$username = $this->non_admin->getUsername($email);
 				$this->session->set_userdata('username',$username);
+
+				$foto = $this->non_admin->getPicture($username);
 				$this->session->set_userdata(''.$username,true);
+				$this->session->set_userdata('foto',$foto);
 				
 				redirect(base_url('index.php/Dashboard'));		
+
+
 			}	
 			else
 			{
