@@ -53,6 +53,13 @@ class Pinjaman extends CI_Model
 		$this->db->where('id',$id);
 		$this->db->update('pinjaman',$data);
 	}
+
+	function confirmReturn($id)
+	{
+		$data = array('status'=>4);
+		$this->db->where('id',$id);
+		$this->db->update('pinjaman',$data);
+	}
 }
 
 ?>

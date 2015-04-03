@@ -99,12 +99,21 @@
 						}
 						elseif ($status[$index]==2) 
 						{
-							# gambar jam pasir
 							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
-							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-ranking"></a>';
+							echo '<div id="modal-ranking'.$index.'" class="modal">
+								<div class="modal-content">
+									<h4>Give Rank</h4>
+									<p>Si X has return your book, give some rank.</p>
+								</div>
+								<div class="modal-footer">';
+								echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+								</div>
+							</div>';
+
+							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-ranking'.$index.'"></a>';
 						}
 							
 						
@@ -160,18 +169,6 @@
 	        </tbody>
   		</table>
   	</div>
-</div>
-
-
-<!-- Modal Structure -->
-<div id="modal-ranking" class="modal">
-	<div class="modal-content">
-		<h4>Give Rank</h4>
-		<p>Si X has return your book, give some rank.</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">OK</a>
-	</div>
 </div>
 
 <script type="text/javascript">
