@@ -85,7 +85,18 @@
 						}
 						elseif ($status[$index]==2) 
 						{
-							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-return"></a>';
+							
+							echo '<div id="modal-return'.$index.'" class="modal">
+								<div class="modal-content">
+									<h4>Return Book</h4>
+									<p>The book has been returned to Si Y, give some rank.</p>
+								</div>
+								<div class="modal-footer">';
+								echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+								</div>
+							</div>';
+
+							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-return'.$index.'"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
@@ -148,27 +159,7 @@
 </div>
 
 
-<div id="modal-cancel" class="modal">
-	<div class="modal-content">
-		<h4>Cancel Request?</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">YES</a>
-	</div>
-</div>
 
-<!-- Modal Structure -->
-<div id="modal-return" class="modal">
-	<div class="modal-content">
-		<h4>Return Book</h4>
-		<p>The book has been returned to Si Y, give some rank.</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">OK</a>
-	</div>
-</div>
 
 <script type="text/javascript">
 </script>
