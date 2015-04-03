@@ -54,7 +54,9 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
+						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" target="_blank">
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
+						</a>
 							<div class="custom-borrower">
 								<span>'.$value->nama.'</span><br>
 								<span>'.$value->username.'</span>
