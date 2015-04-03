@@ -2,7 +2,18 @@
 
 class Auth extends CI_Controller {
 
+	// public function __construct()
+ //     {
+ //            parent::__construct();
+ //            $username = $this->session->userdata('username');
+ //            if(!$this->session->userdata(''.$username))
+ //            {
+ //                redirect(base_url('index.php/login'));
+ //            }
+ //     }
 	
+
+
 	public function login()
 	{
 		if(isset($_POST))
