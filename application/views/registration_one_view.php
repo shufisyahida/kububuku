@@ -15,7 +15,7 @@
                     </form> -->
                     <div class="input-field col s5 offset-s1">
                         <!-- <i class="mdi-action-face-unlock prefix"></i> -->
-                        <input id="pic" type="url" class="validate">
+                        <input id="pic" type="url">
                         <label for="pic">Photo URL</label>
                     </div>
 
@@ -80,50 +80,49 @@
                         <label for="password">Password</label>
                     </div>
 
-                    <div class="col s1 offset-s1">
-                        <!-- <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/registration/step_two') ?>" role="button">NEXT</a> -->
-                        <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="#step-two" role="button">NEXT</a>
-                    </div>
+                    <!-- <div class="col s1 offset-s1">
+                        <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/registration/step_two') ?>" role="button">NEXT</a>
+                    </div> -->
                 </div>
 
                 <div id="step-two" class="row">
                     <div class="input-field col s5 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="facebook" type="text" class="validate">
+                        <input id="facebook" type="text">
                         <label for="facebook">Facebook Name</label>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="twitter" type="text" class="validate">
+                        <input id="twitter" type="text">
                         <label for="twitter">Twitter ID</label>
                     </div>
 
                     <div class="input-field col s5 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="hp" type="text" class="validate">
+                        <input id="hp" type="text">
                         <label for="hp">Cellphone Number</label>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="bbm" type="text" class="validate">
+                        <input id="bbm" type="text">
                         <label for="bbm">BBM Pin</label>
                     </div>
 
                     <div class="input-field col s5 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="line" type="text" class="validate">
+                        <input id="line" type="text">
                         <label for="line">Line ID</label>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="whatsapp" type="text" class="validate">
+                        <input id="whatsapp" type="text">
                         <label for="whatsapp">Whatsapp Number</label>
                     </div>
 
-                    <div class="col s1 offset-s7">
+                    <div class="col s1 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
                         <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action">REGISTER</button>
                     </div>
@@ -131,7 +130,7 @@
             </form>
         </div>
     </div>
-    <h6 class="custom-h6-login">Step 1 of 2</a></h6>
+    <!-- <h6 class="custom-h6-login">Step 1 of 2</a></h6> -->
 </div>
 
 <script type="text/javascript">

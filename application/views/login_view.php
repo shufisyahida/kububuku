@@ -18,11 +18,11 @@
 
                     <div class="col s6 m6 l6 offset-s1 offset-m2 offset-l2">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action">LOG IN</button>
+                        <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">LOG IN</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/sso/login') ?>">Create an account</a></h6>
+    <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/sso/login') ?>">Create an account</a></h6>    
 </div>

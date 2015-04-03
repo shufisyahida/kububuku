@@ -3,7 +3,8 @@
         public function index()
         {
         	$username = $this->session->userdata('username');
-			$loggedin = $this->session->userdata(''.$username);
+          $loggedin = $this->session->userdata(''.$username);
+          // $email="";
            
            if($loggedin)
            {
@@ -15,8 +16,9 @@
             	$this->load->view('login_view');
             	$this->load->view('foot_view');
            }
-
-        	
+           // elseif ($this->session->set_userdata('error_login_'.$email,true)) {
+           //    redirect(base_url('index.php/login'));
+           // }        	
         }
     }
 ?>
