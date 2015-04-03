@@ -53,6 +53,14 @@
             $this->load->view('foot_view');
         }
 
+        // function search()
+        // {
+        //      $filters['keyword'] = $this->input->post('keyword', TRUE);
+        //      $filters['kategori'] = $this->input->post('kategori', TRUE);
+        //      $data = $this->yourmodel->search($filters);
+        //      $this->load->view('view_file', $data);
+        // }
+
         function wishlist()
         {
             $this->load->view('head_view');

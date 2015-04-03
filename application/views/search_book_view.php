@@ -2,7 +2,7 @@
       <div class="secondary-header-inner">
         <ul>
           <li><a class="active" href="#">Books</a></li>
-          <li><a href="#">Users</a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeUser') ?>">Users</a></li>
       </div>
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
@@ -31,7 +31,7 @@
               <label for="ti">Title</label>
             </p>
             <p>
-              <input class="with-gap" name="author" type="radno" id="au"  />
+              <input class="with-gap" name="author" type="radio" id="au"  />
               <label for="au">Author</label>
             </p>
             <p>
