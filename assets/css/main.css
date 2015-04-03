@@ -145,6 +145,22 @@ td.basic-info{
 .custom-margin-bottom {
   margin-bottom: 0px;
 }
+
+span.tag-property {
+  float: left;
+}
+
+div span.tag-property {
+  margin-left: 3px;
+  margin-right: 0px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.detail-info-book {
+  font-size: 0.8em;
+}
+
 /*PUNYA KOES*/
 .card-panel-custom-cp{
     max-width: 400px;
