@@ -22,27 +22,35 @@
 
 <div class="container custom-table">
   <div class="row">
-    <div class="col s12 m4 l3">
+    <div class="col s12 m4 l4">
       <div class="card-panel white z-depth-1">
         <h6>Search Filter</h6>
         <form action="#">
-            <p>
-              <input class="with-gap" name="title" type="radio" id="ti"  />
-              <label for="ti">Title</label>
-            </p>
-            <p>
-              <input class="with-gap" name="author" type="radio" id="au"  />
-              <label for="au">Author</label>
-            </p>
-            <p>
-              <input class="with-gap" name="genre" type="radio" id="ge"  />
-              <label for="ge">Genre</label>
-            </p>
+          <p>
+            <input class="with-gap" name="group1" type="radio" id="title-radio" />
+            <label for="title-radio">Title</label>
+          </p>
+
+          <p>
+            <input class="with-gap" name="group1" type="radio" id="author-radio" />
+            <label for="author-radio">Author</label>
+          </p>
+
+          <p>
+            <input class="with-gap" class="with-gap" name="group1" type="radio" id="genre-radio"  />
+            <label for="genre-radio">Genre</label>
+          </p>
+
+          <div class="row">
             <div class="input-field col s12">
-              <input id="#" type="text" class="validate">
+              <input id="book-searchkey" type="text" class="validate">
               <label>Keyword</label>
             </div>
-            <a class="waves-effect waves-light green btn">Search</a>
+            <div class="col s12">
+              <a class="waves-effect waves-light green btn">Search</a>
+            </div>
+          </div>
+          
         </form>
       </div>
     </div>
