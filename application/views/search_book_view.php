@@ -22,7 +22,7 @@
 
 <div class="container custom-table">
   <div class="row">
-    <div class="col s12 m4 l4">
+    <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1">
         <h6>Search Filter</h6>
         <form action="#">
@@ -55,7 +55,23 @@
       </div>
     </div>
     <div class="col s12 m8 l9">
-
+      <div class="col s12 m12 l6">
+        <div class="card">
+          <div class="row row-custom-a">
+            <div class="col s4 m4 l4">
+              <img class="responsive-img" src="<?php echo base_url('assets/img/cover1.jpg') ?>">
+            </div>
+            <div class="col s8 m8 l8">
+              <span class="card-book-title black-text">The Lord of the Rings (The Lord of the Rings #1-3)</span><br>
+              <span>J.R.R. Tolkien</span><br>
+              <span class="tag-property white-text green">Fiction</span><br><br>
+              <div class="row row-custom-a">
+                <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

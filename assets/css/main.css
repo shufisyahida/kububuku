@@ -146,6 +146,11 @@ td.basic-info{
   margin-bottom: 0px;
 }
 
+.card-book-title {
+  color: black;
+  font-size: 1.2rem;
+}
+
 span.tag-property {
   font-weight: 300;
   font-size: 0.8rem;
@@ -184,6 +189,10 @@ div span.tag-property {
 
 .row-custom-b {
   margin: 5px;
+}
+
+.row-custom-c {
+  margin-top: 20px;
 }
 
 .book-property {
