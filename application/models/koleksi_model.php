@@ -5,7 +5,7 @@ class Koleksi_model extends CI_Model
 
 	function getKoleksiAvailable($username)
 	{
-		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi");
+		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang");
   		 $this->db->from('buku');
   		 $this->db->join('koleksi', 'koleksi.isbn = buku.isbn');
   		 $this->db->where('username',$username)->where('is_available','0');
@@ -15,7 +15,7 @@ class Koleksi_model extends CI_Model
 
 	function getKoleksiBorrowed($username)
 	{
-		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi");
+		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang");
   		 $this->db->from('buku');
   		 $this->db->join('koleksi', 'koleksi.isbn = buku.isbn');
   		 $this->db->where('username',$username)->where('is_available','1');

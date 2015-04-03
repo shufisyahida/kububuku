@@ -60,14 +60,14 @@
 			$this->db->from('non_admin');
 			$this->db->where('username',$username);
 
-			$query=$this->db->get()->result();
+			$query=$this->db->get();
 
-			return $query;
+			return $user = $query->result();
 		}
 
 		function getContact($username)
 		{
-		//email
+
 		$this->db->select('email_kontak,fb,twitter,line_id,hp,bbm,wa');
 		$this->db->from('non_admin');
 		$this->db->where('username',$username);
@@ -76,6 +76,19 @@
 
 		return $query;
 		
+
+		}
+	}
+
+
+	
+
+
+
+
+
+?>
+=======
 		/*
 		foreach ($query as $key => $value) 
 		{
@@ -85,3 +98,4 @@
 		}*/
 		}
 	}
+>>>>>>> 4640b54a1f94f6589d248a8baf86d47f6ee30248
