@@ -6,7 +6,7 @@
         { 
              $filters['keyword'] = $this->input->post('keyword', TRUE);
              $filters['kategori'] = $this->input->post('kategori', TRUE);
-             $data = $this->search_model->search($filters);
+             $data = $this->search_model->searchBuku($filters);
          
 
             
@@ -23,7 +23,7 @@
         { 
              $filters['keyword'] = $this->input->post('keyword', TRUE);
              $filters['kategori'] = $this->input->post('kategori', TRUE);
-             $data = $this->search_model->search($filters);
+             $data = $this->search_model->searchPengguna($filters);
          
 
             

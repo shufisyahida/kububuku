@@ -38,8 +38,18 @@
 						<h6 class="truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
 						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"> </a>
-
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"> </a> 
+					<?php echo 
+					'<div id="modal-remove" class="modal">
+					<div class="modal-content">
+					<h4>Remove Collection</h4>
+					<p>Are you sure to remove this book from collection?</p>
+					</div>
+					<div class="modal-footer">
+					<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+					<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+					</div>
+					</div>' ?>
 				</div>
 	        </div>
 		</div> 
@@ -60,6 +70,7 @@
 						<p class="divider"></p>
 						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
 					<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove2"> </a>
+
 				</div>
 	        </div>
 		</div>
@@ -68,7 +79,7 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal-remove" class="modal">
+<!-- <div id="modal-remove" class="modal">
 	<?php foreach($resultBorrowed as $post){?>
 	<div class="modal-content">
 		<h4>Remove Collection</h4>
@@ -76,10 +87,10 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="<?php echo base_url('index.php/koleksi/delete/'.$post->isbn, 'DELETE', 'isbn="$post->isbn"'); ?>" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+		<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
 	</div>
 	<?php }?> 
-</div>
+</div> -->
 
 <div id="modal-remove2" class="modal">
 	<div class="modal-content">

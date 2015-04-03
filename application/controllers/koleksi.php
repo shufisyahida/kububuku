@@ -12,11 +12,10 @@ class Koleksi extends CI_Controller {
 			//$isbn = $this->input->post('isbn');
 			//$isbn = $this->session->userdata('isbn'); 
 			// $isbn = $this->input->get('isbn');
-			var_dump($this->uri->uri_string());
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->deleteKoleksi($username,$isbn);
-			redirect(base_url('index.php/Dashboard'));		
+			redirect(base_url('index.php/Koleksi'));		
 	
 		}
 		else
