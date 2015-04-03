@@ -18,6 +18,12 @@
                 
             } 
             
+           
+        }
+
+        public function logout()
+        {
+             SSO\SSO::logout();
         }
     }
 ?>
