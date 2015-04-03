@@ -25,7 +25,7 @@
                 $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
                 $user[] = $resPengguna;
                 
-                var_dump($value->isbn);
+                // var_dump($value->isbn);
                 $resBuku = $this->buku->getBook($value->isbn);
                 $book[]= $resBuku;
 
@@ -72,5 +72,26 @@
 
 
                         
+        }
+
+        public function accept()
+        {
+            $id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->accept($id);
+
+            redirect(base_url('index.php/request_in'));
+            
+        }
+
+        public function decline()
+        {
+            $id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->decline($id);
+
+             redirect(base_url('index.php/request_in'));
         }
     }

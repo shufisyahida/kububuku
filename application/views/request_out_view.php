@@ -67,7 +67,7 @@
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							#gambar jam pasir
+							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
 							echo '<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel"></a>';
 							
 						}
@@ -148,17 +148,6 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal-contact" class="modal">
-	<div class="modal-content">
-		<h4>Contact</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
-	</div>
-</div>
-
-<!-- Modal Structure -->
 <div id="modal-return" class="modal">
 	<div class="modal-content">
 		<h4>Return Book</h4>
@@ -170,15 +159,4 @@
 </div>
 
 <script type="text/javascript">
-	// $(document).ready(function(){
-	// 	$('#modal-accept').openModal();
-	// 	$('#modal-decline').openModal();
-	// 	$('#modal-contact').openModal();
-	// });
-
-	// $(document).ready(function(){
-	// 	$('#modal-accept').closeModal();
-	// 	$('#modal-decline').closeModal();
-	// 	$('#modal-contact').closeModal();
-	// });
 </script>
