@@ -4,7 +4,7 @@
         {
             $isbn = $this->session->userdata('isbn');
             $this->load->model('buku');
-            $data['result'] = $this->buku->retrieveBuku($isbn);
+            $data['result'] = $this->buku->getBook($isbn);
         	$this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('book_info_view', $data);
