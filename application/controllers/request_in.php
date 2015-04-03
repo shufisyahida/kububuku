@@ -78,12 +78,20 @@
         {
             $id = $this->uri->segment(3);
             
-            // var_dump($id);
+            $this->load->model('pinjaman');
+            $this->pinjaman->accept($id);
+
+            redirect(base_url('index.php/request_in'));
+            
         }
 
         public function decline()
         {
             $id = $this->uri->segment(3);
-             //var_dump($id);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->decline($id);
+
+             redirect(base_url('index.php/request_in'));
         }
     }
