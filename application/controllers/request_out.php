@@ -25,7 +25,7 @@
                 $resPengguna = $this->non_admin->getUser($value->username_pemilik) ;
                 $user[] = $resPengguna;
                 
-                var_dump($value->isbn);
+                // var_dump($value->isbn);
                 $resBuku = $this->buku->getBook($value->isbn);
                 $book[]= $resBuku;
 
