@@ -15,6 +15,7 @@ class Koleksi_model extends CI_Model
 
 	function getKoleksiBorrowed($username)
 	{
+
 		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn");
   		 $this->db->from('buku');
   		 $this->db->join('koleksi', 'koleksi.isbn = buku.isbn');

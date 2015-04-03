@@ -1,8 +1,8 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
-      <li><a href="<?php echo base_url('index.php/Profile/')?>"><span class="green-text">My Profile</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Profile/profile')?>"><span class="green-text">My Profile</span></a></li>
       <li class="divider"></li>
-      <li><a href="#!"><span class="green-text">Settings</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>"><span class="green-text">Settings</span></a></li>
       <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/auth/logout')?>"><span class="green-text">Logout</span></a></li>
     </ul>

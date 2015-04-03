@@ -30,74 +30,17 @@
 				<div class="divider"></div>				
 				<div class="custom-container-b">
 					<ul>
-						<li><i class="green-text tiny mdi-maps-beenhere"></i> <?php
-						$n = $user->fakultas;
-						if($n == 1) {
-							echo 'FK';
-						}
-						elseif($n == 2) {
-							echo 'FKG';
-						}
-						elseif($n == 3) {
-							echo 'FMIPA';
-						}
-						elseif($n == 4) {
-							echo 'FF';
-						}
-						elseif($n == 5) {
-							echo 'FT';
-						}
-						elseif($n == 6) {
-							echo 'FH';
-						}
-						elseif($n == 7) {
-							echo 'FEB';
-						}
-						elseif($n == 8) {
-							echo 'FIB';
-						}
-						elseif($n == 9) {
-							echo 'FPsi';
-						}
-						elseif($n == 10) {
-							echo 'FISIP';
-						}
-						elseif($n == 11) {
-							echo 'FKM';
-						}
-						elseif($n == 12) {
-							echo 'Fasilkom';
-						}
-						elseif($n == 13) {
-							echo 'FIK';
-						}
-						else {
-							echo 'Vokasi';
-						}
-	    		       				    	
+						<li><i class="green-text tiny mdi-maps-beenhere"></i> 
+							<?php echo $user->fakultas;	?>				    		       				    	
+						</li>
+						<li><i class="green-text tiny mdi-social-person-outline"></i> 
+						<?php
+							echo $user->status;
 						?></li>
-						<li><i class="green-text tiny mdi-social-person-outline"></i> <?php
-						$n = $user->status;
-						if($n == 1) {
-							echo 'Student';
-						}
-						elseif($n == 2) {
-							echo 'Lecturer';
-						}
-						else {
-							echo 'Janitor';
-						}
-						?></li>
-						<li><i class="green-text tiny mdi-social-person"></i> <?php
-						$n = $user->status;
-						if($n == 'M') {
-							echo 'Male';
-						}
-						else {
-							echo 'Female';
-						}
-						?></li>
-						<li><i class="green-text tiny mdi-action-event"></i><?php echo $user->tanggal_lahir;?></li>
+						<li><i class="green-text tiny mdi-social-person"></i>
+						 <?php	echo $user->jenis_kelamin;?>
+						</li>
+						<li><i class="green-text tiny mdi-action-event"></i> <?php echo $user->tanggal_lahir;?></li>
 						<li><i class="green-text tiny mdi-maps-place"></i><?php echo $user->domisili;?></li>
 					</ul>
 				</div>
@@ -113,40 +56,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m6 l9">
-			<div class="row custom-margin-bottom">
-				<h4>Borrowed</h4>
-				<div class="row valign-wrapper">
-					<?php
-					foreach ($koleksiBorrowed as $key => $value)
-            		{
-            			echo'
-				        <div class="col s12 m3 l3">
-							<div class="card small">
-								<div class="card-image">
-									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
-								</div>
-								<div class="card-content">
-									<h6 class="truncate">'.$value->pengarang.'</h6>
-									<p class="divider"></p>
-									<h5 class="truncate">'.$value->judul.'</h5>
-								</div>
-							</div>
-				        </div>';
-				    }
-			       ?>
 
+	<div class="col s12 m6 l9">
+<!--borrowed-->
+			
 
-				</div>
-			</div>
-			<div class="row custom-margin-top">
-				<div class="col"><a class="waves-effect waves-green btn-flat">More...</a></div>
-			</div>
+<!--available-->
 
-			<div class="row custom-margin-bottom">
+<?php 
+if(!empty($koleksiAvailable[0]))
+{
+	echo '<div class="row custom-margin-bottom">
 				<h4>Available</h4>
-				<div class="row valign-wrapper">
-			        <?php
+				<div class="row valign-wrapper">';
+			        
 					foreach ($koleksiAvailable as $key => $value)
             		{
             			echo'
@@ -163,14 +86,71 @@
 							</div>
 				        </div>';
 				    }
-			       ?>
-
-
-				</div>
+			      
+			echo '</div>
 			</div>
 			<div class="row custom-margin-top">
 				<div class="col"><a class="waves-effect waves-green btn-flat">More...</a></div>
+			</div>';
+}
+else
+{
+		echo '<div class="row custom-margin-bottom">
+				<h4>Available</h4>
+				<div class="row valign-wrapper">
+				<div class="col s12 m3 l3">
+					<p>No Collection Available</p>
+				</div>
+				</div>
+			</div>';
+
+}
+?>
+
+
+<!--new-->
+<?php 
+if(!empty($koleksiBorrowed))
+{
+	echo '	<div class="row custom-margin-bottom">
+				<h4>Borrowed</h4>
+				<div class="row valign-wrapper">';
+					foreach ($koleksiBorrowed as $key => $value)
+            		{
+            			echo'
+				        <div class="col s12 m3 l3">
+							<div class="card small">
+								<div class="card-image">
+									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								</div>
+								<div class="card-content">
+									<h6 class="truncate">'.$value->pengarang.'</h6>
+									<p class="divider"></p>
+									<h5 class="truncate">'.$value->judul.'</h5>
+								</div>
+							</div>
+				        </div>';
+				    }
+			    echo '</div>
 			</div>
+			<div class="row custom-margin-top">
+				<div class="col"><a class="waves-effect waves-green btn-flat">More...</a></div>
+			</div>';
+}
+else
+{
+		echo '<div class="row custom-margin-bottom">
+				<h4>Borrowed</h4>
+				<div class="row valign-wrapper">
+				<div class="col s12 m3 l3">
+					<p>No Collection Borrowed</p>
+				</div>
+				</div>
+			</div>';
+
+}
+?>
+<!--available-->
 		</div>
 	</div>
 </div>

@@ -38,6 +38,38 @@
 				return false;
 		}
 
+		function sudahAda($email,$username)
+		{
+			$this->db->select('*');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);		
+			$query= $this->db->get()->result();
+
+			if(sizeof($query)!=0)
+			{
+				return true;
+			}
+			else
+			{
+				$this->db->select('*');
+				$this->db->from('non_admin');
+				$this->db->where('email',$email);		
+				$query= $this->db->get()->result();
+				if(sizeof($query)!=0)
+				{
+					//echo sizeof($query);
+					return true;
+				}
+				else
+				{
+					//echo sizeof($query);
+					return false;
+				}
+			}
+
+
+		}
+
 		function getUsername($email)
 		{
 			$this->db->select('username');
@@ -75,9 +107,57 @@
 		$query= $this->db->get()->result();
 
 		return $query;
-		
-
 		}
+
+		function getStatus($username)
+		{
+	
+			$this->db->select('status');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);
+
+			$statusUser = $this->db->get()->result();
+
+			$stat='';
+
+            foreach ($statusUser as $key => $value)
+            {
+                $stat = $value->status;
+            }
+
+            if($stat==1)
+				return 'Student';
+			elseif($stat==2)
+				return 'Lecturer';
+			elseif($stat==3)
+				return 'Staff';
+
+			return $stat;
+		}
+
+		function getSex($username)
+		{
+			$this->db->select('jenis_kelamin');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);
+
+			$jenisKelamin = $this->db->get()->result();
+
+			$jk='';
+
+            foreach ($jenisKelamin as $key => $value)
+            {
+                $jk = $value->jenis_kelamin;
+            }
+
+            if($jk=='M')
+				return 'Male';
+			elseif($jk=='F')
+				return 'Female';
+
+			return $jk;
+		}
+
 	}
 
 

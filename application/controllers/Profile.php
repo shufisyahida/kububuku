@@ -12,11 +12,10 @@
         }
 
 
-        function index()
+        function profile()
         {
-        	$username = $this->session->userdata('username');
-
-            $this->load->model('non_admin');
+            $username = $this->session->userdata('username');
+        	$this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
 
             $this->load->model('koleksi_model');
@@ -26,18 +25,32 @@
 
             $bookAvailable=array();
             $bookBorrowed=array();
-            $wishlist=array();
+         
 
+    
+           //get Faculty
+            $this->load->model('fakultas');
+            $idFak = $user[0]->fakultas;
+            $namaFak = $this->fakultas->getFaculty($idFak);                       
+            $user[0]->fakultas = $namaFak;
+
+            //getStatus
+            $statusUser = $this->non_admin->getStatus($username);                      
+            $user[0]->status = $statusUser;
+
+            //get sex
+            $jenisKelamin = $this->non_admin->getSex($username);
+            $user[0]->jenis_kelamin = $jenisKelamin;
 
             $data['user']=$user[0];
             $data['koleksiAvailable']=$koleksiAvailable;   
             $data['koleksiBorrowed']=$koleksiBorrowed;          
-            $data['wishlist']=$wishlist;
+           // $data['wishlist']=$wishlist;
 
-            var_dump($user);
+            //var_dump($data);
             
-            $this->load->view('head_view');
-            $this->load->view('navbar_view');
+           $this->load->view('head_view');
+           $this->load->view('navbar_view');
             $this->load->view('profil_view', $data);
             $this->load->view('foot_view');
         }
