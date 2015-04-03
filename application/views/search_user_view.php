@@ -23,44 +23,37 @@
 <script>
   $(document).ready(function() {
     $('select').material_select();
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
   });
 </script>
 
 <div class="container custom-table">
   <div class="row">
     <div class="col s12 m4 l3">
-      <div class="card-panel white z-depth-1">
+      <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search Filter</h6>
-        <form>
-          <div class="row">
+        <form action="#">
+            <p>
+              <input class="with-gap" name="title" type="radio" id="ti"  />
+              <label for="ti">Name</label>
+            </p>
+            <p>
+              <input class="with-gap" name="author" type="radio" id="au"  />
+              <label for="au">Location</label>
+            </p>
+            <p>
+              <input class="with-gap" name="genre" type="radio" id="ge"  />
+              <label for="ge">Status</label>
+            </p>
+            <p>
+              <input class="with-gap" name="faculty" type="radio" id="fa"  />
+              <label for="fa">Faculty</label>
+            </p>
             <div class="input-field col s12">
               <input id="#" type="text" class="validate">
-              <label>Name</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="#" type="text" class="validate">
-              <label>Domisili</label>
-            </div>
-            <div class="input-field col s12">
-              <label>Status</label>
-              <select>
-                <option value="" disabled selected>Search by</option>
-                <option value="1">Student</option>
-                <option value="2">Lecturer</option>
-                <option value="3">Staff</option>
-              </select>
-            </div>
-            <div class="input-field col s12">
-              <label>Faculty</label>
-              <select>
-                <option value="" disabled selected>Search by</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+              <label>Keyword</label>
             </div>
             <a class="waves-effect waves-light green btn">Search</a>
-          </div>
         </form>
       </div>
     </div>
