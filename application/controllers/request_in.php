@@ -94,4 +94,14 @@
 
              redirect(base_url('index.php/request_in'));
         }
+
+        public function confirmReturn()
+        {
+            $id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->confirmReturn($id);
+
+            redirect(base_url('index.php/request_in'));
+        }
     }

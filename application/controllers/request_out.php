@@ -41,35 +41,30 @@
             $data['idPinjaman']=$id;
             $data['status']=$status;
             $data['kontak']=$kontak;
-            
-          
-          /*  $count=0;
-            foreach ($book as $kunci => $nilai ) 
-            {
-                foreach($nilai as $key=>$value)
-                {
-                   // var_dump($value);
-                   
-                    //echo $count;
-                    //echo('\n');
-                    echo $value->judul;    
-                    echo $value->isbn;
-                    echo 'hai';
-                    $coba = $user[$count];
-                   // var_dump($coba);
-                    echo $coba[0]->username;
-                    echo 'hoi';
-                    $count=$count+1;
-                }
-                //var_dump($value);
-            }*/
-
-            
+           
+                               
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_out_view',$data);
             $this->load->view('foot_view');
 
                         
+        }
+
+        public function cancel($id)
+        {
+            $this->db->where('id',$id);
+            $this->db->delete('pinjaman');
+            redirect(base_url('index.php/request_out'));
+        }
+
+        public function returnBook($id)
+        {
+            //$id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->returnBook($id);
+
+             redirect(base_url('index.php/request_out'));
         }
     }
