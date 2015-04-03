@@ -50,7 +50,7 @@
               <label for="fa">Faculty</label>
             </p>
             <div class="input-field col s12">
-<<<<<<< HEAD
+
               <input id="nama" type="text" class="validate">
               <label>Name</label>
             </div>
@@ -75,10 +75,10 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
-=======
+
               <input id="#" type="text" class="validate">
               <label>Keyword</label>
->>>>>>> 52d8168d9749a1d854547b5f0daf57920aafe9a5
+
             </div>
             <a class="waves-effect waves-light green btn">Search</a>
         </form>
