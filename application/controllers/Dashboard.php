@@ -30,13 +30,13 @@
             $this->load->view('foot_view');
         }*/
 
-        function request_out()
+     /*   function request_out()
         {
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_out_view');
             $this->load->view('foot_view');
-        }
+        }*/
 
         function collection()
         {
