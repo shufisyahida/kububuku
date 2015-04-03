@@ -147,7 +147,24 @@ td.basic-info{
 }
 
 span.tag-property {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #26a69a;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
   float: left;
+  min-width: 3rem;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: inherit;
+  color: #757575;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 div span.tag-property {
