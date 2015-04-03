@@ -2,7 +2,7 @@
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
       <li><a href="<?php echo base_url('index.php/Profile/profile')?>"><span class="green-text">My Profile</span></a></li>
       <li class="divider"></li>
-      <li><a href="#!"><span class="green-text">Settings</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>"><span class="green-text">Settings</span></a></li>
       <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/auth/logout')?>"><span class="green-text">Logout</span></a></li>
     </ul>
@@ -11,14 +11,7 @@
       <div class="nav-container nav-wrapper">
         <a href="<?php echo base_url('index.php/dashboard/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
         <ul class="right hide-on-med-and-down">
-          <li>
-            <form>
-              <div class="input-field">
-                <label for="search"><i class="lime-text text-lighten-5 mdi-action-search"></i></label>
-                <input id="search" type="text" required>
-              </div>
-            </form>
-          </li>
+          <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search books or user" href="<?php echo base_url('index.php/search/homeBuku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
           <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="<?php echo base_url('assets/img/fallon.jpg') ?>"></a></li>
         </ul>

@@ -38,6 +38,38 @@
 				return false;
 		}
 
+		function sudahAda($email,$username)
+		{
+			$this->db->select('*');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);		
+			$query= $this->db->get()->result();
+
+			if(sizeof($query)!=0)
+			{
+				return true;
+			}
+			else
+			{
+				$this->db->select('*');
+				$this->db->from('non_admin');
+				$this->db->where('email',$email);		
+				$query= $this->db->get()->result();
+				if(sizeof($query)!=0)
+				{
+					//echo sizeof($query);
+					return true;
+				}
+				else
+				{
+					//echo sizeof($query);
+					return false;
+				}
+			}
+
+
+		}
+
 		function getUsername($email)
 		{
 			$this->db->select('username');
