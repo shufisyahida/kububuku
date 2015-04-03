@@ -76,8 +76,8 @@
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
 					
-									<a href="'.base_url()."index.php/request_in/accept/".$index.'"
-		 								class="waves-effect waves-green btn-flat modal-action modal-close">Accept</a>
+									<a href="'.base_url()."index.php/request_in/accept/".$idPinjaman[$index].'"
+		 								class="waves-effect waves-green btn-flat modal-action">Accept</a>
 								</div>
 							</div>';
 					
@@ -89,7 +89,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url()."index.php/request_in/decline/".$index.'" class="waves-effect waves-green btn-flat modal-action modal-close">Decline</a>
+									<a href="'.base_url()."index.php/request_in/decline/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Decline</a>
 								</div>
 							</div>';
 
@@ -100,6 +100,7 @@
 						elseif ($status[$index]==2) 
 						{
 							# gambar jam pasir
+							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
@@ -162,21 +163,6 @@
 </div>
 
 
-
-<!-- Modal Structure -->
-<div id="modal-decline" class="modal">
-	<div class="modal-content">
-		<h4>Decline Borrower?</h4>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Decline</a>
-	</div>
-</div>
-
-
-
 <!-- Modal Structure -->
 <div id="modal-ranking" class="modal">
 	<div class="modal-content">
@@ -189,15 +175,5 @@
 </div>
 
 <script type="text/javascript">
-	// $(document).ready(function(){
-	// 	$('#modal-accept').openModal();
-	// 	$('#modal-decline').openModal();
-	// 	$('#modal-contact').openModal();
-	// });
-
-	// $(document).ready(function(){
-	// 	$('#modal-accept').closeModal();
-	// 	$('#modal-decline').closeModal();
-	// 	$('#modal-contact').closeModal();
-	// });
+	
 </script>
