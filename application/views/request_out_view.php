@@ -68,7 +68,19 @@
 						if($status[$index]==1)
 						{
 							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
-							echo '<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel"></a>';
+
+							echo '<div id="modal-cancel'.$index.'" class="modal">
+								<div class="modal-content">
+									<h4>Cancel Request?</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
+									echo '<a href="'.base_url()."index.php/request_out/cancel/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">YES</a>
+								</div>
+							</div>';
+							
+							echo '<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel'.$index.'"></a>';
 							
 						}
 						elseif ($status[$index]==2) 
@@ -135,7 +147,7 @@
   	</div>
 </div>
 
-<!-- Modal Structure -->
+
 <div id="modal-cancel" class="modal">
 	<div class="modal-content">
 		<h4>Cancel Request?</h4>
