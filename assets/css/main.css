@@ -221,6 +221,11 @@ h6 a:hover{
 
 .custom-table{
   margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+.custom-table2{
+  margin-top: 50px;
 }
 
 div.borrower{

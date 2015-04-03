@@ -7,6 +7,7 @@
             $data['result'] = $this->buku->getBook($isbn);
         	$this->load->view('head_view');
             $this->load->view('navbar_view');
+
             $this->load->view('book_info_view', $data);
             $this->load->view('foot_view');
         }

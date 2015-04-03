@@ -2,22 +2,26 @@
 
 class Koleksi extends CI_Controller {
 	
-	public function delete()
+	public function delete($isbn)
 	{
 		if(isset($_POST))
 		{
-			$username = $this->input->post('username');
-			$isbn = $this->input->post('isbn');	
+			//$username = $this->input->post('username');
+			$username = $this->session->userdata('username'); 
+
+			//$isbn = $this->input->post('isbn');
+			//$isbn = $this->session->userdata('isbn'); 
+			// $isbn = $this->input->get('isbn');
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->deleteKoleksi($username,$isbn);
-			redirect(base_url('index.php/Dashboard'));		
+			redirect(base_url('index.php/dashboard/collection'));		
 	
 		}
 		else
 		{
-			$this->session->set_userdata('error_login_'.$username,true);
-			redirect(base_url('index.php/login'));
+			//$this->session->set_userdata('error_login_'.$username,true);
+			redirect(base_url('index.php/dashboard/collection'));
 			//belom betul, ini masih copas else nya wkwkwk
 
 		}
