@@ -16,33 +16,30 @@
         {
         	$username = $this->session->userdata('username');
 
-            $this->load->model('koleksi');
-            $koleksi = $this->pinjaman->getKoleksi($username);
+            $this->load->model('non_admin');
+            $user = $this->non_admin->getUser($username) ;
 
-            $book=array();
+            $this->load->model('koleksi_model');
+            $koleksiAvailable = $this->koleksi_model->getKoleksiAvailable($username);
+            $koleksiBorrowed = $this->koleksi_model->getKoleksiBorrowed($username);
+            
+
+            $bookAvailable=array();
+            $bookBorrowed=array();
             $wishlist=array();
 
-            $this->load->model('buku');
 
-            foreach($koleksi as $key=>$value)
-            {                             
-                $resBuku = $this->buku->getBook($value->isbn);
-                $book[]= $resBuku;
-            }
-
-            $data['user']=$user;
-            $data['koleksi']=$koleksi;            
+            $data['user']=$user[0];
+            $data['koleksiAvailable']=$koleksiAvailable;   
+            $data['koleksiBorrowed']=$koleksiBorrowed;          
             $data['wishlist']=$wishlist;
 
-          
-         
-            
-           
-
+            var_dump($user);
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            //$this->load->view('request_in_view',$data);
+            $this->load->view('profil_view', $data);
             $this->load->view('foot_view');
         }
+    }
 ?>
