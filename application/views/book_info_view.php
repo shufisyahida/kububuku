@@ -58,7 +58,9 @@
                 <div class="row">
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
+                  <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
                     <img class="responsive-img circle" img src='.$row->foto.'>
+                  </a>
                   </div>' ?>
                 </div>
                 <?php } ?>

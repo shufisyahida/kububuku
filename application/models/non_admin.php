@@ -158,6 +158,27 @@
 			return $jk;
 		}
 
+		function getPicture($username)
+		{
+			$this->db->select('foto');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);
+
+			$gambar = $this->db->get()->result();
+			
+
+			$foto='';
+
+            foreach ($gambar as $key => $value)
+            {
+                $foto = $value->foto;
+            }
+
+            var_dump($foto);
+
+           return $foto;
+		}
+
 	}
 
 
