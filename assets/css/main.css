@@ -161,6 +161,20 @@ div span.tag-property {
   font-size: 0.8em;
 }
 
+.row-custom-a {
+  margin-bottom: 0px;
+}
+
+.row-custom-b {
+  margin: 5px;
+}
+
+.book-property {
+  max-height: 300px;
+  width: auto;
+}
+
+
 /*PUNYA KOES*/
 .card-panel-custom-cp{
     max-width: 400px;
