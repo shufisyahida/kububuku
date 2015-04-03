@@ -1,6 +1,6 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
-      <li><a href="#!"><span class="green-text">My Profile</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Profile/')?>"><span class="green-text">My Profile</span></a></li>
       <li class="divider"></li>
       <li><a href="#!"><span class="green-text">Settings</span></a></li>
       <li class="divider"></li>
@@ -20,7 +20,7 @@
             </form>
           </li>
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
-          <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="<?php echo base_url('assets/img/elka.png') ?>"></a></li>
+          <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="<?php echo base_url('assets/img/fallon.jpg') ?>"></a></li>
         </ul>
       </div>
     </nav>
