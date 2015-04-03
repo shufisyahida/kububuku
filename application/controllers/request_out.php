@@ -1,5 +1,5 @@
 <?php
-    class Request_in extends CI_Controller
+    class Request_out extends CI_Controller
     {
         
         public function index()
@@ -7,7 +7,7 @@
             $username = $this->session->userdata('username');
 
             $this->load->model('pinjaman');
-            $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
+            $pinjamanKeluar = $this->pinjaman->getRequestOut($username);
 
 
             $book=array();
@@ -20,9 +20,9 @@
             $this->load->model('non_admin');
             $this->load->model('buku');
 
-            foreach($pinjamanMasuk as $key=>$value)
+            foreach($pinjamanKeluar as $key=>$value)
             {                             
-                $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
+                $resPengguna = $this->non_admin->getUser($value->username_pemilik) ;
                 $user[] = $resPengguna;
                 
                 var_dump($value->isbn);
@@ -32,7 +32,7 @@
                 $durasi[]=$value->durasi;
                 $id[]=$value->id;
                 $status[]=$value->status;
-                $kontak[]=$this->non_admin->getContact($value->username_peminjam);
+                $kontak[]=$this->non_admin->getContact($value->username_pemilik);
             }
 
             $data['book']=$book;
@@ -67,9 +67,8 @@
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('request_in_view',$data);
+            $this->load->view('request_out_view',$data);
             $this->load->view('foot_view');
-
 
                         
         }

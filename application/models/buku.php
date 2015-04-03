@@ -30,8 +30,6 @@ class Buku extends CI_Model
 	}
 */
 
-}
-
 	function getBook($isbn)
 	{
 
@@ -49,5 +47,9 @@ class Buku extends CI_Model
 	{
 		
 	}
+
+}
+
+	
 
 ?>
