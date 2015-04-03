@@ -2,7 +2,7 @@
 
 class Koleksi extends CI_Controller {
 	
-	public function delete()
+	public function delete($isbn)
 	{
 		if(isset($_POST))
 		{
@@ -11,7 +11,8 @@ class Koleksi extends CI_Controller {
 
 			//$isbn = $this->input->post('isbn');
 			//$isbn = $this->session->userdata('isbn'); 
-			$isbn = $this->input->get('var');
+			// $isbn = $this->input->get('isbn');
+			var_dump($this->uri->uri_string());
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->deleteKoleksi($username,$isbn);
