@@ -35,9 +35,9 @@
 						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul;?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate"><?php echo $post->judul;?></h6>
+						<h6 class="book-author truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
-						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
+						<h5 class="book-title truncate"><?php echo $post->deskripsi;?></h5>
 					</div>
 				</div>
 	        </div>
@@ -55,9 +55,9 @@
 						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul; ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate"><?php echo $post->judul;?></h6>
+						<h6 class="book-author truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
-						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
+						<h5 class="book-title truncate"><?php echo $post->deskripsi;?></h5>
 						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
 					</div>
 				</div>

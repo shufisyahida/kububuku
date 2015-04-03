@@ -170,8 +170,8 @@ div span.tag-property {
     background-color: white;
 }
 
-.btn-custom-btn{
-    margin-top: 30px;
+.custom-btn{
+    margin-top: 25px;
 }
 
 .custom-h5{
@@ -206,6 +206,7 @@ h6 a:hover{
     margin-top: 40px;
 }
 
+/*
 #gender{
 	margin-top: 35px;
 }
@@ -216,7 +217,7 @@ h6 a:hover{
 
 #faculty{
 	margin-top: 35px;
-}
+}*/
 
 .custom-table{
   margin-top: 150px;
@@ -231,4 +232,34 @@ div.borrower{
 div.custom-borrower{
   margin-top: -65px;
   margin-left: 80px;
+}
+
+h6.book-author{
+  font-size: 0.8em;
+}
+
+h5.book-title{
+  font-size: 1.2em;
+}
+
+/*span.badge-property { 
+  width: 150px;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #f44336;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  margin-top: 10px;
+  margin-left: 50%;
+  margin-right: 50%;
+}*/
+
+#cp-login{
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }

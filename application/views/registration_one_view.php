@@ -2,8 +2,8 @@
     <br><h5>Registration</h5>
     <div class="card-panel-custom-reg z-depth-1">
         <div class="row">
-            <form class="col s12">
-				<div class="row">
+            <form action="#" class="col s12" method="post">
+				<div id="step-one" class="row">
                     <!-- <form action="#">
                         <div class="col s10 offset-s1 input-field file-field">
                             <input class="file-path validate" type="text"/>
@@ -14,8 +14,8 @@
                         </div>
                     </form> -->
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="pic" type="text" class="validate">
+                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
+                        <input id="pic" type="url">
                         <label for="pic">Photo URL</label>
                     </div>
 
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="name" type="text" class="validate">
                         <label for="name">Name</label>
                     </div>
@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="email" type="text" class="validate">
+                        <!-- <i class="mdi-communication-email prefix"></i> -->
+                        <input id="email" type="email" class="validate">
                         <label for="email">Email</label>
                     </div>
 
@@ -80,16 +80,57 @@
                         <label for="password">Password</label>
                     </div>
 
+                    <!-- <div class="col s1 offset-s1">
+                        <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/registration/step_two') ?>" role="button">NEXT</a>
+                    </div> -->
+                </div>
+
+                <div id="step-two" class="row">
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="facebook" type="text">
+                        <label for="facebook">Facebook Name</label>
+                    </div>
+
+                    <div class="input-field col s4 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="twitter" type="text">
+                        <label for="twitter">Twitter ID</label>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="hp" type="text">
+                        <label for="hp">Cellphone Number</label>
+                    </div>
+
+                    <div class="input-field col s4 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="bbm" type="text">
+                        <label for="bbm">BBM Pin</label>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="line" type="text">
+                        <label for="line">Line ID</label>
+                    </div>
+
+                    <div class="input-field col s4 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <input id="whatsapp" type="text">
+                        <label for="whatsapp">Whatsapp Number</label>
+                    </div>
+
                     <div class="col s1 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <!-- <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" href="<?php echo base_url('index.php/registration/step_two') ?>">NEXT</button> -->
-                        <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/registration/step_two') ?>" role="button">NEXT</a>
+                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action">REGISTER</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <h6 class="custom-h6-login">Step 1 of 2</a></h6>
+    <!-- <h6 class="custom-h6-login">Step 1 of 2</a></h6> -->
 </div>
 
 <script type="text/javascript">

@@ -57,4 +57,14 @@
             $this->db->delete('pinjaman');
             redirect(base_url('index.php/request_out'));
         }
+
+        public function returnBook($id)
+        {
+            //$id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->returnBook($id);
+
+             redirect(base_url('index.php/request_out'));
+        }
     }
