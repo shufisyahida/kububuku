@@ -76,7 +76,7 @@ if(!empty($koleksiAvailable[0]))
 				        <div class="col s12 m3 l3">
 							<div class="card small">
 								<div class="card-image">
-									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+									<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								</div>
 								<div class="card-content">
 									<h6 class="truncate">'.$value->pengarang.'</h6>
@@ -121,7 +121,7 @@ if(!empty($koleksiBorrowed))
 				        <div class="col s12 m3 l3">
 							<div class="card small">
 								<div class="card-image">
-									<a href="'.base_url('index.php/book/book_info').'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+									<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								</div>
 								<div class="card-content">
 									<h6 class="truncate">'.$value->pengarang.'</h6>
