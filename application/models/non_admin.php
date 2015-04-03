@@ -88,14 +88,3 @@
 
 
 ?>
-=======
-		/*
-		foreach ($query as $key => $value) 
-		{
-			$result = $value->email_kontak;
-			if(!is_null($result))
-				$kontak['email']=;
-		}*/
-		}
-	}
->>>>>>> 4640b54a1f94f6589d248a8baf86d47f6ee30248
