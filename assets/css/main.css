@@ -200,6 +200,13 @@ div span.tag-property {
   width: auto;
 }
 
+.btn-flat.disabled:hover {
+  color: #4caf50;
+}
+
+.card-book{
+  height: 160px;
+}
 
 /*PUNYA KOES*/
 .card-panel-custom-cp{
