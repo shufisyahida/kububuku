@@ -19,18 +19,21 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
+
   <div class="row">
     <div class="col s12 m4 l3">
       <div class="row">
         <div class="col s12 m12 l12">
-          <div class="card-panel white z-depth-1">
-            <img class="responsive-img" src="<?php echo base_url('assets/img/cover1.jpg')?>"/>
-          </div>
+          <?php foreach($resultBook as $post){?>
+          <?php echo
+          '<div class="card-panel white z-depth-1">
+            <img class="responsive-img" img src='.$post->sampul.'>
+          </div>' ?>
         </div>
       </div>
     </div>
     <div class="col s12 m8 l9">
-      <?php foreach($resultBook as $post){?>
+    
       <div class="card-panel white z-depth-1">
         <span>
           <div class="row">
@@ -51,23 +54,14 @@
             <div class="col s12 m5 l4">
               <div align="right">
                 <h5>Book Owner</h5>
+                <?php foreach($resultOwner as $row){?>
                 <div class="row">
-                  <div class=" right col s4 m4 l4">
-                    <img class="responsive-img circle" src="<?php echo base_url('assets/img/fallon.jpg') ?>">
-                  </div>
-                  <div class=" right col s4 m4 l4">
-                    <img class="responsive-img circle" src="<?php echo base_url('assets/img/mumus.jpg') ?>">
-                  </div>
-                  <div class=" right col s4 m4 l4">
-                    <img class="responsive-img circle" src="<?php echo base_url('assets/img/koes.jpg') ?>">
-                  </div>
-                  <div class=" right col s4 m4 l4">
-                    <img class="responsive-img circle" src="<?php echo base_url('assets/img/shufi.jpg') ?>">
-                  </div>
-                  <div class=" right col s4 m4 l4">
-                    <img class="responsive-img circle" src="<?php echo base_url('assets/img/elka.jpg') ?>">
-                  </div>
+                  <?php echo 
+                  '<div class=" right col s4 m4 l4">
+                    <img class="responsive-img circle" img src='.$row->foto.'>
+                  </div>' ?>
                 </div>
+                <?php } ?>
                 <div class="row">
                   <div class="right col">
                   <a class="waves-effect waves-green btn-flat">More...</a>
@@ -78,11 +72,13 @@
           </div>
           <div class="divider"></div>
           <div class="row">
+             <?php foreach($resultBook as $row){?>
             <div class="detail-info-book col">
-              <span>1216 pages</span><br>
-              <span>Published by Houghton Mifflin Harcourt</span><br>
+              <span><?php echo $post->jumlah_halaman;?> pages </span><br>
+              <span>Published by <?php echo $post->penerbit;?></span><br>
               <br>
-              <span>ISBN13 9780618640157</span>
+              <span>ISBN13 <?php echo $post->isbn;?></span>
+              <?php } ?>
             </div>
           </div>
         </span>
