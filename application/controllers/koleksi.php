@@ -15,13 +15,13 @@ class Koleksi extends CI_Controller {
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->deleteKoleksi($username,$isbn);
-			redirect(base_url('index.php/Koleksi'));		
+			redirect(base_url('index.php/dashboard/collection'));		
 	
 		}
 		else
 		{
-			$this->session->set_userdata('error_login_'.$username,true);
-			redirect(base_url('index.php/login'));
+			//$this->session->set_userdata('error_login_'.$username,true);
+			redirect(base_url('index.php/dashboard/collection'));
 			//belom betul, ini masih copas else nya wkwkwk
 
 		}
