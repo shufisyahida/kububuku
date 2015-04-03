@@ -23,78 +23,91 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
-<div class="container custom-table">
-	<h4>Borrowed</h4>
-	<?php foreach($resultBorrowed as $post){ ?>
-		<div class="col s12 m8 offset-m2 l6 offset-l3">
+<!-- <div class="container custom-table"> -->
+	<div class="container custom-table">
+		<h4>Borrowed</h4>
+		<?php foreach($resultBorrowed as $post){ ?>
+		<!-- <div class="col s12 m8 offset-m2 l6 offset-l3"> -->
 	
-		<div class="row valign-wrapper">
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul;?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="book-author truncate"><?php echo $post->pengarang;?></h6>
-						<p class="divider"></p>
+			<div class="row valign-wrapper">
+		        <div class="col s12 m3 l3">
+					<div class="card small">
+						<?php echo 
+						'<div class="card-image">
+							
+							<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>
+						</div>' ?>
+						<div class="card-content">
+							<h6 class="book-author truncate"><?php echo $post->pengarang;?></h6>
+							<p class="divider"></p>
 
-						<h5 class="truncate"><?php echo $post->judul;?></h5>
-						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"> </a> 
-					<?php echo 
-					'<div id="modal-remove" class="modal">
-					<div class="modal-content">
-					<h4>Remove Collection</h4>
-					<p>Are you sure to remove this book from collection?</p>
+							<h5 class="truncate"><?php echo $post->judul;?></h5>
+							<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"> </a> 
+							<?php echo 
+							'<div id="modal-remove" class="modal">
+							<div class="modal-content">
+							<h4>Remove Collection</h4>
+							<p>Are you sure to remove this book from collection?</p>
+							</div>
+							<div class="modal-footer">
+							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+							</div>
+							</div>' ?>
+						</div>
+		        	</div>
+				</div> 
+		  	<?php }?>  
+  			</div>
+		<!-- </div> -->
+
+	</div>
+
+	<p class="divider"></p>
+
+	<div class="container custom-table2">
+		<h4>Available</h4>
+	  	<?php foreach($resultAvailable as $post){?>
+		<!-- <div class="col s12 m8 offset-m2 l6 offset-l3"> -->
+			
+			<div class="row valign-wrapper">
+		        <div class="col s12 m3 l3">
+					<div class="card small">
+						<?php echo 
+						'<div class="card-image">
+							
+							<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>
+						</div>' ?>
+						<div class="card-content">
+							<h6 class="book-author truncate"><?php echo $post->pengarang;?></h6>
+							<p class="divider"></p>
+
+							<h5 class="truncate"><?php echo $post->judul;?></h5>
+							<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove2"> </a>
+							<?php echo 
+							'<div id="modal-remove2" class="modal">
+							<div class="modal-content">
+							<h4>Remove Collection</h4>
+							<p>Are you sure to remove this book from collection?</p>
+							</div>
+							<div class="modal-footer">
+							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+							</div>
+							</div>' ?>
+
+					
+						</div>
+
 					</div>
-					<div class="modal-footer">
-					<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-					<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="waves-effect waves-green btn-flat modal-action">remove</a>
-					</div>
-					</div>' ?>
-				</div>
-	        </div>
-		</div> 
-		  <?php }?>  
+		        </div>
+			</div>
+			  <?php }?>  
+	  	<!-- </div> -->
   	</div>
 
-	<h4>Available</h4>
-  	<?php foreach($resultAvailable as $post){?>
-	<div class="col s12 m8 offset-m2 l6 offset-l3">
-		
-		<div class="row valign-wrapper">
-	        <div class="col s12 m3 l3">
-				<div class="card small">
-					<div class="card-image">
-						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul; ?>" alt="book-cover" class="responsive-img"></a>
-					</div>
-					<div class="card-content">
-						<h6 class="book-author truncate"><?php echo $post->pengarang;?></h6>
-						<p class="divider"></p>
+<!-- </div> -->
 
-						<h5 class="truncate"><?php echo $post->djudul;?></h5>
-					<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove2"> </a>
-					<?php echo 
-					'<div id="modal-remove2" class="modal">
-					<div class="modal-content">
-					<h4>Remove Collection</h4>
-					<p>Are you sure to remove this book from collection?</p>
-					</div>
-					<div class="modal-footer">
-					<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-					<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="waves-effect waves-green btn-flat modal-action">remove</a>
-					</div>
-					</div>' ?>
-
-				
-					</div>
-
-				</div>
-	        </div>
-		</div>
-		  <?php }?>  
-  	</div>
-</div>
 
 <!-- Modal Structure -->
 <!-- <div id="modal-remove" class="modal">

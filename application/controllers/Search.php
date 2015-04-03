@@ -1,7 +1,20 @@
 <?php
     class Search extends CI_Controller
     {
-        
+        public function homeBuku(){
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('search_book_view');
+            $this->load->view('foot_view');
+        }
+
+        public function homeUser(){
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('search_user_view');
+            $this->load->view('foot_view');
+        }
+
         public function cariBuku()
         { 
              $filters['keyword'] = $this->input->post('keyword', TRUE);

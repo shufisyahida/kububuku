@@ -34,24 +34,24 @@
         <form>
           <div class="row">
             <div class="input-field col s12">
-              <input id="#" type="text" class="validate">
+              <input id="nama" type="text" class="validate">
               <label>Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="#" type="text" class="validate">
+              <input id="domisili" type="text" class="validate">
               <label>Domisili</label>
             </div>
             <div class="input-field col s12">
-              <label>Status</label>
+              <label id="status" >Status</label>
               <select>
                 <option value="" disabled selected>Search by</option>
-                <option value="1">Student</option>
-                <option value="2">Lecturer</option>
-                <option value="3">Staff</option>
+                <option id="student" value="1">Student</option>
+                <option id="lecturer" value="2">Lecturer</option>
+                <option id="staff" value="3">Staff</option>
               </select>
             </div>
             <div class="input-field col s12">
-              <label>Faculty</label>
+              <label id="fakultas">Faculty</label>
               <select>
                 <option value="" disabled selected>Search by</option>
                 <option value="1">1</option>

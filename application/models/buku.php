@@ -39,14 +39,14 @@ class Buku extends CI_Model
 
 		$query=$this->db->get()->result();
 
-		return $query;
+		return $resultBook = $query->result();
 		
 	}
 
-	function searchBook($terms)
-	{
+	// function searchBook($terms)
+	// {
 		
-	}
+	// }
 
 }
 
