@@ -35,8 +35,9 @@
 						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul;?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate"><?php echo $post->judul;?></h6>
+						<h6 class="book-author truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
+
 						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
 						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"> </a> 
 					<?php echo 
@@ -44,6 +45,9 @@
 					<div class="modal-content">
 					<h4>Remove Collection</h4>
 					<p>Are you sure to remove this book from collection?</p>
+
+						<h5 class="book-title truncate"><?php echo $post->deskripsi;?></h5>
+
 					</div>
 					<div class="modal-footer">
 					<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
@@ -66,10 +70,16 @@
 						<a href="<?php echo base_url('index.php/book/book_info') ?>"><img src="<?php echo $post->sampul; ?>" alt="book-cover" class="responsive-img"></a>
 					</div>
 					<div class="card-content">
-						<h6 class="truncate"><?php echo $post->judul;?></h6>
+						<h6 class="book-author truncate"><?php echo $post->judul;?></h6>
 						<p class="divider"></p>
+
 						<h5 class="truncate"><?php echo $post->deskripsi;?></h5>
 					<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove2"> </a>
+
+
+						<h5 class="book-title truncate"><?php echo $post->deskripsi;?></h5>
+						<a class="modal-trigger red-text mdi-content-clear" href="#modal-remove"></a>
+					</div>
 
 				</div>
 	        </div>

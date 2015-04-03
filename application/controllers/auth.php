@@ -27,15 +27,14 @@ class Auth extends CI_Controller {
 			{
 				$this->session->set_userdata('email',$email);
 				$this->session->set_userdata('error_login_'.$email,true);
-				redirect(base_url('index.php/login'));
-				
+				redirect(base_url('index.php/login/login_failed'));
 			}		
 		}
 		else
 		{
 			$this->session->set_userdata('email',$email);
 			$this->session->set_userdata('error_login_'.$email,true);
-			redirect(base_url('index.php/login'));
+			redirect(base_url('index.php/login/login_failed'));
 
 		}
 			
