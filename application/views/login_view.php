@@ -24,5 +24,11 @@
             </form>
         </div>
     </div>
+    <!--<?php 
+        $email=$this->session->userdata("email");
+        if ($this->session->userdata('error_login'.$email)==true) {
+            echo "gagal";
+        }
+    ?>-->
     <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/sso/login') ?>">Create an account</a></h6>    
 </div>
