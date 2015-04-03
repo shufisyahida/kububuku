@@ -12,7 +12,7 @@
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('searchBuku_view',$data);
+            $this->load->view('search_book_view',$data);
             $this->load->view('foot_view');
 
 
@@ -29,7 +29,7 @@
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('searchPengguna_view',$data);
+            $this->load->view('search_user_view',$data);
             $this->load->view('foot_view');
 
 
