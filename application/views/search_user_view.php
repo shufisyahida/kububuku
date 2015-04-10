@@ -25,7 +25,7 @@
     <div class="col s12 m4 l4">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search Filter</h6>
-        <form action="#" method="post">
+        <form method="post">
           <p>
             <input class="with-gap" name="group2" type="radio" id="name-radio" />
             <label for="name-radio">Name</label>
@@ -53,14 +53,16 @@
             </div>
             
             <div class="col s12">
-                <a class="waves-effect waves-light green btn" onClick="showUserSearchResult()" href="<?php echo base_url('index.php/search/cariPengguna') ?>">Search</a>
+                <a class="waves-effect waves-light green btn" onCLick="showUserSearchResult()" href="<?php echo base_url('index.php/search/cariPengguna') ?>">Search</a>
             </div>
           </div>
           
         </form>
       </div>
     </div>
-    <div class="col s12 m8 l9" id="userResult"></div>
+    <div class="col s12 m8 l8" id="userResult">
+    </div>
   </div>
 </div>
+<script type="text/javascript" src="<?php echo base_url('assets/js/showResult.js') ?>"></script>
 
