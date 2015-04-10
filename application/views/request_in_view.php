@@ -30,6 +30,7 @@
 					<th data-field="id">No.</th>
 					<th data-field="name">Borrower</th>
 					<th data-field="book">Book</th>
+					<th data-field="duration">Duration</th>
 					<th data-field="action">Action</th>
 				</tr>
 	        </thead>
@@ -62,6 +63,7 @@
 						</div>
 						</td>
 						<td>'.$buku[0]->judul.'</td>
+						<td>Duration is here</td>
 						<td>';
 
 						
