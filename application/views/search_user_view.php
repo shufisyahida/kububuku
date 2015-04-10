@@ -7,13 +7,11 @@
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-editor-mode-edit"></i>
+          <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
-          <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
-          <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -60,7 +58,53 @@
         </form>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="col s12 m8 l8" id="userResult">
+=======
+    <div class="col s12 m8 l9">
+      <?php foreach($resultSearchPengguna as $post){?>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="container custom-container-a">
+            <img class="avatar-property circle" src="<?php echo $post->foto;?>">
+          </div>
+          <div class="green-text name-property"><?php echo $post->nama;?></div>
+          <div class="divider"></div>
+          <div class="custom-container-b">
+            <ul>
+              <li><i class="green-text tiny mdi-maps-beenhere"></i> <?php echo $post->fakultas;?></li>
+              <li><i class="green-text tiny mdi-social-person-outline"></i> <?php echo $post->status;?></li>
+              <li><i class="green-text tiny mdi-social-person"></i> <?php echo $post->jenis_kelamin;?></li>
+              <li><i class="green-text tiny mdi-action-event"></i> <?php echo $post->tanggal_lahir;?></li>
+              <li><i class="green-text tiny mdi-maps-place"></i><?php echo $post->domisili;?></li>
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <div class="custom-container-b" style="text-align: center;">
+					<ul>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+					</ul>
+				</div>
+          <div class="divider"></div>
+          <div class="custom-container-b">
+            <div class="row">
+              <div class="col s6 m6 l6 center">
+                <h5 class="green-text">16</h5>books
+              </div>
+              <div class="col s6 m6 l6 center">
+                <h5 class="green-text">29</h5>wishlist
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+      
+>>>>>>> 5dd6b38a3128cb7fb2e61bb1e6494fb288bfad52
     </div>
   </div>
 </div>

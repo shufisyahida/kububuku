@@ -56,9 +56,19 @@ class Pinjaman extends CI_Model
 
 	function confirmReturn($id)
 	{
-		$data = array('status'=>4);
+		$this->db->delete('pinjaman',array('id'=>$id));
+		/*$data = array('status'=>4);
 		$this->db->where('id',$id);
-		$this->db->update('pinjaman',$data);
+		$this->db->update('pinjaman',$data);*/
+	}
+
+	function add($data)
+	{
+		$result = $this->db->insert('pinjaman',$data);
+		if(!$result)
+			return false;
+		else
+			return true;
 	}
 }
 

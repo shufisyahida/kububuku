@@ -1,17 +1,23 @@
 	<div class="secondary-header">
       <div class="secondary-header-inner">
-        <div class="container custom-container-c">My Profile</div>
+        <div class="container custom-container-c">
+        	<?php
+        	if($user->username == $this->session->userdata('username'))
+        		echo 'My Profile';
+        	else
+        		echo ''.$user->nama.'\'s Profile';
+        	
+        	?>
+        </div>
       </div>
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-editor-mode-edit"></i>
+          <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
-          <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
-          <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -45,13 +51,13 @@
 					</ul>
 				</div>
 				<div class="divider"></div>
-				<div class="custom-container-b">
+				<div class="custom-container-b" style="text-align: center;">
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
 					</ul>
 				</div>
 			</div>
@@ -154,10 +160,14 @@ if(!empty($koleksiBorrowed))
 								            <div class="col s8 m8 l8">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	<span>'.$value->pengarang.'</span><br>
-								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
-								            	<div class="row row-custom-a">
-								            	    <a class="waves-effect waves-green black-text btn-flat">Borrow</a>
-								            	</div>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
+								            	if($user->username != $this->session->userdata('username'))
+								            	{
+								            		echo '<div class="row row-custom-a">
+								            	    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
+								            		</div>';	
+								            	}
+								           echo' 	
 								            </div>
 							          	</div>
 							        </div>
@@ -208,9 +218,16 @@ if(!empty($koleksiBorrowed))
 			</div>
 			<div class="divider"></div>
 			<div class="row">
-				<h5>My Wishlist</h5>
+				<?php
+        			if($user->username == $this->session->userdata('username'))
+        				echo '<h5>My Wishlist</h5>';
+        			else
+        				echo '<h5>'.$user->nama.'\'s Wishlist</h5>';
+        	
+        			?>	
 			</div>
 			<div class="row">
+<<<<<<< HEAD
 				<!--<div class="col s12 m12 l6">
 			        <div class="card card-book">
 			          	<div class="row row-custom-a">
@@ -230,6 +247,9 @@ if(!empty($koleksiBorrowed))
 			    </div>-->
 			    Coming soon
 >>>>>>> ac4f9f8512811a2e3749342280848930f8ee0043
+=======
+				Coming soon
+>>>>>>> 5dd6b38a3128cb7fb2e61bb1e6494fb288bfad52
 			</div>
 		</div>
 	</div>
