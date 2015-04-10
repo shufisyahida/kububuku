@@ -69,6 +69,9 @@
 			</div>
 			<div class="row">
 				<?php
+					
+					$index = 0;
+
 					if(!empty($koleksiAvailable[0]))
 					{
 						foreach ($koleksiAvailable as $key => $value)
@@ -85,15 +88,36 @@
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
-								            		echo '<div class="row row-custom-a">
-								            	    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
+								            		echo '<div id="modal-duration'.$index.'" class="modal">
+														<div class="modal-content">
+															<h4>Set Duration</h4>
+															<form action="#">
+																<p class="range-field">
+																	<input type="range" id="duration" min="1" max="30" />
+																</p>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+															<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'" class="waves-effect waves-green btn-flat black-text modal-action">SET</a>
+														</div>
+													</div>';
+
+													echo '<div class="row row-custom-a">
+								            	    	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-duration'.$index.'">Borrow</a>
 								            		</div>';	
+
+								            		// echo '<div class="row row-custom-a">
+								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
+								            		// </div>';	
 								            	}
 								           echo' 	
 								            </div>
 							          	</div>
 							        </div>
 							    </div>';
+
+							    $index=$index+1;
 						}
 					}
 					else

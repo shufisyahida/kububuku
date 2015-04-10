@@ -69,6 +69,7 @@ class Koleksi extends CI_Controller {
 		'isbn'=>$isbn,
 		'status'=>1,
 		'durasi'=>5,
+		// 'durasi'=>$durasi,
 		'pesan' => NULL,
 		'is_notified' => false
 		);	
