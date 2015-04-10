@@ -77,16 +77,15 @@
             </ul>
           </div>
           <div class="divider"></div>
-          <div class="custom-container-b">
-            rating stars here
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
+          <div class="custom-container-b" style="text-align: center;">
+					<ul>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+					</ul>
+				</div>
           <div class="divider"></div>
           <div class="custom-container-b">
             <div class="row">

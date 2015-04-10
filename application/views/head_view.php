@@ -12,6 +12,7 @@
 
 		<!-- Custom CSS -->
 		<link href="<?php echo base_url('assets/css/main.css') ?>" rel="stylesheet">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 		<!-- Javascript -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

@@ -209,6 +209,15 @@ div span.tag-property {
   height: 160px;
 }
 
+ul.ranking {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li.ranking-star {
+	display: inline;
+}
+
 /*PUNYA KOES*/
 .card-panel-custom-cp{
     max-width: 400px;

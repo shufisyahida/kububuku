@@ -27,7 +27,7 @@
 		<div class="row">
 		<?php foreach($resultBorrowed as $post){ ?>
 			<div class="col s12 m12 l6">
-		    	<div class="card">
+		    	<div class="card card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
