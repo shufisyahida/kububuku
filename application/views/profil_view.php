@@ -13,13 +13,11 @@
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-editor-mode-edit"></i>
+          <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
-          <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
-          <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
+          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -53,13 +51,13 @@
 					</ul>
 				</div>
 				<div class="divider"></div>
-				<div class="custom-container-b">
+				<div class="custom-container-b" style="text-align: center;">
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
 					</ul>
 				</div>
 			</div>
