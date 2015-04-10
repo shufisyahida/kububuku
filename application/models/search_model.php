@@ -3,60 +3,62 @@
 class Search_model extends CI_Model
 {
 
-	function searchBuku($filters)
-	{
-		 if($kategori=='genre'){
-		 	$this->db->select(*);
-  		 	$this->db->from('buku');
-  		 	$this->db->like('genre', $keyword);   
-  		 	$query = $this->db->get();
-  		 	return $resultSearchBuku = $query->result();
-  			}
-  		else if($kategori=='judul'){
-		 	$this->db->select(*);
-  		 	$this->db->from('buku');
-  		 	$this->db->like('judul', $keyword);   
-  		 	$query = $this->db->get();
-  		 	return $resultSearchBuku = $query->result();
-  		}
-  		else {
-		 	$this->db->select(*);
-  		 	$this->db->from('buku');
-  		 	$this->db->like('pengarang', $keyword);   
-  		 	$query = $this->db->get();
-  		 	return $resultSearchBuku = $query->result();
+	// function searchBuku($filters)
+	// {
+	// 	 if($kategori=='genre'){
+	// 	 	$this->db->select(*);
+ //  		 	$this->db->from('buku');
+ //  		 	$this->db->like('genre', $keyword);   
+ //  		 	$query = $this->db->get();
+ //  		 	return $resultSearchBuku = $query->result();
+ //  			}
+ //  		else if($kategori=='judul'){
+	// 	 	$this->db->select(*);
+ //  		 	$this->db->from('buku');
+ //  		 	$this->db->like('judul', $keyword);   
+ //  		 	$query = $this->db->get();
+ //  		 	return $resultSearchBuku = $query->result();
+ //  		}
+ //  		else {
+	// 	 	$this->db->select(*);
+ //  		 	$this->db->from('buku');
+ //  		 	$this->db->like('pengarang', $keyword);   
+ //  		 	$query = $this->db->get();
+ //  		 	return $resultSearchBuku = $query->result();
   		
-  		}
-	}
+ //  		}
+	// }
 
-	function searchPengguna($filters)
+	function searchPengguna($keyword,$name,$location,$status,$faculty)
 	{
-		 if($kategori=='nama'){
-		 	$this->db->select(*);
+		 if($name!=null){
+		 	  $this->db->select('*');
   		 	$this->db->from('non_admin');
-  		 	$this->db->like('nama', $keyword);   
+  		 	$this->db->where('nama', $keyword);   
   		 	$query = $this->db->get();
   		 	return $resultSearchPengguna = $query->result();
   			}
-  		else if($kategori=='fakultas'){
-		 	$this->db->select(*);
+  		else if($faculty!=null){
+		 	$this->db->select('*');
   		 	$this->db->from('non_admin');
-  		 	$this->db->like('fakultas', $keyword);   
+  		 	$this->db->where('fakultas', $keyword); 
+        var_dump($faculty); 
   		 	$query = $this->db->get();
   		 	return $resultSearchPengguna = $query->result();
   		}
-  		else if($kategori=='domisili') {
-		 	$this->db->select(*);
+  		else if($location!=null) {
+		 	$this->db->select('*');
   		 	$this->db->from('non_admin');
-  		 	$this->db->like('domisili', $keyword);   
+  		 	$this->db->where('domisili', $keyword);
+         var_dump($location);   
   		 	$query = $this->db->get();
   		 	return $resultSearchPengguna = $query->result();
   		
   		}
   		else {
-		 	$this->db->select(*);
+		 	$this->db->select('*');
   		 	$this->db->from('non_admin');
-  		 	$this->db->like('status', $keyword);   
+  		 	$this->db->where('status', $keyword);   
   		 	$query = $this->db->get();
   		 	return $resultSearchPengguna = $query->result();
   		

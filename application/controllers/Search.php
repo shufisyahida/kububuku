@@ -34,9 +34,13 @@
 
         public function cariPengguna()
         { 
-             $filters['keyword'] = $this->input->post('keyword', TRUE);
-             $filters['kategori'] = $this->input->post('kategori', TRUE);
-             $data = $this->search_model->searchPengguna($filters);
+             $keyword = $this->input->post('keyword');
+             $name = $this->input->post('name-radio');
+             $location = $this->input->post('location-radio');
+             $status = $this->input->post('status-radio');
+             $faculty = $this->input->post('faculty-radio');
+             $this->load->model('search_model');
+             $data['resultSearchPengguna'] = $this->search_model->searchPengguna($keyword,$name,$location,$status,$faculty);
          
 
             
