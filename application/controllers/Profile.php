@@ -12,9 +12,9 @@
         }
 
 
-        function profile()
+        function profile($username)
         {
-            $username = $this->session->userdata('username');
+           // $username = $this->session->userdata('username');
         	$this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
 

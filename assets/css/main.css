@@ -146,8 +146,30 @@ td.basic-info{
   margin-bottom: 0px;
 }
 
+.card-book-title {
+  color: black;
+  font-size: 1.2rem;
+}
+
 span.tag-property {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #26a69a;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
   float: left;
+  min-width: 3rem;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: inherit;
+  color: #757575;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 div span.tag-property {
@@ -159,6 +181,31 @@ div span.tag-property {
 
 .detail-info-book {
   font-size: 0.8em;
+}
+
+.row-custom-a {
+  margin-bottom: 0px;
+}
+
+.row-custom-b {
+  margin: 5px;
+}
+
+.row-custom-c {
+  margin-top: 20px;
+}
+
+.book-property {
+  max-height: 300px;
+  width: auto;
+}
+
+.btn-flat.disabled:hover {
+  color: #4caf50;
+}
+
+.card-book{
+  height: 160px;
 }
 
 /*PUNYA KOES*/
