@@ -3,46 +3,64 @@
     
 
     <br><h5>Registration</h5>
-    <div class="card-panel-custom-reg z-depth-1">
-        <div class="row">
-            <form method="post" action="<?php echo base_url('index.php/Registration/register') ?>" class="col s12">
-    
-                <div id="step-one" class="row">
-                    <!-- <form action="#">
-                        <div class="col s10 offset-s1 input-field file-field">
-                            <input class="file-path validate" type="text"/>
-                            <div class="btn green">
-                                <span class="mdi-image-tag-faces"></span>
-                                <input type="file" />
-                            </div>
-                        </div>
-                    </form> -->
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
-                        <input id="pic" name="pic" type="url" value="<?php echo $foto;?>">
-                        <label for="pic">Photo URL</label>
+    <form method="post" action="<?php echo base_url('index.php/Registration/register') ?>">
+        <div>
+            <div class="card-panel z-depth-1">
+                <div class="row" style="margin: 0px auto;">
+                    <div class="input-field col m6 l8">
+                        <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>">
+                        <label for="username">Username</label>
                     </div>
-
-                    <div class="col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                    <div class="col m6 l4">
+                        <span class="error"><?php echo $usernameErr;?></span>
+                    </div>
+                    <div class="input-field col m6 l8">
+                        <input id="email" name="email" type="email" class="validate" value="<?php echo $email;?>">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <span class="error "><?php echo $emailErr;?></span>
+                    </div>
+                    <div class="input-field col m6 l8">
+                        <input id="password" name="password" type="password" class="validate" value="<?php echo $password;?>">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <span class="error "><?php echo $passwordErr;?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card-panel z-depth-1">
+                <div class="row">
+                    <div class="input-field col s12 m6 l8">
+                        <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col m6 l4">
+                        <span class="error"><?php echo $nameErr;?></span>
+                    </div>
+                    <div class="col s12 m6 l8">
+                        <label for="birth">Birthday</label>
+                        <input id="birth" name="birth" type="date" class="datepicker validate" value="<?php echo $tanggal_lahir;?>">
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <span class="error"><?php echo $birthdayErr;?></span>
+                    </div>
+                    <div class="col s12 m6 l8">
+                        <label for="gender">Gender</label>
                         <select id="gender" name="gender" type="text" class="validate" >
                             <option value="">Choose your gender</option>
                             <option value="M" <?php if($jenis_kelamin == "M") echo "selected"; ?>>Male</option>
                             <option value="F" <?php if($jenis_kelamin == "F") echo "selected"; ?>>Female</option>
                         </select>
-
-                        <label for="gender">Gender</label>
+                    </div>
+                    <div class="col m6 l4">
                         <span class="error"><?php echo $genderErr;?></span>
                     </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
-                        <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>">
-                        <label for="name">Name</label>
-                        <span class="error"><?php echo $nameErr;?></span>
-                    </div>
-
-                    <div class="col s4 offset-s1">
+                    <div class="col s12 m6 l8">
+                        <label for="faculty">Faculty</label>
                         <select id="faculty" name="faculty" type="text" class="validate" >
                               <option value="">Choose your faculty</option>
                               <option value="1" <?php if($fakultas == "1") echo "selected"; ?>>Faculty of Medicine</option>
@@ -61,113 +79,93 @@
                               <option value="14" <?php if($fakultas == "14") echo "selected"; ?>>Vocational Program</option>
                               <option value="15" <?php if($fakultas == "15") echo "selected"; ?>>Postgraduate Program</option>
                         </select>
-                        <label for="faculty">Faculty</label>
+                    </div>
+                    <div class="col m6 l4">
                         <span class="error"><?php echo $facultyErr;?></span>
                     </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-communication-email prefix"></i> -->
-                        <input id="email" name="email" type="email" class="validate" value="<?php echo $email;?>">
-                        <label for="email">Email</label>
-                        <span class="error"><?php echo $emailErr;?></span>
-                    </div>
-
-
-                    <div class="col s4 offset-s1">
+                    <div class="col s12 m6 l8">
+                        <label for="status">Status</label>
                         <select id="status" name="status" type="text" class="validate" value="<?php echo $status;?>">
                             <option value="">Select your status</option>
                             <option value="1" <?php if($status == "1") echo "selected"; ?>>Student</option>
                             <option value="2" <?php if($status == "2") echo "selected"; ?>>Lecturer</option>
                             <option value="3" <?php if($status == "3") echo "selected"; ?>>Staff</option>
                         </select>
-                        <label for="status">Status</label>
+                    </div>
+                    <div class="col m6 l4">
                         <span class="error"><?php echo $statusErr;?></span>
                     </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>">
-                        <label for="username">Username</label>
-                        <span class="error"><?php echo $usernameErr;?></span>
-                    </div>
-
-                    <div class="col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="birth" name="birth" type="date" class="datepicker validate" value="<?php echo $tanggal_lahir;?>">
-                        <label for="birth">Birthday</label>
-                        <span class="error"><?php echo $birthdayErr;?></span>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="password" name="password" type="password" class="validate" value="<?php echo $password;?>">
-                        <label for="password">Password</label>
-                        <span class="error"><?php echo $passwordErr;?></span>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                    <div class="input-field col s12 m6 l8">
                         <input id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
-                        <label for="domisili">Domisili</label>
+                        <label for="domisili">Domisile</label>
+                    </div>
+                    <div class="col m6 l4">
                         <span class="error"><?php echo $domisiliErr;?></span>
                     </div>
-
-                    <!-- <div class="col s1 offset-s1">
-                        <a id="next" class="btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/registration/step_two') ?>" role="button">NEXT</a>
-                    </div> -->
                 </div>
-
-                <div id="step-two" class="row">
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>">
-                        <label for="facebook">Facebook Name</label>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>">
-                        <label for="twitter">Twitter ID</label>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="hp" name="hp" type="text" value="<?php echo $hp;?>">
-                        <label for="hp">Cellphone Number</label>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>">
-                        <label for="bbm">BBM Pin</label>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="line" name="line" type="text" value="<?php echo $line_id;?>">
-                        <label for="line">Line ID</label>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>">
-                        <label for="whatsapp">Whatsapp Number</label>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>">
-                        <label for="mail">Mail</label>
-                    </div>
-
-                    <div class="col s1 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">REGISTER</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
+        <div>
+            <div class="card-panel z-depth-1">
+                <div class="col s12 m12 l12 container custom-container-a center-align">
+                    <img class="upload-avatar-property circle" src="<?php echo base_url('assets/img/fallon.jpg')?>">
+                </div>
+                <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
+                        <input id="pic" name="pic" type="url" value="<?php echo $foto;?>">
+                        <label for="pic">Photo URL</label>
+                    </div>
+            </div>
+        </div>
+        <div>
+            <div class="card-panel z-depth-1">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+
+                            <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>">
+                            <label for="facebook"><i class="fa fa-facebook-official fa-lg green-text"></i>   Facebook Name</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>">
+                            <label for="twitter"><i class="fa fa-twitter fa-lg green-text"></i>   Twitter ID</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="hp" name="hp" type="text" value="<?php echo $hp;?>">
+                            <label for="hp"><i class="fa fa-phone fa-lg green-text"></i>   Cellphone Number</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>">
+                            <label for="bbm"><i class="fa fa-mobile fa-lg green-text"></i>   BBM Pin</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="input-field">
+                            <input id="line" name="line" type="text" value="<?php echo $line_id;?>">
+                            <label for="line"><i class="fa fa-mobile fa-lg green-text"></i>   Line ID</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>">
+                            <label for="whatsapp"><i class="fa fa-whatsapp fa-lg green-text"></i>   Whatsapp Number</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>">
+                            <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
+                        </div> 
+                        
+                        <div class="col right">
+                            <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">REGISTER</button>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
     <!-- <h6 class="custom-h6-login">Step 1 of 2</a></h6> -->
 </div>
 
