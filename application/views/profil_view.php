@@ -24,6 +24,13 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
+<script type="text/javascript">
+// 	function setDuration(val) {
+// 	    // $duration = val;
+// 	    document.getElementById('textInput').value=val;
+// 	}
+</script>
+
 <div class="container custom-table">
 	<div class="row">
 		<div class="col s12 m6 l3">
@@ -76,6 +83,8 @@
 					{
 						foreach ($koleksiAvailable as $key => $value)
 						{
+							$duration = 0;
+							// $duration=$_POST["duration"];
 							echo '<div class="col s12 m12 l6">
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
@@ -88,20 +97,27 @@
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
-								            		echo '<div id="modal-duration'.$index.'" class="modal">
+								            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
+								            			<div id="modal-duration'.$index.'" class="modal">
 														<div class="modal-content">
-															<h4>Set Duration</h4>
-															<form action="#">
+															<h4>Set Duration (Days)</h4>
+															
 																<p class="range-field">
-																	<input type="range" id="duration" min="1" max="30" />
+																	<input type="range" name="duration" id="duration" min="1" max="100" />
+																	<input type="hidden" name="username" value="'.$user->username.'" />
+																	<input type="hidden" name="isbn" value="'.$value->isbn.'" />
 																</p>
-															</form>
+															
 														</div>
 														<div class="modal-footer">
 															<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
-															<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'" class="waves-effect waves-green btn-flat black-text modal-action">SET</a>
+
+															<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+
+															<button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button>
 														</div>
-													</div>';
+													</div>
+													</form>';
 
 													echo '<div class="row row-custom-a">
 								            	    	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-duration'.$index.'">Borrow</a>
@@ -111,7 +127,7 @@
 								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
 								            		// </div>';	
 								            	}
-								           echo' 	
+								           echo'
 								            </div>
 							          	</div>
 							        </div>
