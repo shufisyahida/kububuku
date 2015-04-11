@@ -35,7 +35,8 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata(''.$username,true);
 				$this->session->set_userdata('foto',$foto);
 				
-				redirect(base_url('index.php/Dashboard'));		
+				// redirect(base_url('index.php/Dashboard'));
+				redirect(base_url('index.php/Request_in'));
 
 
 			}	

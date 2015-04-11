@@ -1,6 +1,6 @@
 <?php
     class Book_Owner extends CI_Controller{
-        public function index()
+        public function show($isbn)
         {
             // $data['page_title'] = "CI Hello World App!";
         	$this->load->view('head_view');

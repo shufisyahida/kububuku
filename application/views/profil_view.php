@@ -24,6 +24,13 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
+<script type="text/javascript">
+// 	function setDuration(val) {
+// 	    // $duration = val;
+// 	    document.getElementById('textInput').value=val;
+// 	}
+</script>
+
 <div class="container custom-table">
 	<div class="row">
 		<div class="col s12 m6 l3">
@@ -54,19 +61,37 @@
 				<div class="custom-container-b" style="text-align: center;">
 					<ul>
 						<li>As Owner</li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<?php
+							$hijau = round($user->rank_pemilik);
+							$putih = 5-$hijau;
+
+							for($i = 0; $i<$hijau;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+							}
+
+							for($i = 0; $i<$putih;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+							}
+						?>				
 					</ul>
 					<ul>
 						<li>As Borrower</li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<?php
+							$hijau = round($user->rank_peminjam);
+							$putih = 5-$hijau;
+
+							for($i = 0; $i<$hijau;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+							}
+
+							for($i = 0; $i<$putih;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+							}
+						?>
 					</ul>
 				</div>
 			</div>
@@ -78,10 +103,15 @@
 			</div>
 			<div class="row">
 				<?php
+					
+					$index = 0;
+
 					if(!empty($koleksiAvailable[0]))
 					{
 						foreach ($koleksiAvailable as $key => $value)
 						{
+							$duration = 0;
+							// $duration=$_POST["duration"];
 							echo '<div class="col s12 m12 l6">
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
@@ -94,15 +124,43 @@
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
-								            		echo '<div class="row row-custom-a">
-								            	    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
+								            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
+								            			<div id="modal-duration'.$index.'" class="modal">
+														<div class="modal-content">
+															<h4>Set Duration (Days)</h4>
+															
+																<p class="range-field">
+																	<input type="range" name="duration" id="duration" min="1" max="100" />
+																	<input type="hidden" name="username" value="'.$user->username.'" />
+																	<input type="hidden" name="isbn" value="'.$value->isbn.'" />
+																</p>
+															
+														</div>
+														<div class="modal-footer">
+															<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+
+															<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+
+															<button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button>
+														</div>
+													</div>
+													</form>';
+
+													echo '<div class="row row-custom-a">
+								            	    	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-duration'.$index.'">Borrow</a>
 								            		</div>';	
+
+								            		// echo '<div class="row row-custom-a">
+								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
+								            		// </div>';	
 								            	}
-								           echo' 	
+								           echo'
 								            </div>
 							          	</div>
 							        </div>
 							    </div>';
+
+							    $index=$index+1;
 						}
 					}
 					else
