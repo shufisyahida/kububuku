@@ -98,7 +98,13 @@
 		</div>
 		<div class="col s12 m6 l9">
 			<div class="row">
-				<h5>My Collection</h5>
+				<?php
+        			if($user->username == $this->session->userdata('username'))
+        				echo '<h5>My Collections</h5>';
+        			else
+        				echo '<h5>'.$user->nama.'\'s Collections</h5>';
+        	
+        			?>	
 				<h6>Available</h6>	
 			</div>
 			<div class="row">
@@ -166,8 +172,8 @@
 					else
 					{
 						echo '<div class="col s12 m12 l12">
-									<p>No Collection Available</p>
-								</div>';
+									<p>No Collections Available</p>
+							</div>';
 					}
 				?>
 			</div>
@@ -199,8 +205,8 @@
 							    </div>';
 						}
 					} else {
-						echo '<div class="col s12 m3 l3">
-								<p>No Collection Borrowed</p>
+						echo '<div class="col s12 m12 l12">
+								<p>No Collections Borrowed</p>
 							</div>';
 					}
 				?>

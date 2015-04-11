@@ -63,7 +63,7 @@
         <div class="card">
           <div class="container custom-container-a">          
           <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
-            <img class="avatar-property circle" src="'.$value->foto.'"> 
+            <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
           </a>
           </div>
 
