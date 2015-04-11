@@ -30,6 +30,7 @@
 					<th data-field="id">No.</th>
 					<th data-field="name">Borrower</th>
 					<th data-field="book">Book</th>
+					<th data-field="duration">Duration (Days)</th>
 					<th data-field="action">Action</th>
 				</tr>
 	        </thead>
@@ -61,18 +62,19 @@
 						</div>
 						</td>
 						<td>'.$buku[0]->judul.'</td>
+						<td>'.$durasi[$index].'</td>
 						<td>';
 
 						
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
+							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm"></a>';
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
 									<h4>Cancel Request?</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+									<p></p>
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
@@ -96,11 +98,11 @@
 								</div>
 							</div>';
 
-							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-return'.$index.'"></a>';
+							echo '<a class="modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
-							#gambar icon baru	
+							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm-on"></a>';
 						}
 							
 						
@@ -141,7 +143,7 @@
 								</div>
 							</div>';
 
-						echo '<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
+						echo '<a class="modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
 						</td>
 						</tr>';
 
