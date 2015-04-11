@@ -25,9 +25,12 @@
       <div class="row">
         <div class="col s12 m12 l12">
           <?php foreach($resultBook as $post){?>
-          <?php echo
+          <?php 
+              $username = $this->session->userdata('username');
+          echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>
+            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
           </div>' ?>
         </div>
       </div>

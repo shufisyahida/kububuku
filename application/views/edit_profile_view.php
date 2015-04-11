@@ -36,27 +36,41 @@
                   <div class="input-field col s12">
                     <input name="name" value="<?php echo $user->nama;?>" id="" type="text" class="validate">
                     <label >Your Name</label>
+                    <span class="error"><?php echo $nameErr;?></span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col s12">
                     <label>Faculty</label>
-                    <select name="faculty">
-                      <option value="" disabled selected>Choose your faculty</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                    <select id="faculty" name="faculty" type="text" class="validate">
+                      <option value="">Choose your faculty</option>
+                          <option value="1" <?php if($user->fakultas == "1") echo "selected"; ?>>Faculty of Medicine</option>
+                          <option value="2" <?php if($user->fakultas == "2") echo "selected"; ?>>Faculty of Dentistry</option>
+                          <option value="3" <?php if($user->fakultas == "3") echo "selected"; ?>>Faculty of Mathematics and Natural Science</option>
+                          <option value="4" <?php if($user->fakultas == "4") echo "selected"; ?>>Faculty of Engineering</option>
+                          <option value="5" <?php if($user->fakultas == "5") echo "selected"; ?>>Faculty of Law</option>
+                          <option value="6" <?php if($user->fakultas == "6") echo "selected"; ?>>Faculty of Economics and Business</option>
+                          <option value="7" <?php if($user->fakultas == "7") echo "selected"; ?>>Faculty of Psychology</option>
+                          <option value="8" <?php if($user->fakultas == "8") echo "selected"; ?>>Faculty of Humanities</option>
+                          <option value="9" <?php if($user->fakultas == "9") echo "selected"; ?>>Faculty of Social and Political Science</option>
+                          <option value="10" <?php if($user->fakultas == "10") echo "selected"; ?>>Faculty of Public Health</option>
+                          <option value="11" <?php if($user->fakultas == "11") echo "selected"; ?>>Faculty of Computer Science</option>
+                          <option value="12" <?php if($user->fakultas == "12") echo "selected"; ?>>Faculty of Nursing</option>
+                          <option value="13" <?php if($user->fakultas == "13") echo "selected"; ?>>Faculty of Pharmacy</option>
+                          <option value="14" <?php if($user->fakultas == "14") echo "selected"; ?>>Vocational Program</option>
+                          <option value="15" <?php if($user->fakultas == "15") echo "selected"; ?>>Postgraduate Program</option>
                     </select>
+                    <span class="error"><?php echo $facultyErr;?></span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col s12">
                     <label>Status</label>
                     <select name="status">
-                      <option value="" disabled selected>Choose your status</option>
-                      <option value="1">Student</option>
-                      <option value="2">Lecturer</option>
-                      <option value="3">Staff</option>
+                      <option value="">Select your status</option>
+                      <option value="1" <?php if($user->status == "1") echo "selected"; ?>>Student</option>
+                      <option value="2" <?php if($user->status == "2") echo "selected"; ?>>Lecturer</option>
+                      <option value="3" <?php if($user->status == "3") echo "selected"; ?>>Staff</option>
                     </select>
                   </div>
                 </div>
@@ -78,15 +92,15 @@
                   <div class="col s12">
                     <label>Gender</label>
                     <select name="gender">
-                      <option value="" disabled selected>Choose your gender</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
+                      <option value="">Choose your gender</option>
+                      <option value="M" <?php if($user->jenis_kelamin == "M") echo "selected"; ?>>Male</option>
+                      <option value="F" <?php if($user->jenis_kelamin == "F") echo "selected"; ?>>Female</option>
                     </select>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col s12">
-                    <input id="birth" name="birth" type="date" class="datepicker validate">
+                    <input id="birth" name="birth" type="date" class="datepicker validate" value="<?php echo $user->tanggal_lahir;?>">
                     <label for="birth">Birthday</label>
                     </select>
                   </div>
@@ -157,3 +171,4 @@
       </div>
     </form>
 </div>
+
