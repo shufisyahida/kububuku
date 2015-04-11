@@ -2,20 +2,20 @@
       <div class="secondary-header-inner">
         <div class="container custom-container-c">Book Information</div>
       </div>
+
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php $username = $this->session->userdata('username');
-          echo base_url().'index.php/koleksi/add/'.$resultBook[0]->isbn.'/'.$username?>" 
-          class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
+
 <div class="container custom-table">
 
   <div class="row">
@@ -28,7 +28,8 @@
           echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>
-            </div>' ?>
+            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+          </div>' ?>
         </div>
       </div>
     </div>
@@ -54,22 +55,19 @@
             <div class="col s12 m5 l4">
               <div align="right">
                 <h5>Book Owner</h5>
-                <div class="row">
                 <?php foreach($resultOwner as $row){?>
+                <div class="row">
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
-                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
-                      <img class="responsive-img circle" img src='.$row->foto.'>
-                    </a>
+                  <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
+                    <img class="responsive-img circle" img src='.$row->foto.'>
+                  </a>
                   </div>' ?>
-                <?php } ?>
                 </div>
+                <?php } ?>
                 <div class="row">
                   <div class="right col">
-                  <?php
-                    $isbn = $this->uri->segment(3);
-                    echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."index.php/Book/show_owner/".$isbn.'">More...</a>';
-                  ?>
+                  <a class="waves-effect waves-green btn-flat">More...</a>
                   </div>
                 </div>
               </div>
