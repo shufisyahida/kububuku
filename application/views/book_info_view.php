@@ -67,7 +67,10 @@
                 <?php } ?>
                 <div class="row">
                   <div class="right col">
-                  <a class="waves-effect waves-green btn-flat">More...</a>
+                  <?php
+                    $isbn = $this->uri->segment(3);
+                    echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."index.php/Book/show_owner/".$isbn.'">More...</a>';
+                  ?>
                   </div>
                 </div>
               </div>

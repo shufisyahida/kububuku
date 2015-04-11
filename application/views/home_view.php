@@ -84,15 +84,15 @@
         <div class="slider fullscreen">
             <ul class="slides">
                 <li>
-                    <img src="<?php echo base_url('assets/img/slide6.jpg') ?>">
+                    <img src="<?php echo base_url('assets/img/slide1.jpg') ?>">
                     <div class="caption right-align">
                         <h3>Welcome to KubuBuku!</h3>
-                        <h5 class="light white-text text-lighten-3">Borrow a book is never been this easy.</h5>
+                        <h5 class="light white-text text-lighten-3">Borrow a book was never been this easy.</h5>
                         <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('index.php/login') ?>" role="button">Go to KubuBuku</a></p></div>
                     </div>
                 </li>
                 <li>
-                    <img src="<?php echo base_url('assets/img/slide5.jpg') ?>">
+                    <img src="<?php echo base_url('assets/img/slide6.jpg') ?>">
                     <div class="caption left-align">
                         <h3>KubuBuku</h3>
                         <h5 class="light white-text text-lighten-3">Here's our bookville.</h5>

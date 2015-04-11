@@ -61,14 +61,19 @@ class Koleksi extends CI_Controller {
 			
 	}
 
-	public function pinjam($pemilik, $isbn)
+	public function pinjam()
 	{
+		// var_dump($this->input->post('username'));
 		$peminjam = $this->session->userdata('username');
+		$pemilik = $this->input->post('username');
+		$isbn_buku = $this->input->post('isbn');
+		$durasi_pinjam = $this->input->post('duration');
 		$data = array('username_peminjam'=>$peminjam,
-		'username_pemilik'=>$pemilik,
-		'isbn'=>$isbn,
+		'username_pemilik'=> $pemilik,
+		'isbn'=>$isbn_buku,
 		'status'=>1,
-		'durasi'=>5,
+		// 'durasi'=>5,
+		'durasi'=>$durasi_pinjam,
 		'pesan' => NULL,
 		'is_notified' => false
 		);	

@@ -17,7 +17,8 @@ class Buku extends CI_Model
 	function getOwner($isbn)
 	{
 
-		 $this->db->select("non_admin.foto,non_admin.username");
+		 //$this->db->select("non_admin.foto,non_admin.username");
+		$this->db->select("*");
   		 $this->db->from('non_admin');
   		 $this->db->join('koleksi', 'koleksi.username = non_admin.username');
   		 $this->db->where('koleksi.isbn',$isbn);
