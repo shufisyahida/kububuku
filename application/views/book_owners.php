@@ -34,8 +34,7 @@
       </div>
     </div>
     <div class="col s12 m8 l9">
-    
-      <div class="card-panel white z-depth-1">
+      <div class="card-panel white z-depth-1 col s12 m12 l12">
         <span>
           <div class="row">
             <div class="col s12 m12 l12">
@@ -46,46 +45,52 @@
               <span class="tag-property white-text green"><?php echo $post->genre;?></span>
             </div>
           </div>
-          <div class="divider"></div>
-          <div class="row">
-            <div class="col s12 m7 l8">
-              <p><?php echo $post->deskripsi;?></p>
-            </div>
-            <?php }?>
-            <div class="col s12 m5 l4">
-              <div align="right">
-                <h5>Book Owner</h5>
-                <?php foreach($resultOwner as $row){?>
-                <div class="row">
-                  <?php echo 
-                  '<div class=" right col s4 m4 l4">
-                  <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
-                    <img class="responsive-img circle" img src='.$row->foto.'>
-                  </a>
-                  </div>' ?>
-                </div>
-                <?php } ?>
-                <div class="row">
-                  <div class="right col">
-                  <a class="waves-effect waves-green btn-flat">More...</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="row">
-             <?php foreach($resultBook as $row){?>
-            <div class="detail-info-book col">
-              <span><?php echo $post->jumlah_halaman;?> pages </span><br>
-              <span>Published by <?php echo $post->penerbit;?></span><br>
-              <br>
-              <span>ISBN13 <?php echo $post->isbn;?></span>
-              <?php } ?>
-            </div>
-          </div>
         </span>
+      </div>
+      <div class="col s12 m4 l3">
+        <div class="card">
+          <div class="container custom-container-a">
+            <img class="avatar-property circle" src="<?php echo $user->foto;?>">
+          </div>
 
+          <div class="green-text name-property"><?php echo $user->nama;?></div>
+          <div class="divider"></div>       
+          <div class="custom-container-b">
+            <ul>
+              <li><i class="green-text tiny mdi-maps-beenhere"></i> 
+                <?php echo $user->fakultas; ?>                                    
+              </li>
+              <li><i class="green-text tiny mdi-social-person-outline"></i> 
+              <?php
+                echo $user->status;
+              ?></li>
+              <li><i class="green-text tiny mdi-social-person"></i>
+               <?php  echo $user->jenis_kelamin;?>
+              </li>
+              <li><i class="green-text tiny mdi-action-event"></i> <?php echo $user->tanggal_lahir;?></li>
+              <li><i class="green-text tiny mdi-maps-place"></i><?php echo $user->domisili;?></li>
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <div class="custom-container-b" style="text-align: center;">
+            <ul>
+              <li>As Owner</li>
+              <li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+            </ul>
+            <ul>
+              <li>As Borrower</li>
+              <li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+              <li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

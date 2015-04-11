@@ -19,11 +19,12 @@
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
             $data['user']=$user[0];
+            //echo $user->nama;
 
-        	$this->load->view('head_view');
-            $this->load->view('navbar_view');
-            $this->load->view('edit_profile_view', $data);
-            $this->load->view('foot_view');
+        	 $this->load->view('head_view');
+           $this->load->view('navbar_view');
+           $this->load->view('edit_profile_view', $data);
+           $this->load->view('foot_view');
         }
 
         public function edit()
@@ -66,7 +67,7 @@
                 $this->db->where('username', $username);
                 $this->db->update('non_admin', $data); 
 
-                redirect(base_url('index.php/Profile'));
+                redirect(base_url('index.php/Profile/profile/'.$username));
 
                        
             }

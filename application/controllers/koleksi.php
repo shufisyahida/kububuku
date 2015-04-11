@@ -39,16 +39,16 @@ class Koleksi extends CI_Controller {
 
 	}
 
-	public function add()
+	public function add($buku, $non_admin)
 	{
 		if(isset($_POST))
 		{
-			$non_admin = $this->input->post('$non_admin');
-			$buku = $this->input->post('buku');	
+			//$non_admin = $this->input->post('$non_admin');
+			//$buku = $this->input->post('buku');	
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->addKoleksi($non_admin,$buku);
-			redirect(base_url('index.php/Dashboard'));		
+			redirect(base_url('index.php/book/book_info/'.$buku));		
 	
 		}
 		else

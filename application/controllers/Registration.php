@@ -1,12 +1,42 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     class Registration extends CI_Controller
     {
         
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";
+          $data = array(
+                       'username' => '',
+                       'password' => '',
+                       'nama' => '',
+                       'email' => '',
+                       'domisili' => '',
+                       'fakultas' => '',
+                       'jenis_kelamin' => '',
+                       'status' => '',
+                       'rank_pemilik' => '0',
+                       'rank_peminjam' => '0',
+                       'foto' => '',
+                       'tanggal_lahir' => '',
+                       'email_kontak' => '',
+                       'fb' => '',
+                       'twitter' => '',
+                       'line_id' =>  '',
+                       'hp' => '',
+                       'bbm' => '',
+                       'wa' => '',
+                       'nameErr' => '',
+                       'emailErr' => '',
+                       'usernameErr' => '',
+                       'passwordErr' => '',
+                       'domisiliErr' => '',
+                       'facultyErr' => '',
+                       'genderErr' => '',
+                       'statusErr' => '',
+                       'birthdayErr' => ''
+                    );
         	$this->load->view('head_view');
-            $this->load->view('registration_one_view');
+            $this->load->view('registration_one_view', $data);
             $this->load->view('foot_view');
         }
 
@@ -20,6 +50,63 @@
 
         public function register()
         {
+            //   $data['nameErr'] = "";
+            //   $name = $this->input->post('name');
+            //   $email = $_POST['email'];
+            //   $username = $_POST['username'];
+            //   $password = $_POST['password']; 
+            //   $photo = $_POST['pic'];
+            //   $gender = $_POST['gender'];
+            //   $faculty = $_POST['faculty'];
+            //   $domisili = $_POST['domisili'];
+            //   $status = $_POST['status'];
+            //   $birthday = $_POST['birth'];
+            //   $facebook = $_POST['facebook'];
+            //   $hp = $_POST['hp'];
+            //   $line = $_POST['line'];
+            //   $twitter = $_POST['twitter'];
+            //   $wa = $_POST['whatsapp'];
+            //   $bbm = $_POST['bbm'];
+            //   $mail = $_POST['mail'];
+
+            // if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            //    $name = $_POST['name'];
+            //    if($name == '')
+            //    {
+            //       $data['nameErr'] = "Nama harus diisi";
+            //       $this->load->view('registration_one_view',$data);
+            //    }
+            //    else
+            //    {
+            //       $data = array(
+            //            'username' => $username,
+            //            'password' => $password,
+            //            'nama' => $name,
+            //            'email' => $email,
+            //            'domisili' => $domisili,
+            //            'fakultas' => $faculty,
+            //            'jenis_kelamin' => $gender,
+            //            'status' => $status,
+            //            'rank_pemilik' => '0',
+            //            'rank_peminjam' => '0',
+            //            'foto' => $photo,
+            //            'tanggal_lahir' => $birthday,
+            //            'email_kontak' => $mail,
+            //            'fb' => $facebook,
+            //            'twitter' => $twitter,
+            //            'line_id' =>  $line,
+            //            'hp' => $hp,
+            //            'bbm' => $bbm,
+            //            'wa' => $wa
+            //         );
+            //         $this->load->model('non_admin');
+            //         $this->non_admin->createUser($data);
+
+            //    }
+
+            // }
+
+
             if(isset($_POST))
             {
                 $name = $this->input->post('name');
@@ -41,15 +128,106 @@
                 $mail = $this->input->post('mail');
 
 
+
+                $data = array(
+                       'username' => $username,
+                       'password' => $password,
+                       'nama' => $name,
+                       'email' => $email,
+                       'domisili' => $domisili,
+                       'fakultas' => $faculty,
+                       'jenis_kelamin' => $gender,
+                       'status' => $status,
+                       'rank_pemilik' => '0',
+                       'rank_peminjam' => '0',
+                       'foto' => $photo,
+                       'tanggal_lahir' => $birthday,
+                       'email_kontak' => $mail,
+                       'fb' => $facebook,
+                       'twitter' => $twitter,
+                       'line_id' =>  $line,
+                       'hp' => $hp,
+                       'bbm' => $bbm,
+                       'wa' => $wa,
+                       'nameErr' => '',
+                       'emailErr' => '',
+                       'usernameErr' => '',
+                       'passwordErr' => '',
+                       'domisiliErr' => '',
+                       'facultyErr' => '',
+                       'genderErr' => '',
+                       'statusErr' => '',
+                       'birthdayErr' => ''
+                    );
+
+                $error = false;
                 $this->load->model('non_admin');
-                $sudahAda = $this->non_admin->sudahAda($email,$username);
-                
-
-
-                if ($sudahAda) 
+                $emailSudahAda = $this->non_admin->emailSudahAda($email);
+                $usernameSudahAda = $this->non_admin->usernameSudahAda($username);
+                if ($emailSudahAda) 
                 {
-                    echo "username atau email sudah digunakan";
-                }   
+                  $data['emailErr'] = "Email already in use";
+                  $error = true;
+                }
+                if ($usernameSudahAda) 
+                {
+                  $data['usernameErr'] = "Username already in use";
+                  $error = true;
+                }
+                if($name == '')
+                {
+                  $data['nameErr'] = "Name should not blank";
+                  $error = true;
+                }
+                if($email == '')
+                {
+                  $data['emailErr'] = "Email should not blank";
+                  $error = true;
+                }
+                if($username == '')
+                {
+                  $data['usernameErr'] = "Username should not blank";
+                  $error = true;
+                }
+                if($password == '')
+                {
+                  $data['passwordErr'] = "Password should not blank";
+                  $error = true;
+                }
+                if($domisili == '')
+                {
+                  $data['domisiliErr'] = "Domisili should not blank";
+                  $error = true;
+                }
+                if($faculty == '')
+                {
+                  $data['facultyErr'] = "Faculty should not blank";
+                  $error = true;
+                }
+                if($gender == '')
+                {
+                  $data['genderErr'] = "Gender should not blank";
+                  $error = true;
+                }
+                if($status == '')
+                {
+                  $data['statusErr'] = "Status should not blank";
+                  $error = true;
+                }
+                if($birthday == '')
+                {
+                  $data['birthdayErr'] = "Birthday should not blank";
+                  $error = true;
+                }
+               
+                if($error)
+                {
+                  //$data['jenis_kelamin'] = "M";
+                  // $data['fakultas'] = 1;
+                  $this->load->view('head_view');
+                  $this->load->view('foot_view');
+                  $this->load->view('registration_one_view', $data);
+                }
                 else
                 {
                     $data = array(
@@ -82,12 +260,12 @@
 
                 }       
             }
-            // else
-            // {
-                // $this->session->set_userdata('error_login_'.$email,true);
-                // redirect(base_url('index.php/login'));
+            else
+            {
+                $this->session->set_userdata('error_login_'.$email,true);
+                redirect(base_url('index.php/login'));
 
-            // }
+            }
                 
 
         }
