@@ -135,6 +135,7 @@
             $this->session->set_userdata('error_login_'.$email,true);
             redirect(base_url('index.php/login'));
         }
+    }
         
     public function show_owner($isbn)
     {

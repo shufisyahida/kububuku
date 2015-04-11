@@ -2,20 +2,20 @@
       <div class="secondary-header-inner">
         <div class="container custom-container-c">Book Information</div>
       </div>
-
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php $username = $this->session->userdata('username');
+          echo base_url().'index.php/koleksi/add/'.$resultBook[0]->isbn.'/'.$username?>" 
+          class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
-
 <div class="container custom-table">
 
   <div class="row">
@@ -28,8 +28,7 @@
           echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>
-            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
-          </div>' ?>
+            </div>' ?>
         </div>
       </div>
     </div>
