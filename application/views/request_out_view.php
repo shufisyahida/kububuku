@@ -62,7 +62,7 @@
 						</div>
 						</td>
 						<td>'.$buku[0]->judul.'</td>
-						<td>Duration is here</td>
+						<td>'.$durasi[$index].'</td>
 						<td>';
 
 						
