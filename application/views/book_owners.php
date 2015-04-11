@@ -71,7 +71,7 @@
           <div class="divider"></div>       
           <div class="custom-container-b">
             <ul>
-              <li><i class="green-text tiny mdi-maps-beenhere"></i>' 
+              <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>' 
                 .$value->fakultas.                                    
               '</li>
               <li><i class="green-text tiny mdi-social-person-outline"></i>' 
