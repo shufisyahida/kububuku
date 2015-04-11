@@ -10,6 +10,7 @@ nav.input-field label {
 img.img-icon {
 	max-width: 40px;
 	height: auto;
+  margin-top: 35%;
 }
 
 img.img-icon-borrower {
@@ -206,6 +207,15 @@ div span.tag-property {
 
 .card-book{
   height: 160px;
+}
+
+ul.ranking {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+li.ranking-star {
+	display: inline;
 }
 
 /*PUNYA KOES*/

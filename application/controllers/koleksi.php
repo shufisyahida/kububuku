@@ -61,6 +61,34 @@ class Koleksi extends CI_Controller {
 			
 	}
 
+	public function pinjam($pemilik, $isbn)
+	{
+		$peminjam = $this->session->userdata('username');
+		$data = array('username_peminjam'=>$peminjam,
+		'username_pemilik'=>$pemilik,
+		'isbn'=>$isbn,
+		'status'=>1,
+		'durasi'=>5,
+		'pesan' => NULL,
+		'is_notified' => false
+		);	
+
+		$this->load->model('pinjaman');
+		$success = $this->pinjaman-> add($data);
+
+		if(!$success)
+		{
+			//tampilkan notifikasi gagal
+		}	
+		else
+		{
+			//tampilkan notifikasi sukses
+			redirect('index.php/Profile/profile/'.$pemilik);
+		}	
+
+		
+	}
+
 
 
 }

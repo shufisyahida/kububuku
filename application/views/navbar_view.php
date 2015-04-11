@@ -15,48 +15,23 @@
         <ul class="right hide-on-med-and-down">
           <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search books or user" href="<?php echo base_url('index.php/search/homeBuku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
-          <li><a class="custom-a dropdown-button" href="#!" data-activates="dropdown1"><img class="img-icon circle responsive-img" src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>"></a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
+              <div class="row">
+                <div class="col m4 l4">
+                  <img class="img-icon circle responsive-img" src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>">
+                </div>
+                <div class="col m8 l8">
+                  <?php echo $this->session->userdata('username');?>
+                </div>
+              </div>
+          </a></li>
         </ul>
       </div>
     </nav>
-
-    <!-- <div class="secondary-header">
-      <div class="secondary-header-inner">
-        <ul>
-          <li><a id="request-in" href="<?php echo base_url('index.php/dashboard/request_in') ?>">Request In</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/request_out#') ?>">Request Out</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/collection#') ?>">Collection</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/wishlist#') ?>">Wishlist</a></li>
-        </ul>
-      </div>
-
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-editor-mode-edit"></i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="large mdi-editor-insert-chart"></i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="large mdi-editor-format-quote"></i></a></li>
-          <li><a class="btn-floating green"><i class="large mdi-editor-publish"></i></a></li>
-          <li><a class="btn-floating blue"><i class="large mdi-editor-attach-file"></i></a></li>
-        </ul>
-      </div>
-    </div> -->
-
 <script>
   $(document).ready(function(){
-    $(".dropdown-button").dropdown({hover:false, constraint_width:true, gutter: -70})
+    $(".dropdown-button").dropdown({hover:false, constraint_width:true, gutter: -30})
   })
-
-  //  $(document).ready(function(){
-  //   $('ul.tabs').tabs();
-  // });
-
-  //  $(document).ready(function(){
-  //   $('ul.tabs').tabs('select_tab', 'request-in');
-  // });
-  
-
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
