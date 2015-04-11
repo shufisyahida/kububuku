@@ -54,19 +54,37 @@
 				<div class="custom-container-b" style="text-align: center;">
 					<ul>
 						<li>As Owner</li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<?php
+							$hijau = round($user->rank_pemilik);
+							$putih = 5-$hijau;
+
+							for($i = 0; $i<$hijau;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+							}
+
+							for($i = 0; $i<$putih;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+							}
+						?>				
 					</ul>
 					<ul>
 						<li>As Borrower</li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-half fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
-						<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>
+						<?php
+							$hijau = round($user->rank_peminjam);
+							$putih = 5-$hijau;
+
+							for($i = 0; $i<$hijau;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+							}
+
+							for($i = 0; $i<$putih;$i++)
+							{
+								echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+							}
+						?>
 					</ul>
 				</div>
 			</div>
