@@ -84,11 +84,20 @@ class Koleksi extends CI_Controller {
 		if(!$success)
 		{
 			//tampilkan notifikasi gagal
+			// <div class="container">
+			// 		<div id="cp-login" class="card-panel red white-text">
+			// 			Already requested.
+			// 		</div>
+			// 	</div>
+			redirect('index.php/Profile/profile/'.$pemilik);
 		}	
 		else
 		{
 			//tampilkan notifikasi sukses
 			redirect('index.php/Profile/profile/'.$pemilik);
+			// echo '
+			// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
+			// ';
 		}	
 
 		

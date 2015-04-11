@@ -126,24 +126,24 @@
 								            	{
 								            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
 								            			<div id="modal-duration'.$index.'" class="modal">
-														<div class="modal-content">
-															<h4>Set Duration (Days)</h4>
-															
-																<p class="range-field">
-																	<input type="range" name="duration" id="duration" min="1" max="100" />
-																	<input type="hidden" name="username" value="'.$user->username.'" />
-																	<input type="hidden" name="isbn" value="'.$value->isbn.'" />
-																</p>
-															
-														</div>
-														<div class="modal-footer">
-															<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+															<div class="modal-content">
+																<h4>Set Duration (Days)</h4>
+																
+																	<p class="range-field">
+																		<input type="range" name="duration" id="duration" min="1" max="100" />
+																		<input type="hidden" name="username" value="'.$user->username.'" />
+																		<input type="hidden" name="isbn" value="'.$value->isbn.'" />
+																	</p>
+																
+															</div>
+															<div class="modal-footer">
+																<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
 
-															<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+																<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
 
-															<button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button>
+																<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button></a>
+															</div>
 														</div>
-													</div>
 													</form>';
 
 													echo '<div class="row row-custom-a">
