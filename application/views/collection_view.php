@@ -25,7 +25,10 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
-		<?php foreach($resultBorrowed as $post){ ?>
+		<?php 
+		if(!empty($resultBorrowed))
+		{
+		foreach($resultBorrowed as $post){ ?>
 			<div class="col s12 m12 l6">
 		    	<div class="card card-book">
 		        	<div class="row row-custom-a">
@@ -59,7 +62,13 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Borrowed</h5>';
+		}
+		?>  
   		</div>
 		<!-- </div> -->
 	</div>
@@ -69,9 +78,12 @@
 	<div class="container custom-table2">
 		<h4>Available</h4>
 	  	<div class="row">
-	  	<?php foreach($resultAvailable as $post){?>
+	  	<?php 
+	  	if(!empty($resultAvailable))
+	  	{
+	  	foreach($resultAvailable as $post){?>
 			<div class="col s12 m12 l6">
-		    	<div class="card">
+		    	<div class="card  card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
@@ -103,7 +115,14 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Available</h5>';
+		}
+
+		?>  
 	  	</div>
   	</div>
 
