@@ -26,6 +26,26 @@ class Buku extends CI_Model
 		
 	}
 
+	function addBook($data)
+	{
+		$this->db->insert('buku',$data);
+	}
+	function isbnSudahAda($isbn)
+	{
+		$this->db->select('*');
+		$this->db->from('buku');
+		$this->db->where('isbn',$isbn);		
+		$query= $this->db->get()->result();
+
+		if(sizeof($query)!=0) {				
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
 	// function searchBook($terms)
 	// {
 		
