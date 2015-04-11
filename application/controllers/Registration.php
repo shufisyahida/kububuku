@@ -50,63 +50,6 @@
 
         public function register()
         {
-            //   $data['nameErr'] = "";
-            //   $name = $this->input->post('name');
-            //   $email = $_POST['email'];
-            //   $username = $_POST['username'];
-            //   $password = $_POST['password']; 
-            //   $photo = $_POST['pic'];
-            //   $gender = $_POST['gender'];
-            //   $faculty = $_POST['faculty'];
-            //   $domisili = $_POST['domisili'];
-            //   $status = $_POST['status'];
-            //   $birthday = $_POST['birth'];
-            //   $facebook = $_POST['facebook'];
-            //   $hp = $_POST['hp'];
-            //   $line = $_POST['line'];
-            //   $twitter = $_POST['twitter'];
-            //   $wa = $_POST['whatsapp'];
-            //   $bbm = $_POST['bbm'];
-            //   $mail = $_POST['mail'];
-
-            // if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            //    $name = $_POST['name'];
-            //    if($name == '')
-            //    {
-            //       $data['nameErr'] = "Nama harus diisi";
-            //       $this->load->view('registration_one_view',$data);
-            //    }
-            //    else
-            //    {
-            //       $data = array(
-            //            'username' => $username,
-            //            'password' => $password,
-            //            'nama' => $name,
-            //            'email' => $email,
-            //            'domisili' => $domisili,
-            //            'fakultas' => $faculty,
-            //            'jenis_kelamin' => $gender,
-            //            'status' => $status,
-            //            'rank_pemilik' => '0',
-            //            'rank_peminjam' => '0',
-            //            'foto' => $photo,
-            //            'tanggal_lahir' => $birthday,
-            //            'email_kontak' => $mail,
-            //            'fb' => $facebook,
-            //            'twitter' => $twitter,
-            //            'line_id' =>  $line,
-            //            'hp' => $hp,
-            //            'bbm' => $bbm,
-            //            'wa' => $wa
-            //         );
-            //         $this->load->model('non_admin');
-            //         $this->non_admin->createUser($data);
-
-            //    }
-
-            // }
-
-
             if(isset($_POST))
             {
                 $name = $this->input->post('name');
