@@ -30,7 +30,7 @@
 					<th data-field="id">No.</th>
 					<th data-field="name">Borrower</th>
 					<th data-field="book">Book</th>
-					<th data-field="duration">Duration</th>
+					<th data-field="duration">Duration (Days)</th>
 					<th data-field="action">Action</th>
 				</tr>
 	        </thead>
