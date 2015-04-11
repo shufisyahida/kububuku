@@ -19,7 +19,7 @@
         //$isbn = $this->session->userdata('isbn');
         $this->load->model('buku');
         $data['resultBook'] = $this->buku->getBook($isbn);
-        $data['resultOwner']= $this->buku->getOwner($isbn);
+        $data['resultOwner']= $this->buku->getOwner($isbn,true);
     	$this->load->view('head_view');
         $this->load->view('navbar_view');
 
@@ -142,7 +142,7 @@
             $this->load->model('non_admin');
             $this->load->model('fakultas');
 
-            $user = $this->buku->getOwner($isbn);
+            $user = $this->buku->getOwner($isbn,false);
             
             for($i=0;$i<sizeof($user);$i++)
             {
