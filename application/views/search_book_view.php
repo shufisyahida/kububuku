@@ -72,13 +72,13 @@
 
      if(this.value=='judul')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
-           $('.keyword').show();
+           $('keyword').show();
             $("genre").hide();
         }
      else 

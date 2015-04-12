@@ -14,7 +14,7 @@
                     <div class="col s12 m12 l12">
                         <h5>Upload Your Profile Picture</h5>
                         <input type="file" name="userfile" name="userfile"><br><br>
-                        <input type="submit" value="Submit" class="btn"/>
+                        <input type="submit" value="Submit" class="btn green z-depth-1"/>
                     </div>
                     <div class="col s12 m12 l12">
                         <div id="thumbs" style='max-width:500px'></div>

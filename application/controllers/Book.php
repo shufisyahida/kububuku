@@ -124,7 +124,6 @@
                 $this->buku->addBook($data);
 
                 redirect(base_url('index.php/Book/book_info/'.$isbn));
-
             }       
         }
         else

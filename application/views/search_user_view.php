@@ -107,7 +107,7 @@
 
      if(this.value=='nama')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("location").hide();
             $("status").hide();
             $("faculty").hide();

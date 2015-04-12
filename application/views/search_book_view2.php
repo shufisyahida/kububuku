@@ -69,7 +69,7 @@
         <?php if($notFound!=null){?>
         <span><?php echo $notFound ?></span>
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
-        <a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add Book</a>
+        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add Book?</a>
           <?php } ?>
       </div>
       <?php if($resultSearchBuku!=null){?>
@@ -107,13 +107,13 @@
 
      if(this.value=='judul')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
-           $('.keyword').show();
+           $('keyword').show();
             $("genre").hide();
         }
      else 
