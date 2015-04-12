@@ -1,106 +1,105 @@
-    <div class="secondary-header">
-      <div class="secondary-header-inner">
-        <div class="container custom-container-c">Book Information</div>
-      </div>
+<div class="container">
 
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-content-add"></i>
-        </a>
-        <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-        </ul>
-      </div>
-    </div>
-
-</div><!--end div buat head-wrapper di navbar_view-->
-
-<div class="container custom-table">
-
-  <div class="row">
-    <div class="col s12 m4 l3">
-      <div class="row">
-        <div class="col s12 m12 l12">
-          <?php foreach($resultBook as $post){?>
-          <?php 
-              $username = $this->session->userdata('username');
-          echo
-          '<div class="card-panel white z-depth-1">
-            <img class="responsive-img" img src='.$post->sampul.'>
-            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
-          </div>' ?>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m8 l9">
     
-      <div class="card-panel white z-depth-1">
-        <span>
-          <div class="row">
-            <div class="col s12 m12 l12">
-              <h5 class="black-text"><?php echo $post->judul;?></h5>
-              <h6 class="black-text"><?php echo $post->pengarang;?></h6>
-            </div>
-            <div class="col s12 m12 l12">
-              <span class="tag-property white-text green"><?php echo $post->genre;?></span>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="row">
-            <div class="col s12 m7 l8">
-              <p><?php echo $post->deskripsi;?></p>
-            </div>
-            <?php }?>
-            <div class="col s12 m5 l4">
-              <div align="right">
-                <h5>Book Owner</h5>
-                <?php foreach($resultOwner as $row){?>
-                <div class="row">
-                  <?php echo 
-                  '<div class=" right col s4 m4 l4">
-                  <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
-                    <img class="responsive-img circle" img src='.$row->foto.'>
-                  </a>
-                  </div>' ?>
-                </div>
-                <?php } ?>
-                <div class="row">
-                  <div class="right col">
-                  <a class="waves-effect waves-green btn-flat">More...</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="row">
-             <?php foreach($resultBook as $row){?>
-            <div class="detail-info-book col">
-              <span><?php echo $post->jumlah_halaman;?> pages </span><br>
-              <span>Published by <?php echo $post->penerbit;?></span><br>
-              <br>
-              <span>ISBN13 <?php echo $post->isbn;?></span>
-              <?php } ?>
-            </div>
-          </div>
-        </span>
 
-      </div>
+    <br><h5>Add Book</h5>
+    <div class="card-panel-custom-reg z-depth-1">
+        <div class="row">
+            <form method="post" action="<?php echo base_url('index.php/Book/addBook') ?>" class="col s12">
+
+                <div id="step-one" class="row">
+                                        
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="isbn" name="isbn" type="text" class="validate" value="<?php echo $isbn;?>">
+                        <label for="isbn">ISBN</label>
+                        <span class="error"><?php echo $isbnErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="judul" name="judul" type="text" class="validate" value="<?php echo $judul;?>">
+                        <label for="judul">Judul</label>
+                        <span class="error"><?php echo $judulErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="pengarang" name="pengarang" type="text" class="validate" value="<?php echo $pengarang;?>">
+                        <label for="pengarang">Pengarang</label>
+                        <span class="error"><?php echo $pengarangErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="deskripsi" name="deskripsi" type="text" class="validate" value="<?php echo $deskripsi;?>">
+                        <label for="deskripsi">Deskripsi</label>
+                        <span class="error"><?php echo $deskripsiErr;?></span>
+                    </div>
+
+                    <div class="col s4 offset-s1">
+                        <select id="genre" name="genre" type="text" class="validate" >
+                              <option value="">Choose book genre</option>
+                              <option value="1" <?php if($genre == "1") echo "selected"; ?>>Genre 1</option>
+                              <option value="2" <?php if($genre == "2") echo "selected"; ?>>Genre 2</option>
+                              <option value="3" <?php if($genre == "3") echo "selected"; ?>>Genre 3</option>
+                              <option value="4" <?php if($genre == "4") echo "selected"; ?>>Genre 4</option>
+                              <option value="5" <?php if($genre == "5") echo "selected"; ?>>Genre 5</option>
+                              <option value="6" <?php if($genre == "6") echo "selected"; ?>>Genre 6</option>                              
+                        </select>
+                        <label for="genre">Genre</label>
+                        <span class="error"><?php echo $genreErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="penerbit" name="penerbit" type="text" class="validate" value="<?php echo $penerbit;?>">
+                        <label for="penerbit">Penerbit</label>
+                        <span class="error"><?php echo $penerbitErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="tahun_terbit" name="tahun_terbit" type="text" class="validate" value="<?php echo $tahun_terbit;?>">
+                        <label for="tahun_terbit">Tahun Terbit</label>
+                        <span class="error"><?php echo $tahun_terbitErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
+                        <input id="jumlah_halaman" name="jumlah_halaman" type="text" class="validate" value="<?php echo $jumlah_halaman;?>">
+                        <label for="jumlah_halaman">Jumlah Halaman</label>
+                        <span class="error"><?php echo $jumlah_halamanErr;?></span>
+                    </div>
+
+                    <div class="input-field col s5 offset-s1">
+                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
+                        <input id="sampul" name="sampul" type="url" value="<?php echo $sampul;?>">
+                        <label for="sampul">Sampul URL</label>
+                    </div>
+
+                                                 
+
+                    <div class="col s1 offset-s1">
+                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">ADD</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+    <!-- <h6 class="custom-h6-login">Step 1 of 2</a></h6> -->
 </div>
 
- <!--    <?php foreach($result as $post){?>
-    
-         <?php echo $post->isbn;?>
-         <?php echo $post->judul;?>
-         <?php echo $post->pengarang;?>
-         <?php echo $post->deskripsi;?>
-         <?php echo $post->genre;?>
-         <?php echo $post->penerbit;?>
-         <?php echo $post->tahun_terbit;?>
-         <?php echo $post->jumlah_halaman;?>
-         <?php echo $post->sampul;?>
-      
-     <?php }?>  -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+
+<script type="text/javascript">
+     $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100 // Creates a dropdown of 15 years to control year
+    });
+</script>

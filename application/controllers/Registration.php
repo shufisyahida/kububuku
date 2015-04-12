@@ -56,7 +56,7 @@
                 $email = $this->input->post('email');
                 $username = $this->input->post('username');
                 $password = $this->input->post('password'); 
-                $photo = $this->input->post('pic');
+                //$photo = $this->input->post('pic');
                 $gender = $this->input->post('gender');
                 $faculty = $this->input->post('faculty');
                 $domisili = $this->input->post('domisili');
@@ -83,7 +83,7 @@
                        'status' => $status,
                        'rank_pemilik' => '0',
                        'rank_peminjam' => '0',
-                       'foto' => $photo,
+                       'foto' => '',
                        'tanggal_lahir' => $birthday,
                        'email_kontak' => $mail,
                        'fb' => $facebook,
@@ -109,57 +109,57 @@
                 $usernameSudahAda = $this->non_admin->usernameSudahAda($username);
                 if ($emailSudahAda) 
                 {
-                  $data['emailErr'] = "Email already in use";
+                  $data['emailErr'] = "Email is already in use";
                   $error = true;
                 }
                 if ($usernameSudahAda) 
                 {
-                  $data['usernameErr'] = "Username already in use";
+                  $data['usernameErr'] = "Username is already in use";
                   $error = true;
                 }
                 if($name == '')
                 {
-                  $data['nameErr'] = "Name should not blank";
+                  $data['nameErr'] = "Name should not be blank";
                   $error = true;
                 }
                 if($email == '')
                 {
-                  $data['emailErr'] = "Email should not blank";
+                  $data['emailErr'] = "Email should not be blank";
                   $error = true;
                 }
                 if($username == '')
                 {
-                  $data['usernameErr'] = "Username should not blank";
+                  $data['usernameErr'] = "Username should not be blank";
                   $error = true;
                 }
                 if($password == '')
                 {
-                  $data['passwordErr'] = "Password should not blank";
+                  $data['passwordErr'] = "Password should not be blank";
                   $error = true;
                 }
                 if($domisili == '')
                 {
-                  $data['domisiliErr'] = "Domisili should not blank";
+                  $data['domisiliErr'] = "Location should not be blank";
                   $error = true;
                 }
                 if($faculty == '')
                 {
-                  $data['facultyErr'] = "Faculty should not blank";
+                  $data['facultyErr'] = "Faculty should not be blank";
                   $error = true;
                 }
                 if($gender == '')
                 {
-                  $data['genderErr'] = "Gender should not blank";
+                  $data['genderErr'] = "Gender should not be blank";
                   $error = true;
                 }
                 if($status == '')
                 {
-                  $data['statusErr'] = "Status should not blank";
+                  $data['statusErr'] = "Status should not be blank";
                   $error = true;
                 }
                 if($birthday == '')
                 {
-                  $data['birthdayErr'] = "Birthday should not blank";
+                  $data['birthdayErr'] = "Birthday should not be blank";
                   $error = true;
                 }
                
@@ -199,7 +199,7 @@
 
                     $this->session->set_userdata('username',$username);
                     $this->session->set_userdata(''.$username,true);
-                    redirect(base_url('index.php/Dashboard'));
+                    redirect(base_url('index.php/Registration/step_two'));
 
                 }       
             }
@@ -208,9 +208,29 @@
                 $this->session->set_userdata('error_login_'.$email,true);
                 redirect(base_url('index.php/login'));
 
-            }
-                
+            }              
 
+        }
+        // public function addPhoto()
+        // {
+        //   if(isset($_POST))
+        //   {
+        //       $photo = $this->input->post('pic');
+        //       $username = $this->session->userdata('username');
+
+        //       $this->load->model('non_admin');
+        //       $this->non_admin->setPhoto($username,$photo);
+
+        //       redirect(base_url('index.php/Dashboard'));
+
+
+        //   }
+        //   else
+        //   {
+        //       $this->session->set_userdata('error_login_'.$email,true);
+        //       redirect(base_url('index.php/login'));
+
+        //   }
         }
     }
 ?>

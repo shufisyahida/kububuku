@@ -177,6 +177,13 @@
            return $foto;
 		}
 
+		function setPhoto($username, $photo)
+		{
+			$data=array('foto' => $photo);
+			$this->db->where('username',$username);
+			$this->db->update('non_admin',$data);
+		}
+
 	}
 
 

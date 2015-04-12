@@ -12,21 +12,21 @@
             <div class="card-panel z-depth-1">
                 <div class="row" style="margin: 0px auto;">
                     <div class="input-field col m6 l8">
-                        <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>">
+                        <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>" maxlength="20">
                         <label for="username">Username</label>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $usernameErr;?></span>
                     </div>
                     <div class="input-field col m6 l8">
-                        <input id="email" name="email" type="email" class="validate" value="<?php echo $email;?>">
+                        <input id="email" name="email" type="email" class="validate" value="<?php echo $email;?>" maxlength="30">
                         <label for="email">Email</label>
                     </div>
                     <div class="col s12 m6 l4">
                         <span class="error "><?php echo $emailErr;?></span>
                     </div>
                     <div class="input-field col m6 l8">
-                        <input id="password" name="password" type="password" class="validate" value="<?php echo $password;?>">
+                        <input id="password" name="password" type="password" class="validate" value="<?php echo $password;?>" maxlength="20">
                         <label for="password">Password</label>
                     </div>
                     <div class="col s12 m6 l4">
@@ -39,7 +39,7 @@
             <div class="card-panel z-depth-1">
                 <div class="row">
                     <div class="input-field col s12 m6 l8">
-                        <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>">
+                        <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>" maxlength="40">
                         <label for="name">Name</label>
                     </div>
                     <div class="col m6 l4">
@@ -80,8 +80,8 @@
                               <option value="11" <?php if($fakultas == "11") echo "selected"; ?>>Faculty of Computer Science</option>
                               <option value="12" <?php if($fakultas == "12") echo "selected"; ?>>Faculty of Nursing</option>
                               <option value="13" <?php if($fakultas == "13") echo "selected"; ?>>Faculty of Pharmacy</option>
-                              <option value="14" <?php if($fakultas == "14") echo "selected"; ?>>Vocational Program</option>
-                              <option value="15" <?php if($fakultas == "15") echo "selected"; ?>>Postgraduate Program</option>
+                              <option value="50" <?php if($fakultas == "50") echo "selected"; ?>>Vocational Program</option>
+                              <option value="51" <?php if($fakultas == "51") echo "selected"; ?>>Postgraduate Program</option>
                         </select>
                     </div>
                     <div class="col m6 l4">
@@ -101,7 +101,7 @@
                     </div>
                     <div class="input-field col s12 m6 l8">
                         <input id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
-                        <label for="domisili">Domisile</label>
+                        <label for="domisili">Location</label>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $domisiliErr;?></span>
@@ -115,38 +115,38 @@
                     <div class="col s12 m6 l6">
                         <div class="input-field">
 
-                            <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>">
+                            <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>" maxlength="40"> 
                             <label for="facebook"><i class="fa fa-facebook-official fa-lg green-text"></i>   Facebook Name</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>">
+                            <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>" maxlength="30">
                             <label for="twitter"><i class="fa fa-twitter fa-lg green-text"></i>   Twitter ID</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="hp" name="hp" type="text" value="<?php echo $hp;?>">
+                            <input id="hp" name="hp" type="text" value="<?php echo $hp;?>" maxlength="20">
                             <label for="hp"><i class="fa fa-phone fa-lg green-text"></i>   Cellphone Number</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>">
+                            <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>" maxlength="10">
                             <label for="bbm"><i class="fa fa-mobile fa-lg green-text"></i>   BBM Pin</label>
                         </div>
                     </div>
                     <div class="col s12 m6 l6">
                         <div class="input-field">
-                            <input id="line" name="line" type="text" value="<?php echo $line_id;?>">
+                            <input id="line" name="line" type="text" value="<?php echo $line_id;?>" maxlength="30">
                             <label for="line"><i class="fa fa-mobile fa-lg green-text"></i>   Line ID</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>">
+                            <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>" maxlength="20">
                             <label for="whatsapp"><i class="fa fa-whatsapp fa-lg green-text"></i>   Whatsapp Number</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>">
+                            <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
                             <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
                         </div> 
                         
@@ -166,9 +166,3 @@
     });
 </script>
 
-<script type="text/javascript">
-     $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 100 // Creates a dropdown of 15 years to control year
-    });
-</script>
