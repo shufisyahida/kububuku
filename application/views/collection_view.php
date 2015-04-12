@@ -25,7 +25,9 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
+
 		<?php foreach($resultBorrowed as $post){ ?>
+			
 			<div class="col s12 m12 l6">
 		    	<div class="card card-book">
 		        	<div class="row row-custom-a">

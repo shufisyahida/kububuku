@@ -29,9 +29,14 @@ class Search_model extends CI_Model
  //  		}
 	// }
 
-	function searchPengguna($keyword,$name,$location,$status,$faculty)
+	function searchPengguna($keyword,$kategori)
 	{
-		 if($name!=null){
+        $this->db->select('*');
+        $this->db->from('non_admin');
+        $this->db->where($kategori, $keyword);   
+        $query = $this->db->get();
+        return $resultSearchPengguna = $query->result();
+		/* if($name!=null){
 		 	  $this->db->select('*');
   		 	$this->db->from('non_admin');
   		 	$this->db->where('nama', $keyword);   
@@ -62,9 +67,24 @@ class Search_model extends CI_Model
   		 	$query = $this->db->get();
   		 	return $resultSearchPengguna = $query->result();
   		
-  		}
+  		}*/
 	}
 
+  /*function searchPengguna($nama){
+
+    $this->load->database();
+    $this->db->select('*');
+    $this->db->from('non_admin');
+    $nama= str_replace("%20", " ",$nama);
+    //$this->db->where('nama',$keyword);
+    $this->db->where('nama', $nama);
+  
+   
+    $query = $this->db->get(); 
+    return $query->result_array(); 
+
+
+  }*/
 }
 
 

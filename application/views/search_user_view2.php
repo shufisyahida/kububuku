@@ -22,8 +22,8 @@
   <div class="row">
     <div class="col s12 m4 l4">
       <div class="card-panel white z-depth-1 tabs-wrapper">
-        <h6>Search Filter</h6>
-        <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
+        <h6>Search</h6>
+       <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
           
           
 
@@ -41,6 +41,9 @@
               <input id="book-searchkey" type="text" class="validate" name="keyword">
               <label>Keyword</label>
             </div>
+            <div class="col s12 m12 l12">
+              <span class="error"><?php ?></span>
+            </div>
             
             <div class="col s12 m12 l12">
                 <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">Search</button>
@@ -50,7 +53,10 @@
         </form>
       </div>
     </div>
-    <!-- <div class="col s12 m8 l9">
+    <div class="col s12 m8 l8">
+      <div class="col s12 m12 l12">
+        <span><?php ?></span>
+      </div>
       <?php foreach($resultSearchPengguna as $post){?>
       <div class="col s12 m6 l4">
         <div class="card">
@@ -83,7 +89,7 @@
       </div>
       <?php } ?>
       
-    </div> -->
+    </div>
   </div>
 </div>
 <script type="text/javascript">
