@@ -138,8 +138,6 @@
                        'fakultas' => $faculty,
                        'jenis_kelamin' => $gender,
                        'status' => $status,
-                       'rank_pemilik' => '0',
-                       'rank_peminjam' => '0',
                        'foto' => $photo,
                        'tanggal_lahir' => $birthday,
                        'email_kontak' => $mail,
