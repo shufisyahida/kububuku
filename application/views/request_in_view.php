@@ -3,7 +3,7 @@
         <ul>
           <li><a class="active" href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/request_out') ?>">Request Out</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/collection') ?>">Collection</a></li>
+          <li><a href="<?php echo base_url('index.php/koleksi') ?>">Collection</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
