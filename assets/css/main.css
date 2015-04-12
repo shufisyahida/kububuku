@@ -1,4 +1,18 @@
 /*PUNYA SHUFI*/
+/* label color */
+.input-field label {
+ color: #e0e0e0;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #4caf50;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #4caf50;
+ box-shadow: 0 1px 0 0 #4caf50;
+}
+
 .brand-logo {
 	margin-left: 20px;
 }

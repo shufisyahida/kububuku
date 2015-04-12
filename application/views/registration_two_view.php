@@ -1,65 +1,73 @@
-<div class="container">
-    <br><h5>Registration</h5>
-    <div class="card-panel-custom-reg z-depth-1">
-        <div class="row">
-            <form class="col s12">
-				<div class="row">
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="facebook" type="text" class="validate">
-                        <label for="facebook">Facebook Name</label>
+<div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
+    <nav class="green">
+      <div class="nav-container nav-wrapper">
+        <a href="#" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+      </div>
+    </nav>
+</div>
+<div class="container" style="margin-top:50px;">
+    <br><h5>Registration - step 2/2</h5>
+    <form method="post" action="<?php echo base_url('index.php/Registration/register') ?>">
+        <div class="card-panel z-depth-1">
+            <div class="row">
+                <div class="col s12 m5 l5">
+                    <div class="col s12 m12 l12">
+                        <h5>Upload Your Profile Picture</h5>
+                        <input type="file" name="userfile" name="userfile"><br><br>
+                        <input type="submit" value="Submit" class="btn"/>
                     </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="twitter" type="text" class="validate">
-                        <label for="twitter">Twitter ID</label>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="hp" type="text" class="validate">
-                        <label for="hp">Cellphone Number</label>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="bbm" type="text" class="validate">
-                        <label for="bbm">BBM Pin</label>
-                    </div>
-
-                    <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="line" type="text" class="validate">
-                        <label for="line">Line ID</label>
-                    </div>
-
-                    <div class="input-field col s4 offset-s1">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <input id="whatsapp" type="text" class="validate">
-                        <label for="whatsapp">Whatsapp Number</label>
-                    </div>
-
-                    <div class="col s1 offset-s7">
-                        <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action">REGISTER</button>
+                    <div class="col s12 m12 l12">
+                        <div id="thumbs" style='max-width:500px'></div>
                     </div>
                 </div>
-            </form>
+                <div class="col s12 m7 l7">
+                    <div style="margin:0 auto; width:600px">
+                        <h6>Please drag on the image</h6>
+                        <img src="" id="photo" style='max-width:500px' >
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <h6 class="custom-h6-login"><a class="green-text" href="<?php echo base_url('index.php/registration/step_one') ?>">Back</a> | Step 2 of 2</a></h6>
+    </form>
 </div>
-
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('select').material_select();
+function getSizes(im,obj)
+    {
+        var x_axis = obj.x1;
+        var x2_axis = obj.x2;
+        var y_axis = obj.y1;
+        var y2_axis = obj.y2;
+        var thumb_width = obj.width;
+        var thumb_height = obj.height;
+                var img =$("#image_name").val();
+        if(thumb_width > 0)
+            {
+                if(confirm("Do you want to save image..!"))
+                    {
+                        $.post('<?php echo base_url();?>welcome/updatecropimage/',
+                                                  {
+                                                   x_axis : x_axis,
+                                                   y_axis : y_axis,
+                                                   thumb_width:thumb_width,
+                                                   thumb_height:thumb_height,
+                                                   img :img
+                                                  },
+                                                  function(data)
+                          {
+                                                     // alert(data);
+                            $("#cropimage").show();
+                            //$("#thumbs").html("");
+                            $("#thumbs").html("<img src='<?php echo base_url();?>uploads/"+data+"' />");
+                          });
+
+                                   }
+                         }
+                         }
+
+$(document).ready(function () {
+    $('img#photo').imgAreaSelect({
+        aspectRatio: '1:1',
+        onSelectEnd: getSizes
     });
-</script>
-
-<script type="text/javascript">
-     $('.datepicker').pickadate({
-	    selectMonths: true, // Creates a dropdown to control month
-	    selectYears: 100 // Creates a dropdown of 15 years to control year
-  	});
+});
 </script>
