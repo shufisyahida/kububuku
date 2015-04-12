@@ -107,10 +107,12 @@
 							echo '<div id="modal-ranking'.$index.'" class="modal">
 								<div class="modal-content">
 									<h4>Give Rank</h4>
-									<p>Si X has return your book, give some rank.</p>
+									<p class="range-field">
+										<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
+									</p>
 								</div>
 								<div class="modal-footer">';
-								echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+									echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 								</div>
 							</div>';
 
