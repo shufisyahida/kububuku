@@ -43,6 +43,18 @@ class Koleksi_model extends CI_Model
 
 	}
 
+	function setStatus($username,$isbn,$isAvailable)
+	{
+		$data=array('is_available'=>$isAvailable);
+		$this->db->where('username',$username)->where('isbn',$isbn);
+		$this->db->update('koleksi',$data);
+
+		$data = array('status'=>2);
+		$this->db->where('id',$id);
+		$this->db->update('pinjaman',$data);
+
+	}
+
 
 }
 

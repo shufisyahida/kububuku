@@ -83,12 +83,16 @@
                         
         }
 
-        public function accept()
+        public function accept($id,$isbn)
         {
-            $id = $this->uri->segment(3);
+            //$id = $this->uri->segment(3);
+            $username=$this->session->userdata('username');
             
             $this->load->model('pinjaman');
             $this->pinjaman->accept($id);
+
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,0);
 
             redirect(base_url('index.php/request_in'));
             
@@ -104,12 +108,16 @@
              redirect(base_url('index.php/request_in'));
         }
 
-        public function confirmReturn()
+        public function confirmReturn($id,$isbn)
         {
-            $id = $this->uri->segment(3);
+            //$id = $this->uri->segment(3);
+            $username=$this->session->userdata('username');
             
             $this->load->model('pinjaman');
             $this->pinjaman->confirmReturn($id);
+
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,1);
 
             redirect(base_url('index.php/request_in'));
         }
