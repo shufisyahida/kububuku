@@ -68,13 +68,21 @@
             redirect(base_url('index.php/request_out'));
         }
 
-        public function returnBook($id)
+        public function returnBook()
         {
             //$id = $this->uri->segment(3);
+
+            $id = $this->input->post('idPinjaman');
+            $rank = $this->input->post('owner-rank');
+            $owner = $this->input->post('owner');
+          
             
             $this->load->model('pinjaman');
             $this->pinjaman->returnBook($id);
 
-             redirect(base_url('index.php/request_out'));
+            $this->load->model('non_admin');
+            $this->non_admin->giveRank($owner,$rank,false);
+
+            redirect(base_url('index.php/request_out'));
         }
     }
