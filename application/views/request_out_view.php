@@ -78,7 +78,7 @@
 						</div>
 
 						</td>
-						
+
 						<td>'.$durasi[$index].'</td>
 						<td>';
 
@@ -105,7 +105,7 @@
 						elseif ($status[$index]==2) 
 						{
 							
-							echo 
+							/*echo 
 							'<form method="post" action="">
 								<div id="modal-return'.$index.'" class="modal">
 									<div class="modal-content">
@@ -120,7 +120,28 @@
 										echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 									</div>
 								</div>
-							</form>';
+							</form>';*/
+
+
+							echo '<form method="post" action="'.base_url().'index.php/request_out/returnBook/">
+			            			<div id="modal-return'.$index.'" class="modal">
+										<div class="modal-content">
+											<h4>Return Book</h4>
+											<p>Book has been returned, give some rank for the owner.</p>
+												<p class="range-field">
+													<input type="range" name="owner-rank" id="owner-rank" min="1" max="5" />
+													<input type="hidden" name="idPinjaman" value="'.$idPinjaman[$index].'" />
+													<input type="hidden" name="owner" value="'.$value->username.'" />
+												</p>
+											
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
+										</div>
+									</div>
+								</form>';
+
 
 							echo '<a class="modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
 						}
