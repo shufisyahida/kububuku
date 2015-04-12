@@ -127,8 +127,9 @@
                 if($error)
                 {
                   $this->load->view('head_view');
-                  $this->load->view('foot_view');
+                  $this->load->view('navbar_view');
                   $this->load->view('edit_profile_view', $data1);
+                  $this->load->view('foot_view');
                 }
                 else
                 {

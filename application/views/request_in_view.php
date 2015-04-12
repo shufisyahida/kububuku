@@ -122,7 +122,7 @@
 						}
 						elseif ($status[$index]==3) 
 						{
-							echo '<div id="modal-ranking'.$index.'" class="modal">
+							/*echo '<div id="modal-ranking'.$index.'" class="modal">
 								<div class="modal-content">
 									<h4>Give Rank</h4>
 									<p class="range-field">
@@ -132,7 +132,32 @@
 								<div class="modal-footer">';
 									echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 								</div>
-							</div>';
+							</div>';*/
+
+							echo '<form method="post" action="'.base_url().'index.php/request_in/confirmReturn/">
+			            			<div id="modal-ranking'.$index.'" class="modal">
+										<div class="modal-content">
+											<h4>Give Rank</h4>
+											
+												<p class="range-field">
+													<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
+													<input type="hidden" name="idPinjaman" value="'.$idPinjaman[$index].'" />
+													<input type="hidden" name="borrower" value="'.$value->username.'" />
+													<input type="hidden" name="isbn" value="'.$buku[0]->isbn.'" />
+												</p>
+											
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
+										</div>
+									</div>
+								</form>';
+
+
+
+
+
 
 							echo '<a class="modal-trigger blue-text mdi-content-archive" href="#modal-ranking'.$index.'"></a>';
 						}

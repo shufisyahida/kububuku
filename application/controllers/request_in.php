@@ -108,9 +108,14 @@
              redirect(base_url('index.php/request_in'));
         }
 
-        public function confirmReturn($id,$isbn)
+        public function confirmReturn()
         {
             //$id = $this->uri->segment(3);
+            $id = $this->input->post('idPinjaman');
+            $isbn= $this->input->post('isbn');
+            $rank = $this->input->post('borrower-rank');
+            $borrower = $this->input->post('borrower');
+
             $username=$this->session->userdata('username');
             
             $this->load->model('pinjaman');
@@ -118,6 +123,9 @@
 
             $this->load->model('koleksi_model');
             $this->koleksi_model->setStatus($username,$isbn,1);
+
+            $this->load->model('non_admin');
+            $this->non_admin->giveRank($borrower,$rank,true);
 
             redirect(base_url('index.php/request_in'));
         }

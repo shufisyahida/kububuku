@@ -153,7 +153,7 @@
 			elseif($jk=='F')
 				return 'Female';
 
-			return $jk;
+		//	return $jk;
 		}
 
 		function getPicture($username)
@@ -177,20 +177,63 @@
            return $foto;
 		}
 
-		function setPhoto($username, $photo)
+
+		// function setPhoto($username, $photo)
+		// {
+		// 	$data=array('foto' => $photo);
+		// 	$this->db->where('username',$username);
+		// 	$this->db->update('non_admin',$data);
+		// }
+
+
+
+		function giveRank($username,$rank,$isBorrower)
 		{
-			$data=array('foto' => $photo);
-			$this->db->where('username',$username);
-			$this->db->update('non_admin',$data);
+			if($isBorrower)
+			{
+				$this->db->select('rank_peminjam');
+				$this->db->from('non_admin');
+				$this->db->where('username',$username);
+
+				$lama = $this->db->get()->result();
+
+				$rankLama='';
+
+	            foreach ($lama as $key => $value)
+	            {
+	                $rankLama = $value->rank_peminjam;
+	            }          
+
+	            $rankBaru = round(($rankLama+$rank)/2.00);
+
+	            $data=array('rank_peminjam'=>$rankBaru);
+	            $this->db->where('username',$username);
+	            $this->db->update('non_admin',$data);
+			}
+			else
+			{
+				$this->db->select('rank_pemilik');
+				$this->db->from('non_admin');
+				$this->db->where('username',$username);
+
+				$lama = $this->db->get()->result();
+
+				$rankLama='';
+
+	            foreach ($lama as $key => $value)
+	            {
+	                $rankLama = $value->rank_pemilik;
+	            } 
+
+	            $rankBaru = round(($rankLama+$rank)/2.00);
+
+	            $data=array('rank_pemilik'=>$rankBaru);
+	            $this->db->where('username',$username);
+	            $this->db->update('non_admin',$data);
+			}
+
 		}
 
 	}
-
-
-	
-
-
-
-
 
 ?>
