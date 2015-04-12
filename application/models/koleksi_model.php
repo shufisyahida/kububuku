@@ -8,7 +8,7 @@ class Koleksi_model extends CI_Model
 		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
   		 $this->db->from('buku');
   		 $this->db->join('koleksi', 'koleksi.isbn = buku.isbn');
-  		 $this->db->where('username',$username)->where('is_available','0');
+  		 $this->db->where('username',$username)->where('is_available','1');
   		 $query = $this->db->get();
   		 return $resultAvailable = $query->result();
 	}
@@ -19,7 +19,7 @@ class Koleksi_model extends CI_Model
 		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
   		 $this->db->from('buku');
   		 $this->db->join('koleksi', 'koleksi.isbn = buku.isbn');
-  		 $this->db->where('username',$username)->where('is_available','1');
+  		 $this->db->where('username',$username)->where('is_available','0');
   		 $query = $this->db->get();
   		 return $resultBorrowed = $query->result();
 	}
@@ -40,6 +40,18 @@ class Koleksi_model extends CI_Model
 		$this->db->set('is_available',true);
 
 		$this->db->insert('koleksi');
+
+	}
+
+	function setStatus($username,$isbn,$isAvailable)
+	{
+		$data=array('is_available'=>$isAvailable);
+		$this->db->where('username',$username)->where('isbn',$isbn);
+		$this->db->update('koleksi',$data);
+
+		$data = array('status'=>2);
+		$this->db->where('id',$id);
+		$this->db->update('pinjaman',$data);
 
 	}
 

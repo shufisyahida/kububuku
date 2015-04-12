@@ -133,8 +133,8 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div name="line" class="input-field col s12">
-                    <input value="<?php echo $line_id;?>" id="" type="text" class="validate" maxlength="30">
+                  <div class="input-field col s12">
+                    <input name="line" value="<?php echo $line_id;?>" id="" type="text" class="validate" maxlength="30">
                     <label>Line ID</label>
                   </div>
                 </div>

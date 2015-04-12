@@ -8,7 +8,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+           <?php $username = $this->session->userdata('username');?>
+          <li><a href="<?php echo base_url()."index.php/koleksi/add/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -16,10 +17,9 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
-  <?php $username = $this->session->userdata('username');?>
+ 
 
 <div class="container custom-table">
-
   <div class="row">
     <?php foreach($resultBook as $key=>$value)
     {
@@ -29,8 +29,6 @@
         <div class="col s12 m12 l12">
          <div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$value->sampul.'>
-           
-            <a href="'.base_url()."index.php/koleksi/add/".$value->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
           </div>
         </div>
       </div>
@@ -63,15 +61,16 @@
         <div class="card">
           <div class="container custom-container-a">          
           <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
-            <img class="avatar-property circle" src="'.$value->foto.'"> 
+            <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
           </a>
           </div>
-
+          <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
           <div class="green-text name-property">'.$value->nama.'</div>
+          </a>
           <div class="divider"></div>       
           <div class="custom-container-b">
             <ul>
-              <li><i class="green-text tiny mdi-maps-beenhere"></i>' 
+              <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>' 
                 .$value->fakultas.                                    
               '</li>
               <li><i class="green-text tiny mdi-social-person-outline"></i>' 

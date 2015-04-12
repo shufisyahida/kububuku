@@ -1,3 +1,4 @@
+
 <div class="container">
 
     
@@ -107,14 +108,21 @@
         </div>
         <div>
             <div class="card-panel z-depth-1">
-                <div class="col s12 m12 l12 container custom-container-a center-align">
-                    <img class="upload-avatar-property circle" src="<?php echo base_url('assets/img/fallon.jpg')?>">
-                </div>
-                <div class="input-field col s5 offset-s1">
-                        <!-- <i class="mdi-action-face-unlock prefix"></i> -->
-                        <input id="pic" name="pic" type="url" value="<?php echo $foto;?>">
-                        <label for="pic">Photo URL</label>
+                <div class="row">
+                    <div class="col s12 m5 l5">
+                        <div class="col s12 m12 l12">
+                            <h5>Upload Your Profile Picture</h5>
+                            <input type="file" name="userfile" name="userfile"><br><br>
+                            <input type="submit" value="Submit" class="action-button shadow animate red"/>
+                        </div>
+                        <div class="col s12 m12 l12">
+
+                        </div>
                     </div>
+                    <div class="col s12 m7 l7">
+
+                    </div>
+                </div>
             </div>
         </div>
         <div>
@@ -166,7 +174,6 @@
             </div>
         </div>
     </form>
-    <!-- <h6 class="custom-h6-login">Step 1 of 2</a></h6> -->
 </div>
 
 <script type="text/javascript">
@@ -180,4 +187,45 @@
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100 // Creates a dropdown of 15 years to control year
     });
+</script>
+<script type="text/javascript">
+function getSizes(im,obj)
+    {
+        var x_axis = obj.x1;
+        var x2_axis = obj.x2;
+        var y_axis = obj.y1;
+        var y2_axis = obj.y2;
+        var thumb_width = obj.width;
+        var thumb_height = obj.height;
+                var img =$("#image_name").val();
+        if(thumb_width > 0)
+            {
+                if(confirm("Do you want to save image..!"))
+                    {
+                        $.post('<?php echo base_url();?>welcome/updatecropimage/',
+                                                  {
+                                                   x_axis : x_axis,
+                                                   y_axis : y_axis,
+                                                   thumb_width:thumb_width,
+                                                   thumb_height:thumb_height,
+                                                   img :img
+                                                  },
+                                                  function(data)
+                          {
+                                                     // alert(data);
+                            $("#cropimage").show();
+                            //$("#thumbs").html("");
+                            $("#thumbs").html("<img src='<?php echo base_url();?>uploads/"+data+"' />");
+                          });
+
+                                   }
+                         }
+                         }
+
+$(document).ready(function () {
+    $('img#photo').imgAreaSelect({
+        aspectRatio: '1:1',
+        onSelectEnd: getSizes
+    });
+});
 </script>

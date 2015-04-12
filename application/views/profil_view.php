@@ -98,7 +98,13 @@
 		</div>
 		<div class="col s12 m6 l9">
 			<div class="row">
-				<h5>My Collection</h5>
+				<?php
+        			if($user->username == $this->session->userdata('username'))
+        				echo '<h5>My Collections</h5>';
+        			else
+        				echo '<h5>'.$user->nama.'\'s Collections</h5>';
+        	
+        			?>	
 				<h6>Available</h6>	
 			</div>
 			<div class="row">
@@ -119,31 +125,33 @@
 								              	<a href="'.base_url('index.php/book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
+								            	 <a href = "'.base_url()."index.php/book/book_info/".$value->isbn.'">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	</a>
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
 								            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
 								            			<div id="modal-duration'.$index.'" class="modal">
-														<div class="modal-content">
-															<h4>Set Duration (Days)</h4>
-															
-																<p class="range-field">
-																	<input type="range" name="duration" id="duration" min="1" max="100" />
-																	<input type="hidden" name="username" value="'.$user->username.'" />
-																	<input type="hidden" name="isbn" value="'.$value->isbn.'" />
-																</p>
-															
-														</div>
-														<div class="modal-footer">
-															<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+															<div class="modal-content">
+																<h4>Set Duration (Days)</h4>
+																
+																	<p class="range-field">
+																		<input type="range" name="duration" id="duration" min="1" max="100" />
+																		<input type="hidden" name="username" value="'.$user->username.'" />
+																		<input type="hidden" name="isbn" value="'.$value->isbn.'" />
+																	</p>
+																
+															</div>
+															<div class="modal-footer">
+																<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
 
-															<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+																<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
 
-															<button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button>
+																<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button></a>
+															</div>
 														</div>
-													</div>
 													</form>';
 
 													echo '<div class="row row-custom-a">
@@ -166,8 +174,8 @@
 					else
 					{
 						echo '<div class="col s12 m12 l12">
-									<p>No Collection Available</p>
-								</div>';
+									<p>No Collections Available</p>
+							</div>';
 					}
 				?>
 			</div>
@@ -199,8 +207,8 @@
 							    </div>';
 						}
 					} else {
-						echo '<div class="col s12 m3 l3">
-								<p>No Collection Borrowed</p>
+						echo '<div class="col s12 m12 l12">
+								<p>No Collections Borrowed</p>
 							</div>';
 					}
 				?>

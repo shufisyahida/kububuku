@@ -17,10 +17,10 @@
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
               <div class="row">
-                <div class="col m4 l4">
+                <div class="col s5 offset-s1 m4 l4 center">
                   <img class="img-icon circle responsive-img" src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>">
                 </div>
-                <div class="col m8 l8">
+                <div class="col s5 offset-s1 m8 l8 center">
                   <?php echo $this->session->userdata('username');?>
                 </div>
               </div>

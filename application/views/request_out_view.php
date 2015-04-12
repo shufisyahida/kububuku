@@ -22,7 +22,6 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-	<h4>request out here</h4>
 	<div class="card-panel z-depth-1">
 		<table class="bordered hoverable responsive-table">
 	        <thead>
@@ -88,15 +87,22 @@
 						elseif ($status[$index]==2) 
 						{
 							
-							echo '<div id="modal-return'.$index.'" class="modal">
-								<div class="modal-content">
-									<h4>Return Book</h4>
-									<p>The book has been returned to Si Y, give some rank.</p>
+							echo 
+							'<form method="post" action="">
+								<div id="modal-return'.$index.'" class="modal">
+									<div class="modal-content">
+										<h4>Return Book</h4>
+										<p>Book has been returned, give some rank for the owner.</p>
+										<p class="range-field">
+											<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
+										</p>
+									</div>
+									<div class="modal-footer">
+										<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
+										echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+									</div>
 								</div>
-								<div class="modal-footer">';
-								echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
-								</div>
-							</div>';
+							</form>';
 
 							echo '<a class="modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
 						}

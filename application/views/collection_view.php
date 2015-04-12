@@ -25,18 +25,25 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
-		<?php foreach($resultBorrowed as $post){ ?>
+		<?php 
+		if(!empty($resultBorrowed))
+		{
+		foreach($resultBorrowed as $post){ ?>
 			<div class="col s12 m12 l6">
 		    	<div class="card-panel card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
-		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">
+
+		                		<span class="card-title black-text">'.$post->judul.'</span><br>
+		                		</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
@@ -58,7 +65,13 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Borrowed</h5>';
+		}
+		?>  
   		</div>
 		<!-- </div> -->
 	</div>
@@ -68,10 +81,13 @@
 	<div class="container custom-table2">
 		<h4>Available</h4>
 	  	<div class="row">
-	  	<?php foreach($resultAvailable as $post){?>
+	  	<?php 
+	  	if(!empty($resultAvailable))
+	  	{
+	  	foreach($resultAvailable as $post){?>
 			<div class="col s12 m12 l6">
-		    	<div class="card-panel">
-		        	<div class="row">
+		    	<div class="card  card-book">
+		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
 		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class=" card-image" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
@@ -79,7 +95,10 @@
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">';?>
 		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
@@ -102,7 +121,14 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Available</h5>';
+		}
+
+		?>  
 	  	</div>
   	</div>
 
