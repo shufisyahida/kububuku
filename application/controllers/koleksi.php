@@ -48,7 +48,7 @@ class Koleksi extends CI_Controller {
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->addKoleksi($non_admin,$buku);
-			redirect(base_url('index.php/book/book_info/'.$buku));		
+			redirect(base_url('index.php/Dashboard/collection'));		
 	
 		}
 		else
