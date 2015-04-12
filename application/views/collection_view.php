@@ -44,7 +44,6 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger" href="#modal-remove"><i class="red-text mdi-content-clear"></i></a>
 		                		<?php echo 
 								'<div id="modal-remove" class="modal">
 									<div class="modal-content">

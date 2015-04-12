@@ -37,7 +37,7 @@ class Pinjaman extends CI_Model
 		$data = array('status'=>2);
 		$this->db->where('id',$id);
 		$this->db->update('pinjaman',$data);
-		echo 'wah';
+		
 	}
 
 	function decline($id)

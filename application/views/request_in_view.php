@@ -77,7 +77,7 @@
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
 					
-									<a href="'.base_url()."index.php/request_in/accept/".$idPinjaman[$index].'"
+									<a href="'.base_url()."index.php/request_in/accept/".$idPinjaman[$index]."/".$buku[0]->isbn.'"
 		 								class="waves-effect waves-green btn-flat modal-action">Accept</a>
 								</div>
 							</div>';
@@ -111,9 +111,8 @@
 										<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
 									</p>
 								</div>
-								<div class="modal-footer">
-								<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
-								echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+								<div class="modal-footer">';
+									echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 								</div>
 							</div>';
 
