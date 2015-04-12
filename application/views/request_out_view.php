@@ -56,8 +56,8 @@
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
-								<span>'.$value->nama.'</span><br>
-								<span>'.$value->username.'</span>
+								<span><strong>'.$value->nama.'</strong></span><br>
+								<span style="font-size: 0.8em">'.$value->username.'</span>
 							</div>
 						</div>
 						</td>
@@ -69,7 +69,7 @@
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm"></a>';
+							echo '<a class="yellow-text text-darken-1 mdi-action-alarm"></a>';
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
