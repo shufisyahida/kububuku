@@ -53,12 +53,12 @@
             <?php }?>
             <div class="col s12 m5 l4">
               <div align="right">
-                <h5>Book Owner</h5>
+                <h6>Book Owner</h6>
                 <div class="row">
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
-                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
+                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" >
                       <img class="responsive-img circle" img src='.$row->foto.'>
                     </a>
                   </div>' ?>

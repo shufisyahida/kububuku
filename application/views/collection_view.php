@@ -34,12 +34,16 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
-		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">
+
+		                		<span class="card-title black-text">'.$post->judul.'</span><br>
+		                		</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
@@ -91,7 +95,10 @@
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">';?>
 		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
