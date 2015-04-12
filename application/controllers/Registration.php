@@ -5,7 +5,7 @@
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";
-          $data = array(
+            $data = array(
                        'username' => '',
                        'password' => '',
                        'nama' => '',
@@ -35,7 +35,7 @@
                        'statusErr' => '',
                        'birthdayErr' => ''
                     );
-        	$this->load->view('head_view');
+            $this->load->view('head_view');
             $this->load->view('registration_one_view', $data);
             $this->load->view('foot_view');
         }
@@ -231,6 +231,5 @@
         //       redirect(base_url('index.php/login'));
 
         //   }
-        }
     }
 ?>
