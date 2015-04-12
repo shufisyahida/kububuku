@@ -27,7 +27,7 @@
 		<div class="row">
 		<?php foreach($resultBorrowed as $post){ ?>
 			<div class="col s12 m12 l6">
-		    	<div class="card card-book">
+		    	<div class="card-panel card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
@@ -41,7 +41,6 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger" href="#modal-remove"><i class="red-text mdi-content-clear"></i></a>
 		                		<?php echo 
 								'<div id="modal-remove" class="modal">
 									<div class="modal-content">
@@ -71,11 +70,11 @@
 	  	<div class="row">
 	  	<?php foreach($resultAvailable as $post){?>
 			<div class="col s12 m12 l6">
-		    	<div class="card">
-		        	<div class="row row-custom-a">
+		    	<div class="card-panel">
+		        	<div class="row">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class=" card-image" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
@@ -85,7 +84,7 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger" href="#modal-remove2"><i class="red-text mdi-content-clear"></i></a>
+		                		<a align="right" class="modal-trigger action-content" href="#modal-remove2"><i class="red-text mdi-content-clear"></i></a>
 		                		<?php echo 
 								'<div id="modal-remove2" class="modal">
 									<div class="modal-content">
