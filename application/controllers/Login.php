@@ -24,16 +24,15 @@
 
         public function login_failed()
         {
+          $data['notif'] = '
+                            <div id="cp-login" class="error">
+                              <span>Login failed. Try again!</span>
+                            </div>
+                            ';
           $this->load->view('head_view');
-          $this->load->view('login_view');
+          $this->load->view('login_view', $data);
           $this->load->view('foot_view');
-          echo '
-            <div class="container">
-              <div id="cp-login" class="card-panel red white-text">
-                Login failed. Try again!
-              </div>
-            </div>
-          ';
+          
           // echo '
           //   <span class="badge badge-property">Login failed. Try again!</span>
           // ';

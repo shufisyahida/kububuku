@@ -86,7 +86,7 @@
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm"></a>';
+							echo '<a class="yellow-text text-darken-1 mdi-action-alarm"></a>';
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
