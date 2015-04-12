@@ -8,7 +8,8 @@
            
            if($loggedin)
            {
-           		redirect(base_url('index.php/Dashboard'));
+           		// redirect(base_url('index.php/Dashboard'));
+              redirect(base_url('index.php/Request_in'));
            }
            else
            {

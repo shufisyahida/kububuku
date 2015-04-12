@@ -22,7 +22,6 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-	<h4>request out here</h4>
 	<div class="card-panel z-depth-1">
 		<table class="bordered hoverable responsive-table">
 	        <thead>
@@ -30,6 +29,7 @@
 					<th data-field="id">No.</th>
 					<th data-field="name">Borrower</th>
 					<th data-field="book">Book</th>
+					<th data-field="duration">Duration (Days)</th>
 					<th data-field="action">Action</th>
 				</tr>
 	        </thead>
@@ -61,18 +61,19 @@
 						</div>
 						</td>
 						<td>'.$buku[0]->judul.'</td>
+						<td>'.$durasi[$index].'</td>
 						<td>';
 
 						
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							echo '<a class="modal-trigger black-text mdi-image-timer"></a>';
+							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm"></a>';
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
 									<h4>Cancel Request?</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+									<p></p>
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
@@ -86,21 +87,28 @@
 						elseif ($status[$index]==2) 
 						{
 							
-							echo '<div id="modal-return'.$index.'" class="modal">
-								<div class="modal-content">
-									<h4>Return Book</h4>
-									<p>The book has been returned to Si Y, give some rank.</p>
+							echo 
+							'<form method="post" action="">
+								<div id="modal-return'.$index.'" class="modal">
+									<div class="modal-content">
+										<h4>Return Book</h4>
+										<p>Book has been returned, give some rank for the owner.</p>
+										<p class="range-field">
+											<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
+										</p>
+									</div>
+									<div class="modal-footer">
+										<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
+										echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+									</div>
 								</div>
-								<div class="modal-footer">';
-								echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
-								</div>
-							</div>';
+							</form>';
 
-							echo '<a class="modal-trigger green-text mdi-action-done-all" href="#modal-return'.$index.'"></a>';
+							echo '<a class="modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
-							#gambar icon baru	
+							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm-on"></a>';
 						}
 							
 						
@@ -141,7 +149,7 @@
 								</div>
 							</div>';
 
-						echo '<a class="modal-trigger blue-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
+						echo '<a class="modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
 						</td>
 						</tr>';
 

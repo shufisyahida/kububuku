@@ -25,9 +25,16 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
+<<<<<<< HEAD
 
 		<?php foreach($resultBorrowed as $post){ ?>
 			
+=======
+		<?php 
+		if(!empty($resultBorrowed))
+		{
+		foreach($resultBorrowed as $post){ ?>
+>>>>>>> de34ac2c537e14f77a3d201690716aa1fabafbd9
 			<div class="col s12 m12 l6">
 		    	<div class="card card-book">
 		        	<div class="row row-custom-a">
@@ -43,7 +50,6 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger" href="#modal-remove"><i class="red-text mdi-content-clear"></i></a>
 		                		<?php echo 
 								'<div id="modal-remove" class="modal">
 									<div class="modal-content">
@@ -61,7 +67,13 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Borrowed</h5>';
+		}
+		?>  
   		</div>
 		<!-- </div> -->
 	</div>
@@ -71,9 +83,12 @@
 	<div class="container custom-table2">
 		<h4>Available</h4>
 	  	<div class="row">
-	  	<?php foreach($resultAvailable as $post){?>
+	  	<?php 
+	  	if(!empty($resultAvailable))
+	  	{
+	  	foreach($resultAvailable as $post){?>
 			<div class="col s12 m12 l6">
-		    	<div class="card">
+		    	<div class="card  card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
@@ -105,7 +120,14 @@
 		        	</div>
 		      	</div>
 		    </div>
-		<?php }?>  
+		<?php }
+		}
+		else
+		{
+			echo'<h5>No Collections Available</h5>';
+		}
+
+		?>  
 	  	</div>
   	</div>
 

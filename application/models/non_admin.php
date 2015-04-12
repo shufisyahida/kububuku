@@ -38,36 +38,34 @@
 				return false;
 		}
 
-		function sudahAda($email,$username)
+		function emailSudahAda($email)
+		{
+			$this->db->select('*');
+			$this->db->from('non_admin');
+			$this->db->where('email',$email);		
+			$query= $this->db->get()->result();
+
+			if(sizeof($query)!=0) {				
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		function usernameSudahAda($username)
 		{
 			$this->db->select('*');
 			$this->db->from('non_admin');
 			$this->db->where('username',$username);		
 			$query= $this->db->get()->result();
 
-			if(sizeof($query)!=0)
-			{
+			if(sizeof($query)!=0) {				
 				return true;
 			}
-			else
-			{
-				$this->db->select('*');
-				$this->db->from('non_admin');
-				$this->db->where('email',$email);		
-				$query= $this->db->get()->result();
-				if(sizeof($query)!=0)
-				{
-					//echo sizeof($query);
-					return true;
-				}
-				else
-				{
-					//echo sizeof($query);
-					return false;
-				}
+			else {
+				return false;
 			}
-
-
 		}
 
 		function getUsername($email)

@@ -39,16 +39,16 @@ class Koleksi extends CI_Controller {
 
 	}
 
-	public function add()
+	public function add($buku, $non_admin)
 	{
 		if(isset($_POST))
 		{
-			$non_admin = $this->input->post('$non_admin');
-			$buku = $this->input->post('buku');	
+			//$non_admin = $this->input->post('$non_admin');
+			//$buku = $this->input->post('buku');	
 
 			$this->load->model('koleksi_model');
 			$this->koleksi_model->addKoleksi($non_admin,$buku);
-			redirect(base_url('index.php/Dashboard'));		
+			redirect(base_url('index.php/Dashboard/collection'));		
 	
 		}
 		else
@@ -61,14 +61,19 @@ class Koleksi extends CI_Controller {
 			
 	}
 
-	public function pinjam($pemilik, $isbn)
+	public function pinjam()
 	{
+		// var_dump($this->input->post('username'));
 		$peminjam = $this->session->userdata('username');
+		$pemilik = $this->input->post('username');
+		$isbn_buku = $this->input->post('isbn');
+		$durasi_pinjam = $this->input->post('duration');
 		$data = array('username_peminjam'=>$peminjam,
-		'username_pemilik'=>$pemilik,
-		'isbn'=>$isbn,
+		'username_pemilik'=> $pemilik,
+		'isbn'=>$isbn_buku,
 		'status'=>1,
-		'durasi'=>5,
+		// 'durasi'=>5,
+		'durasi'=>$durasi_pinjam,
 		'pesan' => NULL,
 		'is_notified' => false
 		);	
@@ -79,11 +84,20 @@ class Koleksi extends CI_Controller {
 		if(!$success)
 		{
 			//tampilkan notifikasi gagal
+			// <div class="container">
+			// 		<div id="cp-login" class="card-panel red white-text">
+			// 			Already requested.
+			// 		</div>
+			// 	</div>
+			redirect('index.php/Profile/profile/'.$pemilik);
 		}	
 		else
 		{
 			//tampilkan notifikasi sukses
 			redirect('index.php/Profile/profile/'.$pemilik);
+			// echo '
+			// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
+			// ';
 		}	
 
 		

@@ -11,16 +11,16 @@
 
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="<?php echo base_url('index.php/dashboard/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('index.php/request_in/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
         <ul class="right hide-on-med-and-down">
           <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search books or user" href="<?php echo base_url('index.php/search/homeBuku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
           <li><a href="#"><i class="lime-text text-lighten-5 mdi-social-notifications"></i></a></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
               <div class="row">
-                <div class="col m4 l4">
+                <div class="col s5 offset-s1 m4 l4 center">
                   <img class="img-icon circle responsive-img" src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>">
                 </div>
-                <div class="col m8 l8">
+                <div class="col s5 offset-s1 m8 l8 center">
                   <?php echo $this->session->userdata('username');?>
                 </div>
               </div>
