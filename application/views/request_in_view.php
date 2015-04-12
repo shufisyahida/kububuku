@@ -52,16 +52,34 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" target="_blank">
+						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
+							<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
+							</a>
 								<span>'.$value->username.'</span>
 							</div>
 						</div>
 						</td>
-						<td>'.$buku[0]->judul.'</td>
+
+						<td>
+
+						<div class="borrower">
+						<a href = "'.base_url()."index.php/Book/book_info/".$buku[0]->isbn.'" >
+							<img class="img-icon-borrower circle responsive-img" src="'.$buku[0]->sampul.'">
+						</a>
+							<div class="custom-borrower">
+						<a href = "'.base_url()."index.php/Book/book_info/".$buku[0]->isbn.'" >
+								<span>'.$buku[0]->judul.'</span><br>
+						</a>
+								<span>'.$buku[0]->pengarang.'</span>
+							</div>
+						</div>
+
+						</td>
+
 						<td>'.$durasi[$index].'</td>
 						<td>';
 
