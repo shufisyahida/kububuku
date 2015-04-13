@@ -82,11 +82,13 @@
                               <option value="13" <?php if($fakultas == "13") echo "selected"; ?>>Faculty of Pharmacy</option>
                               <option value="50" <?php if($fakultas == "50") echo "selected"; ?>>Vocational Program</option>
                               <option value="51" <?php if($fakultas == "51") echo "selected"; ?>>Postgraduate Program</option>
+                              <option value="51" <?php if($fakultas == "52") echo "selected"; ?>>Non Faculty</option>
                         </select>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $facultyErr;?></span>
                     </div>
+
                     <div class="col s12 m6 l8">
                         <label for="status">Status</label>
                         <select id="status" name="status" type="text" class="validate" value="<?php echo $status;?>">
@@ -94,14 +96,23 @@
                             <option value="1" <?php if($status == "1") echo "selected"; ?>>Student</option>
                             <option value="2" <?php if($status == "2") echo "selected"; ?>>Lecturer</option>
                             <option value="3" <?php if($status == "3") echo "selected"; ?>>Staff</option>
+                            <option value="4" <?php if($status == "4") echo "selected"; ?>>Alumnus</option>
                         </select>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $statusErr;?></span>
                     </div>
-                    <div class="input-field col s12 m6 l8">
-                        <input id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
-                        <label for="domisili">Location</label>
+                    <div class="col s12 m6 l8">
+                        <label for="domisili">Domicile</label>
+                        <select id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
+                            <option value="">Select your domicile</option>
+                            <option value="Jakarta" <?php if($domisili == "Jakarta") echo "selected"; ?>>Jakarta</option>
+                            <option value="Bogor" <?php if($domisili == "Bogor") echo "selected"; ?>>Bogor</option>
+                            <option value="Depok" <?php if($domisili == "Depok") echo "selected"; ?>>Depok</option>
+                            <option value="Tangerang" <?php if($domisili == "Tangerang") echo "selected"; ?>>Tangerang</option>
+                            <option value="Bekasi" <?php if($domisili == "Bekasi") echo "selected"; ?>>Bekasi</option>
+                            <option value="Other" <?php if($domisili == "Other") echo "selected"; ?>>Other</option>
+                        </select>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $domisiliErr;?></span>
@@ -117,7 +128,7 @@
 
                             <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>" maxlength="40"> 
                             <label for="facebook"><i class="fa fa-facebook-official fa-lg green-text"></i>   Facebook Name</label>
-                        </div>
+                        </div>  
 
                         <div class="input-field">
                             <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>" maxlength="30">
@@ -149,6 +160,9 @@
                             <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
                             <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
                         </div> 
+                         <div class="col m6 l4">
+                            <span class="error"><?php echo $mailErr;?></span>
+                        </div>
                         
                         <div class="col right">
                             <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">CONTINUE</button>
@@ -165,9 +179,9 @@
         $('select').material_select();
     });
 
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 100 // Creates a dropdown of 15 years to control year
-    });
+    // $('.datepicker').pickadate({
+    //     selectMonths: true, // Creates a dropdown to control month
+    //     selectYears: 100 // Creates a dropdown of 15 years to control year
+    // });
 </script>
 

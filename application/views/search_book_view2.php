@@ -67,9 +67,9 @@
     <div class="col s12 m8 l9">
       <div class="col s12 m12 l6">
         <?php if($notFound!=null){?>
-        <span><?php echo $notFound ?></span>
+        <span><?php echo $notFound ?>.</span>
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
-        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add Book?</a>
+        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
           <?php } ?>
       </div>
       <?php if($resultSearchBuku!=null){?>
@@ -86,7 +86,8 @@
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
               <div class="row row-custom-a">
-                <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+                <a href="<?php $username = $this->session->userdata('username');
+          echo base_url().'index.php/koleksi/add/'.$post->isbn.'/'.$username?>" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
               </div>
             </div>
           </div>
