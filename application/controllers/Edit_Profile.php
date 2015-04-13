@@ -24,7 +24,8 @@
             $data->facultyErr='';
             $data->genderErr='';
             $data->statusErr='';
-            $data->birthdayErr='';       
+            $data->birthdayErr='';
+            $data->mailErr='';       
 
 
         	 $this->load->view('head_view');
@@ -103,7 +104,8 @@
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
-                       'birthdayErr' => ''
+                       'birthdayErr' => '',
+                       'mailErr' => ''
                        );
 
                 
@@ -137,6 +139,11 @@
                 if($birthday == '')
                 {
                   $data1['birthdayErr'] = "Birthday should not blank";
+                  $error = true;
+                }
+                if($mail == '')
+                {
+                  $data1['mailErr'] = "Mail should not blank";
                   $error = true;
                 }
 

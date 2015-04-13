@@ -42,8 +42,11 @@
             'sampul' => '',
             'isbnErr' => '',
             'judulErr' => '',
+            'pengarangErr' => '',
+            'genreErr' => ''
         );
         $this->load->view('head_view');
+        $this->load->view('navbar_view');
         $this->load->view('add_book_view', $data);
         $this->load->view('foot_view');
     }
@@ -62,10 +65,7 @@
             $jumlah_halaman = $this->input->post('jumlah_halaman');
             $sampul = $this->input->post('sampul');
 
-            if($sampul == '')
-            {
-                $sampul = 'http://miamioh.edu/cas/_files/images/gramelac/rich-text-images/faculty-staff-book-covers/blank-book-cover.png';
-            }
+            
             
 
             $data = array(
@@ -80,6 +80,8 @@
                 'sampul' => $sampul,
                 'isbnErr' => '',
                 'judulErr' => '',
+                'pengarangErr' => '',
+                'genreErr' => ''
             );
 
             $error = false;
@@ -87,28 +89,43 @@
             $isbnSudahAda = $this->buku->isbnSudahAda($isbn);
             if ($isbnSudahAda) 
             {
-              $data['isbnErr'] = "Book already in use";
+              $data['isbnErr'] = "Book is already in use";
               $error = true;
             }
             if($isbn == '')
             {
-              $data['isbnErr'] = "ISBN should not blank";
+              $data['isbnErr'] = "ISBN should not be blank";
               $error = true;
             }
             if($judul == '')
             {
-              $data['judulErr'] = "Judul should not blank";
+              $data['judulErr'] = "Title should not be blank";
               $error = true;
             }
-            
+            if($pengarang == '')
+            {
+              $data['pengarangErr'] = "Author should not be blank";
+              $error = true;
+            }
+            if($genre == '')
+            {
+              $data['genreErr'] = "Genre should not be blank";
+              $error = true;
+            }
+
             if($error)
             {
               $this->load->view('head_view');
-              $this->load->view('foot_view');
+              $this->load->view('navbar_view');
               $this->load->view('add_book_view', $data);
+              $this->load->view('foot_view');
             }
             else
             {
+                if($sampul == '')
+                {
+                    $sampul = base_url('assets/img/default-cover.jpg');
+                }
                $data = array(
                     'isbn' => $isbn,
                     'judul' => $judul,
@@ -123,8 +140,11 @@
                 $this->load->model('buku');
                 $this->buku->addBook($data);
 
-                redirect(base_url('index.php/Book/book_info/'.$isbn));
+                $username = $this->session->userdata('username');
 
+                $this->load->model('koleksi_model');
+                $this->koleksi_model->addKoleksi($username, $isbn);
+                redirect(base_url('index.php/Dashboard/collection'));
             }       
         }
         else

@@ -48,11 +48,12 @@
              <location>
               <select id="location" name="location" type="text" class="validate">
                     <option value="" disabled selected>Choose Location</option>
-                    <option value="jakarta">Jakarta</option>
-                    <option value="bogor">Bogor</option>
-                     <option value="depok">Depok</option>
-                    <option value="tangerang">Tangerang</option>
-                    <option value="bekasi">Bekasi</option>
+                    <option value="1">Jakarta</option>
+                    <option value="2">Bogor</option>
+                     <option value="3">Depok</option>
+                    <option value="4">Tangerang</option>
+                    <option value="5">Bekasi</option>
+                    <option value="6">Other</option>
                 </select>
               </location>
               <status>
@@ -61,6 +62,7 @@
                     <option value="1">Student</option>
                     <option value="2">Lecturer</option>
                      <option value="3">Staff</option>
+                     <option value="4">Alumnus</option>
                 </select>
               </status>
               <faculty>
@@ -107,7 +109,7 @@
 
      if(this.value=='nama')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("location").hide();
             $("status").hide();
             $("faculty").hide();

@@ -1,8 +1,8 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>" class="active" href="">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>"class="active">Edit Profile Picture</a></li>
         </ul>
       </div>
 

@@ -12,6 +12,19 @@
     <?php echo form_open_multipart('index.php/Registration/cropimage');?>
         <div class="card-panel z-depth-1">
             <div class="row">
+
+                <!-- <div class="col s12 m5 l5">
+                    <div class="col s12 m12 l12">
+                        <h5>Upload Your Profile Picture</h5>
+                        <input type="file" name="userfile" name="userfile"><br><br>
+                        <input type="submit" value="Submit" class="btn green z-depth-1"/>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div id="thumbs" style='max-width:500px'></div>
+                    </div>
+                </div> -->
+
+                <div class="col s12 m7 l7">
                 <div id="cropimage" class="col s12 m5 l5 cropimage">
                     <table width="958">
  
@@ -26,10 +39,10 @@
                         <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
                       </tr>
                      </table>
-                    <div style="margin:0 auto; width:600px">
-                       <!-- <h3>Please drag on the image</h3>-->
-                        <img src='<?php echo base_url();?>uploads/<?php echo $img; ?>' id="photo" style='max-width:500px' >
 
+                    <div style="margin:0 auto; width:600px">
+                        <h6>Please drag on the image</h6>
+                        <img src="<?php echo base_url();?>uploads/<?php echo $img; ?>" id="photo" style='max-width:500px' >
                     </div>
                 </div>
             </div>

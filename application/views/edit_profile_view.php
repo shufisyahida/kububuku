@@ -67,8 +67,9 @@
                     <option value="11" <?php if($fakultas == "11") echo "selected"; ?>>Faculty of Computer Science</option>
                     <option value="12" <?php if($fakultas == "12") echo "selected"; ?>>Faculty of Nursing</option>
                     <option value="13" <?php if($fakultas == "13") echo "selected"; ?>>Faculty of Pharmacy</option>
-                    <option value="14" <?php if($fakultas == "14") echo "selected"; ?>>Vocational Program</option>
-                    <option value="15" <?php if($fakultas == "15") echo "selected"; ?>>Postgraduate Program</option>
+                    <option value="50" <?php if($fakultas == "50") echo "selected"; ?>>Vocational Program</option>
+                    <option value="51" <?php if($fakultas == "51") echo "selected"; ?>>Postgraduate Program</option>
+                    <option value="52" <?php if($fakultas == "52") echo "selected"; ?>>Non Faculty</option>
               </select>
             </div>
             <div class="col s12 m6 l4">
@@ -81,14 +82,23 @@
                 <option value="1" <?php if($status == "1") echo "selected"; ?>>Student</option>
                 <option value="2" <?php if($status == "2") echo "selected"; ?>>Lecturer</option>
                 <option value="3" <?php if($status == "3") echo "selected"; ?>>Staff</option>
+                <option value="4" <?php if($status == "4") echo "selected"; ?>>Alumnus</option>
               </select>
             </div>
             <div class="col s12 m6 l4">
               <span class="error"><?php echo $statusErr;?></span>
             </div>
             <div class="input-field col s12 m6 l8">
-              <input name="domisili" value="<?php echo $domisili;?>" id="" type="text" class="validate" maxlength="100">
-              <label>Location</label>
+              <label for="domisili">Domicile</label>
+                  <select id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
+                      <option value="">Select your domicile</option>
+                      <option value="Jakarta" <?php if($domisili == "Jakarta") echo "selected"; ?>>Jakarta</option>
+                      <option value="Bogor" <?php if($domisili == "Bogor") echo "selected"; ?>>Bogor</option>
+                      <option value="Depok" <?php if($domisili == "Depok") echo "selected"; ?>>Depok</option>
+                      <option value="Tangerang" <?php if($domisili == "Tangerang") echo "selected"; ?>>Tangerang</option>
+                      <option value="Bekasi" <?php if($domisili == "Bekasi") echo "selected"; ?>>Bekasi</option>
+                      <option value="Other" <?php if($domisili == "Other") echo "selected"; ?>>Other</option>
+                  </select>
             </div>
             <div class="col s12 m6 l4">
               <span class="error"><?php echo $domisiliErr;?></span>
@@ -136,6 +146,9 @@
                     <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
                     <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
                 </div> 
+                <div class="col s12 m6 l4">
+              <span class="error"><?php echo $mailErr;?></span>
+            </div>
             </div>
         </div>
         </div> 
@@ -149,5 +162,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();
+    });
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100 // Creates a dropdown of 15 years to control year
     });
 </script>
