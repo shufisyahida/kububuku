@@ -18,6 +18,16 @@
                
        }
 
+       public function index()
+       {
+          
+           $data['img']='lee.jpg';
+           //$this->load->view('head_view');
+                       
+            $this->load->view('coba',$data);
+           
+       }
+
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";
@@ -241,7 +251,7 @@
         {
             $res['img']=$this->non_admin->upload_image();
                    
-            $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);
+           
 
             $this->load->view('head_view');
             $this->load->view("registration_two_view",$res);
@@ -252,6 +262,7 @@
         public function updatecropimage()
         {
             $img['imgpath']=$this->non_admin->upload_thumbnail();
+            $this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
             echo $img=$img['imgpath'];
         }
         // public function addPhoto()

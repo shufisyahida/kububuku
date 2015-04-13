@@ -281,11 +281,11 @@
 			$y1 = ceil($y1*$ratio);
 			$wd = ceil($w*$ratio);
 			$ht = ceil($h*$ratio);
-			$nw = 200;
-			$nh = 200;
+			$nw = 100;
+			$nh = 100;
 			$nimg = imagecreatetruecolor($nw,$nh);
 			$img_src=imagecreatefromjpeg($path.$img);
-			imagecopyresampled($nimg, $im_src, 0, 0, $x1, $y1, $nw, $nh, $wd, $ht);
+			imagecopyresampled($nimg, $img_src, 0, 0, $x1, $y1, $nw, $nh, $wd, $ht);
 			imagejpeg($nimg,$path.$new_name,90);
 
 			$result = array('foto'=>base_url()."uploads/".$new_name);
