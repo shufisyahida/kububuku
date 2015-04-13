@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="">Edit Profile</a></li>
-          <li><a href="">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>" class="active" href="">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -11,7 +11,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -102,38 +102,38 @@
           <div class="row">
             <div class="col s12 m6 l6">
                 <div class="input-field">
-                    <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>">
+                    <input id="facebook" name="facebook" type="text" value="<?php echo $fb;?>" maxlength="40">
                     <label for="facebook"><i class="fa fa-facebook-official fa-lg green-text"></i>   Facebook Name</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>">
+                    <input id="twitter" name="twitter" type="text" value="<?php echo $twitter;?>" maxlength="30">
                     <label for="twitter"><i class="fa fa-twitter fa-lg green-text"></i>   Twitter ID</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="hp" name="hp" type="text" value="<?php echo $hp;?>">
+                    <input id="hp" name="hp" type="text" value="<?php echo $hp;?>" maxlength="20">
                     <label for="hp"><i class="fa fa-phone fa-lg green-text"></i>   Cellphone Number</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>">
+                    <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>" maxlength="10">
                     <label for="bbm"><i class="fa fa-mobile fa-lg green-text"></i>   BBM Pin</label>
                 </div>
             </div>
             <div class="col s12 m6 l6">
                 <div class="input-field">
-                    <input id="line" name="line" type="text" value="<?php echo $line_id;?>">
+                    <input id="line" name="line" type="text" value="<?php echo $line_id;?>" maxlength="30">
                     <label for="line"><i class="fa fa-mobile fa-lg green-text"></i>   Line ID</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>">
+                    <input id="whatsapp" name="whatsapp" type="text" value="<?php echo $wa;?>" maxlength="20">
                     <label for="whatsapp"><i class="fa fa-whatsapp fa-lg green-text"></i>   Whatsapp Number</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>">
+                    <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
                     <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
                 </div> 
             </div>
@@ -149,5 +149,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();
+    });
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100 // Creates a dropdown of 15 years to control year
     });
 </script>

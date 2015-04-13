@@ -1,8 +1,8 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="<?php echo base_url('index.php/request_in') ?>">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/request_out') ?>">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>"class="active">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -11,7 +11,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>

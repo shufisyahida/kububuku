@@ -27,19 +27,46 @@
         $this->load->view('foot_view');
     }
 
+    public function addBookIndex()
+    {
+        // $data['page_title'] = "CI Hello World App!";
+      $data = array(
+            'isbn' => '',
+            'judul' => '',
+            'pengarang' => '',
+            'deskripsi' => '',
+            'genre' => '',
+            'penerbit' => '',
+            'tahun_terbit' => '',
+            'jumlah_halaman' => '',
+            'sampul' => '',
+            'isbnErr' => '',
+            'judulErr' => '',
+        );
+        $this->load->view('head_view');
+        $this->load->view('add_book_view', $data);
+        $this->load->view('foot_view');
+    }
+
     public function addBook()
     {        
         if(isset($_POST))
         {
             $isbn = $this->input->post('isbn');
-            $judul = $this->input->post('name');
+            $judul = $this->input->post('judul');
             $pengarang = $this->input->post('pengarang');
             $deskripsi = $this->input->post('deskripsi');
             $genre = $this->input->post('genre');
             $penerbit = $this->input->post('penerbit');
             $tahun_terbit = $this->input->post('tahun_terbit');
             $jumlah_halaman = $this->input->post('jumlah_halaman');
-            $sampul = $this->input->post('jumlah_halaman');
+            $sampul = $this->input->post('sampul');
+
+            if($sampul == '')
+            {
+                $sampul = 'http://miamioh.edu/cas/_files/images/gramelac/rich-text-images/faculty-staff-book-covers/blank-book-cover.png';
+            }
+            
 
             $data = array(
                 'isbn' => $isbn,
@@ -53,11 +80,6 @@
                 'sampul' => $sampul,
                 'isbnErr' => '',
                 'judulErr' => '',
-                'pengarangErr' => '',
-                'genreErr' => '',
-                'penerbitErr' => '',
-                'tahun_terbitErr' => '',
-                'jumlah_halamanErr' => ''
             );
 
             $error = false;
@@ -78,32 +100,7 @@
               $data['judulErr'] = "Judul should not blank";
               $error = true;
             }
-            if($pengarang == '')
-            {
-              $data['pengarangErr'] = "Pengarang should not blank";
-              $error = true;
-            }
-            if($genre == '')
-            {
-              $data['genreErr'] = "Genre should not blank";
-              $error = true;
-            }
-            if($penerbit == '')
-            {
-              $data['penerbitErr'] = "Penerbit should not blank";
-              $error = true;
-            }
-            if($tahun_terbit == '')
-            {
-              $data['tahun_terbitErr'] = "Tahun terbit should not blank";
-              $error = true;
-            }
-            if($jumlah_halaman == '')
-            {
-              $data['jumlah_halamanErr'] = "jumlah halaman should not blank";
-              $error = true;
-            }
-
+            
             if($error)
             {
               $this->load->view('head_view');
@@ -126,8 +123,7 @@
                 $this->load->model('buku');
                 $this->buku->addBook($data);
 
-                redirect(base_url('index.php/Book/book_info'));
-
+                redirect(base_url('index.php/Book/book_info/'.$isbn));
             }       
         }
         else

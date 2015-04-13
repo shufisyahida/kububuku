@@ -1,7 +1,7 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>">Books</a></li>
+        <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>">Books</a></li>
           <li><a class="active" href="<?php echo base_url('index.php/search/homeUser')?>">Users</a></li>
       </div>
 
@@ -22,8 +22,8 @@
   <div class="row">
     <div class="col s12 m4 l4">
       <div class="card-panel white z-depth-1 tabs-wrapper">
-        <h6>Search Filter</h6>
-        <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
+        <h6>Search</h6>
+       <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
           
           
 
@@ -37,15 +37,12 @@
                     <option value="fakultas">Faculty</option>
                 </select>
             </div>
-
-              
-            <div class="input-field col s12 m12 l12" >
-             
+            <div class="input-field col s12 m12 l12">
               <keyword>
-                <input id="book-searchkey" type="text" class="validate" name="keyword">
-                <label>Keyword</label>
-              </keyword>
-             <location>
+              <input id="book-searchkey" type="text" class="validate" name="keyword">
+              <label>Keyword</label>
+            </keyword>
+               <location>
               <select id="location" name="location" type="text" class="validate">
                     <option value="" disabled selected>Choose Location</option>
                     <option value="jakarta">Jakarta</option>
@@ -84,6 +81,11 @@
                 </select>
               </faculty>
             </div>
+            <div class="col s12 m12 l12">
+              <?php if($notMatch!=null){?>
+              <span class="error"><?php echo $notMatch ?></span>
+                 <?php } ?>
+            </div>
             
             <div class="col s12 m12 l12">
                 <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">Search</button>
@@ -93,7 +95,52 @@
         </form>
       </div>
     </div>
-    
+    <div class="col s12 m8 l8">
+      <div class="col s12 m12 l12">
+
+      <?php if($notFound!=null){?>
+        <span><?php echo $notFound ?></span>
+          <?php } ?>
+      </div>
+      <?php if($resultSearchPengguna!=null){?>
+      <?php foreach($resultSearchPengguna as $post){?>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="container custom-container-a">
+             <?php echo
+             '<a href = "'.base_url()."index.php/Profile/profile/".$post->username.'" target="_blank">
+              <img class="avatar-property circle responsive-img" src="'.$post->foto.'">
+            </a>'
+            ?>
+          
+          </div>
+          <div class="green-text name-property"><?php echo $post->nama;?></div>
+          <div class="divider"></div>
+          <div class="custom-container-b">
+            <ul>
+              <li><i class="green-text tiny mdi-maps-beenhere"></i> <?php echo $post->fakultas;?></li>
+              <li><i class="green-text tiny mdi-social-person-outline"></i> <?php echo $post->status;?></li>
+              <li><i class="green-text tiny mdi-social-person"></i> <?php echo $post->jenis_kelamin;?></li>
+              <li><i class="green-text tiny mdi-action-event"></i> <?php echo $post->tanggal_lahir;?></li>
+              <li><i class="green-text tiny mdi-maps-place"></i><?php echo $post->domisili;?></li>
+            </ul>
+          </div>
+          <div class="divider"></div>
+          <div class="custom-container-b">
+            <div class="row">
+              <div class="col s6 m6 l6 center">
+                <h5 class="green-text">16</h5>books
+              </div>
+              <div class="col s6 m6 l6 center">
+                <h5 class="green-text">29</h5>wishlist
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+    <?php } ?>
+    </div>
   </div>
 </div>
 <script type="text/javascript">
@@ -107,7 +154,7 @@
 
      if(this.value=='nama')
         {
-            $('keyword').show();
+            $('.keyword').show();
             $("location").hide();
             $("status").hide();
             $("faculty").hide();
@@ -138,4 +185,3 @@
 
     });
 </script>
-
