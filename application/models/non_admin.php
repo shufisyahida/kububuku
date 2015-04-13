@@ -172,7 +172,7 @@
                 $foto = $value->foto;
             }
 
-            var_dump($foto);
+           // var_dump($foto);
 
            return $foto;
 		}
@@ -233,6 +233,38 @@
 			}
 
 		}
+
+
+		public function upload_image()
+		{
+			$config['upload_path']='./uploads/';
+			$config['allowed_types']='gif|jpg|png|jpeg';
+			$config['max_size']='768';
+			$config['max_width']='768';
+			$config['max_height']='768';
+
+			$this->load->library('upload',$config);
+
+			if(!$this->upload->do_upload())
+			{
+				$error = array('error' => $this->upload->display_errors());
+				return 0;
+			}
+			else
+			{
+				$data = $this->upload->data();
+				$filename=$data['file_name'];
+				$user= $this->session->userdata('username');
+				$result=array('foto'=>$filename);
+				$this->db->where('username',$user);
+				$insertstatus=$this->db->update('non_admin',$result);
+				return $filename;
+			}
+
+		}
+
+
+		
 
 	}
 

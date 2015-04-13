@@ -2,6 +2,19 @@
     class Registration extends CI_Controller
     {
         
+      $public data;
+       public function __construct()
+       {
+          parent::__construct();
+           $this->load->model('non_admin');      
+       }
+
+       public function index()
+        {
+            $data['img']='lee.jpg';
+            $this->load->view('registration_two_view',$data);
+        }
+
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";
@@ -210,6 +223,18 @@
 
             }              
 
+        }
+        
+        public function cropimage()
+        {
+             $res['img']=$this->non_admin->upload_image();
+             $this->load->view("registration_two_view",$res);
+        }
+
+        public function updatecropimage()
+        {
+             $img['imgpath']=$this->non_admin->upload_thumbnail();
+            echo $img=$img['imgpath'];
         }
         // public function addPhoto()
         // {

@@ -8,7 +8,7 @@
 <div class="container" style="margin-top:50px;">
     <br><h5>Registration - step 2/2</h5>
     <!--<form method="post" action="<?php echo base_url('index.php/Registration/register') ?>">-->
-    <?php echo form_open_multipart('welcome/cropimage');?>
+    <?php echo form_open_multipart('index.php/Registration/cropimage');?>
         <div class="card-panel z-depth-1">
             <div class="row">
                 <div id="cropimage" class="col s12 m5 l5">
