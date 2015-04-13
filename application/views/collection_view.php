@@ -103,9 +103,10 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger action-content" href="#modal-remove2"><i class="red-text mdi-content-clear"></i></a>
-		                		<?php echo 
-								'<div id="modal-remove2" class="modal">
+		              			<?php
+		                		echo '<a align="right" class="modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		 echo 
+								'<div id="modal-remove2'.$post->isbn.'" class="modal">
 									<div class="modal-content">
 										<h4>Remove Collection</h4>
 										<p>Are you sure to remove this book from collection?</p>

@@ -7,9 +7,27 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php $username = $this->session->userdata('username');
-          echo base_url().'index.php/koleksi/add/'.$resultBook[0]->isbn.'/'.$username?>" 
-          class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          
+          <?php
+            $username = $this->session->userdata('username');
+
+            $adaDiKoleksi = false;
+            $this->db->select('*');
+            $this->db->from('koleksi');
+            $this->db->where('username',$username)->where('isbn',$resultBook[0]->isbn);    
+            $query= $this->db->get()->result();
+
+            if(sizeof($query)!=0) {       
+              $adaDiKoleksi = true;
+            }
+            if(!$adaDiKoleksi)
+            {
+              echo 
+              '<li><a href="'.base_url()."index.php/koleksi/add/".$resultBook[0]->isbn."/".$username.'" 
+              class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
+            }
+          ?>
+
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
