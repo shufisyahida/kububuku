@@ -239,9 +239,9 @@
 		{
 			$config['upload_path']='./uploads/';
 			$config['allowed_types']='gif|jpg|png|jpeg';
-			$config['max_size']='768';
-			$config['max_width']='768';
-			$config['max_height']='768';
+			$config['max_size']='1024';
+			$config['max_width']='1024';
+			$config['max_height']='1024';
 
 			$this->load->library('upload',$config);
 
@@ -254,13 +254,45 @@
 			{
 				$data = $this->upload->data();
 				$filename=$data['file_name'];
+				$path = base_url()."uploads/".$filename;
 				$user= $this->session->userdata('username');
-				$result=array('foto'=>$filename);
+				$result=array('foto'=>$path);
 				$this->db->where('username',$user);
 				$insertstatus=$this->db->update('non_admin',$result);
 				return $filename;
 			}
 
+		}
+
+		public function upload_thumbnail()
+		{
+			$this->load->helper('string');
+			$rand = random_string('alnum',4);
+			$w = $this->input->post('thumb_width');
+			$h = $this->input->post('thumb_height');
+			$x1 = $this->input->post('x_axis');
+			$y1 = $this->input->post('y_axis');
+			$img = $this->input->post('img');
+			$new_name = "small".$rand.".jpg";
+			$path = "./uploads/";
+			list($joe,$alto)=getimagesize($path.$img);
+			$ratio = $joe/500;
+			$x1 = ceil($x1*$ratio);
+			$y1 = ceil($y1*$ratio);
+			$wd = ceil($w*$ratio);
+			$ht = ceil($h*$ratio);
+			$nw = 200;
+			$nh = 200;
+			$nimg = imagecreatetruecolor($nw,$nh);
+			$img_src=imagecreatefromjpeg($path.$img);
+			imagecopyresampled($nimg, $im_src, 0, 0, $x1, $y1, $nw, $nh, $wd, $ht);
+			imagejpeg($nimg,$path.$new_name,90);
+
+			$result = array('foto'=>base_url()."uploads/".$new_name);
+			$user = $this->session->userdata('username');
+			$this->db->where('username',$user);
+			$insertstatus=$this->db->update('non_admin',$result);
+			return $new_name;
 		}
 
 
@@ -269,3 +301,5 @@
 	}
 
 ?>
+
+

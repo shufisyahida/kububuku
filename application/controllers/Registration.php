@@ -2,18 +2,13 @@
     class Registration extends CI_Controller
     {
         
-      $public data;
+     
        public function __construct()
        {
           parent::__construct();
-           $this->load->model('non_admin');      
+          $this->load->model('non_admin'); 
+               
        }
-
-       public function index()
-        {
-            $data['img']='lee.jpg';
-            $this->load->view('registration_two_view',$data);
-        }
 
         public function step_one()
         {
@@ -56,8 +51,10 @@
         public function step_two()
         {
             // $data['page_title'] = "CI Hello World App!";
-        	  $this->load->view('head_view');
-            $this->load->view('registration_two_view');
+            $data['img']='lee.jpg';
+           
+            $this->load->view('head_view');
+            $this->load->view('registration_two_view',$data);
             $this->load->view('foot_view');
         }
 
@@ -181,8 +178,8 @@
                   //$data['jenis_kelamin'] = "M";
                   // $data['fakultas'] = 1;
                   $this->load->view('head_view');
-                  $this->load->view('foot_view');
                   $this->load->view('registration_one_view', $data);
+                  $this->load->view('foot_view');
                 }
                 else
                 {
@@ -227,13 +224,19 @@
         
         public function cropimage()
         {
-             $res['img']=$this->non_admin->upload_image();
-             $this->load->view("registration_two_view",$res);
+            $res['img']=$this->non_admin->upload_image();
+                   
+            $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);
+
+            $this->load->view('head_view');
+            $this->load->view("registration_two_view",$res);
+            $this->load->view('foot_view');
+             
         }
 
         public function updatecropimage()
         {
-             $img['imgpath']=$this->non_admin->upload_thumbnail();
+            $img['imgpath']=$this->non_admin->upload_thumbnail();
             echo $img=$img['imgpath'];
         }
         // public function addPhoto()
