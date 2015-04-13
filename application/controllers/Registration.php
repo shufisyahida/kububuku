@@ -7,6 +7,14 @@
        {
           parent::__construct();
           $this->load->model('non_admin'); 
+
+
+          $username = $this->session->userdata('username');
+            if(!empty($username))
+            {
+                redirect(base_url('index.php/request_in'));
+            }
+      
                
        }
 
@@ -38,6 +46,7 @@
                        'usernameErr' => '',
                        'passwordErr' => '',
                        'domisiliErr' => '',
+                       'mailErr' => '',
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
@@ -107,6 +116,7 @@
                        'usernameErr' => '',
                        'passwordErr' => '',
                        'domisiliErr' => '',
+                       'mailErr' => '',
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
@@ -149,7 +159,12 @@
                 }
                 if($domisili == '')
                 {
-                  $data['domisiliErr'] = "Location should not be blank";
+                  $data['domisiliErr'] = "Domicile should not be blank";
+                  $error = true;
+                }
+                if($mail == '')
+                {
+                  $data['mailErr'] = "Mail should not be blank";
                   $error = true;
                 }
                 if($faculty == '')
