@@ -151,7 +151,7 @@
                         </div> 
                         
                         <div class="col right">
-                            <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">REGISTER</button>
+                            <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">CONTINUE</button>
                         </div>   
                     </div>
                 </div>
