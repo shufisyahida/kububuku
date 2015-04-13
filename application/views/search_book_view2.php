@@ -51,6 +51,11 @@
                 </select>
               </genre>
             </div>
+            <div class="col s12 m12 l12">
+              <?php if($notMatch!=null){?>
+              <span class="error"><?php echo $notMatch ?></span>
+                 <?php } ?>
+            </div>
             <div class="col s12">
               <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">Search</button>
             </div>
@@ -59,7 +64,37 @@
         </form>
       </div>
     </div>
-   
+    <div class="col s12 m8 l9">
+      <div class="col s12 m12 l6">
+        <?php if($notFound!=null){?>
+        <span><?php echo $notFound ?></span>
+        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
+        <a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add Book</a>
+          <?php } ?>
+      </div>
+      <?php if($resultSearchBuku!=null){?>
+      <?php foreach($resultSearchBuku as $post){?>
+        <div class="card">
+          <div class="row row-custom-a">
+            <div class="col s4 m4 l4">
+              <?php echo
+                      '<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+                    ?>
+            </div>
+            <div class="col s8 m8 l8">
+              <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
+              <span><?php echo $post->pengarang;?></span><br>
+              <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+              <div class="row row-custom-a">
+                <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <?php } ?>
+    <?php } ?>
+    </div>
   </div>
 </div>
 
