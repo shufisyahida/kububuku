@@ -23,7 +23,7 @@
                 <div class="col s12 m7 l7">
                     <div style="margin:0 auto; width:600px">
                         <h6>Please drag on the image</h6>
-                        <img src="" id="photo" style='max-width:500px' >
+                        <img src="<?php echo base_url();?>uploads/<?php echo $img; ?>" id="photo" style='max-width:500px' >
                     </div>
                 </div>
             </div>
