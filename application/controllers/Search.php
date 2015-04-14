@@ -27,7 +27,7 @@
 
         public function cariBuku()
         { 
-              $judulPengarang = $this->input->post('keyword');
+             $judulPengarang = $this->input->post('keyword');
              $kategori = $this->input->post('kategori');
              $genre = $this->input->post('genre');
            
@@ -43,6 +43,9 @@
 
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchBuku($keyword,$kategori);
+                
+
+
                    if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
                        $data['resultSearchBuku'] = null;

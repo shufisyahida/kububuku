@@ -41,13 +41,24 @@
             </keyword>
              <genre>
               <select id="genre" name="genre" type="text" class="validate">
-                    <option value="" disabled selected>Choose Genre</option>
-                    <option value="romance">Romance</option>
-                    <option value="science fiction">Science Fiction</option>
-                     <option value="fantasy">Fantasy</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="education">Education</option>
-                     <option value="non-fiction">Non-Fiction</option>
+                     <option value="">Choose book genre</option>
+                      <option value="Biography" >Biography</option>  
+                      <option value="Comic" >Comic</option>
+                      <option value="Fantasy" >Fantasy</option>
+                      <option value="Fiction" >Fiction</option>
+                      <option value="Horror" >Horror</option>
+                      <option value="Legend" >Legend</option>
+                      <option value="Mystery" >Mystery</option>
+                      <option value="Non Fiction" >Non Fiction</option>     
+                      <option value="Philosophy" >Philosophy</option>     
+                      <option value="Politics" >Politics</option> 
+                      <option value="Reference Book" >Reference Book</option>
+                      <option value="Religion" >Religion</option> 
+                      <option value="Romance" >Romance</option> 
+                      <option value="Suspense" >Suspense</option>     
+                      <option value="Textbook" >Textbook</option>     
+                      <option value="Thriller" >Thrillers</option>  
+                      <option value="Miscellaneous" >Miscellaneous</option> 
                 </select>
               </genre>
             </div>
@@ -65,15 +76,18 @@
       </div>
     </div>
     <div class="col s12 m8 l9">
-      <div class="col s12 m12 l6">
+      <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
         <span><?php echo $notFound ?>.</span>
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
           <?php } ?>
-      </div>
+      <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
       <?php foreach($resultSearchBuku as $post){?>
+      
+     <??>
+        
         <div class="card">
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
@@ -85,6 +99,7 @@
               <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+      
 
                   <?php
                       $username = $this->session->userdata('username');
@@ -124,9 +139,9 @@
             </div>
           </div>
         </div>
+        <?php } ?>
+      <?php } ?>
       </div>
-       <?php } ?>
-    <?php } ?>
     </div>
   </div>
 </div>
