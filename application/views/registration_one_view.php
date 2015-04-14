@@ -1,7 +1,7 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="#" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('index.php/login') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
       </div>
     </nav>
 </div>
