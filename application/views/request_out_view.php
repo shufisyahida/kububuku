@@ -127,7 +127,7 @@
 			            			<div id="modal-return'.$index.'" class="modal">
 										<div class="modal-content">
 											<h4>Return Book</h4>
-											<p>Book has been returned, give some rank for the owner.</p>
+											<p>Waiting for the owner confirmation, give some rank for the owner.</p>
 												<p class="range-field">
 													<input type="range" name="owner-rank" id="owner-rank" min="1" max="5" />
 													<input type="hidden" name="idPinjaman" value="'.$idPinjaman[$index].'" />
