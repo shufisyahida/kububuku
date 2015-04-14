@@ -65,7 +65,7 @@
           </a>
           </div>
           <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
-          <div class="green-text name-property">'.$value->nama.'</div>
+          <div class="truncate green-text name-property">'.$value->nama.'</div>
           </a>
           <div class="divider"></div>       
           <div class="custom-container-b">
@@ -73,14 +73,14 @@
               <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>' 
                 .$value->fakultas.                                    
               '</li>
-              <li><i class="green-text tiny mdi-social-person-outline"></i>' 
+              <li class="truncate"><i class="green-text tiny mdi-social-person-outline"></i>' 
               .$value->status.
               '</li>
-              <li><i class="green-text tiny mdi-social-person"></i>'
+              <li class="truncate"><i class="green-text tiny mdi-social-person"></i>'
                .$value->jenis_kelamin.
               '</li>
-              <li><i class="green-text tiny mdi-action-event"></i>'.$value->tanggal_lahir.'</li>
-              <li><i class="green-text tiny mdi-maps-place"></i>'.$value->domisili.'</li>
+              <li class="truncate"><i class="green-text tiny mdi-action-event"></i>'.$value->tanggal_lahir.'</li>
+              <li class="truncate"><i class="green-text tiny mdi-maps-place"></i>'.$value->domisili.'</li>
             </ul>
           </div>
           <div class="divider"></div>

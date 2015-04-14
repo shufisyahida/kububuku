@@ -117,12 +117,12 @@
             ?>
           
           </div>
-          <div class="green-text name-property"><?php echo $post->nama;?></div>
+          <div class="truncate green-text name-property"><?php echo $post->nama;?></div>
           <div class="divider"></div>
           <div class="custom-container-b">
             <ul>
               <li class = "truncate"><i class="green-text tiny mdi-maps-beenhere"></i> <?php echo $post->fakultas;?></li>
-              <li class = "truncate"><i class="green-text tiny mdi-social-person-outline truncate"></i> <?php echo $post->status;?></li>
+              <li class = "truncate"><i class="green-text tiny mdi-social-person-outline"></i> <?php echo $post->status;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-social-person"></i> <?php echo $post->jenis_kelamin;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-action-event"></i> <?php echo $post->tanggal_lahir;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-maps-place"></i><?php echo $post->domisili;?></li>
@@ -136,7 +136,7 @@
                 <h5 class="green-text"><?php echo $koleksi[$post->username] ?></h5>books
               </div>
               <div class="col s6 m6 l6 center">
-                <h5 class="green-text">29</h5>wishlist
+                <h5 class="green-text">---</h5>wishlist
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@
 
      if(this.value=='nama')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("location").hide();
             $("status").hide();
             $("faculty").hide();
