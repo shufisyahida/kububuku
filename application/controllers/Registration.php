@@ -10,12 +10,11 @@
 
 
           $username = $this->session->userdata('username');
-            if(!empty($username))
+          $hasLoggedIn = $this->session->userdata($username);
+            if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
                 redirect(base_url('index.php/request_in'));
-            }
-      
-               
+            }  
        }
 
        public function index()
@@ -75,6 +74,8 @@
             $this->load->view('head_view');
             $this->load->view('registration_two_view',$data);
             $this->load->view('foot_view');
+            $username = $this->session->userdata('username');
+           // $this->session->set_userdata(''.$username,true);
         }
 
         public function register()
@@ -233,7 +234,8 @@
                     $this->non_admin->createUser($data);
 
                     $this->session->set_userdata('username',$username);
-                    $this->session->set_userdata(''.$username,true);
+                    //$this->session->set_userdata(''.$username,true);
+                   
                     redirect(base_url('index.php/Registration/step_two'));
 
                 }       
@@ -249,10 +251,9 @@
         
         public function cropimage()
         {
-            $res['img']=$this->non_admin->upload_image();
-                   
+            $res['img']=$this->non_admin->upload_image();  
+            $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);    
            
-
             $this->load->view('head_view');
             $this->load->view("registration_two_view",$res);
             $this->load->view('foot_view');
@@ -262,8 +263,15 @@
         public function updatecropimage()
         {
             $img['imgpath']=$this->non_admin->upload_thumbnail();
-            $this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
+            //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
             echo $img=$img['imgpath'];
+        }
+
+        public function finish()
+        {
+           $username = $this->session->userdata('username');
+           $this->session->set_userdata(''.$username,true);
+          redirect('index.php/request_in');
         }
         // public function addPhoto()
         // {

@@ -50,14 +50,14 @@
      <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/request_in')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
+   <a href="<?php echo base_url('index.php/Registration/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
 </div>
 
 <script type="text/javascript">
-alert("teest");
+
 function getSizes(im,obj)
   {
-    alert("test");
+    
     var x_axis = obj.x1;
     var x2_axis = obj.x2;
     var y_axis = obj.y1;
@@ -79,7 +79,7 @@ function getSizes(im,obj)
                                                   },
                                                   function(data)
               {
-                                                     alert(data);
+                                                     
                 $("#cropimage").show();
                 //$("#thumbs").html("");
                 $("#thumbs").html("<img src='<?php echo base_url('uploads/"+data+"');?>' />");
@@ -90,7 +90,7 @@ function getSizes(im,obj)
                          }
 
 $(document).ready(function () {
-    alert("coba");
+
     $('img#photo').imgAreaSelect({
         aspectRatio: '1:1',
         onSelectEnd: getSizes
