@@ -8,7 +8,8 @@
         </a>
         <ul>
           
-          <?php          
+          <?php
+            $username = $this->session->userdata('username');
             if(!$adaDiKoleksi)
             {
               echo '<li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
@@ -45,7 +46,7 @@ echo '
         <div class="col s12 m12 l12">
           <?php foreach($resultBook as $post){?>
           <?php 
-              $username = $this->session->userdata('username');
+              // $username = $this->session->userdata('username');
           echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>
