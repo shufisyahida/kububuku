@@ -214,6 +214,9 @@
                 }
                 else
                 {
+
+                    $photo = base_url('assets/img/default-profpic.jpg');
+                  
                     $data = array(
                        'username' => $username,
                        'password' => md5($password),

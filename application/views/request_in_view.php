@@ -137,7 +137,8 @@
 							echo '<form method="post" action="'.base_url().'index.php/request_in/confirmReturn/">
 			            			<div id="modal-ranking'.$index.'" class="modal">
 										<div class="modal-content">
-											<h4>Give Rank</h4>
+											<h4>Confirm Returned Book</h4>
+											<p>Give some rank for the borrower.</p>
 											
 												<p class="range-field">
 													<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
