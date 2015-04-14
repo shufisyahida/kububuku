@@ -3,7 +3,7 @@
 class Koleksi_model extends CI_Model
 {
 
-	function getKoleksiAvailable($username)
+	public function getKoleksiAvailable($username)
 	{
 		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
   		 $this->db->from('buku');
@@ -13,7 +13,7 @@ class Koleksi_model extends CI_Model
   		 return $resultAvailable = $query->result();
 	}
 
-	function getKoleksiBorrowed($username)
+	public function getKoleksiBorrowed($username)
 	{
 
 		 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
@@ -24,14 +24,23 @@ class Koleksi_model extends CI_Model
   		 return $resultBorrowed = $query->result();
 	}
 
+	public function getNumOfKoleksi($username)
+	{
+		$this->db->select('*');
+		$this->db->from('koleksi');
+		$this->db->where('username',$username);
+		$query = $this->db->get();
+		return sizeOf($query->result());
+	}
 
-	function deleteKoleksi($username,$isbn)
+
+	public function deleteKoleksi($username,$isbn)
 	{
 		$this->db->where('username',$username)->where('isbn',$isbn);
 		$this->db->delete('koleksi');
 	}
 
-	function addKoleksi($non_admin,$buku)
+	public function addKoleksi($non_admin,$buku)
 	{
 		
 		// $this->db->where('username',$non_admin)->where('isbn',$buku);
@@ -43,7 +52,7 @@ class Koleksi_model extends CI_Model
 
 	}
 
-	function setStatus($username,$isbn,$isAvailable)
+	public function setStatus($username,$isbn,$isAvailable)
 	{
 		$data=array('is_available'=>$isAvailable);
 		$this->db->where('username',$username)->where('isbn',$isbn);

@@ -3,7 +3,7 @@
         <ul>
           <li><a class="active" href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/request_out') ?>">Request Out</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/collection') ?>">Collection</a></li>
+          <li><a href="<?php echo base_url('index.php/koleksi') ?>">Collection</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
@@ -13,7 +13,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -52,16 +52,34 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" target="_blank">
+						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
+							<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
+							</a>
 								<span>'.$value->username.'</span>
 							</div>
 						</div>
 						</td>
-						<td>'.$buku[0]->judul.'</td>
+
+						<td>
+
+						<div class="borrower">
+						<a href = "'.base_url()."index.php/Book/book_info/".$buku[0]->isbn.'" >
+							<img class="img-icon-borrower circle responsive-img" src="'.$buku[0]->sampul.'">
+						</a>
+							<div class="custom-borrower">
+						<a href = "'.base_url()."index.php/Book/book_info/".$buku[0]->isbn.'" >
+								<span>'.$buku[0]->judul.'</span><br>
+						</a>
+								<span>'.$buku[0]->pengarang.'</span>
+							</div>
+						</div>
+
+						</td>
+
 						<td>'.$durasi[$index].'</td>
 						<td>';
 
@@ -104,7 +122,7 @@
 						}
 						elseif ($status[$index]==3) 
 						{
-							echo '<div id="modal-ranking'.$index.'" class="modal">
+							/*echo '<div id="modal-ranking'.$index.'" class="modal">
 								<div class="modal-content">
 									<h4>Give Rank</h4>
 									<p class="range-field">
@@ -114,7 +132,32 @@
 								<div class="modal-footer">';
 									echo '<a href="'.base_url()."index.php/request_in/confirmReturn/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 								</div>
-							</div>';
+							</div>';*/
+
+							echo '<form method="post" action="'.base_url().'index.php/request_in/confirmReturn/">
+			            			<div id="modal-ranking'.$index.'" class="modal">
+										<div class="modal-content">
+											<h4>Give Rank</h4>
+											
+												<p class="range-field">
+													<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
+													<input type="hidden" name="idPinjaman" value="'.$idPinjaman[$index].'" />
+													<input type="hidden" name="borrower" value="'.$value->username.'" />
+													<input type="hidden" name="isbn" value="'.$buku[0]->isbn.'" />
+												</p>
+											
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
+										</div>
+									</div>
+								</form>';
+
+
+
+
+
 
 							echo '<a class="modal-trigger blue-text mdi-content-archive" href="#modal-ranking'.$index.'"></a>';
 						}

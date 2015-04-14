@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>KubuBuku</title>
+        <link rel="icon" href="<?php echo base_url('assets/img/favicon.ico');?>" type="image/ico">
 
         <!-- <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet"> -->
         <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>" media="screen,projection"/>
@@ -87,7 +88,7 @@
                     <img src="<?php echo base_url('assets/img/slide1.jpg') ?>">
                     <div class="caption right-align">
                         <h3>Welcome to KubuBuku!</h3>
-                        <h5 class="light white-text text-lighten-3">Borrow a book was never been this easy.</h5>
+                        <h5 class="light white-text text-lighten-3">Borrowing a book has never been this easy.</h5>
                         <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('index.php/login') ?>" role="button">Go to KubuBuku</a></p></div>
                     </div>
                 </li>

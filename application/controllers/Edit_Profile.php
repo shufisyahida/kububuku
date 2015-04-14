@@ -24,13 +24,58 @@
             $data->facultyErr='';
             $data->genderErr='';
             $data->statusErr='';
-            $data->birthdayErr='';       
+            $data->birthdayErr='';
+            $data->mailErr='';       
 
 
         	 $this->load->view('head_view');
            $this->load->view('navbar_view');
            $this->load->view('edit_profile_view', $data);
            $this->load->view('foot_view');
+        }
+
+        public function editPicture()
+        {
+            // $data['page_title'] = "CI Hello World App!";
+            $username = $this->session->userdata('username');
+
+            $this->load->model('non_admin');
+            $user = $this->non_admin->getUser($username) ;
+            $data['user']=$user[0];
+            $data['img']= $this->session->userdata('foto');
+            //$this->session->set_userdata('foto',base_url()."uploads/".$res['img']);    
+
+           $this->load->view('head_view');
+           $this->load->view('navbar_view');
+           $this->load->view('edit_profile_picture_view', $data);
+           $this->load->view('foot_view');
+        }
+
+         public function cropimage()
+        {
+            $this->load->model('non_admin');
+            $image = $this->non_admin->upload_image();  
+            $res['img']= base_url()."uploads/".$image;
+
+            $this->session->set_userdata('foto',$res['img']);    
+           
+            $this->load->view('head_view');
+            $this->load->view("edit_profile_picture_view",$res);
+            $this->load->view('foot_view');
+             
+        }
+
+        public function updatecropimage()
+        {
+            $img['imgpath']=$this->non_admin->upload_thumbnail();
+            //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
+            echo $img=$img['imgpath'];
+        }
+
+        public function finish()
+        {
+           
+          redirect('index.php/request_in');
         }
 
         public function edit()
@@ -44,6 +89,8 @@
                 $data=$user[0];
                 $password = $data->password;
                 $email = $data->email;
+                $photo = $data->foto;
+
                 $rank_pemilik = $data->rank_pemilik;
                 $rank_peminjam = $data->rank_peminjam;
 
@@ -51,7 +98,6 @@
                 $faculty = $this->input->post('faculty');
                 $status = $this->input->post('status');
                 $domisili = $this->input->post('domisili');
-                $photo = $this->input->post('pic');
                 $gender = $this->input->post('gender');
                 $birthday = $this->input->post('birth');
                 $facebook = $this->input->post('facebook');
@@ -87,7 +133,8 @@
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
-                       'birthdayErr' => ''
+                       'birthdayErr' => '',
+                       'mailErr' => ''
                        );
 
                 
@@ -123,12 +170,18 @@
                   $data1['birthdayErr'] = "Birthday should not blank";
                   $error = true;
                 }
+                if($mail == '')
+                {
+                  $data1['mailErr'] = "Mail should not blank";
+                  $error = true;
+                }
 
                 if($error)
                 {
                   $this->load->view('head_view');
-                  $this->load->view('foot_view');
+                  $this->load->view('navbar_view');
                   $this->load->view('edit_profile_view', $data1);
+                  $this->load->view('foot_view');
                 }
                 else
                 {
@@ -138,7 +191,6 @@
                        'fakultas' => $faculty,
                        'jenis_kelamin' => $gender,
                        'status' => $status,
-                       'foto' => $photo,
                        'tanggal_lahir' => $birthday,
                        'email_kontak' => $mail,
                        'fb' => $facebook,

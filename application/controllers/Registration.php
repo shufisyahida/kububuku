@@ -2,10 +2,35 @@
     class Registration extends CI_Controller
     {
         
+     
+       public function __construct()
+       {
+          parent::__construct();
+          $this->load->model('non_admin'); 
+
+
+          $username = $this->session->userdata('username');
+          $hasLoggedIn = $this->session->userdata($username);
+            if(!empty($hasLoggedIn) && $hasLoggedIn)
+            {
+                redirect(base_url('index.php/request_in'));
+            }  
+       }
+
+       public function index()
+       {
+          
+           $data['img']='lee.jpg';
+           //$this->load->view('head_view');
+                       
+            $this->load->view('coba',$data);
+           
+       }
+
         public function step_one()
         {
             // $data['page_title'] = "CI Hello World App!";
-          $data = array(
+            $data = array(
                        'username' => '',
                        'password' => '',
                        'nama' => '',
@@ -30,12 +55,13 @@
                        'usernameErr' => '',
                        'passwordErr' => '',
                        'domisiliErr' => '',
+                       'mailErr' => '',
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
                        'birthdayErr' => ''
                     );
-        	$this->load->view('head_view');
+            $this->load->view('head_view');
             $this->load->view('registration_one_view', $data);
             $this->load->view('foot_view');
         }
@@ -43,9 +69,13 @@
         public function step_two()
         {
             // $data['page_title'] = "CI Hello World App!";
-        	$this->load->view('head_view');
-            $this->load->view('registration_two_view');
+            $data['img']='lee.jpg';
+           
+            $this->load->view('head_view');
+            $this->load->view('registration_two_view',$data);
             $this->load->view('foot_view');
+            $username = $this->session->userdata('username');
+           // $this->session->set_userdata(''.$username,true);
         }
 
         public function register()
@@ -56,7 +86,7 @@
                 $email = $this->input->post('email');
                 $username = $this->input->post('username');
                 $password = $this->input->post('password'); 
-                $photo = $this->input->post('pic');
+                //$photo = $this->input->post('pic');
                 $gender = $this->input->post('gender');
                 $faculty = $this->input->post('faculty');
                 $domisili = $this->input->post('domisili');
@@ -83,7 +113,7 @@
                        'status' => $status,
                        'rank_pemilik' => '0',
                        'rank_peminjam' => '0',
-                       'foto' => $photo,
+                       'foto' => '',
                        'tanggal_lahir' => $birthday,
                        'email_kontak' => $mail,
                        'fb' => $facebook,
@@ -97,6 +127,7 @@
                        'usernameErr' => '',
                        'passwordErr' => '',
                        'domisiliErr' => '',
+                       'mailErr' => '',
                        'facultyErr' => '',
                        'genderErr' => '',
                        'statusErr' => '',
@@ -109,57 +140,62 @@
                 $usernameSudahAda = $this->non_admin->usernameSudahAda($username);
                 if ($emailSudahAda) 
                 {
-                  $data['emailErr'] = "Email already in use";
+                  $data['emailErr'] = "Email is already in use";
                   $error = true;
                 }
                 if ($usernameSudahAda) 
                 {
-                  $data['usernameErr'] = "Username already in use";
+                  $data['usernameErr'] = "Username is already in use";
                   $error = true;
                 }
                 if($name == '')
                 {
-                  $data['nameErr'] = "Name should not blank";
+                  $data['nameErr'] = "Name should not be blank";
                   $error = true;
                 }
                 if($email == '')
                 {
-                  $data['emailErr'] = "Email should not blank";
+                  $data['emailErr'] = "Email should not be blank";
                   $error = true;
                 }
                 if($username == '')
                 {
-                  $data['usernameErr'] = "Username should not blank";
+                  $data['usernameErr'] = "Username should not be blank";
                   $error = true;
                 }
                 if($password == '')
                 {
-                  $data['passwordErr'] = "Password should not blank";
+                  $data['passwordErr'] = "Password should not be blank";
                   $error = true;
                 }
                 if($domisili == '')
                 {
-                  $data['domisiliErr'] = "Domisili should not blank";
+                  $data['domisiliErr'] = "Domicile should not be blank";
+                  $error = true;
+                }
+                if($mail == '')
+                {
+                  $data['mailErr'] = "Mail should not be blank";
                   $error = true;
                 }
                 if($faculty == '')
                 {
-                  $data['facultyErr'] = "Faculty should not blank";
+                  $data['facultyErr'] = "Faculty should not be blank";
                   $error = true;
                 }
                 if($gender == '')
                 {
-                  $data['genderErr'] = "Gender should not blank";
+                  $data['genderErr'] = "Gender should not be blank";
                   $error = true;
                 }
                 if($status == '')
                 {
-                  $data['statusErr'] = "Status should not blank";
+                  $data['statusErr'] = "Status should not be blank";
                   $error = true;
                 }
                 if($birthday == '')
                 {
-                  $data['birthdayErr'] = "Birthday should not blank";
+                  $data['birthdayErr'] = "Birthday should not be blank";
                   $error = true;
                 }
                
@@ -168,8 +204,8 @@
                   //$data['jenis_kelamin'] = "M";
                   // $data['fakultas'] = 1;
                   $this->load->view('head_view');
-                  $this->load->view('foot_view');
                   $this->load->view('registration_one_view', $data);
+                  $this->load->view('foot_view');
                 }
                 else
                 {
@@ -198,8 +234,9 @@
                     $this->non_admin->createUser($data);
 
                     $this->session->set_userdata('username',$username);
-                    $this->session->set_userdata(''.$username,true);
-                    redirect(base_url('index.php/Dashboard'));
+                    //$this->session->set_userdata(''.$username,true);
+                   
+                    redirect(base_url('index.php/Registration/step_two'));
 
                 }       
             }
@@ -208,9 +245,55 @@
                 $this->session->set_userdata('error_login_'.$email,true);
                 redirect(base_url('index.php/login'));
 
-            }
-                
+            }              
 
         }
+        
+        public function cropimage()
+        {
+            $res['img']=$this->non_admin->upload_image();  
+            $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);    
+           
+            $this->load->view('head_view');
+            $this->load->view("registration_two_view",$res);
+            $this->load->view('foot_view');
+             
+        }
+
+        public function updatecropimage()
+        {
+            $img['imgpath']=$this->non_admin->upload_thumbnail();
+            //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
+            echo $img=$img['imgpath'];
+        }
+
+        public function finish()
+        {
+           $username = $this->session->userdata('username');
+           $this->session->set_userdata(''.$username,true);
+          redirect('index.php/request_in');
+        }
+        // public function addPhoto()
+        // {
+        //   if(isset($_POST))
+        //   {
+        //       $photo = $this->input->post('pic');
+        //       $username = $this->session->userdata('username');
+
+        //       $this->load->model('non_admin');
+        //       $this->non_admin->setPhoto($username,$photo);
+
+        //       redirect(base_url('index.php/Dashboard'));
+
+
+        //   }
+        //   else
+        //   {
+        //       $this->session->set_userdata('error_login_'.$email,true);
+        //       redirect(base_url('index.php/login'));
+
+        //   }
+
+       // }
     }
 ?>

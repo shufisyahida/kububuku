@@ -3,7 +3,7 @@
         <ul>
            <li><a href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/request_out') ?>">Request Out</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/dashboard/collection') ?>">Collection</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/koleksi') ?>">Collection</a></li>
           <li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
@@ -13,7 +13,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -36,16 +36,20 @@
 		foreach($resultBorrowed as $post){ ?>
 
 			<div class="col s12 m12 l6">
-		    	<div class="card card-book">
+		    	<div class="card-panel card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
-		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">
+
+		                		<span class="card-title black-text">'.$post->judul.'</span><br>
+		                		</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
@@ -92,19 +96,23 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class=" card-image" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
+		              			<?php echo
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">';?>
 		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<a align="right" class="modal-trigger" href="#modal-remove2"><i class="red-text mdi-content-clear"></i></a>
-		                		<?php echo 
-								'<div id="modal-remove2" class="modal">
+		              			<?php
+		                		echo '<a align="right" class="modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		 echo 
+								'<div id="modal-remove2'.$post->isbn.'" class="modal">
 									<div class="modal-content">
 										<h4>Remove Collection</h4>
 										<p>Are you sure to remove this book from collection?</p>

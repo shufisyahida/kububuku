@@ -7,9 +7,27 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php $username = $this->session->userdata('username');
-          echo base_url().'index.php/koleksi/add/'.$resultBook[0]->isbn.'/'.$username?>" 
-          class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          
+          <?php
+            $username = $this->session->userdata('username');
+
+            $adaDiKoleksi = false;
+            $this->db->select('*');
+            $this->db->from('koleksi');
+            $this->db->where('username',$username)->where('isbn',$resultBook[0]->isbn);    
+            $query= $this->db->get()->result();
+
+            if(sizeof($query)!=0) {       
+              $adaDiKoleksi = true;
+            }
+            if(!$adaDiKoleksi)
+            {
+              echo '
+
+              <li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
+            }
+          ?>
+
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -17,6 +35,22 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 <div class="container custom-table">
+<?php
+echo '
+      <div id="modal-addcol" class="modal">
+        <div class="modal-content">
+          <h4>Add Book to Collection?</h4>
+          <p>Are you sure to add this book to your collection?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+  
+          <a href="'.base_url()."index.php/koleksi/add/".$resultBook[0]->isbn."/".$username.'"
+            class="waves-effect waves-green btn-flat modal-action">ADD</a>
+        </div>
+      </div>
+      ';
+?>
 
   <div class="row">
     <div class="col s12 m4 l3">
@@ -53,12 +87,12 @@
             <?php }?>
             <div class="col s12 m5 l4">
               <div align="right">
-                <h5>Book Owner</h5>
+                <h6>Book Owner</h6>
                 <div class="row">
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
-                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" target="_blank">
+                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" >
                       <img class="responsive-img circle" img src='.$row->foto.'>
                     </a>
                   </div>' ?>

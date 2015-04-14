@@ -1,6 +1,16 @@
 <?php
     class Search extends CI_Controller
     {
+        public function __construct()
+        {
+            parent::__construct();
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('index.php/login'));
+            }
+        }
+        
         public function homeBuku(){
             $this->load->view('head_view');
             $this->load->view('navbar_view');
@@ -92,6 +102,7 @@
 
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchPengguna($keyword,$kategori);
+<<<<<<< HEAD
                    if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
                        $data['resultSearchPengguna'] = null;
@@ -117,6 +128,68 @@
                       $data['notFound'] = null;
              }
 
+=======
+
+                    if($result==false) {
+                       $data['notFound'] = "Sorry, no records found";
+                       $data['resultSearchPengguna'] = null;
+                        $data['notMatch'] = null;
+                        $data['kategori'] = $kategori;
+                        $data['keyword'] = $keyword;
+                      
+                    }
+                    else {
+
+                        //var_dump($result);
+                        $this->load->model('non_admin');
+                        $this->load->model('fakultas'); 
+                        $koleksi = array();
+                        foreach ($result as $key => $value)
+                        {
+                            
+                            $username = $value->username;
+                            //get Faculty
+                            $idFak = $value->fakultas;
+                            $namaFak = $this->fakultas->getFaculty($idFak);                       
+                            $value->fakultas = $namaFak;
+
+                             //getStatus
+                            $statusUser = $this->non_admin->getStatus($username);                      
+                            $value->status = $statusUser;
+
+                            //getStatus
+                            $statusUser = $this->non_admin->getStatus($username);                      
+                            $value->status = $statusUser;
+
+                            //get sex
+                            $jenisKelamin = $this->non_admin->getSex($username);
+                            $value->jenis_kelamin = $jenisKelamin;
+
+                            //get number of collection
+                            $this->load->model('koleksi_model');
+                            $koleksi[$username]= $this->koleksi_model->getNumOfKoleksi($username);
+                        }
+                    
+                      $data['resultSearchPengguna'] = $result;
+                      $data['koleksi']= $koleksi;
+                      $data['notFound'] = null;
+                      $data['notMatch'] = null;
+                    } 
+             }
+             else if($kategori==null)
+             {
+                   $data['notMatch'] = "Choose Category";
+                     $data['resultSearchPengguna'] = null;
+                      $data['notFound'] = null;
+             }
+               else if($keyword==null)
+             {
+                   $data['notMatch'] = "Enter keyword";
+                     $data['resultSearchPengguna'] = null;
+                      $data['notFound'] = null;
+             }
+
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
 
 
 

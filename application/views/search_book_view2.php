@@ -10,7 +10,11 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
+<<<<<<< HEAD
           <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+=======
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -29,8 +33,13 @@
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
+<<<<<<< HEAD
                     <option value="judul">Judul</option>
                     <option value="pengarang">Pengarang</option>
+=======
+                    <option value="judul">Title</option>
+                    <option value="pengarang">Author</option>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
                      <option value="genre">Genre</option>
                 </select>
             </div>
@@ -67,7 +76,13 @@
     <div class="col s12 m8 l9">
       <div class="col s12 m12 l6">
         <?php if($notFound!=null){?>
+<<<<<<< HEAD
         <span><?php echo $notFound ?></span>
+=======
+        <span><?php echo $notFound ?>.</span>
+        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
+        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
           <?php } ?>
       </div>
       <?php if($resultSearchBuku!=null){?>
@@ -83,9 +98,48 @@
               <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+<<<<<<< HEAD
               <div class="row row-custom-a">
                 <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
               </div>
+=======
+
+                  <?php
+                      $username = $this->session->userdata('username');
+
+                      $adaDiKoleksi = false;
+                      $this->db->select('*');
+                      $this->db->from('koleksi');
+                      $this->db->where('username',$username)->where('isbn',$post->isbn);    
+                      $query= $this->db->get()->result();
+
+                      if(sizeof($query)!=0) {       
+                        $adaDiKoleksi = true;
+                      }
+                      if(!$adaDiKoleksi)
+                      {
+                        echo 
+                        '
+                        <div id="modal-addcol" class="modal">
+                          <div class="modal-content">
+                            <h4>Add Book to Collection?</h4>
+                            <p>Are you sure to add this book to your collection?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                    
+                            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'"
+                              class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
+                          </div>
+                        </div>
+      
+                        <div class="row row-custom-a">
+                          <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
+                        </div>';
+                      }
+                  ?>
+              
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
             </div>
           </div>
         </div>
@@ -105,13 +159,21 @@
 
      if(this.value=='judul')
         {
+<<<<<<< HEAD
             $('.keyword').show();
+=======
+            $('keyword').show();
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
+<<<<<<< HEAD
            $('.keyword').show();
+=======
+           $('keyword').show();
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
             $("genre").hide();
         }
      else 

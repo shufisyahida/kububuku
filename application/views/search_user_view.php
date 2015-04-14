@@ -10,7 +10,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -48,19 +48,35 @@
              <location>
               <select id="location" name="location" type="text" class="validate">
                     <option value="" disabled selected>Choose Location</option>
+<<<<<<< HEAD
                     <option value="jakarta">Jakarta</option>
                     <option value="bogor">Bogor</option>
                      <option value="depok">Depok</option>
                     <option value="tangerang">Tangerang</option>
                     <option value="bekasi">Bekasi</option>
+=======
+                    <option value="1">Jakarta</option>
+                    <option value="2">Bogor</option>
+                     <option value="3">Depok</option>
+                    <option value="4">Tangerang</option>
+                    <option value="5">Bekasi</option>
+                    <option value="6">Other</option>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
                 </select>
               </location>
               <status>
                 <select id="status" name="status" type="text" class="validate">
                     <option value="" disabled selected>Choose Status</option>
+<<<<<<< HEAD
                     <option value="1">Mahasiswa</option>
                     <option value="2">Dosen</option>
                      <option value="3">Staff</option>
+=======
+                    <option value="1">Student</option>
+                    <option value="2">Lecturer</option>
+                     <option value="3">Staff</option>
+                     <option value="4">Alumnus</option>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
                 </select>
               </status>
               <faculty>
@@ -81,6 +97,10 @@
                      <option value="13">Faculty of Pharmacy</option>
                     <option value="50">Vocational Program</option>
                      <option value="51">Postgraduate Program</option>
+<<<<<<< HEAD
+=======
+                     <option value="52">Non Faculty</option>
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
                 </select>
               </faculty>
             </div>
@@ -107,7 +127,11 @@
 
      if(this.value=='nama')
         {
+<<<<<<< HEAD
             $('.keyword').show();
+=======
+            $('keyword').show();
+>>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
             $("location").hide();
             $("status").hide();
             $("faculty").hide();

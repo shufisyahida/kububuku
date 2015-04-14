@@ -5,6 +5,7 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>KubuBuku</title>
+		<link rel="icon" href="<?php echo base_url('assets/img/favicon.ico');?>" type="image/ico">
 
 		<!-- Materialize CSS -->
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>" media="screen,projection"/>
@@ -18,6 +19,11 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url('assets/js/materialize.js') ?>"></script>
 
-		
+		<!--<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>-->
+		<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.imgareaselect.pack.js');?>"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/imgareaselect-default.css');?>" />
+
+
+
 	</head>
 	<body class="grey lighten-5">

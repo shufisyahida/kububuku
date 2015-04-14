@@ -153,7 +153,7 @@
 			elseif($jk=='F')
 				return 'Female';
 
-			return $jk;
+		//	return $jk;
 		}
 
 		function getPicture($username)
@@ -172,18 +172,134 @@
                 $foto = $value->foto;
             }
 
-            var_dump($foto);
+           // var_dump($foto);
 
            return $foto;
 		}
 
+
+		// function setPhoto($username, $photo)
+		// {
+		// 	$data=array('foto' => $photo);
+		// 	$this->db->where('username',$username);
+		// 	$this->db->update('non_admin',$data);
+		// }
+
+
+
+		function giveRank($username,$rank,$isBorrower)
+		{
+			if($isBorrower)
+			{
+				$this->db->select('rank_peminjam');
+				$this->db->from('non_admin');
+				$this->db->where('username',$username);
+
+				$lama = $this->db->get()->result();
+
+				$rankLama='';
+
+	            foreach ($lama as $key => $value)
+	            {
+	                $rankLama = $value->rank_peminjam;
+	            }          
+
+	            $rankBaru = round(($rankLama+$rank)/2.00);
+
+	            $data=array('rank_peminjam'=>$rankBaru);
+	            $this->db->where('username',$username);
+	            $this->db->update('non_admin',$data);
+			}
+			else
+			{
+				$this->db->select('rank_pemilik');
+				$this->db->from('non_admin');
+				$this->db->where('username',$username);
+
+				$lama = $this->db->get()->result();
+
+				$rankLama='';
+
+	            foreach ($lama as $key => $value)
+	            {
+	                $rankLama = $value->rank_pemilik;
+	            } 
+
+	            $rankBaru = round(($rankLama+$rank)/2.00);
+
+	            $data=array('rank_pemilik'=>$rankBaru);
+	            $this->db->where('username',$username);
+	            $this->db->update('non_admin',$data);
+			}
+
+		}
+
+
+		public function upload_image()
+		{
+			$config['upload_path']='./uploads/';
+			$config['allowed_types']='gif|jpg|png|jpeg';
+			$config['max_size']='1024';
+			$config['max_width']='1024';
+			$config['max_height']='1024';
+
+			$this->load->library('upload',$config);
+
+			if(!$this->upload->do_upload())
+			{
+				$error = array('error' => $this->upload->display_errors());
+				return 0;
+			}
+			else
+			{
+				$data = $this->upload->data();
+				$filename=$data['file_name'];
+				$path = base_url()."uploads/".$filename;
+				$user= $this->session->userdata('username');
+				$result=array('foto'=>$path);
+				$this->db->where('username',$user);
+				$insertstatus=$this->db->update('non_admin',$result);
+				return $filename;
+			}
+
+		}
+
+		public function upload_thumbnail()
+		{
+			$this->load->helper('string');
+			$rand = random_string('alnum',4);
+			$w = $this->input->post('thumb_width');
+			$h = $this->input->post('thumb_height');
+			$x1 = $this->input->post('x_axis');
+			$y1 = $this->input->post('y_axis');
+			$img = $this->input->post('img');
+			$new_name = "small".$rand.".jpg";
+			$path = "./uploads/";
+			list($joe,$alto)=getimagesize($path.$img);
+			$ratio = $joe/500;
+			$x1 = ceil($x1*$ratio);
+			$y1 = ceil($y1*$ratio);
+			$wd = ceil($w*$ratio);
+			$ht = ceil($h*$ratio);
+			$nw = 100;
+			$nh = 100;
+			$nimg = imagecreatetruecolor($nw,$nh);
+			$img_src=imagecreatefromjpeg($path.$img);
+			imagecopyresampled($nimg, $img_src, 0, 0, $x1, $y1, $nw, $nh, $wd, $ht);
+			imagejpeg($nimg,$path.$new_name,90);
+
+			$result = array('foto'=>base_url()."uploads/".$new_name);
+			$user = $this->session->userdata('username');
+			$this->db->where('username',$user);
+			$insertstatus=$this->db->update('non_admin',$result);
+			return $new_name;
+		}
+
+
+		
+
 	}
 
-
-	
-
-
-
-
-
 ?>
+
+
