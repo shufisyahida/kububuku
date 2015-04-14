@@ -101,8 +101,22 @@
                       if(!$adaDiKoleksi)
                       {
                         echo 
-                        '<div class="row row-custom-a">
-                          <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+                        '
+                        <div id="modal-addcol" class="modal">
+                          <div class="modal-content">
+                            <h4>Add Book to Collection?</h4>
+                            <p>Are you sure to add this book to your collection?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                    
+                            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'"
+                              class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
+                          </div>
+                        </div>
+      
+                        <div class="row row-custom-a">
+                          <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
                         </div>';
                       }
                   ?>
