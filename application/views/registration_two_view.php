@@ -54,10 +54,10 @@
 </div>
 
 <script type="text/javascript">
-alert("teest");
+
 function getSizes(im,obj)
   {
-    alert("test");
+    
     var x_axis = obj.x1;
     var x2_axis = obj.x2;
     var y_axis = obj.y1;

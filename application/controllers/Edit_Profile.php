@@ -41,12 +41,41 @@
 
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
-            $data=$user[0];
+            $data['user']=$user[0];
+            $data['img']= $this->session->userdata('foto');
+            //$this->session->set_userdata('foto',base_url()."uploads/".$res['img']);    
 
            $this->load->view('head_view');
            $this->load->view('navbar_view');
            $this->load->view('edit_profile_picture_view', $data);
            $this->load->view('foot_view');
+        }
+
+         public function cropimage()
+        {
+            $this->load->model('non_admin');
+            $image = $this->non_admin->upload_image();  
+            $res['img']= base_url()."uploads/".$image;
+
+            $this->session->set_userdata('foto',$res['img']);    
+           
+            $this->load->view('head_view');
+            $this->load->view("edit_profile_picture_view",$res);
+            $this->load->view('foot_view');
+             
+        }
+
+        public function updatecropimage()
+        {
+            $img['imgpath']=$this->non_admin->upload_thumbnail();
+            //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
+            echo $img=$img['imgpath'];
+        }
+
+        public function finish()
+        {
+           
+          redirect('index.php/request_in');
         }
 
         public function edit()
