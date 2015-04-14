@@ -96,7 +96,7 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
+
 
 	<div class="col s12 m6 l9">
 <!--borrowed-->
@@ -173,7 +173,7 @@ if(!empty($koleksiBorrowed))
 				        </div>';
 				    }
 			    echo '</div>
-=======
+
 		<div class="col s12 m6 l9">
 			<div class="row">
 				<?php
@@ -300,7 +300,7 @@ if(!empty($koleksiBorrowed))
         			?>	
 			</div>
 			<div class="row">
-<<<<<<< HEAD
+
 				<!--<div class="col s12 m12 l6">
 			        <div class="card card-book">
 			          	<div class="row row-custom-a">
@@ -318,11 +318,7 @@ if(!empty($koleksiBorrowed))
 			          	</div>
 			        </div>
 			    </div>-->
-			    Coming soon
->>>>>>> ac4f9f8512811a2e3749342280848930f8ee0043
-=======
-				Coming soon
->>>>>>> 5dd6b38a3128cb7fb2e61bb1e6494fb288bfad52
+
 			</div>
 		</div>
 	</div>

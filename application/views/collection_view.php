@@ -25,16 +25,16 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
-<<<<<<< HEAD
+
 
 		<?php foreach($resultBorrowed as $post){ ?>
 			
-=======
+
 		<?php 
 		if(!empty($resultBorrowed))
 		{
 		foreach($resultBorrowed as $post){ ?>
->>>>>>> de34ac2c537e14f77a3d201690716aa1fabafbd9
+
 			<div class="col s12 m12 l6">
 		    	<div class="card card-book">
 		        	<div class="row row-custom-a">

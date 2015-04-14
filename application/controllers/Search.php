@@ -14,60 +14,111 @@
             $this->load->view('search_user_view');
             $this->load->view('foot_view');
         }
-/*
+
         public function cariBuku()
         { 
-             $filters['keyword'] = $this->input->post('keyword', TRUE);
-             $filters['kategori'] = $this->input->post('kategori', TRUE);
-             $data = $this->search_model->searchBuku($filters);
-         
+              $judulPengarang = $this->input->post('keyword');
+             $kategori = $this->input->post('kategori');
+             $genre = $this->input->post('genre');
+           
+             $this->load->model('search_model');
 
-            
+             if($judulPengarang!=null){
+                $keyword=$judulPengarang;
+             }
+             else{
+                $keyword=$genre;
+             }
+             
+
+             if($kategori!=null && $keyword!=null){
+                 $result = $this->search_model->searchBuku($keyword,$kategori);
+                   if($result==false) {
+                       $data['notFound'] = "Sorry, no records found";
+                       $data['resultSearchBuku'] = null;
+                        $data['notMatch'] = null;
+                      
+                    }
+                    else {
+                      $data['resultSearchBuku'] = $result;
+                      $data['notFound'] = null;
+                      $data['notMatch'] = null;
+                    } 
+             }
+             else if($kategori==null)
+             {
+                   $data['notMatch'] = "Choose Category";
+                     $data['resultSearchBuku'] = null;
+                      $data['notFound'] = null;
+             }
+               else if($keyword==null)
+             {
+                   $data['notMatch'] = "Enter keyword";
+                     $data['resultSearchBuku'] = null;
+                      $data['notFound'] = null;
+             }
+
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('search_book_view',$data);
-            $this->load->view('foot_view');
+            $this->load->view('search_book_view2',$data);
+            $this->load->view('foot_view'); 
 
 
                         
-        }*/
-
+        }
+       
         public function cariPengguna()
         { 
-            if(isset($_POST))
-        {
-             $keyword = $this->input->post('keyword');
-             //$kategori = $this->input->post('password');
+       
+             $nama = $this->input->post('keyword');
              $kategori = $this->input->post('kategori');
-            //$location = $this->input->post('location-radio');
-             //$status = $this->input->post('status-radio');
-             //$faculty = $this->input->post('faculty-radio');
-           /* if($name!=null){
-                $kategori=$name;
-            }                
-            else if($name!=null){
-                $kategori=$location;
-            }
-            else if($name!=null){
-                $kategori=$status;
-            }
-            else{
-                $kategori=$faculty;
-            }*/
+             $location = $this->input->post('location');
+             $status = $this->input->post('status');
+             $faculty = $this->input->post('faculty');
              $this->load->model('search_model');
-             $data['resultSearchPengguna'] = $this->search_model->searchPengguna($keyword,$kategori);
-            /* $this->load->library('table');
-             $this->load->helper('html'); 
-             $nama1 = $nama;
-             $this->load->model('search_model');
-             $data['query'] = $this->search_model->searchPengguna($nama1);
-             echo json_encode($data);*/
 
-          
-        }
-        else{
-            $data = "tidak ada";
-    }
+             if($nama!=null){
+                $keyword=$nama;
+             }
+             else if($location!=null){
+                $keyword=$location;
+             }
+             else if($status!=null){
+                $keyword=$status;
+             }
+             else {
+                $keyword=$faculty;
+             }
+
+             if($kategori!=null && $keyword!=null){
+                 $result = $this->search_model->searchPengguna($keyword,$kategori);
+                   if($result==false) {
+                       $data['notFound'] = "Sorry, no records found";
+                       $data['resultSearchPengguna'] = null;
+                        $data['notMatch'] = null;
+                      
+                    }
+                    else {
+                      $data['resultSearchPengguna'] = $result;
+                      $data['notFound'] = null;
+                      $data['notMatch'] = null;
+                    } 
+             }
+             else if($kategori==null)
+             {
+                   $data['notMatch'] = "Choose Category";
+                     $data['resultSearchPengguna'] = null;
+                      $data['notFound'] = null;
+             }
+               else if($keyword==null)
+             {
+                   $data['notMatch'] = "Enter keyword";
+                     $data['resultSearchPengguna'] = null;
+                      $data['notFound'] = null;
+             }
+
+
+
 
           
             $this->load->view('head_view');
