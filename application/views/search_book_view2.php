@@ -85,10 +85,28 @@
               <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
-              <div class="row row-custom-a">
-                <a href="<?php $username = $this->session->userdata('username');
-          echo base_url().'index.php/koleksi/add/'.$post->isbn.'/'.$username?>" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
-              </div>
+
+                  <?php
+                      $username = $this->session->userdata('username');
+
+                      $adaDiKoleksi = false;
+                      $this->db->select('*');
+                      $this->db->from('koleksi');
+                      $this->db->where('username',$username)->where('isbn',$post->isbn);    
+                      $query= $this->db->get()->result();
+
+                      if(sizeof($query)!=0) {       
+                        $adaDiKoleksi = true;
+                      }
+                      if(!$adaDiKoleksi)
+                      {
+                        echo 
+                        '<div class="row row-custom-a">
+                          <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'" class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
+                        </div>';
+                      }
+                  ?>
+              
             </div>
           </div>
         </div>

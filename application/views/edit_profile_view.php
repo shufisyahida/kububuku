@@ -88,7 +88,7 @@
             <div class="col s12 m6 l4">
               <span class="error"><?php echo $statusErr;?></span>
             </div>
-            <div class="input-field col s12 m6 l8">
+            <div class="col s12 m6 l8">
               <label for="domisili">Domicile</label>
                   <select id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
                       <option value="">Select your domicile</option>
