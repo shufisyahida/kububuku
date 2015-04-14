@@ -32,7 +32,7 @@
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
                     <option value="nama">Name</option>
-                    <option value="domisili">Location</option>
+                    <option value="domisili">Domicile</option>
                      <option value="status">Status</option>
                     <option value="fakultas">Faculty</option>
                 </select>
@@ -47,13 +47,13 @@
               </keyword>
              <location>
               <select id="location" name="location" type="text" class="validate">
-                    <option value="" disabled selected>Choose Location</option>
-                    <option value="1">Jakarta</option>
-                    <option value="2">Bogor</option>
-                     <option value="3">Depok</option>
-                    <option value="4">Tangerang</option>
-                    <option value="5">Bekasi</option>
-                    <option value="6">Other</option>
+                    <option value="" disabled selected>Choose Domicile</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Bogor">Bogor</option>
+                     <option value="Depok">Depok</option>
+                    <option value="Tangerang">Tangerang</option>
+                    <option value="Bekasi">Bekasi</option>
+                    <option value="Other">Other</option>
                 </select>
               </location>
               <status>
@@ -83,6 +83,7 @@
                      <option value="13">Faculty of Pharmacy</option>
                     <option value="50">Vocational Program</option>
                      <option value="51">Postgraduate Program</option>
+                     <option value="52">Non Faculty</option>
                 </select>
               </faculty>
             </div>

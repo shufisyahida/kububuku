@@ -11,6 +11,15 @@ class Auth extends CI_Controller {
  //                redirect(base_url('index.php/login'));
  //            }
  //     }
+	public function __construct() {
+        parent:: __construct();
+        // Load form helper
+        // $this->load->helper('form');
+        // Load encryption library
+        $this->load->library('encrypt');
+        // Load form validation library
+        // $this->load->library('form_validation');
+    }
 	
 
 
@@ -19,7 +28,8 @@ class Auth extends CI_Controller {
 		if(isset($_POST))
 		{
 			$email = $this->input->post('email');
-			$password = $this->input->post('password');	
+			$key = md5($this->input->post('password'));
+			$password = substr($key, 0, 40);
 
 			$this->load->model('non_admin');
 			$isMember = $this->non_admin->isMember($email,$password);
