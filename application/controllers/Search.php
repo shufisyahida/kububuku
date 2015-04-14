@@ -102,14 +102,49 @@
 
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchPengguna($keyword,$kategori);
-                   if($result==false) {
+
+                    if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
                        $data['resultSearchPengguna'] = null;
                         $data['notMatch'] = null;
+                        $data['kategori'] = $kategori;
+                        $data['keyword'] = $keyword;
                       
                     }
                     else {
+
+                        //var_dump($result);
+                        $this->load->model('non_admin');
+                        $this->load->model('fakultas'); 
+                        $koleksi = array();
+                        foreach ($result as $key => $value)
+                        {
+                            
+                            $username = $value->username;
+                            //get Faculty
+                            $idFak = $value->fakultas;
+                            $namaFak = $this->fakultas->getFaculty($idFak);                       
+                            $value->fakultas = $namaFak;
+
+                             //getStatus
+                            $statusUser = $this->non_admin->getStatus($username);                      
+                            $value->status = $statusUser;
+
+                            //getStatus
+                            $statusUser = $this->non_admin->getStatus($username);                      
+                            $value->status = $statusUser;
+
+                            //get sex
+                            $jenisKelamin = $this->non_admin->getSex($username);
+                            $value->jenis_kelamin = $jenisKelamin;
+
+                            //get number of collection
+                            $this->load->model('koleksi_model');
+                            $koleksi[$username]= $this->koleksi_model->getNumOfKoleksi($username);
+                        }
+                    
                       $data['resultSearchPengguna'] = $result;
+                      $data['koleksi']= $koleksi;
                       $data['notFound'] = null;
                       $data['notMatch'] = null;
                     } 

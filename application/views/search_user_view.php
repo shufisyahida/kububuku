@@ -83,6 +83,7 @@
                      <option value="13">Faculty of Pharmacy</option>
                     <option value="50">Vocational Program</option>
                      <option value="51">Postgraduate Program</option>
+                     <option value="52">Non Faculty</option>
                 </select>
               </faculty>
             </div>
