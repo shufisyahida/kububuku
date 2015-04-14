@@ -8,23 +8,10 @@
         </a>
         <ul>
           
-          <?php
-            $username = $this->session->userdata('username');
-
-            $adaDiKoleksi = false;
-            $this->db->select('*');
-            $this->db->from('koleksi');
-            $this->db->where('username',$username)->where('isbn',$resultBook[0]->isbn);    
-            $query= $this->db->get()->result();
-
-            if(sizeof($query)!=0) {       
-              $adaDiKoleksi = true;
-            }
+          <?php          
             if(!$adaDiKoleksi)
             {
-              echo '
-
-              <li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
+              echo '<li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
             }
           ?>
 

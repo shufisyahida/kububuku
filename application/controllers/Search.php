@@ -40,7 +40,7 @@
                 $keyword=$genre;
              }
              
-
+             
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchBuku($keyword,$kategori);
                    if($result==false) {
@@ -53,6 +53,15 @@
                       $data['resultSearchBuku'] = $result;
                       $data['notFound'] = null;
                       $data['notMatch'] = null;
+
+                      $username = $this->session->userdata('username');
+
+                      $this->load->model('koleksi_model');
+                        $adaDiKoleksi = $this->koleksi_model->adaDiKoleksi($username, $result[0]->isbn);
+
+
+                      $data['adaDiKoleksi']= $adaDiKoleksi;
+                      $data['username']= $username;
                     } 
              }
              else if($kategori==null)
@@ -67,6 +76,8 @@
                      $data['resultSearchBuku'] = null;
                       $data['notFound'] = null;
              }
+
+             
 
             $this->load->view('head_view');
             $this->load->view('navbar_view');

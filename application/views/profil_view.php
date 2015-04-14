@@ -143,6 +143,7 @@
 													}
 
 								            		if(!$requested)
+								            		// if($value->requested == '1')
 								            		{
 									            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
 									            			<div id="modal-duration'.$index.'" class="modal">

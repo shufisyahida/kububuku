@@ -87,17 +87,6 @@
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
 
                   <?php
-                      $username = $this->session->userdata('username');
-
-                      $adaDiKoleksi = false;
-                      $this->db->select('*');
-                      $this->db->from('koleksi');
-                      $this->db->where('username',$username)->where('isbn',$post->isbn);    
-                      $query= $this->db->get()->result();
-
-                      if(sizeof($query)!=0) {       
-                        $adaDiKoleksi = true;
-                      }
                       if(!$adaDiKoleksi)
                       {
                         echo 

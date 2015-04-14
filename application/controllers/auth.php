@@ -29,7 +29,7 @@ class Auth extends CI_Controller {
 		{
 			$email = $this->input->post('email');
 			$key = md5($this->input->post('password'));
-			$password = substr($key, 0, 40);
+			$password = substr($key, 0, 30);
 
 			$this->load->model('non_admin');
 			$isMember = $this->non_admin->isMember($email,$password);
