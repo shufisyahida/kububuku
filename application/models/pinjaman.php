@@ -70,6 +70,21 @@ class Pinjaman extends CI_Model
 		else
 			return true;
 	}
+	function isRequested($peminjam, $pemilik, $isbn)
+	{
+		$this->db->select('*');
+		$this->db->from('pinjaman');
+		$this->db->where('username_peminjam',$peminjam)->where('username_pemilik',$pemilik)->where('isbn',$isbn);		
+		$query= $this->db->get()->result();
+
+		if(sizeof($query)!=0) {				
+			return true;
+		}
+		else{
+			return false;	
+		}
+		
+	}
 }
 
 ?>
