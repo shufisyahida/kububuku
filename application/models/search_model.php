@@ -15,11 +15,23 @@ class Search_model extends CI_Model
 
   function searchPengguna($keyword,$kategori)
   {
-        $this->db->select('*');
-        $this->db->from('non_admin');
-        $this->db->like($kategori, $keyword);   
-        $query = $this->db->get();
-        return $resultSearchPengguna = $query->result();
+        if($kategori == 'fakultas')
+        {
+          $this->db->select('*');
+          $this->db->from('non_admin');
+          $this->db->where($kategori, $keyword);   
+          $query = $this->db->get();
+          return $resultSearchPengguna = $query->result();
+        }
+        else
+        {
+          $this->db->select('*');
+          $this->db->from('non_admin');
+          $this->db->like($kategori, $keyword);   
+          $query = $this->db->get();
+          return $resultSearchPengguna = $query->result();
+        }
+        
   
   }
 
