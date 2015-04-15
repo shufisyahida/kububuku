@@ -20,7 +20,7 @@
 
 <div class="container custom-table">
   <div class="row">
-    <div class="col s12 m4 l4">
+    <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search Filter</h6>
         <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">

@@ -87,7 +87,7 @@
       <?php foreach($resultSearchBuku as $post){?>
       
      <??>
-        
+      <div class="col s12 m12 l6">  
         <div class="card">
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
@@ -96,7 +96,7 @@
                     ?>
             </div>
             <div class="col s8 m8 l8">
-              <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
+              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
       
@@ -129,6 +129,7 @@
           </div>
         </div>
         <?php } ?>
+      </div> 
       <?php } ?>
       </div>
     </div>
