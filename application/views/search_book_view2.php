@@ -84,7 +84,7 @@
           <?php } ?>
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
-      <?php foreach($resultSearchBuku as $post){?>
+      <?php foreach($resultSearchBuku as $key => $post){?>
         <div class="card">
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
@@ -99,7 +99,7 @@
       
 
                   <?php
-                      if(!$adaDiKoleksi)
+                      if(!$adaDiKoleksi[$key])
                       {
                         echo 
                         '

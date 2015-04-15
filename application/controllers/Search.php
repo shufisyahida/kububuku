@@ -43,6 +43,7 @@
              
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchBuku($keyword,$kategori);
+
                 
 
 
@@ -57,10 +58,19 @@
                       $data['notFound'] = null;
                       $data['notMatch'] = null;
 
-                      $username = $this->session->userdata('username');
+                      // $username = $this->session->userdata('username');
 
-                      $this->load->model('koleksi_model');
-                        $adaDiKoleksi = $this->koleksi_model->adaDiKoleksi($username, $result[0]->isbn);
+                        $adaDiKoleksi=array();
+
+                        foreach ($result as $key => $value) {
+                            $username = $this->session->userdata('username');
+                            // $this->load->model('pinjaman');
+                            // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
+                             $this->load->model('koleksi_model');
+                             $ada = $this->koleksi_model->adaDiKoleksi($username, $value->isbn);
+                            $adaDiKoleksi[$key] = $ada;
+                        }
+
 
 
                       $data['adaDiKoleksi']= $adaDiKoleksi;
