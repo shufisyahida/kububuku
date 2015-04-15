@@ -5,11 +5,22 @@ class Search_model extends CI_Model
 
   function searchBuku($keyword,$kategori)
   {
-        $this->db->select('*');
-        $this->db->from('buku');
-        $this->db->like($kategori, $keyword);   
-        $query = $this->db->get();
-        return $resultSearchBuku = $query->result();
+        if($kategori == 'genre')
+        {
+          $this->db->select('*');
+          $this->db->from('buku');
+          $this->db->where($kategori, $keyword);   
+          $query = $this->db->get();
+          return $resultSearchBuku = $query->result();
+        }
+        else
+        {
+          $this->db->select('*');
+          $this->db->from('buku');
+          $this->db->like($kategori, $keyword);   
+          $query = $this->db->get();
+          return $resultSearchBuku = $query->result();
+        }
       
   }
 
