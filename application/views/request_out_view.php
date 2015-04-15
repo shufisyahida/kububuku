@@ -99,7 +99,7 @@
 								</div>
 							</div>';
 							
-							echo '<a data-position="bottom" data-delay="50" data-tooltip="Cancel Borowing" class="tooltipped modal-trigger red-text mdi-content-clear" href="#modal-cancel'.$index.'"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Cancel Borrowing" class="tooltipped modal-trigger red-text mdi-content-clear" href="#modal-cancel'.$index.'"></a>';
 							
 						}
 						elseif ($status[$index]==2) 
