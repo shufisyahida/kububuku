@@ -86,7 +86,7 @@
 						//var_dump($status);
 						if($status[$index]==1)
 						{
-							echo '<a class="yellow-text text-darken-1 mdi-action-alarm"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Waiting for Acceptance" class="tooltipped yellow-text text-darken-1 mdi-action-alarm"></a>';
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
@@ -99,7 +99,7 @@
 								</div>
 							</div>';
 							
-							echo '<a class="modal-trigger red-text mdi-content-clear" href="#modal-cancel'.$index.'"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Cancel Borowing" class="tooltipped modal-trigger red-text mdi-content-clear" href="#modal-cancel'.$index.'"></a>';
 							
 						}
 						elseif ($status[$index]==2) 
@@ -143,11 +143,11 @@
 								</form>';
 
 
-							echo '<a class="modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Return Book" class="tooltipped modal-trigger blue-text mdi-file-file-download" href="#modal-return'.$index.'"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
-							echo '<a class="modal-trigger yellow-text text-darken-1 mdi-action-alarm-on"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Waiting for Confirmation" class="tooltipped modal-trigger yellow-text text-darken-1 mdi-action-alarm-on"></a>';
 						}
 							
 						
@@ -188,7 +188,7 @@
 								</div>
 							</div>';
 
-						echo '<a class="modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
+						echo '<a data-position="bottom" data-delay="50" data-tooltip="View Contact" class="tooltipped modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
 						</td>
 						</tr>';
 
