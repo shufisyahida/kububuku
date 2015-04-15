@@ -27,7 +27,7 @@
 echo '
       <div id="modal-addcol" class="modal">
         <div class="modal-content">
-          <h4>Add Book to Collection?</h4>
+          <h4>Add Collection?</h4>
           <p>Are you sure to add this book to your collection?</p>
         </div>
         <div class="modal-footer">

@@ -85,9 +85,6 @@
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
       <?php foreach($resultSearchBuku as $post){?>
-      
-     <??>
-      <div class="col s12 m12 l6">  
         <div class="card">
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
@@ -108,7 +105,7 @@
                         '
                         <div id="modal-addcol" class="modal">
                           <div class="modal-content">
-                            <h4>Add Book to Collection?</h4>
+                            <h4>Add Collection?</h4>
                             <p>Are you sure to add this book to your collection?</p>
                           </div>
                           <div class="modal-footer">
@@ -129,7 +126,6 @@
           </div>
         </div>
         <?php } ?>
-      </div> 
       <?php } ?>
       </div>
     </div>
