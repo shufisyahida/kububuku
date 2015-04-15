@@ -20,17 +20,21 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 
-<div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
+<!-- <div class="header_wrapper">
     <nav class="green">
       <div class="nav-container nav-wrapper">
         <a href="#" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
       </div>
     </nav>
-</div>
-<div class="container" style="margin-top:50px;">
+</div> -->
+<div class="container custom-table">
+  <h4>Image Upload</h4>
+  <div class="card-panel z-depth-1">
        <?php echo form_open_multipart('index.php/Edit_Profile/cropimage');?>
-        <div class="card-panel z-depth-1">
-            <div class="row">
+       <div class="row">
+              
+          
+              <div class="row">
 
                 <!-- <div class="col s12 m5 l5">
                     <div class="col s12 m12 l12">
@@ -43,33 +47,36 @@
                     </div>
                 </div> -->
 
-                <div class="col s12 m7 l7">
-                <div id="cropimage" class="col s12 m5 l5 cropimage">
-                    <table width="958">
- 
-             
-                    <tr><h3>Image Upload</h3></tr>
-                    <tr><input type="file" name="userfile" name="userfile"></tr>
-                    <tr><input type="hidden" name="image_name" id="image_name" value="<?php echo $img;?>"></tr>
-                      
-                      <br>
-                       <tr>
-                        <td>
-                        <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
-                      </tr>
-                     </table>
+                    <div class="col s12 m7 l7">
+                      <div id="cropimage" class="col s12 m5 l5 cropimage">
+                          <table width="958">
 
-                    <div style="margin:0 auto; width:600px">
-                        <h6>Please drag on the image</h6>
-                        <img src="<?php echo $img; ?>" id="photo" style='max-width:500px' >
+
+                          <!-- <tr><h3>Image Upload</h3></tr> -->
+                          <tr><input type="file" name="userfile" name="userfile"></tr>
+                          <tr><input type="hidden" name="image_name" id="image_name" value="<?php echo $img;?>"></tr>
+                            
+                            <br>
+                             <tr>
+                              <td>
+                              <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
+                            </tr>
+                           </table>
+
+                          <div style="margin:0 auto; width:600px">
+                              <!-- <h6>Please drag on the image</h6> -->
+                              <img src="<?php echo $img; ?>" id="photo" style='max-width:500px' >
+                          </div>
+                      </div>
                     </div>
-                </div>
-            </div>
+              </div>
+          
         </div>
-     <div id="thumbs" style='max-width:500px'></div>
+        <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
    <a href="<?php echo base_url('index.php/Edit_Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
+   </div>
 </div>
 
 <script type="text/javascript">
