@@ -49,7 +49,7 @@
 		              		</div>
 		              		<div class="col s1 m1 l1">
 		                		<?php
-		                		echo '<a align="right" class="modal-trigger action-content" href="#modal-remove'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
 		                		 echo 
 								'<div id="modal-remove'.$post->isbn.'" class="modal">
 									<div class="modal-content">
@@ -106,7 +106,7 @@
 		              		</div>
 		              		<div class="col s1 m1 l1">
 		              			<?php
-		                		echo '<a align="right" class="modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
 		                		 echo 
 								'<div id="modal-remove2'.$post->isbn.'" class="modal">
 									<div class="modal-content">
