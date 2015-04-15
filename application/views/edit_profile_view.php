@@ -154,7 +154,7 @@
         </div> 
       </div>
       <div class="row right">
-        <button class="btn green waves-effect waves-light" type="submit" name="action" method="post">Submit</button>
+        <button class="btn green waves-effect waves-light" type="submit" name="action" method="post">SAVE</button>
       </div>
     </form>
 </div>

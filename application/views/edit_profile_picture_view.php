@@ -58,8 +58,8 @@
                             
                             <br>
                              <tr>
-                              <td>
-                              <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
+                              <td></td>
+                              <td><input type="submit" value="SUBMIT" class="btn red"/></td>
                             </tr>
                            </table>
 
@@ -75,7 +75,7 @@
         <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/Edit_Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
+   <a href="<?php echo base_url('index.php/Edit_Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
    </div>
 </div>
 
