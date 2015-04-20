@@ -50,13 +50,24 @@
             </keyword>
              <genre>
               <select id="genre" name="genre" type="text" class="validate">
-                    <option value="" disabled selected>Choose Genre</option>
-                    <option value="romance">Romance</option>
-                    <option value="science fiction">Science Fiction</option>
-                     <option value="fantasy">Fantasy</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="education">Education</option>
-                     <option value="non-fiction">Non-Fiction</option>
+                     <option value="">Choose book genre</option>
+                      <option value="Biography" >Biography</option>  
+                      <option value="Comic" >Comic</option>
+                      <option value="Fantasy" >Fantasy</option>
+                      <option value="Fiction" >Fiction</option>
+                      <option value="Horror" >Horror</option>
+                      <option value="Legend" >Legend</option>
+                      <option value="Mystery" >Mystery</option>
+                      <option value="Non Fiction" >Non Fiction</option>     
+                      <option value="Philosophy" >Philosophy</option>     
+                      <option value="Politics" >Politics</option> 
+                      <option value="Reference Book" >Reference Book</option>
+                      <option value="Religion" >Religion</option> 
+                      <option value="Romance" >Romance</option> 
+                      <option value="Suspense" >Suspense</option>     
+                      <option value="Textbook" >Textbook</option>     
+                      <option value="Thriller" >Thrillers</option>  
+                      <option value="Miscellaneous" >Miscellaneous</option> 
                 </select>
               </genre>
             </div>
@@ -74,7 +85,7 @@
       </div>
     </div>
     <div class="col s12 m8 l9">
-      <div class="col s12 m12 l6">
+      <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
 <<<<<<< HEAD
         <span><?php echo $notFound ?></span>
@@ -84,9 +95,9 @@
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
           <?php } ?>
-      </div>
+      <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
-      <?php foreach($resultSearchBuku as $post){?>
+      <?php foreach($resultSearchBuku as $key => $post){?>
         <div class="card">
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
@@ -95,34 +106,27 @@
                     ?>
             </div>
             <div class="col s8 m8 l8">
-              <span class="card-book-title black-text"><?php echo $post->judul;?></span><br>
+              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+<<<<<<< HEAD
 <<<<<<< HEAD
               <div class="row row-custom-a">
                 <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
               </div>
 =======
+=======
+      
+>>>>>>> 74cf88d4ed7cb32b2e65f3fb4187a9e568e9e616
 
                   <?php
-                      $username = $this->session->userdata('username');
-
-                      $adaDiKoleksi = false;
-                      $this->db->select('*');
-                      $this->db->from('koleksi');
-                      $this->db->where('username',$username)->where('isbn',$post->isbn);    
-                      $query= $this->db->get()->result();
-
-                      if(sizeof($query)!=0) {       
-                        $adaDiKoleksi = true;
-                      }
-                      if(!$adaDiKoleksi)
+                      if(!$adaDiKoleksi[$key])
                       {
                         echo 
                         '
                         <div id="modal-addcol" class="modal">
                           <div class="modal-content">
-                            <h4>Add Book to Collection?</h4>
+                            <h4>Add Collection?</h4>
                             <p>Are you sure to add this book to your collection?</p>
                           </div>
                           <div class="modal-footer">
@@ -143,9 +147,9 @@
             </div>
           </div>
         </div>
+        <?php } ?>
+      <?php } ?>
       </div>
-       <?php } ?>
-    <?php } ?>
     </div>
   </div>
 </div>

@@ -49,6 +49,7 @@ class Buku extends CI_Model
 			return false;
 		}
 	}
+	
 
 
 	// function searchBook($terms)

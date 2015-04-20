@@ -30,14 +30,14 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="isbn" name="isbn" type="text" class="validate" value="<?php echo $isbn;?>">
-                        <label for="isbn">ISBN</label>
+                        <label for="isbn">ISBN*</label>
                         <span class="error"><?php echo $isbnErr;?></span>
                     </div>
 
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="judul" name="judul" type="text" class="validate" value="<?php echo $judul;?>">
-                        <label for="judul">Judul</label>
+                        <label for="judul">Judul*</label>
                         <span class="error"><?php echo $judulErr;?></span>
                     </div>
 
@@ -52,13 +52,13 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="pengarang" name="pengarang" type="text" class="validate" value="<?php echo $pengarang;?>">
-                        <label for="pengarang">Pengarang</label>
+                        <label for="pengarang">Pengarang*</label>
                         <span class="error"><?php echo $pengarangErr;?></span>
                     </div>
 
                     <div class="col s4 offset-s2">
                         <select id="genre" name="genre" type="text" class="validate" >
-                              <option value="">Choose book genre</option>
+                              <option value="">Choose book genre*</option>
                               <option value="Biography" <?php if($genre == "Biography") echo "selected"; ?>>Biography</option>  
                               <option value="Comic" <?php if($genre == "Comic") echo "selected"; ?>>Comic</option>
                               <option value="Fantasy" <?php if($genre == "Fantasy") echo "selected"; ?>>Fantasy</option>

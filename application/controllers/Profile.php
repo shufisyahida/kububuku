@@ -43,11 +43,23 @@
             $user[0]->jenis_kelamin = $jenisKelamin;
 
             $data['user']=$user[0];
-            $data['koleksiAvailable']=$koleksiAvailable;   
-            $data['koleksiBorrowed']=$koleksiBorrowed;          
+              
+            $data['koleksiBorrowed']=$koleksiBorrowed;
+
+            $requested=array();
+
+            foreach ($koleksiAvailable as $key => $value) {
+                $username = $this->session->userdata('username');
+                $this->load->model('pinjaman');
+                $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
+                $requested[$key] = $isRequested;
+
+            }          
            // $data['wishlist']=$wishlist;
 
-            //var_dump($data);
+            // var_dump($koleksiAvailable);
+            $data['koleksiAvailable']=$koleksiAvailable;
+            $data['requested']=$requested; 
             
             $this->load->view('head_view');
             $this->load->view('navbar_view');

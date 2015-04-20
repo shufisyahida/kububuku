@@ -24,7 +24,7 @@
 
 <div class="container custom-table">
   <div class="row">
-    <div class="col s12 m4 l4">
+    <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search</h6>
        <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
@@ -151,7 +151,7 @@
             ?>
           
           </div>
-          <div class="green-text name-property"><?php echo $post->nama;?></div>
+          <div class="truncate green-text name-property"><?php echo '<a href="'.base_url().'index.php/Profile/profile/'.$post->username.'">'?><?php echo $post->nama;?></a></div>
           <div class="divider"></div>
           <div class="custom-container-b">
             <ul>
@@ -163,7 +163,7 @@
               <li><i class="green-text tiny mdi-maps-place"></i><?php echo $post->domisili;?></li>
 =======
               <li class = "truncate"><i class="green-text tiny mdi-maps-beenhere"></i> <?php echo $post->fakultas;?></li>
-              <li class = "truncate"><i class="green-text tiny mdi-social-person-outline truncate"></i> <?php echo $post->status;?></li>
+              <li class = "truncate"><i class="green-text tiny mdi-social-person-outline"></i> <?php echo $post->status;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-social-person"></i> <?php echo $post->jenis_kelamin;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-action-event"></i> <?php echo $post->tanggal_lahir;?></li>
               <li class = "truncate"><i class="green-text tiny mdi-maps-place"></i><?php echo $post->domisili;?></li>
@@ -182,7 +182,7 @@
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
               </div>
               <div class="col s6 m6 l6 center">
-                <h5 class="green-text">29</h5>wishlist
+                <h5 class="green-text">---</h5>wishlist
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@
 
      if(this.value=='nama')
         {
-            $('.keyword').show();
+            $('keyword').show();
             $("location").hide();
             $("status").hide();
             $("faculty").hide();

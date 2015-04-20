@@ -27,13 +27,13 @@
           <div class="row">
             <div class="input-field col s12 m6 l8">
               <input name="name" value="<?php echo $nama;?>" id="" type="text" class="validate" maxlength="40">
-              <label >Your Name</label>
+              <label >Your Name*</label>
             </div>
             <div class="col s12 m6 l4">
               <span class="error"><?php echo $nameErr;?></span>
             </div>
             <div class="col s12 m6 l8">
-              <label>Gender</label>
+              <label>Gender*</label>
               <select name="gender">
                 <option value="" <?php if($jenis_kelamin == "") echo "selected"; ?>>Choose your gender</option>
                 <option value="M" <?php if($jenis_kelamin == "M") echo "selected"; ?>>Male</option>
@@ -44,14 +44,14 @@
               <span class="error"><?php echo $genderErr;?></span>
             </div>
             <div class="col s12 m6 l8">
-                <label for="birth">Birthday</label>
+                <label for="birth">Birthday*</label>
                 <input id="birth" name="birth" type="date" class="datepicker validate" value="<?php echo $tanggal_lahir;?>">
             </div>
             <div class="col s12 m6 l4">
               <span class="error"><?php echo $birthdayErr;?></span>
             </div>
             <div class="col s12 m6 l8">
-              <label>Faculty</label>
+              <label>Faculty*</label>
               <select id="faculty" name="faculty" type="text" class="validate">
                 <option value="" <?php if($fakultas == "") echo "selected"; ?>>Choose your faculty</option>
                     <option value="1" <?php if($fakultas == "1") echo "selected"; ?>>Faculty of Medicine</option>
@@ -76,7 +76,7 @@
               <span class="error"><?php echo $facultyErr;?></span>
             </div>
             <div class="col s12 m6 l8">
-              <label>Status</label>
+              <label>Status*</label>
               <select name="status">
                 <option value="" <?php if($status == "") echo "selected"; ?>>Select your status</option>
                 <option value="1" <?php if($status == "1") echo "selected"; ?>>Student</option>
@@ -89,7 +89,7 @@
               <span class="error"><?php echo $statusErr;?></span>
             </div>
             <div class="col s12 m6 l8">
-              <label for="domisili">Domicile</label>
+              <label for="domisili">Domicile*</label>
                   <select id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
                       <option value="">Select your domicile</option>
                       <option value="Jakarta" <?php if($domisili == "Jakarta") echo "selected"; ?>>Jakarta</option>
@@ -144,7 +144,7 @@
 
                 <div class="input-field">
                     <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
-                    <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
+                    <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail*</label>
                 </div> 
                 <div class="col s12 m6 l4">
               <span class="error"><?php echo $mailErr;?></span>
@@ -154,7 +154,7 @@
         </div> 
       </div>
       <div class="row right">
-        <button class="btn green waves-effect waves-light" type="submit" name="action" method="post">Submit</button>
+        <button class="btn green waves-effect waves-light" type="submit" name="action" method="post">SAVE</button>
       </div>
     </form>
 </div>
@@ -164,8 +164,8 @@
         $('select').material_select();
     });
 
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 100 // Creates a dropdown of 15 years to control year
-    });
+    // $('.datepicker').pickadate({
+    //     selectMonths: true, // Creates a dropdown to control month
+    //     selectYears: 100 // Creates a dropdown of 15 years to control year
+    // });
 </script>

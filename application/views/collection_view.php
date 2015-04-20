@@ -36,7 +36,7 @@
 		foreach($resultBorrowed as $post){ ?>
 
 			<div class="col s12 m12 l6">
-		    	<div class="card-panel card-book">
+		    	<div class="card card-book">
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
@@ -54,11 +54,13 @@
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>
 		              		<div class="col s1 m1 l1">
-		                		<?php echo 
-								'<div id="modal-remove" class="modal">
+		                		<?php
+		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		 echo 
+								'<div id="modal-remove'.$post->isbn.'" class="modal">
 									<div class="modal-content">
-									<h4>Remove Collection</h4>
-									<p>Are you sure to remove this book from collection?</p>
+										<h4>Remove Collection</h4>
+										<p>Are you sure to remove this book from collection?</p>
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
@@ -96,7 +98,7 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class=" card-image" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
@@ -110,7 +112,7 @@
 		              		</div>
 		              		<div class="col s1 m1 l1">
 		              			<?php
-		                		echo '<a align="right" class="modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
 		                		 echo 
 								'<div id="modal-remove2'.$post->isbn.'" class="modal">
 									<div class="modal-content">

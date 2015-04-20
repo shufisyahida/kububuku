@@ -113,12 +113,12 @@
 							</div>';
 
 
-							echo '<a class="modal-trigger green-text mdi-action-done" href="#modal-accept'.$index.'"></a>
-							<a class="modal-trigger red-text mdi-content-clear" href="#modal-decline'.$index.'"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Accept" class="tooltipped modal-trigger green-text mdi-action-done" href="#modal-accept'.$index.'"></a>
+							<a data-position="bottom" data-delay="50" data-tooltip="Decline" class="tooltipped modal-trigger red-text mdi-content-clear" href="#modal-decline'.$index.'"></a>';
 						}
 						elseif ($status[$index]==2) 
 						{
-							echo '<a class="modal-trigger green-text mdi-file-file-upload"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Book Borrowed"class="tooltipped modal-trigger green-text mdi-file-file-upload"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
@@ -137,7 +137,8 @@
 							echo '<form method="post" action="'.base_url().'index.php/request_in/confirmReturn/">
 			            			<div id="modal-ranking'.$index.'" class="modal">
 										<div class="modal-content">
-											<h4>Give Rank</h4>
+											<h4>Returning Confirmation</h4>
+											<p>Book has been returned, give some rank for the borrower.</p>
 											
 												<p class="range-field">
 													<input type="range" name="borrower-rank" id="borrower-rank" min="1" max="5" />
@@ -159,7 +160,7 @@
 
 
 
-							echo '<a class="modal-trigger blue-text mdi-content-archive" href="#modal-ranking'.$index.'"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Returning Confirmation" class="tooltipped modal-trigger blue-text mdi-content-archive" href="#modal-ranking'.$index.'"></a>';
 						}
 							
 						
@@ -200,7 +201,7 @@
 								</div>
 							</div>';
 
-						echo '<a class="modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
+						echo '<a data-position="bottom" data-delay="50" data-tooltip="View Contact" class="tooltipped modal-trigger purple-text mdi-action-perm-contact-cal" href="#modal-contact'.$index.'"></a>
 						</td>
 						</tr>';
 

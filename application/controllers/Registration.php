@@ -6,6 +6,9 @@
        public function __construct()
        {
           parent::__construct();
+
+          $this->load->library('encrypt');
+
           $this->load->model('non_admin'); 
 
 
@@ -85,7 +88,9 @@
                 $name = $this->input->post('name');
                 $email = $this->input->post('email');
                 $username = $this->input->post('username');
+                
                 $password = $this->input->post('password'); 
+
                 //$photo = $this->input->post('pic');
                 $gender = $this->input->post('gender');
                 $faculty = $this->input->post('faculty');
@@ -209,9 +214,12 @@
                 }
                 else
                 {
+
+                    $photo = base_url('assets/img/default-profpic.jpg');
+                  
                     $data = array(
                        'username' => $username,
-                       'password' => $password,
+                       'password' => md5($password),
                        'nama' => $name,
                        'email' => $email,
                        'domisili' => $domisili,

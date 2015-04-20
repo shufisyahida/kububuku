@@ -1,7 +1,7 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="#" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('index.php/login') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
       </div>
     </nav>
 </div>
@@ -13,21 +13,21 @@
                 <div class="row" style="margin: 0px auto;">
                     <div class="input-field col m6 l8">
                         <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>" maxlength="20">
-                        <label for="username">Username</label>
+                        <label for="username">Username*</label>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $usernameErr;?></span>
                     </div>
                     <div class="input-field col m6 l8">
                         <input id="email" name="email" type="email" class="validate" value="<?php echo $email;?>" maxlength="30">
-                        <label for="email">Email</label>
+                        <label for="email">Email*</label>
                     </div>
                     <div class="col s12 m6 l4">
                         <span class="error "><?php echo $emailErr;?></span>
                     </div>
                     <div class="input-field col m6 l8">
                         <input id="password" name="password" type="password" class="validate" value="<?php echo $password;?>" maxlength="20">
-                        <label for="password">Password</label>
+                        <label for="password">Password*</label>
                     </div>
                     <div class="col s12 m6 l4">
                         <span class="error "><?php echo $passwordErr;?></span>
@@ -40,20 +40,20 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l8">
                         <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>" maxlength="40">
-                        <label for="name">Name</label>
+                        <label for="name">Name*</label>
                     </div>
                     <div class="col m6 l4">
                         <span class="error"><?php echo $nameErr;?></span>
                     </div>
                     <div class="col s12 m6 l8">
-                        <label for="birth">Birthday</label>
+                        <label for="birth">Birthday*</label>
                         <input id="birth" name="birth" type="date" class="datepicker validate" value="<?php echo $tanggal_lahir;?>">
                     </div>
                     <div class="col s12 m6 l4">
                         <span class="error"><?php echo $birthdayErr;?></span>
                     </div>
                     <div class="col s12 m6 l8">
-                        <label for="gender">Gender</label>
+                        <label for="gender">Gender*</label>
                         <select id="gender" name="gender" type="text" class="validate" >
                             <option value="">Choose your gender</option>
                             <option value="M" <?php if($jenis_kelamin == "M") echo "selected"; ?>>Male</option>
@@ -64,7 +64,7 @@
                         <span class="error"><?php echo $genderErr;?></span>
                     </div>
                     <div class="col s12 m6 l8">
-                        <label for="faculty">Faculty</label>
+                        <label for="faculty">Faculty*</label>
                         <select id="faculty" name="faculty" type="text" class="validate" >
                               <option value="">Choose your faculty</option>
                               <option value="1" <?php if($fakultas == "1") echo "selected"; ?>>Faculty of Medicine</option>
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="col s12 m6 l8">
-                        <label for="status">Status</label>
+                        <label for="status">Status*</label>
                         <select id="status" name="status" type="text" class="validate" value="<?php echo $status;?>">
                             <option value="">Select your status</option>
                             <option value="1" <?php if($status == "1") echo "selected"; ?>>Student</option>
@@ -103,7 +103,7 @@
                         <span class="error"><?php echo $statusErr;?></span>
                     </div>
                     <div class="col s12 m6 l8">
-                        <label for="domisili">Domicile</label>
+                        <label for="domisili">Domicile*</label>
                         <select id="domisili" name="domisili" type="text" class="validate" value="<?php echo $domisili;?>">
                             <option value="">Select your domicile</option>
                             <option value="Jakarta" <?php if($domisili == "Jakarta") echo "selected"; ?>>Jakarta</option>
@@ -158,15 +158,16 @@
 
                         <div class="input-field">
                             <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
-                            <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail</label>
+                            <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail*</label>
                         </div> 
                          <div class="col m6 l4">
                             <span class="error"><?php echo $mailErr;?></span>
                         </div>
-                        
-                        <div class="col right">
-                            <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">CONTINUE</button>
-                        </div>   
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="right">
+                            <br><button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">CONTINUE</button>
+                        </div>
                     </div>
                 </div>
             </div>

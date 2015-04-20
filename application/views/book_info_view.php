@@ -10,21 +10,9 @@
           
           <?php
             $username = $this->session->userdata('username');
-
-            $adaDiKoleksi = false;
-            $this->db->select('*');
-            $this->db->from('koleksi');
-            $this->db->where('username',$username)->where('isbn',$resultBook[0]->isbn);    
-            $query= $this->db->get()->result();
-
-            if(sizeof($query)!=0) {       
-              $adaDiKoleksi = true;
-            }
             if(!$adaDiKoleksi)
             {
-              echo '
-
-              <li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
+              echo '<li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
             }
           ?>
 
@@ -39,7 +27,7 @@
 echo '
       <div id="modal-addcol" class="modal">
         <div class="modal-content">
-          <h4>Add Book to Collection?</h4>
+          <h4>Add Collection?</h4>
           <p>Are you sure to add this book to your collection?</p>
         </div>
         <div class="modal-footer">
@@ -58,7 +46,7 @@ echo '
         <div class="col s12 m12 l12">
           <?php foreach($resultBook as $post){?>
           <?php 
-              $username = $this->session->userdata('username');
+              // $username = $this->session->userdata('username');
           echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>

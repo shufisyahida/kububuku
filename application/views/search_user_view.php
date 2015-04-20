@@ -20,7 +20,7 @@
 
 <div class="container custom-table">
   <div class="row">
-    <div class="col s12 m4 l4">
+    <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search Filter</h6>
         <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
@@ -32,7 +32,7 @@
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
                     <option value="nama">Name</option>
-                    <option value="domisili">Location</option>
+                    <option value="domisili">Domicile</option>
                      <option value="status">Status</option>
                     <option value="fakultas">Faculty</option>
                 </select>
@@ -47,6 +47,7 @@
               </keyword>
              <location>
               <select id="location" name="location" type="text" class="validate">
+<<<<<<< HEAD
                     <option value="" disabled selected>Choose Location</option>
 <<<<<<< HEAD
                     <option value="jakarta">Jakarta</option>
@@ -62,6 +63,15 @@
                     <option value="5">Bekasi</option>
                     <option value="6">Other</option>
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+=======
+                    <option value="" disabled selected>Choose Domicile</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Bogor">Bogor</option>
+                     <option value="Depok">Depok</option>
+                    <option value="Tangerang">Tangerang</option>
+                    <option value="Bekasi">Bekasi</option>
+                    <option value="Other">Other</option>
+>>>>>>> 74cf88d4ed7cb32b2e65f3fb4187a9e568e9e616
                 </select>
               </location>
               <status>

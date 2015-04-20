@@ -27,7 +27,7 @@
 
         public function cariBuku()
         { 
-              $judulPengarang = $this->input->post('keyword');
+             $judulPengarang = $this->input->post('keyword');
              $kategori = $this->input->post('kategori');
              $genre = $this->input->post('genre');
            
@@ -40,9 +40,13 @@
                 $keyword=$genre;
              }
              
-
+             
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchBuku($keyword,$kategori);
+
+                
+
+
                    if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
                        $data['resultSearchBuku'] = null;
@@ -53,6 +57,24 @@
                       $data['resultSearchBuku'] = $result;
                       $data['notFound'] = null;
                       $data['notMatch'] = null;
+
+                      // $username = $this->session->userdata('username');
+
+                        $adaDiKoleksi=array();
+
+                        foreach ($result as $key => $value) {
+                            $username = $this->session->userdata('username');
+                            // $this->load->model('pinjaman');
+                            // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
+                             $this->load->model('koleksi_model');
+                             $ada = $this->koleksi_model->adaDiKoleksi($username, $value->isbn);
+                            $adaDiKoleksi[$key] = $ada;
+                        }
+
+
+
+                      $data['adaDiKoleksi']= $adaDiKoleksi;
+                      $data['username']= $username;
                     } 
              }
              else if($kategori==null)
@@ -67,6 +89,8 @@
                      $data['resultSearchBuku'] = null;
                       $data['notFound'] = null;
              }
+
+             
 
             $this->load->view('head_view');
             $this->load->view('navbar_view');

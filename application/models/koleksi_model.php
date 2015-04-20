@@ -64,6 +64,21 @@ class Koleksi_model extends CI_Model
 
 	}
 
+	function adaDiKoleksi($username, $isbn)
+	{
+		$this->db->select('*');
+        $this->db->from('koleksi');
+        $this->db->where('username',$username)->where('isbn',$isbn);    
+        $query= $this->db->get()->result();
+
+        if(sizeof($query)!=0) {       
+          	return true;
+        }
+        else {
+        	return false;
+        }
+	}
+
 
 }
 

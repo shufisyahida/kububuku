@@ -210,17 +210,18 @@ if(!empty($koleksiBorrowed))
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
-								            		$requested = false;
-								            		$this->db->select('*');
-													$this->db->from('pinjaman');
-													$this->db->where('username_peminjam',$this->session->userdata('username'))->where('username_pemilik',$user->username)->where('isbn',$value->isbn);		
-													$query= $this->db->get()->result();
+								     //        		$requested = false;
+								     //        		$this->db->select('*');
+													// $this->db->from('pinjaman');
+													// $this->db->where('username_peminjam',$this->session->userdata('username'))->where('username_pemilik',$user->username)->where('isbn',$value->isbn);		
+													// $query= $this->db->get()->result();
 
-													if(sizeof($query)!=0) {				
-														$requested = true;
-													}
+													// if(sizeof($query)!=0) {				
+													// 	$requested = true;
+													// }
 
-								            		if(!$requested)
+								     //        		if(!$requested)
+								            		if(!$requested[$key])
 								            		{
 									            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
 									            			<div id="modal-duration'.$index.'" class="modal">

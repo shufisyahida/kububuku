@@ -20,6 +20,16 @@
         $this->load->model('buku');
         $data['resultBook'] = $this->buku->getBook($isbn);
         $data['resultOwner']= $this->buku->getOwner($isbn,true);
+
+        $username = $this->session->userdata('username');
+
+        $this->load->model('koleksi_model');
+        $adaDiKoleksi = $this->koleksi_model->adaDiKoleksi($username, $isbn);
+        
+        $data['adaDiKoleksi']= $adaDiKoleksi;
+
+
+
     	$this->load->view('head_view');
         $this->load->view('navbar_view');
 
