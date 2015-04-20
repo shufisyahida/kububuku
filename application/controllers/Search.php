@@ -102,7 +102,7 @@
 
              if($kategori!=null && $keyword!=null){
                  $result = $this->search_model->searchPengguna($keyword,$kategori);
-<<<<<<< HEAD
+
                    if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
                        $data['resultSearchPengguna'] = null;
@@ -128,7 +128,6 @@
                       $data['notFound'] = null;
              }
 
-=======
 
                     if($result==false) {
                        $data['notFound'] = "Sorry, no records found";
@@ -189,7 +188,6 @@
                       $data['notFound'] = null;
              }
 
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
 
 
 
