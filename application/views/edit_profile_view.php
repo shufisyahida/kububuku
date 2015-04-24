@@ -2,7 +2,7 @@
       <div class="secondary-header-inner">
         <ul>
           <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>" class="active" href="">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/Profile/editProfile/editPicture')?>">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Profile/editPicture')?>">Edit Profile Picture</a></li>
         </ul>
       </div>
 
