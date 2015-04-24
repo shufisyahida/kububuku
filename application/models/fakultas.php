@@ -1,21 +1,26 @@
 <?php
 
-class Fakultas extends CI_Model
-{
-
-	public function getFaculty($id)
+	class Fakultas extends CI_Model
 	{
-		$this->db->select('nama');
-		$this->db->from('fakultas');
-		$this->db->where('id',$id);
 
-		$namaFak = $this->db->get()->result();
+		public function getFaculty($id)
+		{
+			$this->db->select('nama');
+			$this->db->from('fakultas');
+			$this->db->where('id',$id);
 
-		 $fak='';
-         foreach ($namaFak as $key => $value)
-         {
-            $fak = $value->nama;
-         }
-		return $fak;
-	}
-}
+			$namaFak = $this->db->get()->result();
+
+			$fak='';
+
+			foreach ($namaFak as $key => $value)
+			{
+				$fak = $value->nama;
+			}
+
+			return $fak;
+		}
+
+	} // end of Fakultas
+
+?>

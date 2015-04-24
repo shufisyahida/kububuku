@@ -1,64 +1,80 @@
 <?php
 
-class Buku extends CI_Model
-{
-
-	function getBook($isbn)
+	class Buku extends CI_Model
 	{
 
-		$this->db->select('*');
-		$this->db->from('buku');
-		$this->db->where('isbn',$isbn);
-		$query=$this->db->get();
-		return $resultBook = $query->result();
-		
-	}
-
-	function getOwner($isbn,$limited)
-	{
-
-		 //$this->db->select("non_admin.foto,non_admin.username");
-		$this->db->select("*");
-  		 $this->db->from('non_admin');
-  		 $this->db->join('koleksi', 'koleksi.username = non_admin.username');
-  		 $this->db->where('koleksi.isbn',$isbn);
-
-  		 if($limited)
-  			 $this->db->limit(6);
-
-  		 $query = $this->db->get();
-  		 return $resultOwner = $query->result();
-		
-	}
-
-	function addBook($data)
-	{
-		$this->db->insert('buku',$data);
-	}
-	function isbnSudahAda($isbn)
-	{
-		$this->db->select('*');
-		$this->db->from('buku');
-		$this->db->where('isbn',$isbn);		
-		$query= $this->db->get()->result();
-
-		if(sizeof($query)!=0) {				
-			return true;
+		function addBook($data)
+		{
+			$this->db->insert('buku',$data);
 		}
-		else {
-			return false;
+
+		function getBook($isbn)
+		{
+			$this->db->select('*');
+			$this->db->from('buku');
+			$this->db->where('isbn',$isbn);
+
+			$query=$this->db->get();
+
+			return $resultBook = $query->result();
 		}
-	}
-	
 
+		function getOwner($isbn,$limited)
+		{
+			//$this->db->select("non_admin.foto,non_admin.username");
+			$this->db->select("*");
+			$this->db->from('non_admin');
+			$this->db->join('koleksi', 'koleksi.username = non_admin.username');
+			$this->db->where('koleksi.isbn',$isbn);
 
-	// function searchBook($terms)
-	// {
-		
-	// }
+			if($limited)
+			{
+				$this->db->limit(6);
+			}				
 
-}
+			$query = $this->db->get();
 
-	
+			return $resultOwner = $query->result();
+		}
+
+		function isRegisteredBook($isbn)
+		{
+			$this->db->select('*');
+			$this->db->from('buku');
+			$this->db->where('isbn',$isbn);
+
+			$query= $this->db->get()->result();
+
+			if(sizeof($query)!=0)
+			{				
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		function searchBook($keyword,$kategori)
+		{
+			if($kategori == 'genre')
+			{
+				$this->db->select('*');
+				$this->db->from('buku');
+				$this->db->where($kategori, $keyword);   
+				$query = $this->db->get();
+				return $resultSearchBuku = $query->result();
+			}
+			else
+			{
+				$this->db->select('*');
+				$this->db->from('buku');
+				$this->db->like($kategori, $keyword);   
+				$query = $this->db->get();
+				return $resultSearchBuku = $query->result();
+			}
+		}
+
+	} // end of Buku
 
 ?>
