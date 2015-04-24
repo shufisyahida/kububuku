@@ -9,7 +9,7 @@
         </a>
         <ul>
            <?php $username = $this->session->userdata('username');?>
-          <li><a href="<?php echo base_url()."index.php/koleksi/add/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -60,11 +60,11 @@
       <div class="col s12 m4 l4">
         <div class="card">
           <div class="container custom-container-a">          
-          <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
+          <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
             <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
           </a>
           </div>
-          <a href = "'.base_url()."index.php/Profile/profile/".$value->username.'">
+          <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
           <div class="truncate green-text name-property">'.$value->nama.'</div>
           </a>
           <div class="divider"></div>       

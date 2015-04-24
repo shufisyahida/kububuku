@@ -1,10 +1,10 @@
 	<div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-           <li><a href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
-          <li><a href="<?php echo base_url('index.php/request_out') ?>">Request Out</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/koleksi') ?>">Collection</a></li>
-          <li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
+           <li><a href="<?php echo base_url('index.php/Request_in') ?>">Request In</a></li>
+          <li><a href="<?php echo base_url('index.php/Request_out') ?>">Request Out</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/Collection') ?>">Collection</a></li>
+          <li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
 
@@ -13,7 +13,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -34,13 +34,13 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">
 
 		                		<span class="card-title black-text">'.$post->judul.'</span><br>
 		                		</a>';?>
@@ -58,7 +58,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-										<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
 									</div>
 								</div>'
 								?>
@@ -92,13 +92,13 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'">';?>
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">';?>
 		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
 		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
@@ -115,7 +115,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-										<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
 									</div>
 								</div>'
 								?>
@@ -147,7 +147,7 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="'.base_url()."index.php/koleksi/delete/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+		<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
 	</div>
 	<?php }?> 
 </div> -->

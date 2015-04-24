@@ -33,7 +33,7 @@ echo '
         <div class="modal-footer">
           <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
   
-          <a href="'.base_url()."index.php/koleksi/add/".$resultBook[0]->isbn."/".$username.'"
+          <a href="'.base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username.'"
             class="waves-effect waves-green btn-flat modal-action">ADD</a>
         </div>
       </div>
@@ -80,7 +80,7 @@ echo '
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
-                    <a href = "'.base_url()."index.php/Profile/profile/".$row->username.'" >
+                    <a href = "'.base_url()."index.php/Profile/showProfile/".$row->username.'" >
                       <img class="responsive-img circle" img src='.$row->foto.'>
                     </a>
                   </div>' ?>

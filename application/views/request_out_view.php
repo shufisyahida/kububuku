@@ -1,10 +1,10 @@
 	<div class="secondary-header">
 	  	<div class="secondary-header-inner">
 	    	<ul>
-				<li><a href="<?php echo base_url('index.php/request_in') ?>">Request In</a></li>
-				<li><a class="active" href="<?php echo base_url('index.php/request_out') ?>">Request Out</a></li>
-				<li><a href="<?php echo base_url('index.php/koleksi') ?>">Collection</a></li>
-				<li><a href="<?php echo base_url('index.php/dashboard/wishlist') ?>">Wishlist</a></li>
+				<li><a href="<?php echo base_url('index.php/Request_in') ?>">Request In</a></li>
+				<li><a class="active" href="<?php echo base_url('index.php/Request_out') ?>">Request Out</a></li>
+				<li><a href="<?php echo base_url('index.php/Collection') ?>">Collection</a></li>
+				<li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
 			</ul>
 		</div>
 
@@ -13,7 +13,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -51,11 +51,11 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
+						<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
-						<a href = "'.base_url()."index.php/Profile/profile/".$value->username.'" >
+						<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
 						</a>
 								<span>'.$value->username.'</span>
@@ -95,7 +95,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
-									echo '<a href="'.base_url()."index.php/request_out/cancel/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">YES</a>
+									echo '<a href="'.base_url()."index.php/Request_out/cancel/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">YES</a>
 								</div>
 							</div>';
 							
@@ -117,13 +117,13 @@
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
-										echo'<a href="'.base_url()."index.php/request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+										echo'<a href="'.base_url()."index.php/Request_out/returnBook/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 									</div>
 								</div>
 							</form>';*/
 
 
-							echo '<form method="post" action="'.base_url().'index.php/request_out/returnBook/">
+							echo '<form method="post" action="'.base_url().'index.php/Request_out/returnBook/">
 			            			<div id="modal-return'.$index.'" class="modal">
 										<div class="modal-content">
 											<h4>Return Book</h4>
