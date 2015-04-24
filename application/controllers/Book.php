@@ -43,7 +43,7 @@
                 );
                 $error = false;
                 $this->load->model('buku');
-                $isbnSudahAda = $this->buku->isbnSudahAda($isbn);
+                $isbnSudahAda = $this->buku->isRegisteredBook($isbn);
                 if ($isbnSudahAda) 
                 {
                   $data['isbnErr'] = "Book is already in use";
@@ -108,7 +108,7 @@
             }
         }
       
-        public function addBookIndex()
+        public function showAddBook()
         {
             // $data['page_title'] = "CI Hello World App!";
             $data = array(
@@ -140,7 +140,7 @@
             $data['resultOwner']= $this->buku->getOwner($isbn,true);
             $username = $this->session->userdata('username');
             $this->load->model('koleksi');
-            $adaDiKoleksi = $this->koleksi->adaDiKoleksi($username, $isbn);        
+            $adaDiKoleksi = $this->koleksi->isInCollection($username, $isbn);        
             $data['adaDiKoleksi']= $adaDiKoleksi;
         	$this->load->view('head_view');
             $this->load->view('navbar_view');

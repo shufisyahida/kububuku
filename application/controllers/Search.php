@@ -33,7 +33,9 @@
             $kategori = $this->input->post('kategori');
             $genre = $this->input->post('genre');
 
-            $this->load->model('search_model');
+            // $this->load->model('search_model');
+            $this->load->model('buku');
+            $this->load->model('non_admin');
 
             if($judulPengarang!=null)
             {
@@ -46,7 +48,7 @@
              
             if($kategori!=null && $keyword!=null)
             {
-                $result = $this->search_model->searchBuku($keyword,$kategori);
+                $result = $this->buku->searchBook($keyword,$kategori);
              
                 if($result==false)
                 {
@@ -104,7 +106,9 @@
             $location = $this->input->post('location');
             $status = $this->input->post('status');
             $faculty = $this->input->post('faculty');
-            $this->load->model('search_model');
+            // $this->load->model('search_model');
+            $this->load->model('buku');
+            $this->load->model('non_admin');
 
             if($nama!=null)
             {
@@ -125,7 +129,7 @@
 
             if($kategori!=null && $keyword!=null)
             {
-                $result = $this->search_model->searchPengguna($keyword,$kategori);
+                $result = $this->non_admin->searchUser($keyword,$kategori);
 
                 if($result==false)
                 {

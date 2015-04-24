@@ -79,8 +79,8 @@
       <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
         <span><?php echo $notFound ?>.</span>
-        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
-        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
+        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/showAddBook')?>">addBook</button> -->
+        <br><a class="green-text" href="<?php echo base_url('index.php/Book/showAddBook')?>">Add new book to your collection?</a>
           <?php } ?>
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>

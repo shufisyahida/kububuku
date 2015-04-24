@@ -93,8 +93,8 @@
                 );
                 $error = false;
                 $this->load->model('non_admin');
-                $emailSudahAda = $this->non_admin->emailSudahAda($email);
-                $usernameSudahAda = $this->non_admin->usernameSudahAda($username);
+                $emailSudahAda = $this->non_admin->isRegisteredEmail($email);
+                $usernameSudahAda = $this->non_admin->isRegisteredUsername($username);
                 if ($emailSudahAda) 
                 {
                     $data['emailErr'] = "Email is already in use";
