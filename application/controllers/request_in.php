@@ -1,4 +1,5 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
     class Request_in extends CI_Controller
     {
         public function __construct()
@@ -11,24 +12,65 @@
             }
         }
         
+        public function accept($id,$isbn)
+        {
+            //$id = $this->uri->segment(3);
+            $username=$this->session->userdata('username');
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->accept($id);
+
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,0);
+
+            redirect(base_url('index.php/request_in'));            
+        }
+
+        public function confirmReturn()
+        {
+            //$id = $this->uri->segment(3);
+            $id = $this->input->post('idPinjaman');
+            $isbn= $this->input->post('isbn');
+            $rank = $this->input->post('borrower-rank');
+            $borrower = $this->input->post('borrower');
+
+            $username=$this->session->userdata('username');
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->confirmReturn($id);
+
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,1);
+
+            $this->load->model('non_admin');
+            $this->non_admin->giveRank($borrower,$rank,true);
+
+            redirect(base_url('index.php/request_in'));
+        }
+        
+        public function decline()
+        {
+            $id = $this->uri->segment(3);
+            
+            $this->load->model('pinjaman');
+            $this->pinjaman->decline($id);
+
+             redirect(base_url('index.php/request_in'));
+        }
+
         public function index()
         { 
             $username = $this->session->userdata('username');
-
             $this->load->model('pinjaman');
             $pinjamanMasuk = $this->pinjaman->getRequestIn($username);
-
-
             $book=array();
             $user=array();
             $durasi=array();
             $id=array();
             $status=array();
             $kontak=array();
-
             $this->load->model('non_admin');
             $this->load->model('buku');
-
             foreach($pinjamanMasuk as $key=>$value)
             {                             
                 $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
@@ -73,60 +115,12 @@
                 //var_dump($value);
             }*/
 
-            
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
-
-
-                        
         }
 
-        public function accept($id,$isbn)
-        {
-            //$id = $this->uri->segment(3);
-            $username=$this->session->userdata('username');
-            
-            $this->load->model('pinjaman');
-            $this->pinjaman->accept($id);
+    } // end of Request_in
 
-            $this->load->model('koleksi_model');
-            $this->koleksi_model->setStatus($username,$isbn,0);
-
-            redirect(base_url('index.php/request_in'));
-            
-        }
-
-        public function decline()
-        {
-            $id = $this->uri->segment(3);
-            
-            $this->load->model('pinjaman');
-            $this->pinjaman->decline($id);
-
-             redirect(base_url('index.php/request_in'));
-        }
-
-        public function confirmReturn()
-        {
-            //$id = $this->uri->segment(3);
-            $id = $this->input->post('idPinjaman');
-            $isbn= $this->input->post('isbn');
-            $rank = $this->input->post('borrower-rank');
-            $borrower = $this->input->post('borrower');
-
-            $username=$this->session->userdata('username');
-            
-            $this->load->model('pinjaman');
-            $this->pinjaman->confirmReturn($id);
-
-            $this->load->model('koleksi_model');
-            $this->koleksi_model->setStatus($username,$isbn,1);
-
-            $this->load->model('non_admin');
-            $this->non_admin->giveRank($borrower,$rank,true);
-
-            redirect(base_url('index.php/request_in'));
-        }
-    }
+?>

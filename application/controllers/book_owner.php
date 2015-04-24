@@ -1,5 +1,7 @@
-<?php
-    class Book_Owner extends CI_Controller{
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+    class Book_owner extends CI_Controller
+    {
 
         public function __construct()
         {
@@ -19,5 +21,7 @@
             $this->load->view('book_owners_view');
             $this->load->view('foot_view');
         }
-    }
+
+    } // end of Book_owner
+
 ?>
