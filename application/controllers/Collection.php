@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Koleksi extends CI_Controller
+	class Collection extends CI_Controller
 	{
 
 		public function __construct()
@@ -9,10 +9,10 @@
 	        $username = $this->session->userdata('username');
 	        if(!$this->session->userdata(''.$username))
 	        {
-	            redirect(base_url('index.php/login'));
+	            redirect(base_url('index.php/Login'));
 	        }
 	    }
-		
+
 		public function add($buku, $non_admin)
 		{
 			if(isset($_POST))
@@ -20,14 +20,14 @@
 				//$non_admin = $this->input->post('$non_admin');
 				//$buku = $this->input->post('buku');	
 
-				$this->load->model('koleksi_model');
-				$this->koleksi_model->addKoleksi($non_admin,$buku);
-				redirect(base_url('index.php/Dashboard/collection'));
+				$this->load->model('koleksi');
+				$this->koleksi->addKoleksi($non_admin,$buku);
+				redirect(base_url('index.php/Collection'));
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/login'));
+				redirect(base_url('index.php/Login'));
 				//masuk form create buku lalalla
 			}				
 		}
@@ -84,14 +84,14 @@
 				//$isbn = $this->session->userdata('isbn'); 
 				// $isbn = $this->input->get('isbn');
 
-				$this->load->model('koleksi_model');
-				$this->koleksi_model->deleteKoleksi($username,$isbn);
-				redirect(base_url('index.php/dashboard/collection'));
+				$this->load->model('koleksi');
+				$this->koleksi->deleteKoleksi($username,$isbn);
+				redirect(base_url('index.php/Collection'));
 			}
 			else
 			{
 				//$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/dashboard/collection'));
+				redirect(base_url('index.php/Collection'));
 				//belom betul, ini masih copas else nya wkwkwk
 			}
 		}
@@ -99,10 +99,10 @@
 		public function index()
 		{
 			$username = $this->session->userdata('username');
-			$this->load->model('koleksi_model');
-			$data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
-			//$this->load->model('koleksi_model');
-			$data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
+			$this->load->model('koleksi');
+			$data['resultAvailable'] = $this->koleksi->getKoleksiAvailable($username);
+			//$this->load->model('koleksi');
+			$data['resultBorrowed'] = $this->koleksi->getKoleksiBorrowed($username);
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
 			$this->load->view('collection_view', $data);

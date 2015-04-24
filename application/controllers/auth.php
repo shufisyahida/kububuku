@@ -9,7 +9,7 @@
 //            $username = $this->session->userdata('username');
 //            if(!$this->session->userdata(''.$username))
 //            {
-//                redirect(base_url('index.php/login'));
+//                redirect(base_url('index.php/Login'));
 //            }
 //		}
 
@@ -50,21 +50,21 @@
 				{
 					$this->session->set_userdata('email',$email);
 					$this->session->set_userdata('error_login_'.$email,true);
-					redirect(base_url('index.php/login/login_failed'));
+					redirect(base_url('index.php/Login/login_failed'));
 				}		
 			}
 			else
 			{
 				$this->session->set_userdata('email',$email);
 				$this->session->set_userdata('error_login_'.$email,true);
-				redirect(base_url('index.php/login/login_failed'));
+				redirect(base_url('index.php/Login/login_failed'));
 			}
 		}
 
 		public function logout()
 		{
 			$this->session->sess_destroy();
-			redirect(base_url('index.php/login'));
+			redirect(base_url('index.php/Login'));
 		}
 
 	} // end of Auth

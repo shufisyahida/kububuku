@@ -20,7 +20,7 @@
                 $this->load->view('foot_view');
             }
             // elseif ($this->session->set_userdata('error_login_'.$email,true)) {
-            //    redirect(base_url('index.php/login'));
+            //    redirect(base_url('index.php/Login'));
             // }        	
         }
 

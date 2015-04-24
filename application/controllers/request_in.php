@@ -8,7 +8,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
         
@@ -20,10 +20,10 @@
             $this->load->model('pinjaman');
             $this->pinjaman->accept($id);
 
-            $this->load->model('koleksi_model');
-            $this->koleksi_model->setStatus($username,$isbn,0);
+            $this->load->model('koleksi');
+            $this->koleksi->setStatus($username,$isbn,0);
 
-            redirect(base_url('index.php/request_in'));            
+            redirect(base_url('index.php/Request_in'));            
         }
 
         public function confirmReturn()
@@ -39,15 +39,15 @@
             $this->load->model('pinjaman');
             $this->pinjaman->confirmReturn($id);
 
-            $this->load->model('koleksi_model');
-            $this->koleksi_model->setStatus($username,$isbn,1);
+            $this->load->model('koleksi');
+            $this->koleksi->setStatus($username,$isbn,1);
 
             $this->load->model('non_admin');
             $this->non_admin->giveRank($borrower,$rank,true);
 
-            redirect(base_url('index.php/request_in'));
+            redirect(base_url('index.php/Request_in'));
         }
-        
+
         public function decline()
         {
             $id = $this->uri->segment(3);
@@ -55,7 +55,7 @@
             $this->load->model('pinjaman');
             $this->pinjaman->decline($id);
 
-             redirect(base_url('index.php/request_in'));
+            redirect(base_url('index.php/Request_in'));
         }
 
         public function index()

@@ -10,7 +10,7 @@
             $hasLoggedIn = $this->session->userdata($username);
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
-                redirect(base_url('index.php/request_in'));
+                redirect(base_url('index.php/Request_in'));
             }
         }
         

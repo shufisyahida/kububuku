@@ -12,7 +12,7 @@
             $hasLoggedIn = $this->session->userdata($username);
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
-                redirect(base_url('index.php/request_in'));
+                redirect(base_url('index.php/Request_in'));
             }
         }
         
@@ -29,7 +29,7 @@
         {
             $username = $this->session->userdata('username');
             $this->session->set_userdata(''.$username,true);
-            redirect('index.php/request_in');
+            redirect('index.php/Request_in');
         }
     
         public function index()
@@ -200,7 +200,7 @@
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }              
 
         }
@@ -279,7 +279,7 @@
         //   else
         //   {
         //       $this->session->set_userdata('error_login_'.$email,true);
-        //       redirect(base_url('index.php/login'));
+        //       redirect(base_url('index.php/Login'));
 
         //   }
 

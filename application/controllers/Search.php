@@ -7,7 +7,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
         
@@ -69,8 +69,8 @@
                         $username = $this->session->userdata('username');
                         // $this->load->model('pinjaman');
                         // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
-                        $this->load->model('koleksi_model');
-                        $ada = $this->koleksi_model->adaDiKoleksi($username, $value->isbn);
+                        $this->load->model('koleksi');
+                        $ada = $this->koleksi->adaDiKoleksi($username, $value->isbn);
                         $adaDiKoleksi[$key] = $ada;
                     }
 
@@ -163,8 +163,8 @@
                         $value->jenis_kelamin = $jenisKelamin;
 
                         //get number of collection
-                        $this->load->model('koleksi_model');
-                        $koleksi[$username]= $this->koleksi_model->getNumOfKoleksi($username);
+                        $this->load->model('koleksi');
+                        $koleksi[$username]= $this->koleksi->getNumOfKoleksi($username);
                     }
                 
                     $data['resultSearchPengguna'] = $result;

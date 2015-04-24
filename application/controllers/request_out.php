@@ -9,7 +9,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
         
@@ -17,7 +17,7 @@
         {
             $this->db->where('id',$id);
             $this->db->delete('pinjaman');
-            redirect(base_url('index.php/request_out'));
+            redirect(base_url('index.php/Request_out'));
         }
 
         public function index()
@@ -76,7 +76,7 @@
             $this->load->model('non_admin');
             $this->non_admin->giveRank($owner,$rank,false);
 
-            redirect(base_url('index.php/request_out'));
+            redirect(base_url('index.php/Request_out'));
         }
 
     } // end of Request_out

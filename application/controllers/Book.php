@@ -9,7 +9,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
 
@@ -96,15 +96,15 @@
                     $this->load->model('buku');
                     $this->buku->addBook($data);
                     $username = $this->session->userdata('username');
-                    $this->load->model('koleksi_model');
-                    $this->koleksi_model->addKoleksi($username, $isbn);
-                    redirect(base_url('index.php/Dashboard/collection'));
+                    $this->load->model('koleksi');
+                    $this->koleksi->addKoleksi($username, $isbn);
+                    redirect(base_url('index.php/Collection'));
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
       
@@ -140,7 +140,7 @@
             $data['resultOwner']= $this->buku->getOwner($isbn,true);
             $username = $this->session->userdata('username');
             $this->load->model('koleksi');
-            $adaDiKoleksi = $this->koleksi_model->adaDiKoleksi($username, $isbn);        
+            $adaDiKoleksi = $this->koleksi->adaDiKoleksi($username, $isbn);        
             $data['adaDiKoleksi']= $adaDiKoleksi;
         	$this->load->view('head_view');
             $this->load->view('navbar_view');
