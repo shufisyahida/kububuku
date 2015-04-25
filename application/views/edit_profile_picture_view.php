@@ -1,8 +1,8 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>"class="active">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/Profile/editPicture')?>"class="active">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -11,7 +11,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -30,7 +30,7 @@
 <div class="container custom-table">
   <h4>Image Upload</h4>
   <div class="card-panel z-depth-1">
-       <?php echo form_open_multipart('index.php/Edit_Profile/cropimage');?>
+       <?php echo form_open_multipart('index.php/Profile/editProfile/cropimage');?>
        <div class="row">
               
           
@@ -75,7 +75,7 @@
         <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/Edit_Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
+   <a href="<?php echo base_url('index.php/Profile/editProfile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
    </div>
 </div>
 

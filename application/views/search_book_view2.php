@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="<?php echo base_url('index.php/search/homeBuku') ?>">Books</a></li>
-          <li><a  href="<?php echo base_url('index.php/search/homeUser')?>">Users</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/Search/homeBuku') ?>">Books</a></li>
+          <li><a  href="<?php echo base_url('index.php/Search/homeUser')?>">Users</a></li>
       </div>
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
@@ -11,10 +11,14 @@
         </a>
         <ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
 =======
           <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+=======
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+>>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -27,7 +31,7 @@
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1">
         <h6>Search Filter</h6>
-        <form method="post" action="<?php echo base_url('index.php/search/cariBuku') ?>">
+        <form method="post" action="<?php echo base_url('index.php/Search/searchBook') ?>">
           
           <div class="row">
              <div class="col s12 m12 l12">
@@ -91,9 +95,14 @@
         <span><?php echo $notFound ?></span>
 =======
         <span><?php echo $notFound ?>.</span>
+<<<<<<< HEAD
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+=======
+        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/showAddBook')?>">addBook</button> -->
+        <br><a class="green-text" href="<?php echo base_url('index.php/Book/showAddBook')?>">Add new book to your collection?</a>
+>>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
           <?php } ?>
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
@@ -102,11 +111,11 @@
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
               <?php echo
-                      '<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+                      '<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
                     ?>
             </div>
             <div class="col s8 m8 l8">
-              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
+              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/Book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
 <<<<<<< HEAD
@@ -132,7 +141,7 @@
                           <div class="modal-footer">
                             <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
                     
-                            <a href="'.base_url()."index.php/koleksi/add/".$post->isbn."/".$username.'"
+                            <a href="'.base_url()."index.php/Collection/add/".$post->isbn."/".$username.'"
                               class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
                           </div>
                         </div>

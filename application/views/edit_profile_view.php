@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/')?>" class="active" href="">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/Edit_Profile/editPicture')?>">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>" class="active" href="">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/Profile/editPicture')?>">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -11,7 +11,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -20,7 +20,7 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-    <form method="post" action="<?php echo base_url('index.php/Edit_Profile/edit') ?>" >
+    <form method="post" action="<?php echo base_url('index.php/Profile/editProfile/edit') ?>" >
       <div class="row">
         <h4>Basic Information</h4>
         <div class="card-panel z-depth-1">

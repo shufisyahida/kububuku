@@ -1,4 +1,5 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
     class Request_out extends CI_Controller
     {
         
@@ -8,28 +9,30 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/login'));
+                redirect(base_url('index.php/Login'));
             }
         }
         
+        public function cancel($id)
+        {
+            $this->db->where('id',$id);
+            $this->db->delete('pinjaman');
+            redirect(base_url('index.php/Request_out'));
+        }
+
         public function index()
         { 
             $username = $this->session->userdata('username');
-
             $this->load->model('pinjaman');
             $pinjamanKeluar = $this->pinjaman->getRequestOut($username);
-
-
             $book=array();
             $user=array();
             $durasi=array();
             $id=array();
             $status=array();
             $kontak=array();
-
             $this->load->model('non_admin');
             $this->load->model('buku');
-
             foreach($pinjamanKeluar as $key=>$value)
             {                             
                 $resPengguna = $this->non_admin->getUser($value->username_pemilik) ;
@@ -50,22 +53,12 @@
             $data['durasi']=$durasi;
             $data['idPinjaman']=$id;
             $data['status']=$status;
-            $data['kontak']=$kontak;
-           
+            $data['kontak']=$kontak;         
                                
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('request_out_view',$data);
-            $this->load->view('foot_view');
-
-                        
-        }
-
-        public function cancel($id)
-        {
-            $this->db->where('id',$id);
-            $this->db->delete('pinjaman');
-            redirect(base_url('index.php/request_out'));
+            $this->load->view('foot_view');                        
         }
 
         public function returnBook()
@@ -83,6 +76,9 @@
             $this->load->model('non_admin');
             $this->non_admin->giveRank($owner,$rank,false);
 
-            redirect(base_url('index.php/request_out'));
+            redirect(base_url('index.php/Request_out'));
         }
-    }
+
+    } // end of Request_out
+
+?>

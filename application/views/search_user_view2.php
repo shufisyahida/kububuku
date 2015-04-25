@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-        <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>">Books</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/search/homeUser')?>">Users</a></li>
+        <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>">Books</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/Search/homeUser')?>">Users</a></li>
       </div>
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
@@ -11,10 +11,14 @@
         </a>
         <ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
 =======
           <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+=======
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+>>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -27,7 +31,7 @@
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6>Search</h6>
-       <form method="post" action="<?php echo base_url('index.php/search/cariPengguna') ?>">
+       <form method="post" action="<?php echo base_url('index.php/Search/searchUser') ?>">
           
           
 
@@ -142,16 +146,20 @@
           <div class="container custom-container-a">
              <?php echo
 <<<<<<< HEAD
+<<<<<<< HEAD
              '<a href = "'.base_url()."index.php/Profile/profile".$post->username.'" target="_blank">
 =======
              '<a href = "'.base_url()."index.php/Profile/profile/".$post->username.'">
 >>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+=======
+             '<a href = "'.base_url()."index.php/Profile/showProfile/".$post->username.'">
+>>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
               <img class="avatar-property circle responsive-img" src="'.$post->foto.'">
             </a>'
             ?>
           
           </div>
-          <div class="truncate green-text name-property"><?php echo '<a href="'.base_url().'index.php/Profile/profile/'.$post->username.'">'?><?php echo $post->nama;?></a></div>
+          <div class="truncate green-text name-property"><?php echo '<a href="'.base_url().'index.php/Profile/showProfile/'.$post->username.'">'?><?php echo $post->nama;?></a></div>
           <div class="divider"></div>
           <div class="custom-container-b">
             <ul>
