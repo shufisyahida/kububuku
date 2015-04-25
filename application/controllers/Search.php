@@ -150,7 +150,7 @@
                    $data['notMatch'] = "Enter keyword";
                      $data['resultSearchPengguna'] = null;
                       $data['notFound'] = null;
-             }
+             
 
 
                     if($result==false) {
