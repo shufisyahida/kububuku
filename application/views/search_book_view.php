@@ -29,13 +29,13 @@
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
-<<<<<<< HEAD
+
                     <option value="judul">Judul</option>
                     <option value="pengarang">Pengarang</option>
-=======
+
                     <option value="judul">Title</option>
                     <option value="pengarang">Author</option>
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
                      <option value="genre">Genre</option>
                 </select>
             </div>
@@ -46,7 +46,7 @@
             </keyword>
              <genre>
               <select id="genre" name="genre" type="text" class="validate">
-<<<<<<< HEAD
+
                     <option value="" disabled selected>Choose Genre</option>
                     <option value="romance">Romance</option>
                     <option value="science fiction">Science Fiction</option>
@@ -54,7 +54,7 @@
                     <option value="fiction">Fiction</option>
                     <option value="education">Education</option>
                      <option value="non-fiction">Non-Fiction</option>
-=======
+
                     <option value="">Choose book genre</option>
                               <option value="Biography" >Biography</option>  
                               <option value="Comic" >Comic</option>
@@ -73,7 +73,7 @@
                               <option value="Textbook" >Textbook</option>     
                               <option value="Thriller" >Thrillers</option>  
                               <option value="Miscellaneous" >Miscellaneous</option> 
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
                 </select>
               </genre>
             </div>
@@ -98,21 +98,21 @@
 
      if(this.value=='judul')
         {
-<<<<<<< HEAD
+
             $('.keyword').show();
-=======
+
             $('keyword').show();
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
-<<<<<<< HEAD
+
            $('.keyword').show();
-=======
+
            $('keyword').show();
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
             $("genre").hide();
         }
      else 

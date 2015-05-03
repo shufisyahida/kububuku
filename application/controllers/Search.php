@@ -125,7 +125,7 @@
             else
             {
                 $keyword=$faculty;
-<<<<<<< HEAD
+
              }
 
              if($kategori!=null && $keyword!=null){
@@ -164,7 +164,7 @@
                         $data['kategori'] = $kategori;
                         $data['keyword'] = $keyword;
                       
-=======
+
             }
 
             if($kategori!=null && $keyword!=null)
@@ -209,7 +209,7 @@
                         //get number of collection
                         $this->load->model('koleksi');
                         $koleksi[$username]= $this->koleksi->getNumOfKoleksi($username);
->>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
+
                     }
                 
                     $data['resultSearchPengguna'] = $result;

@@ -10,15 +10,13 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
           <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-=======
+
           <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
-=======
+
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
->>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
+
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -37,13 +35,13 @@
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
-<<<<<<< HEAD
+
                     <option value="judul">Judul</option>
                     <option value="pengarang">Pengarang</option>
-=======
+
                     <option value="judul">Title</option>
                     <option value="pengarang">Author</option>
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
                      <option value="genre">Genre</option>
                 </select>
             </div>
@@ -91,18 +89,17 @@
     <div class="col s12 m8 l9">
       <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
-<<<<<<< HEAD
+
         <span><?php echo $notFound ?></span>
-=======
+
         <span><?php echo $notFound ?>.</span>
-<<<<<<< HEAD
+
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
-=======
+
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/showAddBook')?>">addBook</button> -->
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/showAddBook')?>">Add new book to your collection?</a>
->>>>>>> 4681953f1e0fe8db04402b0aa17eaedb61658335
+
           <?php } ?>
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
@@ -118,15 +115,11 @@
               <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/Book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
               <div class="row row-custom-a">
                 <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
               </div>
-=======
-=======
-      
->>>>>>> 74cf88d4ed7cb32b2e65f3fb4187a9e568e9e616
+
 
                   <?php
                       if(!$adaDiKoleksi[$key])
@@ -152,7 +145,7 @@
                       }
                   ?>
               
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
             </div>
           </div>
         </div>
@@ -172,21 +165,21 @@
 
      if(this.value=='judul')
         {
-<<<<<<< HEAD
+
             $('.keyword').show();
-=======
+
             $('keyword').show();
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
-<<<<<<< HEAD
+
            $('.keyword').show();
-=======
+
            $('keyword').show();
->>>>>>> 6e124e192a664c31661f84c17ce76000ec7ddff5
+
             $("genre").hide();
         }
      else 
