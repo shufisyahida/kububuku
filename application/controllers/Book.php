@@ -185,8 +185,13 @@
 
         public function deleteBook($isbn)
         {
+
+            $this->load->model('buku');
+            $this->buku->delete($isbn);
+            redirect(base_url('index.php/ManageBook'));
+
             $data = array(
-                'username'=>$this->session->userdata('username');,
+                'username'=>$this->session->userdata('username'),
                 'isbn'=>$isbn,
                 'kategori'=> 0,
                 'waktu'=> date("D, d F Y, h:i A"),
@@ -297,7 +302,7 @@
 
 
                     $data = array(
-                        'username'=>$this->session->userdata('username');,
+                        'username'=>$this->session->userdata('username'),
                         'isbn'=>$isbn,
                         'kategori'=> 1,
                         // http://php.net/manual/en/function.date.php
@@ -315,6 +320,7 @@
                 $this->session->set_userdata('error_login_'.$email,true);
                 redirect(base_url('index.php/Login'));
             }
+
         }
 
     } // end of Book

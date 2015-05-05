@@ -72,7 +72,7 @@
                         // $this->load->model('pinjaman');
                         // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
                         $this->load->model('koleksi');
-                        $ada = $this->koleksi->adaDiKoleksi($username, $value->isbn);
+                        $ada = $this->koleksi->isInCollection($username, $value->isbn);
                         $adaDiKoleksi[$key] = $ada;
                     }
 
