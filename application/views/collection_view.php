@@ -4,7 +4,7 @@
            <li><a href="<?php echo base_url('index.php/Request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/Request_out') ?>">Request Out</a></li>
           <li><a class="active" href="<?php echo base_url('index.php/Collection') ?>">Collection</a></li>
-          <li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
+          <li><a href="<?php echo base_url('index.php/Wishlist/') ?>">Wishlist</a></li>
         </ul>
       </div>
 
@@ -46,10 +46,9 @@
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">
-
-		                		<span class="card-title black-text">'.$post->judul.'</span><br>
-		                		</a>';?>
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">';?>
+		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
+		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>

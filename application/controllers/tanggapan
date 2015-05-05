@@ -1,0 +1,39 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+	class Tanggapan extends CI_Controller
+	{
+
+		public function __construct()
+	    {
+	        parent::__construct();
+	        $username = $this->session->userdata('username');
+	        if(!$this->session->userdata(''.$username))
+	        {
+	            redirect(base_url('index.php/Login'));
+	        }
+	    }
+
+	    public function addTangapan($username,$isbn)
+		{
+			if(isset($_POST))
+			{
+				//$non_admin = $this->input->post('$non_admin');
+				//$buku = $this->input->post('buku');
+			
+				$this->load->model('tanggapan');
+				$this->tanggapan->addTanggapan($username,$isbn);
+				redirect(base_url('index.php/wishlist_view'));
+			}
+			else
+			{
+				$this->session->set_userdata('error_login_'.$username,true);
+				redirect(base_url('index.php/Login'));
+				//masuk form create buku lalalla
+			}				
+		}
+
+	
+	    
+	} // end of Wishlist
+
+?>
