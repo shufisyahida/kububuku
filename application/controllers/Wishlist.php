@@ -12,6 +12,15 @@
 	            redirect(base_url('index.php/Login'));
 	        }
 	    }
+
+	    public function index()
+	    {
+ 			$this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('wishlist_view');
+            $this->load->view('foot_view');
+	    	
+	    }
 	    
 	} // end of Wishlist
 
