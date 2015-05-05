@@ -318,6 +318,12 @@
 			return $new_name;
 		}
 
+		public function deleteUser($username)
+		{
+			$this->db->where('username',$username);
+			$this->db->delete('non_admin');
+		}
+
 	} // end of Non_admin
 
 ?>

@@ -75,6 +75,12 @@
 			}
 		}
 
+		public function deleteBook($isbn)
+		{
+			$this->db->where('isbn',$isbn);
+			$this->db->delete('buku');
+		}
+
 	} // end of Buku
 
 ?>

@@ -255,6 +255,13 @@
             echo $img=$img['imgpath'];
         }
 
+        public function deleteUser($username)
+        {
+            $this->load->model('non_admin');
+            $this->non_admin->deleteUser($username);
+            redirect(base_url('index.php/ManageUser'));
+        }
+
     } // end of Profile
 
 ?>

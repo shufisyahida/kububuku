@@ -183,6 +183,13 @@
             $this->load->view('foot_view');
         }
 
+        public function deleteBook($isbn)
+        {
+            $this->load->model('buku');
+            $this->buku->delete($isbn);
+            redirect(base_url('index.php/ManageBook'));
+        }
+
     } // end of Book
 
 ?>
