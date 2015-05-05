@@ -75,12 +75,28 @@
 			}
 		}
 
+<<<<<<< HEAD
 		public function deleteBook($isbn)
+=======
+		function deleteBook($isbn)
+>>>>>>> 1340c505fdf7f3f1d1b420043ebf80bef09bd184
 		{
 			$this->db->where('isbn',$isbn);
 			$this->db->delete('buku');
 		}
 
+<<<<<<< HEAD
+=======
+		function updateBook($isbn, $perubahan)
+		{
+			$this->db->where('isbn', $isbn);
+            $this->db->update('buku', $perubahan); 
+		}
+
+		
+
+
+>>>>>>> 1340c505fdf7f3f1d1b420043ebf80bef09bd184
 	} // end of Buku
 
 ?>
