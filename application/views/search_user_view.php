@@ -11,7 +11,7 @@
         </a>
         <ul>
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -47,22 +47,6 @@
               </keyword>
              <location>
               <select id="location" name="location" type="text" class="validate">
-
-                    <option value="" disabled selected>Choose Location</option>
-
-                    <option value="jakarta">Jakarta</option>
-                    <option value="bogor">Bogor</option>
-                     <option value="depok">Depok</option>
-                    <option value="tangerang">Tangerang</option>
-                    <option value="bekasi">Bekasi</option>
-
-                    <option value="1">Jakarta</option>
-                    <option value="2">Bogor</option>
-                     <option value="3">Depok</option>
-                    <option value="4">Tangerang</option>
-                    <option value="5">Bekasi</option>
-                    <option value="6">Other</option>
-
                     <option value="" disabled selected>Choose Domicile</option>
                     <option value="Jakarta">Jakarta</option>
                     <option value="Bogor">Bogor</option>
@@ -70,22 +54,15 @@
                     <option value="Tangerang">Tangerang</option>
                     <option value="Bekasi">Bekasi</option>
                     <option value="Other">Other</option>
-
                 </select>
               </location>
               <status>
                 <select id="status" name="status" type="text" class="validate">
                     <option value="" disabled selected>Choose Status</option>
-
-                    <option value="1">Mahasiswa</option>
-                    <option value="2">Dosen</option>
-                     <option value="3">Staff</option>
-
                     <option value="1">Student</option>
                     <option value="2">Lecturer</option>
                      <option value="3">Staff</option>
                      <option value="4">Alumnus</option>
-
                 </select>
               </status>
               <faculty>
@@ -106,9 +83,7 @@
                      <option value="13">Faculty of Pharmacy</option>
                     <option value="50">Vocational Program</option>
                      <option value="51">Postgraduate Program</option>
-
                      <option value="52">Non Faculty</option>
-
                 </select>
               </faculty>
             </div>
@@ -135,11 +110,7 @@
 
      if(this.value=='nama')
         {
-
-            $('.keyword').show();
-
             $('keyword').show();
-
             $("location").hide();
             $("status").hide();
             $("faculty").hide();

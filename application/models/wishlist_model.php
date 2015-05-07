@@ -17,10 +17,27 @@
 			$this->db->delete('wishlist');
 		}
 
+		public function IsInWishlist($username,$isbn){
+
+			$this->db->select('*');
+	        $this->db->from('wishlist');
+	        $this->db->where('username',$username)->where('isbn',$isbn);    
+	        $query= $this->db->get()->result();
+
+	        if(sizeof($query)!=0)
+	        {       
+	          	return true;
+	        }
+	        else
+	        {
+	        	return false;
+	        }
+		
+		}
 
 		public function getAllWishlist($username)
 		{
-			 $this->db->select("buku.judul, buku.sampul, buku.pengarang, buku.isbn, buku.genre");
+			 $this->db->select("buku.judul, buku.sampul,buku.deskripsi,buku.pengarang, buku.isbn, buku.genre");
 	  		 $this->db->from('buku');
 	  		 $this->db->join('wishlist', 'wishlist.isbn = buku.isbn');
 	  		 $this->db->where('username',$username);

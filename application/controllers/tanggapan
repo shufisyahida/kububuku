@@ -20,9 +20,9 @@
 				//$non_admin = $this->input->post('$non_admin');
 				//$buku = $this->input->post('buku');
 			
-				$this->load->model('tanggapan');
-				$this->tanggapan->addTanggapan($username,$isbn);
-				redirect(base_url('index.php/wishlist_view'));
+				$this->load->model('tanggapan_model');
+				$this->tanggapan_model->addTanggapan($username,$isbn);
+				redirect(base_url('index.php/Wishlist'));
 			}
 			else
 			{

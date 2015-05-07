@@ -139,6 +139,9 @@
             $data['resultBook'] = $this->buku->getBook($isbn);
             $data['resultOwner']= $this->buku->getOwner($isbn,true);
             $username = $this->session->userdata('username');
+            $this->load->model('wishlist_model');
+            $adaDiWishlist = $this->wishlist_model->IsInWishlist($username,$isbn);
+            $data['adaDiWishlist']= $adaDiWishlist;
             $this->load->model('koleksi');
             $adaDiKoleksi = $this->koleksi->isInCollection($username, $isbn);        
             $data['adaDiKoleksi']= $adaDiKoleksi;

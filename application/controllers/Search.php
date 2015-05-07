@@ -125,46 +125,6 @@
             else
             {
                 $keyword=$faculty;
-
-             }
-
-             if($kategori!=null && $keyword!=null){
-                 $result = $this->search_model->searchPengguna($keyword,$kategori);
-
-                   if($result==false) {
-                       $data['notFound'] = "Sorry, no records found";
-                       $data['resultSearchPengguna'] = null;
-                        $data['notMatch'] = null;
-                      
-                    }
-                    else {
-                      $data['resultSearchPengguna'] = $result;
-                      $data['notFound'] = null;
-                      $data['notMatch'] = null;
-                    } 
-             }
-             else if($kategori==null)
-             {
-                   $data['notMatch'] = "Choose Category";
-                     $data['resultSearchPengguna'] = null;
-                      $data['notFound'] = null;
-             }
-               else if($keyword==null)
-             {
-                   $data['notMatch'] = "Enter keyword";
-                     $data['resultSearchPengguna'] = null;
-                      $data['notFound'] = null;
-             
-
-
-                    if($result==false) {
-                       $data['notFound'] = "Sorry, no records found";
-                       $data['resultSearchPengguna'] = null;
-                        $data['notMatch'] = null;
-                        $data['kategori'] = $kategori;
-                        $data['keyword'] = $keyword;
-                      
-
             }
 
             if($kategori!=null && $keyword!=null)
@@ -209,7 +169,6 @@
                         //get number of collection
                         $this->load->model('koleksi');
                         $koleksi[$username]= $this->koleksi->getNumOfKoleksi($username);
-
                     }
                 
                     $data['resultSearchPengguna'] = $result;

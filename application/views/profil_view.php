@@ -17,7 +17,7 @@
         </a>
         <ul>
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -96,84 +96,6 @@
 				</div>
 			</div>
 		</div>
-
-
-	<div class="col s12 m6 l9">
-<!--borrowed-->
-			
-
-<!--available-->
-
-<?php 
-if(!empty($koleksiAvailable[0]))
-{
-	echo '<div class="row custom-margin-bottom">
-				<h4>Available</h4>
-				<div class="row valign-wrapper">';
-			        
-					foreach ($koleksiAvailable as $key => $value)
-            		{
-            			echo'
-				        <div class="col s12 m3 l3">
-							<div class="card small">
-								<div class="card-image">
-									<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
-								</div>
-								<div class="card-content">
-									<h6 class="truncate">'.$value->pengarang.'</h6>
-									<p class="divider"></p>
-									<h5 class="truncate">'.$value->judul.'</h5>
-								</div>
-							</div>
-				        </div>';
-				    }
-			      
-			echo '</div>
-			</div>
-			<div class="row custom-margin-top">
-				<div class="col"><a class="waves-effect waves-green btn-flat">More...</a></div>
-			</div>';
-}
-else
-{
-		echo '<div class="row custom-margin-bottom">
-				<h4>Available</h4>
-				<div class="row valign-wrapper">
-				<div class="col s12 m3 l3">
-					<p>No Collection Available</p>
-				</div>
-				</div>
-			</div>';
-
-}
-?>
-
-
-<!--new-->
-<?php 
-if(!empty($koleksiBorrowed))
-{
-	echo '	<div class="row custom-margin-bottom">
-				<h4>Borrowed</h4>
-				<div class="row valign-wrapper">';
-					foreach ($koleksiBorrowed as $key => $value)
-            		{
-            			echo'
-				        <div class="col s12 m3 l3">
-							<div class="card small">
-								<div class="card-image">
-									<a href="'.base_url()."index.php/book/book_info/".$post->isbn.'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
-								</div>
-								<div class="card-content">
-									<h6 class="truncate">'.$value->pengarang.'</h6>
-									<p class="divider"></p>
-									<h5 class="truncate">'.$value->judul.'</h5>
-								</div>
-							</div>
-				        </div>';
-				    }
-			    echo '</div>
-
 		<div class="col s12 m6 l9">
 			<div class="row">
 				<?php
@@ -323,25 +245,35 @@ if(!empty($koleksiBorrowed))
         			?>	
 			</div>
 			<div class="row">
-
-				<!--<div class="col s12 m12 l6">
-			        <div class="card card-book">
-			          	<div class="row row-custom-a">
-				            <div class="col s4 m4 l4">
-				              	<img class="responsive-img" src="<?php echo base_url('assets/img/cover1.jpg') ?>">
-				            </div>
-				            <div class="col s8 m8 l8">
-				            	<span class="card-book-title black-text">The Lord of the Rings (The Lord of the Rings #1-3)</span><br>
-				            	<span>J.R.R. Tolkien</span><br>
-				            	<span class="tag-property white-text green">Fiction</span><br><br>
-				            	<div class="row row-custom-a">
-				            	    <a class="waves-effect waves-green black-text btn-flat">Inform</a>
-				            	</div>
-				            </div>
-			          	</div>
-			        </div>
-			    </div>-->
-
+				<?php
+					if(!empty($hasilWishlist))
+					{
+						foreach($hasilWishlist as $key => $value)
+						{
+							echo '<div class="col s12 m12 l6">
+							        <div class="card card-book">
+							          	<div class="row row-custom-a">
+								            <div class="col s4 m4 l4">
+								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								            </div>
+								            <div class="col s8 m8 l8">
+								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<span>'.$value->pengarang.'</span><br>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								            	<div class="row row-custom-a">
+								            	    <a class="btn-flat disabled">Borrowed</a>
+								            	</div>
+								            </div>
+							          	</div>
+							        </div>
+							    </div>';
+						}
+					} else {
+						echo '<div class="col s12 m12 l12">
+								<p>No Entry Wishlist</p>
+							</div>';
+					}
+				?>
 			</div>
 		</div>
 	</div>

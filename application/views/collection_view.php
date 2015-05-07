@@ -4,7 +4,7 @@
            <li><a href="<?php echo base_url('index.php/Request_in') ?>">Request In</a></li>
           <li><a href="<?php echo base_url('index.php/Request_out') ?>">Request Out</a></li>
           <li><a class="active" href="<?php echo base_url('index.php/Collection') ?>">Collection</a></li>
-          <li><a href="<?php echo base_url('index.php/Wishlist/') ?>">Wishlist</a></li>
+          <li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
 
@@ -14,7 +14,7 @@
         </a>
         <ul>
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -25,16 +25,10 @@
 	<div class="container custom-table">
 		<h4>Borrowed</h4>
 		<div class="row">
-
-
-		<?php foreach($resultBorrowed as $post){ ?>
-			
-
 		<?php 
 		if(!empty($resultBorrowed))
 		{
 		foreach($resultBorrowed as $post){ ?>
-
 			<div class="col s12 m12 l6">
 		    	<div class="card card-book">
 		        	<div class="row row-custom-a">
@@ -46,9 +40,10 @@
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">';?>
-		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
-		                		<?php echo'</a>';?>
+		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">
+
+		                		<span class="card-title black-text">'.$post->judul.'</span><br>
+		                		</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
 		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
 		              		</div>

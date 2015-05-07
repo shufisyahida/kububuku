@@ -10,14 +10,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-
-          <li><a class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-
-          <li><a href="<?php echo base_url('index.php/search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -35,13 +29,8 @@
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
                     <option value="" disabled selected>Choose Category</option>
-
-                    <option value="judul">Judul</option>
-                    <option value="pengarang">Pengarang</option>
-
                     <option value="judul">Title</option>
                     <option value="pengarang">Author</option>
-
                      <option value="genre">Genre</option>
                 </select>
             </div>
@@ -89,17 +78,9 @@
     <div class="col s12 m8 l9">
       <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
-
-        <span><?php echo $notFound ?></span>
-
         <span><?php echo $notFound ?>.</span>
-
-        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/addBookIndex')?>">addBook</button> -->
-        <br><a class="green-text" href="<?php echo base_url('index.php/Book/addBookIndex')?>">Add new book to your collection?</a>
-
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/showAddBook')?>">addBook</button> -->
         <br><a class="green-text" href="<?php echo base_url('index.php/Book/showAddBook')?>">Add new book to your collection?</a>
-
           <?php } ?>
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
@@ -115,11 +96,8 @@
               <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/Book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
-
-              <div class="row row-custom-a">
-                <a class="waves-effect waves-green black-text btn-flat">Add to Collection</a>
-              </div>
-
+             
+      
 
                   <?php
                       if(!$adaDiKoleksi[$key])
@@ -145,7 +123,6 @@
                       }
                   ?>
               
-
             </div>
           </div>
         </div>
@@ -165,21 +142,13 @@
 
      if(this.value=='judul')
         {
-
-            $('.keyword').show();
-
             $('keyword').show();
-
             $("genre").hide();
 
         }
     else if (this.value=='pengarang') 
          {
-
-           $('.keyword').show();
-
            $('keyword').show();
-
             $("genre").hide();
         }
      else 

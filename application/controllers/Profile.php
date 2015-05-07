@@ -200,12 +200,20 @@
         
         function showProfile($username)
         {
-            // $username = $this->session->userdata('username');
+            $Myusername = $this->session->userdata('username');
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username);
             $this->load->model('koleksi');
+             $this->load->model('wishlist_model');
             $koleksiAvailable = $this->koleksi->getKoleksiAvailable($username);
             $koleksiBorrowed = $this->koleksi->getKoleksiBorrowed($username);
+             $data['hasilWishlist'] = $this->wishlist_model->getAllWishlist($username);
+            if($user==$Myusername){
+                $data['informMe'] = "Inform Me";
+            }
+            else {
+                $data['informMe'] = null;
+            }
             $bookAvailable=array();
             $bookBorrowed=array();
             
