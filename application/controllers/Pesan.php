@@ -2,7 +2,16 @@
 
 	class Pesan extends CI_Controller
 	{
-		public function __construct()
+		public function index()
+		{
+			$this->load->view('head_view');
+			$this->load->view('navbar_view');
+            $this->load->view('admin');
+            $this->load->view('pesan_view');
+            $this->load->view('foot_view');
+		}
+
+		/*public function __construct()
         {
             parent::__construct();
             $username = $this->session->userdata('username');
@@ -12,7 +21,7 @@
             }
 
             $this->load->model('pesan');
-        }
+        }*/
 
 		public function read($id)
 		{
@@ -21,10 +30,12 @@
 			$this->load->view('pesan',$data);
 		}
 
-		public fucntion delete($id)
+		public function delete($id)
 		{
 			$this->pesan->delete($id);
 			redirect(base_url('index.php/Pesan'));
 		}
+
+
 	}
 ?>
