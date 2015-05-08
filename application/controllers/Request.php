@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Book extends CI_Controller
+    class Request extends CI_Controller
     {
 
         public function __construct()
@@ -11,6 +11,14 @@
             {
                 redirect(base_url('index.php/Login'));
             }
+        }
+
+        public function index() {
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('admin');
+            $this->load->view('request_view');
+            $this->load->view('foot_view');
         }
 
         public function confirmDeleteBook($username, $isbn)

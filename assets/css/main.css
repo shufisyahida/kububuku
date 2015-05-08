@@ -304,6 +304,12 @@ a > .title-t {
         display: inline-block;
         vertical-align: middle; }
 
+.collection .collection-item.avatar .secondary-content-2 {
+        position: absolute;
+        top: 32px;
+        right: 16px;
+        margin-top: 15px; }
+
 /*PUNYA KOES*/
 .card-panel-custom-cp{
     max-width: 400px;
