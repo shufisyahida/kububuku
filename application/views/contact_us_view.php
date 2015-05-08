@@ -17,5 +17,67 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-    <h4>Contact Us is here</h4>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card-panel white z-depth-1">
+        <form method="post" action="#">          
+            <div class="row">
+                <div class="col s12 m5 l4">
+                    <select id="kategori" name="kategori" type="text" class="validate">
+                        <option value="" disabled selected>Choose Report Category</option>
+                        <option value="report">Report</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="personal-req">Personal Request</option>
+                    </select>
+                </div>
+                <div class="input-field col s12">
+                    <input id="user-mail" type="email" class="validate" name="email">
+                    <label>Your Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="subject-mail" type="text" class="validate" name="subject">
+                    <label>Subject</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="content-mail" class="materialize-textarea"></textarea>
+                    <label for="content-mail">Content</label>
+                </div>
+                <div class="col s12">
+                    <button class="right btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">SEND</button>
+                </div>
+            </div>
+          
+        </form>
+      </div>
+    </div>
+   
+  </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+         $('keyword').show();
+    $("genre").hide();
+  $('#kategori').on('change',function() {
+
+     if(this.value=='judul')
+        {
+            $('keyword').show();
+            $("genre").hide();
+
+        }
+    else if (this.value=='pengarang') 
+         {
+           $('keyword').show();
+            $("genre").hide();
+        }
+     else 
+         {
+             $('keyword').hide();
+            $("genre").show();
+         }
+  }); 
+
+    });
+</script>
