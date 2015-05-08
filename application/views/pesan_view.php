@@ -1,10 +1,28 @@
 		<div class="col l9">
-			<ul class="collection">
+			<ul class="collection z-depth-1">
 				<li class="collection-item">
-					test
-					<a class="modal-trigger" href="#modal-remove">Title</a>
-					test
-					<a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+					<span class="email-address">email@example.com</span><br>
+					<a class="modal-trigger" href="#modal-remove"><span class="title-t">Title<span></a><br>
+					<span class="email-address grey-text">Wednesday, May 7th 2015, 12:00 PM</span>
+					<a href="#!" class="secondary-content"><i class="mdi-content-reply green-text small"></i></a>
+					<a href="#!" class="secondary-content"><i class="mdi-content-clear red-text small"></i></a>
+					<div id="modal-remove" class="modal">
+						<div class="modal-content">
+							<h4>Remove Collection</h4>
+							<p>Are you sure to remove this book from collection?</p>
+						</div>
+						<div class="modal-footer">
+							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							<a href="#" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+						</div>
+					</div>
+				</li>
+				<li class="collection-item">
+					<span class="email-address">email@example.com</span><br>
+					<a class="modal-trigger" href="#modal-remove"><span class="title-t">Title<span></a><br>
+					<span class="email-address grey-text">Wednesday, May 7th 2015, 12:00 PM</span>
+					<a href="#!" class="secondary-content"><i class="mdi-content-reply green-text small"></i></a>
+					<a href="#!" class="secondary-content"><i class="mdi-content-clear red-text small"></i></a>
 					<div id="modal-remove" class="modal">
 						<div class="modal-content">
 							<h4>Remove Collection</h4>
@@ -21,12 +39,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-	$(document).ready(function(){
-	    $('.collapsible').collapsible({
-	      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-	    });
-	    $('.modal-trigger').leanModal();
-	  });
-</script>

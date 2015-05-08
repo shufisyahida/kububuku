@@ -283,9 +283,26 @@ li.ranking-star {
       background-color: #4caf50;
       color: #fff; }
 
-.modal {
-  z-index: 5000;
+.email-address {
+  font-size: 0.95em;
 }
+
+.title-t {
+  font-size: 1.9em;
+}
+
+a > .title-t {
+  color: #4caf50;
+}
+
+.collection .collection-item.avatar .cover {
+        position: absolute;
+        width: 42px;
+        /*height: 42px;*/
+        overflow: hidden;
+        left: 15px;
+        display: inline-block;
+        vertical-align: middle; }
 
 /*PUNYA KOES*/
 .card-panel-custom-cp{
