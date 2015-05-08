@@ -270,6 +270,23 @@ li.ranking-star {
   right: 16px;
 }
 
+.collection a.collection-item {
+    display: block;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    transition: 0.25s;
+    color: #4caf50; }
+
+.collection .collection-item.active {
+      background-color: #4caf50;
+      color: #fff; }
+
+.modal {
+  z-index: 5000;
+}
+
 /*PUNYA KOES*/
 .card-panel-custom-cp{
     max-width: 400px;
