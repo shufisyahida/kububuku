@@ -2,75 +2,159 @@
 		<div class="col l6">
 			<ul class="collection z-depth-1">
 				<li class="collection-item"><h5>Delete Request</h5></li>
-				<li class="collection-item avatar">
-					<div>
-						<img src="http://localhost/kububuku/assets/img/cover3.jpg" alt="" class="cover">
-						<span class="title">Lord of The Ring: The Fellowship lorem ipsum </span>
-						<p>
-							by <i>Mustika Aprilianti</i>
-						</p>
-						<a href="#!" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
-						<a href="#!" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
-					</div>
-				</li>
-				<li class="collection-item avatar">
-					<div>
-						<img src="http://localhost/kububuku/assets/img/cover3.jpg" alt="" class="cover">
-						<span class="title">Lord of The Ring: The Fellowship lorem ipsum </span>
-						<p>
-							by <i>Mustika Aprilianti</i>
-						</p>
-						<a href="#!" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
-						<a href="#!" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
-					</div>
-				</li>
+					<?php 
+				  	if(!empty($deleteRequest)){
+				  	foreach($deleteRequest as $key => $post){?>
+						<li class="collection-item avatar">
+							<div>
+								<?php echo
+								'<img src='.$deleteSampul[$key].' alt="" class="cover">'
+								?>
+								<span class="title"><?php echo $deleteJudul[$key];?></span>
+								<p>
+									by <i><?php echo $post->username;?></i>
+								</p>
+								<a href="<?php echo base_url().'index.php/Request/acceptDeleteBook/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
+								<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
+							</div>
+						</li>
+					<?php }}
+					else
+					{
+						echo'<h5>No Delete Request</h5>';
+					}?> 
 			</ul>
 		</div>
 		<div class="col l6">
 			<ul class="collection z-depth-1">
 				<li class="collection-item"><h5>Update Request</h5></li>
-				<li class="collection-item avatar">
-					<div>
-						<img src="http://localhost/kububuku/assets/img/cover2.jpg" alt="" class="cover">
-						<span class="title">Lord of The Ring: The Fellowship lorem ipsum <a href="#modal" class="modal-trigger"><i class="mdi-action-open-in-new green-text"></i></a></span>
-						<p>
-							by <i>Mustika Aprilianti</i>
-						</p>
-						<a href="#!" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
-						<a href="#!" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
-						<div id="modal" class="modal">
-						<div class="modal-content">
-							<h4>Accept Update Book</h4>
-							<table>
-						        <thead>
-						          	<tr>
-						              	<th data-field="id">Field</th>
-						              	<th data-field="name">Old</th>
-						              	<th data-field="price">New</th>
-						          	</tr>
-						        </thead>
-						        <tbody>
-						          	<tr>
-						            	<td><strong>Title</strong></td>
-						            	<td>Lrd of The Ring</td>
-						            	<td>Lord of The Ring</td>
-						          	</tr>
-						          	<tr>
-						            	<td><strong>Description</strong></td>
-						            	<td><p>Tempor faucibus velit quis, rhoncus efficitur nibh. Fusce ac viverra nibh. Sed iaculis libero non sodales rutrum.</p></td>
-						            	<td><p>Tempor faucibus velit quis, rhoncus efficitur nibh. Fusce ac viverra nibh. Sed iaculis libero non sodales rutrum.</p></td>
-						          	</tr>
-						        </tbody>
-						    </table>
+				<?php 
+			  	if(!empty($updateRequest)){
+			  	foreach($updateRequest as $key => $post){?>
+					<li class="collection-item avatar">
+						<div>
+							<?php echo
+								'<img src='.$updateSampul[$key].' alt="" class="cover">'
+							?>
+							<span class="title"><?php echo $updateJudul[$key];?><a href="#modal" class="modal-trigger"><i class="mdi-action-open-in-new green-text"></i></a></span>
+							<p>
+								by <i><?php echo $post->username;?></i>
+							</p>
+							<a href="<?php echo base_url().'index.php/Request/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
+							<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
+							<div id="modal" class="modal">
+							<div class="modal-content">
+								<h4>Accept Update Book</h4>
+								<table>
+							        <thead>
+							          	<tr>
+							              	<th data-field="id">Field</th>
+							              	<th data-field="name">Old</th>
+							              	<th data-field="price">New</th>
+							          	</tr>
+							        </thead>
+							        <tbody>
+							        	<?php 
+							        		list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $post->perubahan);
+							          	if($isbn != $isbnNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>ISBN</strong></td>
+								            	<td>'.$isbn.'</td>
+								            	<td>'.$isbnNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($judul != $judulNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Title</strong></td>
+								            	<td>'.$judul.'</td>
+								            	<td>'.$judulNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($pengarang != $pengarangNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Author</strong></td>
+								            	<td>'.$pengarang.'</td>
+								            	<td>'.$pengarangNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($deskripsi != $deskripsiNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Description</strong></td>
+								            	<td>'.$deskripsi.'</td>
+								            	<td>'.$deskripsiNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($genre != $genreNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Genre</strong></td>
+								            	<td>'.$genre.'</td>
+								            	<td>'.$genreNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($penerbit != $penerbitNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Publisher</strong></td>
+								            	<td>'.$penerbit.'</td>
+								            	<td>'.$penerbitNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($tahun_terbit != $tahun_terbitNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Tahun Terbit</strong></td>
+								            	<td>'.$tahun_terbit.'</td>
+								            	<td>'.$tahun_terbitNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($jumlah_halaman != $jumlah_halamanNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Jumlah Halaman</strong></td>
+								            	<td>'.$jumlah_halaman.'</td>
+								            	<td>'.$jumlah_halamanNew.'</td>
+								          	</tr>';
+							          	}
+							          	if($sampul != $sampulNew)
+							          	{
+							          		echo '
+							          		<tr>
+								            	<td><strong>Cover</strong></td>
+								            	<td>'.$sampul.'</td>
+								            	<td>'.$sampulNew.'</td>
+								          	</tr>';
+							          	}							          								          	
+							          	
+							          	?>
+							        </tbody>
+							    </table>
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+								<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+								<a href="<?php echo base_url().'index.php/Request/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
+							</div>
 						</div>
-						<div class="modal-footer">
-							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-							<a href="#" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
-							<a href="#" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
 						</div>
-					</div>
-					</div>
-				</li>
+					</li>
+				<?php }}
+				else
+				{
+					echo'<h5>No Update Request</h5>';
+				}?>
 			</ul>
 		</div>
 	</div>

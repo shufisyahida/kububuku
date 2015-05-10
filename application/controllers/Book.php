@@ -187,141 +187,29 @@
         {
 
             $this->load->model('buku');
-            $this->buku->delete($isbn);
+            $this->buku->deleteBook($isbn);
             redirect(base_url('index.php/ManageBook'));
+        }
 
+        public function updateBook($isbn, $perubahan)
+        {
+            list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
             $data = array(
-                'username'=>$this->session->userdata('username'),
-                'isbn'=>$isbn,
-                'kategori'=> 0,
-                'waktu'=> date("D, d F Y, h:i A"),
-                'perubahan'=> NULL,
-                'is_accepted'=> false,
-                'is_notified'=> false
+                'isbn' => $isbnNew,
+                'judul' => $judulNew,
+                'pengarang' => $pengarangNew,
+                'deskripsi' => $deskripsiNew,
+                'genre' => $genreNew,
+                'penerbit' => $penerbitNew,
+                'tahun_terbit' => $tahun_terbitNew,
+                'jumlah_halaman' => $jumlah_halamanNew,
+                'sampul' => $sampulNew
             );
-            $this->load->model('permintaan_ubah_hapus');
-            $this->permintaan_ubah_hapus->createPermintaan($data);
-
-        }
-
-        public function showUpdateBook($isbn)
-        {
             $this->load->model('buku');
-            $book = $this->non_admin->getBook($isbn) ;
-            $data=$book[0];
-            $data->isbnErr='';
-            $data->judulErr='';
-            $data->pengarangErr='';
-            $data->genreErr='';
-            $this->load->view('head_view');
-            $this->load->view('navbar_view');
-            $this->load->view('update_book_view', $data);
-            $this->load->view('foot_view');
+            $this->buku->updateBook($isbn, $data);
+            redirect(base_url('index.php/ManageBook'));
         }
-        public function updateBook($isbn)
-        {
-            if(isset($_POST))
-            {
-                $isbnNew = $this->input->post('isbn');
-                $judul = $this->input->post('judul');
-                $pengarang = $this->input->post('pengarang');
-                $deskripsi = $this->input->post('deskripsi');
-                $genre = $this->input->post('genre');
-                $penerbit = $this->input->post('penerbit');
-                $tahun_terbit = $this->input->post('tahun_terbit');
-                $jumlah_halaman = $this->input->post('jumlah_halaman');
-                $sampul = $this->input->post('sampul');
-                $data = array(
-                    'isbn' => $isbn,
-                    'judul' => $judul,
-                    'pengarang' => $pengarang,
-                    'deskripsi' => $deskripsi,
-                    'genre' => $genre,
-                    'penerbit' => $penerbit,
-                    'tahun_terbit' => $tahun_terbit,
-                    'jumlah_halaman' => $jumlah_halaman,
-                    'sampul' => $sampul,
-                    'isbnErr' => '',
-                    'judulErr' => '',
-                    'pengarangErr' => '',
-                    'genreErr' => ''
-                );
-                $error = false;
-                $this->load->model('buku');
-                $isbnSudahAda = $this->buku->isRegisteredBook($isbn);
-                if ($isbnSudahAda && $isbnNew != $isbn) 
-                {
-                    $data['isbnErr'] = "Book is already in use";
-                    $error = true;
-                                      
-                }
-                if($isbn == '')
-                {
-                  $data['isbnErr'] = "ISBN should not be blank";
-                  $error = true;
-                }
-                if($judul == '')
-                {
-                  $data['judulErr'] = "Title should not be blank";
-                  $error = true;
-                }
-                if($pengarang == '')
-                {
-                  $data['pengarangErr'] = "Author should not be blank";
-                  $error = true;
-                }
-                if($genre == '')
-                {
-                  $data['genreErr'] = "Genre should not be blank";
-                  $error = true;
-                }
-                if($error)
-                {
-                  $this->load->view('head_view');
-                  $this->load->view('navbar_view');
-                  $this->load->view('update_book_view', $data);
-                  $this->load->view('foot_view');
-                }
-                else
-                {
-                    if($sampul == '')
-                    {
-                        $sampul = base_url('assets/img/default-cover.jpg');
-                    }
-                    $perubahan = array(
-                        'isbn' => $isbnNew,
-                        'judul' => $judul,
-                        'pengarang' => $pengarang,
-                        'deskripsi' => $deskripsi,
-                        'genre' => $genre,
-                        'penerbit' => $penerbit,
-                        'tahun_terbit' => $tahun_terbit,
-                        'jumlah_halaman' => $jumlah_halaman,
-                        'sampul' => $sampul
-                    );
-
-
-                    $data = array(
-                        'username'=>$this->session->userdata('username'),
-                        'isbn'=>$isbn,
-                        'kategori'=> 1,
-                        // http://php.net/manual/en/function.date.php
-                        'waktu'=> date("D, d F Y, h:i A"),
-                        'perubahan'=> $perubahan,
-                        'is_accepted'=> false,
-                        'is_notified'=> false
-                    );
-                    $this->load->model('permintaan_ubah_hapus');
-                    $this->permintaan_ubah_hapus->createPermintaan($data);              
-                }       
-            }
-            else
-            {
-                $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
-            }
-
-        }
+            
 
     } // end of Book
 

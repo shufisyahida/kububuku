@@ -1,7 +1,7 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <div class="container custom-container-c">
-            Add Book
+            Update Book
         </div>
       </div>
 
@@ -23,7 +23,8 @@
     <!-- <br><h5>Add Book</h5> -->
     <div class="card-panel-custom-reg z-depth-1">
         <div class="row">
-            <form method="post" action="<?php echo base_url('index.php/Book/addBook') ?>" class="col s12">
+            <form method="post" action="<?php echo base_url().'index.php/Request/createUpdateRequest/'.$isbn?>" class="col s12">
+              <!-- <a href="<?php echo base_url()."index.php/Book/deleteBook/".$resultBook[0]->isbn?>">DELETE</a> -->
 
                 <div id="step-one" class="row">
                                         
@@ -113,7 +114,7 @@
 
                     <div class="col s12 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">ADD</button>
+                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">UPDATE</button>
                     </div>
                 </div>
             </form>
