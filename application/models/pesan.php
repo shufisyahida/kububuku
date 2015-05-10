@@ -2,7 +2,18 @@
 
 	class Pesan extends CI_Model
 	{
-		public function read(id)
+		public function getPesan()
+		{
+			$this->db->select('*');
+			$this->db->from('pesan');
+			$query = $this->db->get()->result();
+
+			//var_dump($query);
+			return $query;
+
+		}
+
+		public function read($id)
 		{
 			$this->db->select('*');
 			$this->db->from('pesan');
@@ -12,10 +23,13 @@
 			return $query;
 		}
 
-		public function delete(id)
+		public function delete($id)
 		{
 			$this->db->where('id',$id);
 			$this->db->delete('pesan');
+		}
+		public function createPesan($data){
+			$this->db->insert('pesan', $data);
 		}
 	}
 ?>
