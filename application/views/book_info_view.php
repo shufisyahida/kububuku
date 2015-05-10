@@ -16,13 +16,32 @@
             }
           ?>
 
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <?php
+            $username = $this->session->userdata('username');
+            if(!$adaDiWishlist){
+              echo '<li><a href="#modal-wishlist" class="modal-trigger btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>';
+             
+             }
+            ?>
+
+
         </ul>
       </div>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
 <div class="container custom-table">
+    <div id="modal-report" class="modal">
+        <div class="modal-content">
+            <h4>Report Book</h4>
+            <p>Are you sure to report this book to admin?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+            <a href="#" class="waves-effect waves-green btn-flat modal-action">Report</a>
+        </div>
+    </div>
+
 <?php
 echo '
       <div id="modal-addcol" class="modal">
@@ -38,7 +57,26 @@ echo '
         </div>
       </div>
       ';
+
+  echo '
+      <div id="modal-wishlist" class="modal">
+        <div class="modal-content">
+          <h4>Add Wishlist?</h4>
+          <p>Are you sure to add this book to your Wishlist?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+  
+          <a href="'.base_url()."index.php/Wishlist/add/".$resultBook[0]->isbn.'"
+            class="waves-effect waves-green btn-flat modal-action">ADD</a>
+        </div>
+      </div>
+      ';
 ?>
+
+
+
+
 
   <div class="row">
     <div class="col s12 m4 l3">
@@ -52,7 +90,20 @@ echo '
             <img class="responsive-img" img src='.$post->sampul.'>
             </div>' ?>
 
-            <a class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+            <!-- <div id="modal-report" class="modal">
+                <div class="modal-content">
+                    <h4>Report Book?</h4>
+                    <p>Are you sure to report this book to admin?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                    <a href="'.base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username.'"
+                class="waves-effect waves-green btn-flat modal-action">Report</a>
+                </div>
+            </div> -->
+
+            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+
             <a class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
         </div>
       </div>

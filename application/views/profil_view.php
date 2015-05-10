@@ -17,7 +17,7 @@
         </a>
         <ul>
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -244,9 +244,102 @@
         	
         			?>	
 			</div>
+
 			<div class="row">
-				Coming soon
+				<?php
+				if(empty($OtherWishlist)) {
+					if(!empty($MyWishlist))
+					{
+						foreach($MyWishlist as $key => $value)
+						{
+							echo '<div class="col s12 m12 l6">
+							        <div class="card card-book">
+							          	<div class="row row-custom-a">
+								            <div class="col s4 m4 l4">
+								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								            </div>
+								            <div class="col s8 m8 l8">
+								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<span>'.$value->pengarang.'</span><br>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								   
+								            </div>
+							          	</div>
+							        </div>
+							    </div>';
+						}
+					} 
+
+					else {
+						echo '<div class="col s12 m12 l12">
+								<p>No Entry Wishlist</p>
+							</div>';
+					}
+				}
+			
+				?>
 			</div>
+
+			<div class="row">
+				<?php
+				if(empty($MyWishlist)) {
+					if(!empty($OtherWishlist))
+					{
+						foreach($OtherWishlist as $key => $value)
+						{
+							echo '<div class="col s12 m12 l6">
+							        <div class="card card-book">
+							          	<div class="row row-custom-a">
+								            <div class="col s4 m4 l4">
+								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								            </div>
+								            <div class="col s8 m8 l8">
+								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<span>'.$value->pengarang.'</span><br>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								            	<div class="row row-custom-a">
+								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
+									            </div>
+								            </div>
+							          	</div>
+							        </div>
+							    </div>';
+							    echo '
+							    <div id="modal-inform'.$value->isbn.'" class="modal">
+							        <div class="modal-content">
+							          <h4>Inform This Book?</h4>
+							          <p>Are you sure to inform this book?</p>
+							        </div>
+							        <div class="modal-footer">
+							          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							  
+							          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat modal-action">ADD</a>
+							        </div>
+							      </div>';
+							  
+						}
+					} 
+					else {
+						echo '<div class="col s12 m12 l12">
+								<p>No Entry Wishlist</p>
+							</div>';
+					}
+				}
+
+				?>
+			</div>
+			<!-- <div>
+				<?php if(!empty($OtherWishlist)) {
+					foreach($OtherWishlist as $key => $value)
+						{
+			 			 
+							   }
+						}
+				?>
+	        </div> -->
 		</div>
 	</div>
 </div>
+
+
+
