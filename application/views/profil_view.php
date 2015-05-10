@@ -298,12 +298,24 @@
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
 								            	<div class="row row-custom-a">
-								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform">Inform Me</a>
+								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
 									            </div>
 								            </div>
 							          	</div>
 							        </div>
 							    </div>';
+							    echo '
+							    <div id="modal-inform'.$value->isbn.'" class="modal">
+							        <div class="modal-content">
+							          <h4>Inform This Book?</h4>
+							          <p>Are you sure to inform this book?</p>
+							        </div>
+							        <div class="modal-footer">
+							          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							  
+							          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat modal-action">ADD</a>
+							        </div>
+							      </div>';
 							  
 						}
 					} 
@@ -316,26 +328,15 @@
 
 				?>
 			</div>
-			<div>
+			<!-- <div>
 				<?php if(!empty($OtherWishlist)) {
 					foreach($OtherWishlist as $key => $value)
 						{
-			 			 echo '
-							    <div id="modal-inform" class="modal">
-							        <div class="modal-content">
-							          <h4>Inform This Book?</h4>
-							          <p>Are you sure to inform this book?</p>
-							        </div>
-							        <div class="modal-footer">
-							          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-							  
-							          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn.'" class="waves-effect waves-green btn-flat modal-action">ADD</a>
-							        </div>
-							      </div>';
+			 			 
 							   }
 						}
 				?>
-	        </div>
+	        </div> -->
 		</div>
 	</div>
 </div>

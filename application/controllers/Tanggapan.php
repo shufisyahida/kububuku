@@ -13,7 +13,7 @@
 	        }
 	    }
 
-	    public function add($isbn)
+	    public function add($isbn, $OtherUsername)
 		{
 			if(isset($_POST))
 			{
@@ -21,16 +21,16 @@
 				//$buku = $this->input->post('buku');
 			    $username = $this->session->userdata('username');
 				$this->load->model('tanggapan_model');
-				$idResult= $this->tanggapan_model->getId($username,$isbn);
+				$idResult= $this->tanggapan_model->getId($OtherUsername,$isbn);
 				
-            		$this->load->model('tanggapan_model');
-            		$data = array(
-                       'username' => $username,
-                       'id_wishlist' => $idResult,
-                       'is_notified' => false
-                    );
-					$this->tanggapan_model->addTanggapan($data);
-					redirect(base_url('index.php/Wishlist'));
+            	$this->load->model('tanggapan_model');
+            	$data = array(
+                    'username' => $username,
+                    'id_wishlist' => $idResult,
+                    'is_notified' => false
+                  	);
+				$this->tanggapan_model->addTanggapan($data);
+				redirect(base_url('index.php/Wishlist'));
 				
 			}
 			else

@@ -2,7 +2,17 @@
 
 	class Pesan extends CI_Controller
 	{
-		public function index()
+		public function __construct()
+        {
+            parent::__construct();
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('index.php/Login'));
+            }
+        }
+
+        public function index()
 		{
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
