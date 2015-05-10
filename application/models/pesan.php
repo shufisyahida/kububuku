@@ -17,5 +17,8 @@
 			$this->db->where('id',$id);
 			$this->db->delete('pesan');
 		}
+		public function createPesan($data){
+			$this->db->insert('pesan', $data);
+		}
 	}
 ?>
