@@ -13,16 +13,25 @@
 	        }
 	    }
 
-	    public function addTangapan($username,$isbn)
+	    public function add($isbn)
 		{
 			if(isset($_POST))
 			{
 				//$non_admin = $this->input->post('$non_admin');
 				//$buku = $this->input->post('buku');
-			
+			    $username = $this->session->userdata('username');
 				$this->load->model('tanggapan_model');
-				$this->tanggapan_model->addTanggapan($username,$isbn);
-				redirect(base_url('index.php/Wishlist'));
+				$idResult= $this->tanggapan_model->getId($username,$isbn);
+				
+            		$this->load->model('tanggapan_model');
+            		$data = array(
+                       'username' => $username,
+                       'id_wishlist' => $idResult,
+                       'is_notified' => false
+                    );
+					$this->tanggapan_model->addTanggapan($data);
+					redirect(base_url('index.php/Wishlist'));
+				
 			}
 			else
 			{

@@ -207,12 +207,12 @@
              $this->load->model('wishlist_model');
             $koleksiAvailable = $this->koleksi->getKoleksiAvailable($username);
             $koleksiBorrowed = $this->koleksi->getKoleksiBorrowed($username);
-             $data['hasilWishlist'] = $this->wishlist_model->getAllWishlist($username);
-            if($user==$Myusername){
-                $data['informMe'] = "Inform Me";
+            if($Myusername==$username){
+                $data['MyWishlist'] = $this->wishlist_model->getAllWishlist($Myusername);
             }
             else {
-                $data['informMe'] = null;
+                $data['nama']= $username;
+                $data['OtherWishlist'] = $this->wishlist_model->getAllWishlist($username);
             }
             $bookAvailable=array();
             $bookBorrowed=array();

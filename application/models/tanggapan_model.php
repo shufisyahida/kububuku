@@ -1,19 +1,30 @@
 <?php
 
-	class Tanggapan extends CI_Model
+	class Tanggapan_model extends CI_Model
 	{
 
-		public function addTanggapan($username,$isbn)
+		public function getId($username,$isbn)
 		{			
 			// $this->db->where('username',$non_admin)->where('isbn',$buku);
-			$this->db->select("id");
+			$this->db->select('id');
 			$this->db->from('wishlist');
 			$this->db->where('username', $username)->where('isbn',$isbn);
-			$id= $this->db->get();
-			$this->db->set('username',$username);
-			$this->db->set('idWishlist',$id);
-			$this->db->set('isNotified',true);
-			$this->db->insert('wishlist');
+			$query=$this->db->get();
+
+			$idResult = $query->row();
+			//$str = implode(" ", $idResult);
+			$str = (string)$idResult->id;
+			return $str_int = intval($str);
+		}
+
+		public function addTanggapan($data)
+		{			
+			// $this->db->where('username',$non_admin)->where('isbn',$buku);
+			
+			/*$this->db->set('username',$username);
+			$this->db->set('id_wishlist',$id);
+			$this->db->set('is_notified',true);*/
+			$this->db->insert('tanggapan', $data);
 		}
 
 		/*public function deleteWishlist($username,$isbn)

@@ -21,6 +21,7 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
+<<<<<<< HEAD
 <!-- <div class="container custom-table"> -->
   <div class="container custom-table">
     <h4>Wishlist</h4>
@@ -110,3 +111,58 @@
 
 
  
+=======
+<div class="container custom-table">
+    <div class="row">
+    <?php 
+        if(!empty($resultBorrowed))
+        {
+        foreach($resultBorrowed as $post){ ?>
+            <div class="col s12 m12 l6">
+                <div class="card card-book">
+                    <div class="row row-custom-a">
+                        <div class="col s4 m4 l4">
+                            <?php echo
+                                '<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
+                            ?>
+                        </div>
+                        <div class="col s8 m8 l8">
+                            <div class="col s11 m11 l11">
+                                <?php echo
+                                '<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">
+
+                                <span class="card-title black-text">'.$post->judul.'</span><br>
+                                </a>';?>
+                                <span><?php echo $post->pengarang;?></span><br>
+                                <span class="tag-property white-text green"><?php echo $post->genre;?></span>
+                            </div>
+                            <div class="col s1 m1 l1">
+                                <?php
+                                echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+                                 echo 
+                                '<div id="modal-remove'.$post->isbn.'" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Remove Collection</h4>
+                                        <p>Are you sure to remove this book from collection?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                                        <a href="'.base_url()."index.php/Collection/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+                                    </div>
+                                </div>'
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        }
+        else
+        {
+            echo'<h5>You do not have any wishlist.</h5>';
+        }
+    ?>
+    </div>
+</div>
+>>>>>>> 1da740bef865506992eb407489c8316844b0e2e1

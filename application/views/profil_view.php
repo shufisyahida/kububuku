@@ -244,11 +244,48 @@
         	
         			?>	
 			</div>
+
 			<div class="row">
 				<?php
-					if(!empty($hasilWishlist))
+				if(empty($OtherWishlist)) {
+					if(!empty($MyWishlist))
 					{
-						foreach($hasilWishlist as $key => $value)
+						foreach($MyWishlist as $key => $value)
+						{
+							echo '<div class="col s12 m12 l6">
+							        <div class="card card-book">
+							          	<div class="row row-custom-a">
+								            <div class="col s4 m4 l4">
+								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								            </div>
+								            <div class="col s8 m8 l8">
+								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<span>'.$value->pengarang.'</span><br>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								   
+								            </div>
+							          	</div>
+							        </div>
+							    </div>';
+						}
+					} 
+
+					else {
+						echo '<div class="col s12 m12 l12">
+								<p>No Entry Wishlist</p>
+							</div>';
+					}
+				}
+			
+				?>
+			</div>
+
+			<div class="row">
+				<?php
+				if(empty($MyWishlist)) {
+					if(!empty($OtherWishlist))
+					{
+						foreach($OtherWishlist as $key => $value)
 						{
 							echo '<div class="col s12 m12 l6">
 							        <div class="card card-book">
@@ -261,20 +298,47 @@
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
 								            	<div class="row row-custom-a">
-								            	    <a class="btn-flat disabled">Borrowed</a>
-								            	</div>
+								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform">Inform Me</a>
+									            </div>
 								            </div>
 							          	</div>
 							        </div>
 							    </div>';
+							  
 						}
-					} else {
+					} 
+					else {
 						echo '<div class="col s12 m12 l12">
 								<p>No Entry Wishlist</p>
 							</div>';
 					}
+				}
+
 				?>
 			</div>
+			<div>
+				<?php if(!empty($OtherWishlist)) {
+					foreach($OtherWishlist as $key => $value)
+						{
+			 			 echo '
+							    <div id="modal-inform" class="modal">
+							        <div class="modal-content">
+							          <h4>Inform This Book?</h4>
+							          <p>Are you sure to inform this book?</p>
+							        </div>
+							        <div class="modal-footer">
+							          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+							  
+							          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn.'" class="waves-effect waves-green btn-flat modal-action">ADD</a>
+							        </div>
+							      </div>';
+							   }
+						}
+				?>
+	        </div>
 		</div>
 	</div>
 </div>
+
+
+
