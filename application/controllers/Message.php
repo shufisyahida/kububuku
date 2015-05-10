@@ -12,7 +12,6 @@
             // }
 
             $this->load->model('pesan');
-
             
         }
 
@@ -30,20 +29,6 @@
             $this->load->view('pesan_view',$data);
             $this->load->view('foot_view');
 		}
-
-		public function read($id)
-		{
-			$data = $this->pesan->read($id);
-
-			$this->load->view('pesan',$data);
-		}
-
-		public function delete($id)
-		{
-			$this->pesan->delete($id);
-			redirect(base_url('index.php/Message'));
-		}
-
 
 	}
 ?>
