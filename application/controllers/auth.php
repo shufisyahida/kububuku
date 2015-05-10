@@ -61,6 +61,40 @@
 			}
 		}
 
+		public function loginAdmin()
+		{
+			if(isset($_POST))
+			{
+				$username = $this->input->post('username');
+				$password = $this->input->post('password');
+				
+				$this->load->model('admin');
+				$isMember = $this->admin->isMember($username,$password);				
+
+				if ($isMember) 
+				{
+					$this->session->set_userdata('username',$username);
+					
+					$this->session->set_userdata(''.$username,true);
+										
+					// redirect(base_url('index.php/Dashboard'));
+					redirect(base_url('index.php/Message'));
+				}
+				else
+				{
+					$this->session->set_userdata('username',$username);
+					$this->session->set_userdata('error_login_'.$username,true);
+					redirect(base_url('index.php/Admin/loginAdmin_failed'));
+				}		
+			}
+			else
+			{
+				$this->session->set_userdata('username',$username);
+				$this->session->set_userdata('error_login_'.$username,true);
+				redirect(base_url('index.php/Admin/loginAdmin_failed'));
+			}
+		}
+
 		public function logout()
 		{
 			$this->session->sess_destroy();

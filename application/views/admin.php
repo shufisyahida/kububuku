@@ -1,4 +1,5 @@
-<div class="container">
+</div>
+<div class="container custom-table2">
 	<div class="row">
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
