@@ -1,6 +1,6 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
-      <li><a href="<?php echo base_url('index.php/Auth/logout')?>"><span class="green-text">Logout</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Auth/logoutAdmin')?>"><span class="green-text">Logout</span></a></li>
     </ul>
 
     <nav class="green">

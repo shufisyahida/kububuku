@@ -101,6 +101,12 @@
 			redirect(base_url('index.php/Login'));
 		}
 
+		public function logoutAdmin()
+		{
+			$this->session->sess_destroy();
+			redirect(base_url('index.php/Admin'));
+		}
+
 	} // end of Auth
 
 ?>
