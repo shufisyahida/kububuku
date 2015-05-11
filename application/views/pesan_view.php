@@ -29,7 +29,7 @@
 
 						<li class="collection-item">
 							<span class="email-address">'.$value->username.'</span><br>
-							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">Title<span></a><br>
+							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
 							<span class="email-address grey-text">'.$day." , ".$newDate.'</span>
 							
 							
