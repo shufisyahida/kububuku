@@ -1,8 +1,8 @@
 <?php
 
-	class Pesan extends CI_Model
+	class Pesan_model extends CI_Model
 	{
-		public function read(id)
+		/*public function read(id)
 		{
 			$this->db->select('*');
 			$this->db->from('pesan');
@@ -16,7 +16,7 @@
 		{
 			$this->db->where('id',$id);
 			$this->db->delete('pesan');
-		}
+		}*/
 		public function createPesan($data){
 			$this->db->insert('pesan', $data);
 		}

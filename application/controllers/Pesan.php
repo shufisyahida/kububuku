@@ -52,8 +52,11 @@
             if(isset($_POST))
             {
                 $username = $this->session->userdata('username');
-                $kategori = $this->input->post('kategori');
-                $isi = $this->input->post('isi');
+                $ktg = $this->input->post('kategori');
+                if ($ktg=='Report')
+                if else ($ktg=='Suggestion')
+                else
+                $isi = $this->input->post('content');
              
                 $data = array(
                     'username' => $username,
@@ -89,12 +92,12 @@
                     $data = array(
                         'username' => $username,
                         'kategori' => $kategori,
-                        'isi' => $isi,
                         'is_notified' => false,
+                        'isi' => $isi
                     );
-                    $this->load->model('pesan');
-                    $this->pesan->createPesan($data);
-                    redirect(base_url('index.php/Collection'));
+                    $this->load->model('pesan_model');
+                    $this->pesan_model->createPesan($data);
+                    redirect(base_url('index.php/Wishlist'));
                 }       
             }
             else

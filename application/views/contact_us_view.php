@@ -9,7 +9,7 @@
         </a>
         <ul>
           <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -20,7 +20,8 @@
   <div class="row">
     <div class="col s12 m12 l12">
       <div class="card-panel white z-depth-1">
-        <form method="post" action="#">          
+       
+        <form method="post" action="<?php echo base_url('index.php/Pesan/createPesan') ?>">          
             <div class="row">
                 <div class="col s12 m5 l4">
                     <select id="kategori" name="kategori" type="text" class="validate">
@@ -32,14 +33,14 @@
                 </div>
                 <div class="input-field col s12">
                     <input id="user-mail" type="email" class="validate" name="email">
-                    <label>Your Email</label>
+                    <label>Your Username</label>
                 </div>
                 <div class="input-field col s12">
                     <input id="subject-mail" type="text" class="validate" name="subject">
                     <label>Subject</label>
                 </div>
                 <div class="input-field col s12">
-                    <textarea id="content-mail" class="materialize-textarea"></textarea>
+                    <textarea id="content-mail" name="content" class="materialize-textarea"></textarea>
                     <label for="content-mail">Content</label>
                 </div>
                 <div class="col s12">
@@ -53,8 +54,8 @@
    
   </div>
 </div>
-<!-- 
-/*<script type="text/javascript">
+
+<script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();
          $('keyword').show();
@@ -80,4 +81,4 @@
   }); 
 
     });
-</script>*/ -->
+</script>
