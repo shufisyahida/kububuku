@@ -30,7 +30,7 @@
 			</ul>
 		</div>
 		<div class="col l12">
-			<a style="text-align: center" class="waves-effect waves-light btn-large green">Button</a>
+			<a style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
 		</div>
 	</div>
 </div>
