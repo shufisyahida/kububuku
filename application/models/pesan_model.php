@@ -7,9 +7,9 @@
 		{
 			$this->db->select('*');
 			$this->db->from('pesan');
+			$this->db->order_by("waktu", "desc");
 			$query = $this->db->get()->result();
 
-			//var_dump($query);
 			return $query;
 
 		}

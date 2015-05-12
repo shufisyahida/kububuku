@@ -5,11 +5,11 @@
 		public function __construct()
         {
             parent::__construct();
-            // $username = $this->session->userdata('username');
-            // if(!$this->session->userdata(''.$username))
-            // {
-            //     redirect(base_url('index.php/Login'));
-            // }
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('index.php/Admin'));
+            }
 
             $this->load->model('pesan_model');
             
@@ -17,9 +17,13 @@
 
 		public function index()
 		{
+<<<<<<< HEAD
 			
 			$this->load->model('pesan_model');
 			$pesan = $this->pesan_model->getPesan();
+=======
+			$pesan = $this->pesan->getPesan();
+>>>>>>> cec692c1f657d7984004dd62f1c027273548912d
 
    	           $data['pesan']=$pesan;
 
@@ -30,6 +34,7 @@
             $this->load->view('foot_view');
 		}
 
+<<<<<<< HEAD
         public function read($id)
         {
             $data = $this->pesan->read($id);
@@ -37,12 +42,15 @@
             $this->load->view('pesan',$data);
         }
 
+=======
+>>>>>>> cec692c1f657d7984004dd62f1c027273548912d
         public function delete($id)
         {
             $this->pesan->delete($id);
             redirect(base_url('index.php/Message'));
         }
 
+<<<<<<< HEAD
 
          public function create()
         {        
@@ -110,5 +118,7 @@
             }
         }
 
+=======
+>>>>>>> cec692c1f657d7984004dd62f1c027273548912d
 	}
 ?>
