@@ -8,6 +8,15 @@
 			$this->db->insert('buku',$data);
 		}
 
+		function getAllBook()
+		{
+			$this->db->select('*');
+			$this->db->from('buku');
+			$this->db->order_by("tanggal_buat", "desc");
+			$query = $this->db->get()->result();
+			return $query;
+		}
+
 		function getBook($isbn)
 		{
 			$this->db->select('*');

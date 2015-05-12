@@ -10,7 +10,11 @@
 
 		function getAllUser()
 		{
-			return $this->db->get('non_admin')->result();
+			$this->db->select('*');
+			$this->db->from('non_admin');
+			$this->db->order_by("tanggal_buat", "desc");
+			$query = $this->db->get()->result();
+			return $query;
 		}
 
 		function getContact($username)

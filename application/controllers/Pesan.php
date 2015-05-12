@@ -33,19 +33,7 @@
             $this->load->model('pesan');
         }*/
 
-		public function read($id)
-		{
-			$data = $this->pesan->read($id);
-
-			$this->load->view('pesan',$data);
-		}
-
-		public function delete($id)
-		{
-			$this->pesan->delete($id);
-			redirect(base_url('index.php/Pesan'));
-		}
-
+		
 
 		 public function createPesan()
         {        
