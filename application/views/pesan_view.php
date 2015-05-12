@@ -44,7 +44,6 @@
 								</div>
 							</div>
 
-							<a href="#!" class="secondary-content"><i class="mdi-content-reply green-text small"></i></a>
 							<a href="#modal-remove'.$value->id.'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a>
 
 

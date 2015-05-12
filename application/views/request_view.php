@@ -21,7 +21,10 @@
 					<?php }}
 					else
 					{
-						echo'<h5>No Delete Request</h5>';
+						echo'
+						<li class="collection-item">
+							<p><i>No Delete Request</i></p>
+						</li>';
 					}?> 
 			</ul>
 		</div>
@@ -153,7 +156,10 @@
 				<?php }}
 				else
 				{
-					echo'<h5>No Update Request</h5>';
+					echo'
+						<li class="collection-item">
+							<p><i>No Update Request</i></p>
+						</li>';
 				}?>
 			</ul>
 		</div>
