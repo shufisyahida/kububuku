@@ -21,20 +21,17 @@
     <div class="col s12 m12 l12">
       <div class="card-panel white z-depth-1">
        
-        <form method="post" action="<?php echo base_url('index.php/Pesan/createPesan') ?>">          
+        <form method="post" action="<?php echo base_url('index.php/Message/create') ?>">          
             <div class="row">
                 <div class="col s12 m5 l4">
                     <select id="kategori" name="kategori" type="text" class="validate">
-                        <option value="" disabled selected>Choose Report Category</option>
+                        <option value="" disabled selected >Choose Report Category</option>
                         <option value="report">Report</option>
                         <option value="suggestion">Suggestion</option>
                         <option value="personal-req">Personal Request</option>
                     </select>
                 </div>
-                <div class="input-field col s12">
-                    <input id="user-mail" type="email" class="validate" name="email">
-                    <label>Your Username</label>
-                </div>
+              
                 <div class="input-field col s12">
                     <input id="subject-mail" type="text" class="validate" name="subject">
                     <label>Subject</label>

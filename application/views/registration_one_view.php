@@ -136,13 +136,18 @@
                         </div>
 
                         <div class="input-field">
-                            <input id="hp" name="hp" type="text" value="<?php echo $hp;?>" maxlength="20">
-                            <label for="hp"><i class="fa fa-phone fa-lg green-text"></i>   Cellphone Number</label>
+                            <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>" maxlength="10">
+                            <label for="bbm"><i class="fa fa-mobile fa-lg green-text"></i>   BBM Pin</label>
                         </div>
 
                         <div class="input-field">
-                            <input id="bbm" name="bbm" type="text" value="<?php echo $bbm;?>" maxlength="10">
-                            <label for="bbm"><i class="fa fa-mobile fa-lg green-text"></i>   BBM Pin</label>
+                            <input id="hp" name="hp" type="text" value="<?php echo $hp;?>" maxlength="20">
+                            <label for="hp"><i class="fa fa-phone fa-lg green-text"></i>   Cellphone Number</label>
+                        </div>
+                        <div class="col m6 l8">
+                            <span class="error"><?php echo $hpErr;?></span>
+                          
+                         
                         </div>
                     </div>
                     <div class="col s12 m6 l6">
@@ -160,7 +165,7 @@
                             <input id="mail" name="mail" type="text" value="<?php echo $email_kontak;?>" maxlength="30">
                             <label for="mail"><i class="fa fa-envelope fa-lg green-text"></i>   Mail*</label>
                         </div> 
-                         <div class="col m6 l4">
+                         <div class="col m6 l6">
                             <span class="error"><?php echo $mailErr;?></span>
                         </div>
                     </div>

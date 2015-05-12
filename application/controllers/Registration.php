@@ -39,6 +39,9 @@
             $this->load->view('coba',$data);
         }
         
+      
+
+
         public function register()
         {
             if(isset($_POST))
@@ -81,6 +84,7 @@
                    'bbm' => $bbm,
                    'wa' => $wa,
                    'nameErr' => '',
+                   'hpErr' => '',
                    'emailErr' => '',
                    'usernameErr' => '',
                    'passwordErr' => '',
@@ -108,6 +112,30 @@
                 if($name == '')
                 {
                     $data['nameErr'] = "Name should not be blank";
+                    $error = true;
+                }
+                if (!preg_match("/^[0-9]*$/", $hp))
+                {
+                   //var_dump($name);
+                   $data['hpErr'] = "Phone number should be numeric ";
+                    $error = true;
+                }
+                 if (!(strlen($hp)==10||strlen($hp)==11||strlen($hp)==12))
+                {
+                   
+                   $data['hpErr'] = "Phone number format is not valid";
+                    $error = true;
+                }
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username))
+                {
+                   //var_dump($name);
+                   $data['usernameErr'] = "Username shouldn't contain special character";
+                    $error = true;
+                }
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username))
+                {
+                   //var_dump($name);
+                   $data['nameErr'] = "Name shouldn't contain special character";
                     $error = true;
                 }
                 if($email == '')
@@ -228,6 +256,7 @@
                'hp' => '',
                'bbm' => '',
                'wa' => '',
+               'hpErr' => '',
                'nameErr' => '',
                'emailErr' => '',
                'usernameErr' => '',
