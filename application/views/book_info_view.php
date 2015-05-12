@@ -90,6 +90,10 @@ echo '
             <img class="responsive-img" img src='.$post->sampul.'>
             </div>' ?>
 
+
+            <!-- <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
+            <!-- <a href="<?php echo base_url()."index.php/Request/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
+
             <!-- <div id="modal-report" class="modal">
                 <div class="modal-content">
                     <h4>Report Book?</h4>
@@ -102,9 +106,9 @@ echo '
                 </div>
             </div> -->
 
-            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+            <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
 
-            <a class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
+            <a href="<?php echo base_url()."index.php/Request/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
         </div>
       </div>
     </div>

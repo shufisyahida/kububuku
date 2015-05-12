@@ -19,6 +19,36 @@
 			return $resultBook = $query->result();
 		}
 
+		function getJudul($isbn)
+		{
+			$this->db->select('judul');
+			$this->db->from('buku');
+			$this->db->where('isbn',$isbn);
+			$judul = $this->db->get()->result();
+			$result = '';
+			foreach ($judul as $key => $value)
+            {
+                $result = $value->judul;
+            }
+
+			return $result;
+		}
+
+		function getSampul($isbn)
+		{
+			$this->db->select('sampul');
+			$this->db->from('buku');
+			$this->db->where('isbn',$isbn);
+			$sampul = $this->db->get()->result();
+			$result = '';
+			foreach ($sampul as $key => $value)
+            {
+                $result = $value->sampul;
+            }
+
+			return $result;
+		}
+
 		function getOwner($isbn,$limited)
 		{
 			//$this->db->select("non_admin.foto,non_admin.username");
@@ -82,10 +112,10 @@
 			$this->db->delete('buku');
 		}
 
-		public function updateBook($isbn, $perubahan)
+		public function updateBook($isbn, $data)
 		{
 			$this->db->where('isbn', $isbn);
-            $this->db->update('buku', $perubahan); 
+            $this->db->update('buku', $data); 
 		}
 
 	} // end of Buku
