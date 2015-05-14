@@ -5,6 +5,9 @@
 		public function __construct()
         {
             parent::__construct();
+            $this->load->helper("url");
+            $this->load->model("pesan_model");
+            $this->load->library("pagination");
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
@@ -14,12 +17,18 @@
 
         public function index()
 		{
+            
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
             $this->load->view('admin');
             $this->load->view('pesan_view');
             $this->load->view('foot_view');
 		}
+
+        public function getList()
+        {
+            
+        }
 
 		/*public function __construct()
         {

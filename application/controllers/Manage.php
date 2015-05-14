@@ -43,4 +43,9 @@
             $this->buku->deleteBook($isbn);
             redirect(base_url('index.php/Manage'));
         }
+
+        public function getList()
+        {
+        	
+        }
 	}

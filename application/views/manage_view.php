@@ -78,7 +78,33 @@
 			</ul>
 		</div>
 		<div class="col l12">
-			<a style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+			<a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
 		</div>
 	</div>
 </div>
+<script>
+$('document').ready(function() {
+	console.log("rede");
+	$('#more').on('click', function(e){
+		e.preventDefault(); //hrefnya di disable
+
+		//$page++;
+		//var $type = $(this).attr('id');
+		console.log("masuk klik");
+		$.ajax({
+				url: "Manage/getList/",
+				type: "GET",
+		})
+		.done(function(response) {
+			console.log("berhasil ");
+			
+		})
+		.fail(function() {
+
+		})
+		.always(function() {
+			
+		});
+	});
+});
+</script>

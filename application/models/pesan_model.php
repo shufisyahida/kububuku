@@ -14,6 +14,19 @@
 
 		}
 
+		public function getPesan($limit, $start) {
+	        $this->db->limit($limit, $start);
+	        $query = $this->db->get("pesan");
+	 
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
+	   }
+
 		public function read($id)
 		{
 			$this->db->select('*');
@@ -30,9 +43,15 @@
 			$this->db->delete('pesan');
 		}
 
+		
 
 		public function createPesan($data){
 			$this->db->insert('pesan', $data);
 		}
+
+		public function pesanCount() 
+		{
+	        return $this->db->count_all('pesan');
+	    }
 	}
 ?>

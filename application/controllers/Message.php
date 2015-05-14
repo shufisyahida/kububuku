@@ -5,6 +5,7 @@
 		public function __construct()
         {
             parent::__construct();
+            
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
