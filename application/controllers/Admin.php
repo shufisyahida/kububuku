@@ -24,7 +24,7 @@
             // }        	
         }
 
-        public function login_failed()
+        public function loginAdmin_failed()
         {
             $data['notif'] = '
                 <div id="cp-login" class="error">
@@ -45,20 +45,22 @@
             // ';
         }
 
-        // public function login_error()
-        // {
-        //   $this->load->view('head_view');
-        //   $this->load->view('login_view');
-        //   echo '
-        //     <span class="badge badge-property">Please fill out the field.</span>
-        //   ';
-        //   $this->load->view('foot_view');
-        //   // echo '
-        //   //   <script type="text/javascript">
-        //   //     Materialize.toast("Login failed", 4000)
-        //   //   </script>
-        //   // ';
-        // }
+        public function isAdmin()
+        {
+            $username = $this->session->userdata('username');
+            
+            if(isset($username))
+            {
+                $this->load->model('admin');   
+                return $this->admin->isAdmin($username);    
+            }
+            else
+            {
+                return false;
+            }
+            
+            
+        }
 
     } // end of Login
 

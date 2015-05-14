@@ -14,7 +14,20 @@
         public function homeBuku()
         {
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+             $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
             $this->load->view('search_book_view');
             $this->load->view('foot_view');
         }
@@ -22,7 +35,20 @@
         public function homeUser()
         {
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+             $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
             $this->load->view('search_user_view');
             $this->load->view('foot_view');
         }
@@ -94,7 +120,22 @@
             }
 
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('search_book_view2',$data);
             $this->load->view('foot_view');
         }
@@ -191,7 +232,22 @@
             }
             
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('search_user_view2',$data);
             $this->load->view('foot_view');          
         }

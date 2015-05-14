@@ -127,7 +127,22 @@
                 'genreErr' => ''
             );
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('add_book_view', $data);
             $this->load->view('foot_view');
         }
@@ -145,8 +160,25 @@
             $this->load->model('koleksi');
             $adaDiKoleksi = $this->koleksi->isInCollection($username, $isbn);        
             $data['adaDiKoleksi']= $adaDiKoleksi;
+
+
         	$this->load->view('head_view');
-            $this->load->view('navbar_view');
+            
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('book_info_view', $data);
             $this->load->view('foot_view');
         }
@@ -181,7 +213,22 @@
             $data['resultBook'] = $this->buku->getBook($isbn);
 
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin');   
+            
+            $isAdmin = $this->admin->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('book_owners',$data);
             $this->load->view('foot_view');
         }

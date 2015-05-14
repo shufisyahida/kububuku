@@ -46,27 +46,6 @@
             // ';
         }
 
-         public function loginAdmin_failed()
-        {
-            $data['notif'] = '
-                <div id="cp-login" class="error">
-                <span>Login failed. Try again!</span>
-                </div>
-            ';
-            $this->load->view('head_view');
-            $this->load->view('loginAdmin_view', $data);
-            $this->load->view('foot_view');
-
-            // echo '
-            //   <span class="badge badge-property">Login failed. Try again!</span>
-            // ';
-            // echo '
-            //   <script type="text/javascript">
-            //     Materialize.toast("Login failed", 4000)
-            //   </script>
-            // ';
-        }
-
         // public function login_error()
         // {
         //   $this->load->view('head_view');
