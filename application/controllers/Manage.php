@@ -27,7 +27,7 @@
 
 			$this->load->view('head_view');
 			$this->load->view('navbar_admin_view');
-            $this->load->view('admin');
+            // $this->load->view('admin');
             $this->load->view('manage_view',$data);
             $this->load->view('foot_view');
 		}

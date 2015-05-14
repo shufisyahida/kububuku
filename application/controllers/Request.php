@@ -49,7 +49,7 @@
 
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('admin');
+            // $this->load->view('admin');
             $this->load->view('request_view', $data);
             $this->load->view('foot_view');
         }

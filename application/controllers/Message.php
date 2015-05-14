@@ -16,43 +16,32 @@
         }
 
 		public function index()
-		{
-<<<<<<< HEAD
-			
+		{			
 			$this->load->model('pesan_model');
 			$pesan = $this->pesan_model->getPesan();
-=======
-			$pesan = $this->pesan->getPesan();
->>>>>>> cec692c1f657d7984004dd62f1c027273548912d
-
-   	           $data['pesan']=$pesan;
-
+			// $pesan = $this->pesan->getPesan();
+            $data['pesan']=$pesan;
 			$this->load->view('head_view');
 			$this->load->view('navbar_admin_view');
-            $this->load->view('admin');
+            // $this->load->view('admin');
             $this->load->view('pesan_view',$data);
             $this->load->view('foot_view');
 		}
 
-<<<<<<< HEAD
-        public function read($id)
-        {
-            $data = $this->pesan->read($id);
+        // public function read($id)
+        // {
+        //     $data = $this->pesan->read($id);
 
-            $this->load->view('pesan',$data);
-        }
+        //     $this->load->view('pesan',$data);
+        // }
 
-=======
->>>>>>> cec692c1f657d7984004dd62f1c027273548912d
         public function delete($id)
         {
             $this->pesan->delete($id);
             redirect(base_url('index.php/Message'));
         }
 
-<<<<<<< HEAD
-
-         public function create()
+        public function create()
         {        
             if(isset($_POST))
             {
@@ -117,8 +106,5 @@
                 redirect(base_url('index.php/Login'));
             }
         }
-
-=======
->>>>>>> cec692c1f657d7984004dd62f1c027273548912d
 	}
 ?>

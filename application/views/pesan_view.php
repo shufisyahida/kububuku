@@ -1,3 +1,15 @@
+</div>
+<div class="container custom-table2">
+	<div class="row">
+		<div class="col l3">
+			<ul class="collection with-header z-depth-1">
+				<li class="collection-header"><span class="title-t">Admin System</span></li>
+			    <li><a href="<?php echo base_url('index.php/Message');?>" class="active collection-item">Message</a></li>
+			    <li><a href="<?php echo base_url('index.php/Request');?>" class="collection-item">Request</a></li>
+			    <li><a href="<?php echo base_url('index.php/Manage');?>" class="collection-item">Manage</a></li>
+		    </ul>
+		</div>		   
+			
 		<div class="col l9">
 			<div id="modal-report" class="modal">
         <div class="modal-content">
