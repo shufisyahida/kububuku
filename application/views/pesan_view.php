@@ -39,20 +39,24 @@
 							</div>
 						</div>
 
-					<li class="collection-item">
-						<span class="email-address">'.$value->username.'</span><br>
-						<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
-						<span class="email-address grey-text">'.$day." , ".$newDate.'</span>
-						
-						
-						<div id="modal-remove'.$value->id.'" class="modal">
-							<div class="modal-content">
-								<h4>Remove Collection</h4>
-								<p>Are you sure to remove this book from collection?</p>
-							</div>
-							<div class="modal-footer">
-								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+
+						<li class="collection-item">
+						<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+							<span class="email-address">'.$value->username.'</span><br>
+						</a>
+							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
+							<span class="email-address grey-text">'.$day." , ".$newDate.'</span>
+							
+							
+							<div id="modal-remove'.$value->id.'" class="modal">
+								<div class="modal-content">
+									<h4>Remove Collection</h4>
+									<p>Are you sure to remove this book from collection?</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+									<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								</div>
 							</div>
 						</div>
 

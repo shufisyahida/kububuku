@@ -21,8 +21,12 @@
 				echo '
 				<li class="collection-item avatar">
 					<div>
+					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 						<img src="'.$value->foto.'" alt="" class="circle">
+					</a>
+					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 						<span class="title">'.$value->nama.'</span>
+					</a>
 						<p>
 							<span class="grey-text" style="font-size: 0.9em;">'.$day.' , '.$newDate.'</span>
 						</p>
@@ -55,8 +59,12 @@
 					echo'
 				<li class="collection-item avatar">
 					<div>
+					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
 						<img src="'.$value->sampul.'" alt="" class="cover">
+					</a>
+					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
 						<span class="title">'.$value->judul.'</span>
+					</a>
 						<p>
 							<span class="grey-text" style="font-size: 0.9em;">'.$day.' , '.$newDate.'</span>
 						</p>

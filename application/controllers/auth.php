@@ -68,8 +68,8 @@
 				$username = $this->input->post('username');
 				$password = $this->input->post('password');
 				
-				$this->load->model('admin');
-				$isMember = $this->admin->isMember($username,$password);				
+				$this->load->model('admin_model');
+				$isMember = $this->admin_model->isMember($username,$password);				
 
 				if ($isMember) 
 				{

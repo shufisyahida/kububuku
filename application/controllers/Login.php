@@ -2,6 +2,26 @@
 
     class Login extends CI_Controller
     {
+        
+        public function __construct()
+        {
+            parent::__construct();
+            $username = $this->session->userdata('username');
+            $hasLoggedIn = $this->session->userdata($username);
+
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+
+            if(!empty($hasLoggedIn) && $hasLoggedIn)
+            {
+                if($isAdmin)
+                    redirect(base_url('index.php/Message'));
+                else
+                    redirect(base_url('index.php/Request_in'));
+            }
+        }
+        
+
         public function index()
         {
         	$username = $this->session->userdata('username');
@@ -34,27 +54,6 @@
             ';
             $this->load->view('head_view');
             $this->load->view('login_view', $data);
-            $this->load->view('foot_view');
-
-            // echo '
-            //   <span class="badge badge-property">Login failed. Try again!</span>
-            // ';
-            // echo '
-            //   <script type="text/javascript">
-            //     Materialize.toast("Login failed", 4000)
-            //   </script>
-            // ';
-        }
-
-         public function loginAdmin_failed()
-        {
-            $data['notif'] = '
-                <div id="cp-login" class="error">
-                <span>Login failed. Try again!</span>
-                </div>
-            ';
-            $this->load->view('head_view');
-            $this->load->view('loginAdmin_view', $data);
             $this->load->view('foot_view');
 
             // echo '

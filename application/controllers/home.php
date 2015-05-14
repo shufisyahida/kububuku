@@ -8,9 +8,16 @@
             parent::__construct();
             $username = $this->session->userdata('username');
             $hasLoggedIn = $this->session->userdata($username);
+
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
-                redirect(base_url('index.php/Request_in'));
+                if($isAdmin)
+                    redirect(base_url('index.php/Message'));
+                else
+                    redirect(base_url('index.php/Request_in'));
             }
         }
         

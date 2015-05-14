@@ -251,7 +251,22 @@
             $data['requested']=$requested; 
             
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+
+            $username = $this->session->userdata('username');
+            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
+            
+            
+            if($isAdmin)
+            {
+                $this->load->view('navbar_admin_view');
+            }
+            else
+            {
+                $this->load->view('navbar_view');
+            }
+            
             $this->load->view('profil_view', $data);
             $this->load->view('foot_view');
         }

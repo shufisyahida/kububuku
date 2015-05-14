@@ -1,6 +1,6 @@
 <?php
 
-	class Admin extends CI_Model
+	class Admin_model extends CI_Model
 	{
 
 		function isMember($username,$password)
@@ -31,6 +31,22 @@
 			{
 				return false;
 			}
+		}
+
+		function isAdmin($username)
+		{
+			$this->db->select('*');
+			$this->db->from('admin');
+			$this->db->where('username',$username);
+
+			$query= $this->db->get()->result();		
+
+			
+
+			if(!empty($query))
+				return true;
+			else
+				return false;	
 		}
 
 		
