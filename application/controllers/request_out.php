@@ -6,10 +6,19 @@
         public function __construct()
         {
             parent::__construct();
-            $username = $this->session->userdata('username');
-            if(!$this->session->userdata(''.$username))
+             $username = $this->session->userdata('username');
+            $isLoggedIn = $this->session->userdata(''.$username);
+            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            
+            if(!$isLoggedIn)
             {
                 redirect(base_url('index.php/Login'));
+            }
+            elseif($isAdmin)
+            {
+                redirect(base_url('index.php/Message'));    
             }
         }
         

@@ -5,10 +5,20 @@
 		public function __construct()
         {
             parent::__construct();
+
             $username = $this->session->userdata('username');
-            if(!$this->session->userdata(''.$username))
+            $isLoggedIn = $this->session->userdata(''.$username);
+            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            
+            if(!$isLoggedIn)
             {
                 redirect(base_url('index.php/Admin'));
+            }
+            elseif(!$isAdmin)
+            {
+                redirect(base_url('index.php/Request_in'));    
             }
 
             $this->load->model('non_admin');

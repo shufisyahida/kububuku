@@ -40,7 +40,9 @@
 							</div>
 
 						<li class="collection-item">
+						<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 							<span class="email-address">'.$value->username.'</span><br>
+						</a>
 							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
 							<span class="email-address grey-text">'.$day." , ".$newDate.'</span>
 							

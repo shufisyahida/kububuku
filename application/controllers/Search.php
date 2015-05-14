@@ -16,8 +16,8 @@
             $this->load->view('head_view');
              $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
@@ -37,8 +37,8 @@
             $this->load->view('head_view');
              $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
@@ -123,8 +123,8 @@
 
             $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
@@ -235,8 +235,8 @@
 
             $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)

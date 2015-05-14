@@ -1,6 +1,6 @@
 <?php
 
-	class Admin extends CI_Model
+	class Admin_model extends CI_Model
 	{
 
 		function isMember($username,$password)
@@ -41,9 +41,9 @@
 
 			$query= $this->db->get()->result();		
 
-			var_dump($query);
+			
 
-			if(!is_null($query))
+			if(!empty($query))
 				return true;
 			else
 				return false;	

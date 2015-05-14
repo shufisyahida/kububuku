@@ -2,26 +2,43 @@
 
     class Admin extends CI_Controller
     {
-        public function index()
+        
+        public function __construct()
         {
-        	$username = $this->session->userdata('username');
-            $loggedin = $this->session->userdata(''.$username);
+            parent:: __construct();
+            
+            $username = $this->session->userdata('username');
+            $isLoggedIn = $this->session->userdata(''.$username);
+            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+
             // $email = $this->session->userdata('email');
 
-            if($loggedin)
+            if($isLoggedIn&&$isAdmin)
             {
                 // redirect(base_url('index.php/Dashboard'));
                 redirect(base_url('index.php/Message'));
             }
-            else
+            else if ($isLoggedIn&&!$isAdmin)
             {
+                redirect(base_url('index.php/Request_in'));
+            }
+            // else
+            // {
+            //      $this->load->view('head_view');
+            //     $this->load->view('login_admin_view');
+            //     $this->load->view('foot_view');
+            // }
+        }
+
+        public function index()
+        {
+        	
                 $this->load->view('head_view');
                 $this->load->view('login_admin_view');
                 $this->load->view('foot_view');
-            }
-            // elseif ($this->session->set_userdata('error_login_'.$email,true)) {
-            //    redirect(base_url('index.php/Login'));
-            // }        	
+         
         }
 
         public function loginAdmin_failed()
@@ -51,8 +68,8 @@
             
             if(isset($username))
             {
-                $this->load->model('admin');   
-                return $this->admin->isAdmin($username);    
+                $this->load->model('admin_model');   
+                return $this->admin_model->isAdmin($username);    
             }
             else
             {

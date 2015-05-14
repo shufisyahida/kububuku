@@ -2,6 +2,26 @@
 
     class Login extends CI_Controller
     {
+        
+        public function __construct()
+        {
+            parent::__construct();
+            $username = $this->session->userdata('username');
+            $hasLoggedIn = $this->session->userdata($username);
+
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+
+            if(!empty($hasLoggedIn) && $hasLoggedIn)
+            {
+                if($isAdmin)
+                    redirect(base_url('index.php/Message'));
+                else
+                    redirect(base_url('index.php/Request_in'));
+            }
+        }
+        
+
         public function index()
         {
         	$username = $this->session->userdata('username');

@@ -6,8 +6,14 @@
         public function __construct()
         {
             parent::__construct();
+            
             $username = $this->session->userdata('username');
-            if(!$this->session->userdata(''.$username))
+            $isLoggedIn = $this->session->userdata(''.$username);
+            
+            // $this->load->model('admin_model');   
+            // $isAdmin = $this->admin_model->isAdmin($username); 
+            
+            if(!$isLoggedIn)
             {
                 redirect(base_url('index.php/Login'));
             }
@@ -130,8 +136,8 @@
 
             $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
@@ -166,8 +172,8 @@
             
             $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
-            $isAdmin = $this->admin->isAdmin($username);    
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
@@ -215,9 +221,9 @@
             $this->load->view('head_view');
             $username = $this->session->userdata('username');
             
-            $this->load->model('admin');   
+            $this->load->model('admin_model');   
             
-            $isAdmin = $this->admin->isAdmin($username);    
+            $isAdmin = $this->admin_model->isAdmin($username);    
             
             
             if($isAdmin)
