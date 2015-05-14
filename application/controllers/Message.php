@@ -37,7 +37,7 @@
 
         public function delete($id)
         {
-            $this->pesan->delete($id);
+            $this->pesan_model->delete($id);
             redirect(base_url('index.php/Message'));
         }
 
