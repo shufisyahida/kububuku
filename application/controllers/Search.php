@@ -98,7 +98,7 @@
             $this->load->view('search_book_view2',$data);
             $this->load->view('foot_view');
         }
-       
+
         public function searchUser()
         {       
             $nama = $this->input->post('keyword');

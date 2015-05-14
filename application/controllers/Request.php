@@ -48,7 +48,7 @@
             $data['updateSampul'] = $updateSampul;          
 
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+            $this->load->view('navbar_admin_view');
             // $this->load->view('admin');
             $this->load->view('request_view', $data);
             $this->load->view('foot_view');
@@ -79,7 +79,7 @@
             $data->pengarangErr='';
             $data->genreErr='';
             $this->load->view('head_view');
-            $this->load->view('navbar_view');
+            $this->load->view('navbar_admin_view');
             $this->load->view('update_book_view', $data);
             $this->load->view('foot_view');
         }
@@ -144,7 +144,7 @@
                 if($error)
                 {
                   $this->load->view('head_view');
-                  $this->load->view('navbar_view');
+                  $this->load->view('navbar_admin_view');
                   $this->load->view('update_book_view', $data);
                   $this->load->view('foot_view');
                 }
