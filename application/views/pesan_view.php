@@ -35,6 +35,17 @@
 							<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 								<span class="email-address">'.$value->username.'</span><br>
 							</a>
+
+							<div id="modal-message'.$value->id.'" class="modal">
+								<div class="modal-content">
+									<h4>From: '. $value->username .'</h4>
+									<p>'. $value->isi .'</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a>
+									<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								</div>
+							</div>
 							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
 							<span class="email-address grey-text">'.$day." , ".$newDate.'</span>
 								
@@ -114,6 +125,16 @@ $('document').ready(function() {
 						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+ $username +'> \
 							<span class="email-address">'+ $username +'</span><br> \
 						</a> \
+						<div id="modal-message'+ $id +'" class="modal"> \
+							<div class="modal-content"> \
+								<h4>From: '+ $username +'</h4> \
+								<p>'+ $isi +'</p> \
+							</div> \
+							<div class="modal-footer"> \
+								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a> \
+								<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+							</div> \
+						</div> \
 						<a class="modal-trigger" href="#modal-message'+ $id +'"><span class="title-t">'+ $judul +'<span></a><br> \
 						<span class="email-address grey-text">'+ $waktu +'</span> \
 						<div id="modal-remove'+ $id +'" class="modal"> \
