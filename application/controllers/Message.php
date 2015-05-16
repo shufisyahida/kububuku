@@ -21,17 +21,36 @@
                 redirect(base_url('index.php/Request_in'));    
             }
 
+            $this->load->model("pesan_model");
+            $this->load->library("pagination");
 
             $this->load->model('pesan_model');
             
         }
 
 		public function index()
-		{			
-			$this->load->model('pesan_model');
-			$pesan = $this->pesan_model->getPesan();
+		{
+            // $config = array();
+            // $config["base_url"] = base_url() . "index.php/Message/index";
+            // $config["total_rows"] = $this->pesan_model->pesanCount();
+            // $config["per_page"] = 2;
+            // $config["uri_segment"] = 3;
+            // $choice = $config["total_rows"] / $config["per_page"];
+            // $config["num_links"] = round($choice);
+            // $config['next_tag_open'] = '<strong>';
+            // $config['next_link'] = 'MORE';
+            // $config['next_tag_close'] = '</strong>';
+     
+            // $this->pagination->initialize($config);
+     
+            // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $data["pesan"] = $this->pesan_model->getPesan(2, 0);
+     
+            
+			//$this->load->model('pesan_model');
+			//$pesan = $this->pesan_model->getPesan();
 			// $pesan = $this->pesan->getPesan();
-            $data['pesan']=$pesan;
+            //$data['pesan']=$pesan;
 			$this->load->view('head_view');
 			$this->load->view('navbar_admin_view');
             // $this->load->view('admin');
@@ -45,6 +64,13 @@
 
         //     $this->load->view('pesan',$data);
         // }
+
+        public function getList()
+        {
+            //$data["pesan"] = $this->pesan_model->getPesan(2, $page);
+            
+            echo "hello";        
+        }
 
         public function delete($id)
         {

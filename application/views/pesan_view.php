@@ -66,6 +66,7 @@
 					</li>';
 				} ?>				
 			</ul>
+
 			<div class="col l12">
 				<a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
 			</div>
@@ -74,20 +75,29 @@
 </div>
 <script>
 $('document').ready(function() {
+	var $page = 0;
 	console.log("rede");
 	$('#more').on('click', function(e){
 		e.preventDefault(); //hrefnya di disable
 
-		//$page++;
+		$page = $page+2;
 		//var $type = $(this).attr('id');
+
 		console.log("masuk klik");
 		$.ajax({
 				url: "Pesan/getList/",
 				type: "GET",
+				data: {page: $page},
 		})
-		.done(function(response) {
+		.done(function(data) {
 			console.log("berhasil ");
 			
+			console.log($page);
+			console.log(data);
+
+			// var posts = JSON.parse(response);
+			// var data = posts['data'];
+			// console.log('data');
 		})
 		.fail(function() {
 
