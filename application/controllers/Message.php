@@ -21,8 +21,8 @@
                 redirect(base_url('index.php/Request_in'));    
             }
 
-            $this->load->model("pesan_model");
-            $this->load->library("pagination");
+            //$this->load->model("pesan_model");
+            //$this->load->library("pagination");
 
             $this->load->model('pesan_model');
             
@@ -44,18 +44,23 @@
             // $this->pagination->initialize($config);
      
             // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $data["pesan"] = $this->pesan_model->getPesan(2, 0);
-     
+            $data["pesan"] = $this->pesan_model->getListPesan(10, 0);
+            // $jsona = json_encode($data);
+            // var_dump($jsona);
             
 			//$this->load->model('pesan_model');
 			//$pesan = $this->pesan_model->getPesan();
 			// $pesan = $this->pesan->getPesan();
             //$data['pesan']=$pesan;
-			$this->load->view('head_view');
+			
+            $this->load->view('head_view');
 			$this->load->view('navbar_admin_view');
+            
             // $this->load->view('admin');
+            
             $this->load->view('pesan_view',$data);
             $this->load->view('foot_view');
+
 		}
 
         // public function read($id)
@@ -67,9 +72,11 @@
 
         public function getList()
         {
-            //$data["pesan"] = $this->pesan_model->getPesan(2, $page);
-            
-            echo "hello";        
+            //$thePage = intval($page);
+            $data = array();
+            $page = $_GET['page'];
+            $data["pesan"] = $this->pesan_model->getListPesan(10, $page);
+            echo json_encode($data);
         }
 
         public function delete($id)

@@ -14,7 +14,7 @@
 
 		// }
 
-		public function getPesan($limit, $start) {
+		public function getListPesan($limit, $start) {
 	        $this->db->limit($limit, $start);
 	        $query = $this->db->get("pesan");
 	 
