@@ -91,18 +91,22 @@
                     // $username = $this->session->userdata('username');
 
                     $adaDiKoleksi=array();
-
+                    $adaDiWishlist=array();
                     foreach ($result as $key => $value)
                     {
                         $username = $this->session->userdata('username');
                         // $this->load->model('pinjaman');
                         // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
                         $this->load->model('koleksi');
-                        $ada = $this->koleksi->isInCollection($username, $value->isbn);
-                        $adaDiKoleksi[$key] = $ada;
+                        $adaInCollection = $this->koleksi->isInCollection($username, $value->isbn);
+                        $adaDiKoleksi[$key] = $adaInCollection;
+                        $this->load->model('wishlist_model');
+                        $adaInWishlist = $this->wishlist_model->isInWishlist($username, $value->isbn);
+                        $adaDiWishlist[$key] = $adaInWishlist;
                     }
 
                     $data['adaDiKoleksi']= $adaDiKoleksi;
+                    $data['adaDiWishlist']= $adaDiWishlist;
                     $data['username']= $username;
                 } 
             }            
