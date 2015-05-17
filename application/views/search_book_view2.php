@@ -121,6 +121,27 @@
                           <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
                         </div>';
                       }
+                      if(!$adaDiWishlist[$key])
+                      {
+                        echo 
+                        '
+                        <div id="modal-addcol" class="modal">
+                          <div class="modal-content">
+                            <h4>Add Wishlist?</h4>
+                            <p>Are you sure to add this book to your wishlist?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                    
+                            <a href="'.base_url()."index.php/Wishlist/add/".$post->isbn.'"
+                              class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
+                          </div>
+                        </div>
+      
+                        <div class="row row-custom-a">
+                          <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
+                        </div>';
+                      }
                   ?>
               
             </div>
