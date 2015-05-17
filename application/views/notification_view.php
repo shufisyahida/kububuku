@@ -17,6 +17,7 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
+<<<<<<< HEAD
   <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">Notification is Here</a>
  
 </div>
@@ -56,3 +57,28 @@ $('document').ready(function() {
  
 });
 </script>
+=======
+    <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line</p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-file-folder circle"></i>
+      <span class="title">Title</span>
+      <p>First Line</p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-action-assessment circle green"></i>
+      <span class="title">Title</span>
+      <p>First Line</p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-av-play-arrow circle red"></i>
+      <span class="title">Title</span>
+      <p>First Line</p>
+    </li>
+  </ul>
+</div>
+>>>>>>> 3ba636194499f78ff5b41651337b8269881e6a4a
