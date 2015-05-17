@@ -195,7 +195,7 @@
             $this->load->model('non_admin');
             $this->load->model('fakultas');
 
-            $user = $this->buku->getOwner($isbn,false);
+            $user = $this->buku->getListOwner(3,0,$isbn);
             
             for($i=0;$i<sizeof($user);$i++)
             {
@@ -237,6 +237,16 @@
             
             $this->load->view('book_owners',$data);
             $this->load->view('foot_view');
+        }
+
+         public function getList()
+        {
+            //$thePage = intval($page);
+            $data = array();
+            $page = $_GET['page'];
+            $isbn = $_GET['isbn'];
+            $data["resultOwner"] = $this->buku->getListOwner(3, $page, $isbn);
+            echo json_encode($data);
         }
 
         public function deleteBook($isbn)
