@@ -124,7 +124,9 @@
         </div>
       </div>';
         }?>
-
+    <div class="col l12">
+      <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+    </div>
   </div>
 </div>
     
