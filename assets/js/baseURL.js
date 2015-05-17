@@ -1,3 +1,3 @@
-function base_url(link) {
-	return "http://localhost/kububuku/"+ link;
+function base_url() {
+	return "http://localhost/kububuku/";
 }
