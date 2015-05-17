@@ -297,6 +297,7 @@
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								            
 								            	<div class="row row-custom-a">
 								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
 									            </div>

@@ -63,6 +63,34 @@
 			$query= $this->db->get()->result();
 			return $query;
 		}
+
+		function getNotifDipinjam($username)
+		{
+			$this->db->select('*');
+			$this->db->from('pinjaman');
+			$this->db->where('username_pemilik',$username)->where_in('is_notified',false);
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
+		}
+
+		function getNotifMeminjam($username)
+		{
+			$this->db->select('*');
+			$this->db->from('pinjaman');
+			$this->db->where('username_peminjam',$username)->where_in('is_notified',false);
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
+		}
 		
 		function isRequested($peminjam, $pemilik, $isbn)
 		{

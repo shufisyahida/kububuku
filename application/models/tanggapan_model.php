@@ -27,22 +27,32 @@
 			$this->db->insert('tanggapan', $data);
 		}
 
-		/*public function deleteWishlist($username,$isbn)
+
+		public function getNotifTanggapan($username)
 		{
-			$this->db->where('username',$username)->where('isbn',$isbn);
-			$this->db->delete('wishlist');
+			$this->db->select('*');
+			$this->db->from('tanggapan');
+			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
+			$this->db->where('wishlist.username', $username)->where('tanggapan.is_notified',false);
+			
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
 		}
 
+		public function getAllTanggapan($username){
+			$this->db->select('*');
+			$this->db->from('tanggapan');
+			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
+			$this->db->where('wishlist.username', $username)->where('tanggapan.is_notified',false);
+			$this->db->set('tanggapan.is_notified', true);
 
-		public function getAllKoleksi($username)
-		{
-			 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
-	  		 $this->db->from('buku');
-	  		 $this->db->join('wishlist', 'wishlist.isbn = buku.isbn');
-	  		 $this->db->where('username',$username);
-	  		 $query = $this->db->get();
-	  		 return $resultWishlist = $query->result();
-		}*/
+			
+		}
 		
 	} // end of Tanggapan
 
