@@ -13,9 +13,16 @@
             $this->load->model('buku');   
             // $isAdmin = $this->admin_model->isAdmin($username); 
             
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            
             if(!$isLoggedIn)
             {
                 redirect(base_url('index.php/Login'));
+            }
+            elseif($isAdmin)
+            {
+                redirect(base_url('index.php/Message'));    
             }
         }
 
@@ -271,32 +278,32 @@
             echo json_encode($data);
         }
 
-        public function deleteBook($isbn)
-        {
+        // public function deleteBook($isbn)
+        // {
 
-            $this->load->model('buku');
-            $this->buku->deleteBook($isbn);
-            redirect(base_url('index.php/ManageBook'));
-        }
+        //     $this->load->model('buku');
+        //     $this->buku->deleteBook($isbn);
+        //     redirect(base_url('index.php/ManageBook'));
+        // }
 
-        public function updateBook($isbn, $perubahan)
-        {
-            list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
-            $data = array(
-                'isbn' => $isbnNew,
-                'judul' => $judulNew,
-                'pengarang' => $pengarangNew,
-                'deskripsi' => $deskripsiNew,
-                'genre' => $genreNew,
-                'penerbit' => $penerbitNew,
-                'tahun_terbit' => $tahun_terbitNew,
-                'jumlah_halaman' => $jumlah_halamanNew,
-                'sampul' => $sampulNew
-            );
-            $this->load->model('buku');
-            $this->buku->updateBook($isbn, $data);
-            redirect(base_url('index.php/ManageBook'));
-        }
+        // public function updateBook($isbn, $perubahan)
+        // {
+        //     list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
+        //     $data = array(
+        //         'isbn' => $isbnNew,
+        //         'judul' => $judulNew,
+        //         'pengarang' => $pengarangNew,
+        //         'deskripsi' => $deskripsiNew,
+        //         'genre' => $genreNew,
+        //         'penerbit' => $penerbitNew,
+        //         'tahun_terbit' => $tahun_terbitNew,
+        //         'jumlah_halaman' => $jumlah_halamanNew,
+        //         'sampul' => $sampulNew
+        //     );
+        //     $this->load->model('buku');
+        //     $this->buku->updateBook($isbn, $data);
+        //     redirect(base_url('index.php/ManageBook'));
+        // }
             
 
     } // end of Book

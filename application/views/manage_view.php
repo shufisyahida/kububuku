@@ -5,7 +5,7 @@
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
 			    <li><a href="<?php echo base_url('index.php/Message');?>" class="collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('index.php/Request');?>" class="collection-item">Request</a></li>
+			    <li><a href="<?php echo base_url('index.php/Request_admin');?>" class="collection-item">Request</a></li>
 			    <li><a href="<?php echo base_url('index.php/Manage');?>" class="active collection-item">Manage</a></li>
 		    </ul>
 		</div>		   
