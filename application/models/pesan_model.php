@@ -3,18 +3,18 @@
 	class Pesan_model extends CI_Model
 	{
 
-		public function getPesan()
-		{
-			$this->db->select('*');
-			$this->db->from('pesan');
-			$this->db->order_by("waktu", "desc");
-			$query = $this->db->get()->result();
+		// public function getPesan()
+		// {
+		// 	$this->db->select('*');
+		// 	$this->db->from('pesan');
+		// 	$this->db->order_by("waktu", "desc");
+		// 	$query = $this->db->get()->result();
 
-			return $query;
+		// 	return $query;
 
-		}
+		// }
 
-		public function getPesan($limit, $start) {
+		public function getListPesan($limit, $start) {
 	        $this->db->limit($limit, $start);
 	        $query = $this->db->get("pesan");
 	 
