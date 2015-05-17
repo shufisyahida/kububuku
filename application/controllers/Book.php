@@ -10,7 +10,7 @@
             $username = $this->session->userdata('username');
             $isLoggedIn = $this->session->userdata(''.$username);
             
-            // $this->load->model('admin_model');   
+            $this->load->model('buku');   
             // $isAdmin = $this->admin_model->isAdmin($username); 
             
             if(!$isLoggedIn)
@@ -242,10 +242,32 @@
          public function getList()
         {
             //$thePage = intval($page);
+             $this->load->model('non_admin');
+            $this->load->model('fakultas');
             $data = array();
             $page = $_GET['page'];
             $isbn = $_GET['isbn'];
-            $data["resultOwner"] = $this->buku->getListOwner(3, $page, $isbn);
+            $user = $this->buku->getListOwner(3, $page, $isbn);
+
+             for($i=0;$i<sizeof($user);$i++)
+            {
+                //get Faculty
+            $idFak = $user[$i]->fakultas;
+            $namaFak = $this->fakultas->getFaculty($idFak);                       
+            $user[$i]->fakultas = $namaFak;
+
+            //getStatus
+            $username= $user[$i]->username;
+            $statusUser = $this->non_admin->getStatus($username);                      
+            $user[$i]->status = $statusUser;
+
+            //get sex
+            $jenisKelamin = $this->non_admin->getSex($username);
+            $user[$i]->jenis_kelamin = $jenisKelamin;
+            }
+
+            $data['resultOwner'] = $user;
+            //var_dump($data);
             echo json_encode($data);
         }
 

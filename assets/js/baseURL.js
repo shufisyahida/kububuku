@@ -1,3 +1,1 @@
-function base_url() {
-	return "http://localhost/kububuku/";
-}
+var $baseurl = "http://localhost/kububuku";
