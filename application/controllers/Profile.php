@@ -200,20 +200,22 @@
         
         function showProfile($username)
         {
-            $Myusername = $this->session->userdata('username');
+            // $Myusername = $this->session->userdata('username');
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username);
             $this->load->model('koleksi');
-             $this->load->model('wishlist_model');
+            
             $koleksiAvailable = $this->koleksi->getKoleksiAvailable($username);
             $koleksiBorrowed = $this->koleksi->getKoleksiBorrowed($username);
-            if($Myusername==$username){
-                $data['MyWishlist'] = $this->wishlist_model->getAllWishlist($Myusername);
-            }
-            else {
-                $data['nama']= $username;
-                $data['OtherWishlist'] = $this->wishlist_model->getAllWishlist($username);
-            }
+            // if($Myusername==$username){
+            //     $data['MyWishlist'] = $this->wishlist_model->getAllWishlist($Myusername);
+            // }
+            // else {
+            //     $data['nama']= $username;
+            //     $data['OtherWishlist'] = $this->wishlist_model->getAllWishlist($username);
+            // }
+            $this->load->model('wishlist_model');
+            $wishlist = $this->wishlist_model->getAllWishlist($username);
             $bookAvailable=array();
             $bookBorrowed=array();
             
@@ -236,6 +238,8 @@
             $data['koleksiBorrowed']=$koleksiBorrowed;
 
             $requested=array();
+            $informed=array();
+            $isInCollection=array();
 
             foreach ($koleksiAvailable as $key => $value)
             {
@@ -243,12 +247,22 @@
                 $this->load->model('pinjaman');
                 $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
                 $requested[$key] = $isRequested;
-            }          
-            // $data['wishlist']=$wishlist;
-
+            } 
+            foreach ($wishlist as $key => $value)
+            {
+                $username = $this->session->userdata('username');
+                $this->load->model('tanggapan_model');
+                $isInformed = $this->tanggapan_model->isInTanggapan($value->id, $username);
+                $informed[$key] = $isInformed;
+                $isInCollection[$key] = $this->koleksi->isInCollection($username, $value->isbn);
+            }         
+            
             // var_dump($koleksiAvailable);
             $data['koleksiAvailable']=$koleksiAvailable;
             $data['requested']=$requested; 
+            $data['wishlist']=$wishlist;
+            $data['informed']=$informed;
+            $data['isInCollection']=$isInCollection;
             
             $this->load->view('head_view');
 

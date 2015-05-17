@@ -16,7 +16,7 @@
             {
                 redirect(base_url('index.php/Admin'));
             }
-            elseif(!$isAdmin)
+            elseif($isAdmin)
             {
                 redirect(base_url('index.php/Request_in'));    
             }

@@ -38,7 +38,7 @@
         </div>
         <div class="modal-footer">
             <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-            <a href="#" class="waves-effect waves-green btn-flat modal-action">Report</a>
+            <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Report</a>
         </div>
     </div>
 
@@ -101,12 +101,13 @@ echo '
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    <a href="'.base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username.'"
-                class="waves-effect waves-green btn-flat modal-action">Report</a>
+                    <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
                 </div>
             </div> -->
 
-            <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+
+            <!-- <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
 
             <a href="<?php echo base_url()."index.php/Request/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
         </div>

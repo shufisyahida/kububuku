@@ -245,7 +245,7 @@
         			?>	
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 				<?php
 				if(empty($OtherWishlist)) {
 					if(!empty($MyWishlist))
@@ -278,14 +278,13 @@
 				}
 			
 				?>
-			</div>
+			</div> -->
 
 			<div class="row">
 				<?php
-				if(empty($MyWishlist)) {
-					if(!empty($OtherWishlist))
+					if(!empty($wishlist))
 					{
-						foreach($OtherWishlist as $key => $value)
+						foreach($wishlist as $key => $value)
 						{
 							echo '<div class="col s12 m12 l6">
 							        <div class="card card-book">
@@ -296,27 +295,44 @@
 								            <div class="col s8 m8 l8">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	<span>'.$value->pengarang.'</span><br>
-								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
-								            	<div class="row row-custom-a">
-								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
-									            </div>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
+								            	if($user->username != $this->session->userdata('username'))
+								            	{	
+								            		if($isInCollection[$key])	
+								            		{					    
+									            		if(!$informed[$key])
+									            		{
+									            			echo'
+									            			<div id="modal-inform'.$value->isbn.'" class="modal">
+														        <div class="modal-content">
+														          <h4>Inform This Book?</h4>
+														          <p>Are you sure to inform that you have this book?</p>
+														        </div>
+														        <div class="modal-footer">
+														          <a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+														  
+														          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat black-text modal-action">INFORM</a>
+														         
+														        </div>
+														    </div>
+											            	<div class="row row-custom-a">
+											            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
+												            </div>';
+												        }
+									            		else
+									            		{
+									            			echo'
+									            			<div class="row row-custom-a">
+											            	    <a class="btn-flat disabled">Informed</a>
+											            	</div>';
+									            		}
+									            	}
+								            	}
+								           echo'
 								            </div>
 							          	</div>
 							        </div>
-							    </div>';
-							    echo '
-							    <div id="modal-inform'.$value->isbn.'" class="modal">
-							        <div class="modal-content">
-							          <h4>Inform This Book?</h4>
-							          <p>Are you sure to inform this book?</p>
-							        </div>
-							        <div class="modal-footer">
-							          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-							  
-							          <a href="'.base_url()."index.php/Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat modal-action">ADD</a>
-							        </div>
-							      </div>';
-							  
+							    </div>';							  
 						}
 					} 
 					else {
@@ -324,7 +340,7 @@
 								<p>No Entry Wishlist</p>
 							</div>';
 					}
-				}
+				
 
 				?>
 			</div>
