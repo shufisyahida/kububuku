@@ -280,6 +280,10 @@
             {
                 $this->load->view('navbar_view');
             }
+
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+             $data['isAdmin']=$isAdmin;
             
             $this->load->view('profil_view', $data);
             $this->load->view('foot_view');
