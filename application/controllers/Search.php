@@ -28,7 +28,10 @@
             {
                 $this->load->view('navbar_view');
             }
-            $this->load->view('search_book_view');
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            $data['isAdmin']=$isAdmin;
+            $this->load->view('search_book_view', $data);
             $this->load->view('foot_view');
         }
 
@@ -49,7 +52,10 @@
             {
                 $this->load->view('navbar_view');
             }
-            $this->load->view('search_user_view');
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            $data['isAdmin']=$isAdmin;
+            $this->load->view('search_user_view', $data);
             $this->load->view('foot_view');
         }
 
@@ -139,7 +145,9 @@
             {
                 $this->load->view('navbar_view');
             }
-            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            $data['isAdmin']=$isAdmin;
             $this->load->view('search_book_view2',$data);
             $this->load->view('foot_view');
         }
@@ -251,7 +259,9 @@
             {
                 $this->load->view('navbar_view');
             }
-            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
+            $data['isAdmin']=$isAdmin;
             $this->load->view('search_user_view2',$data);
             $this->load->view('foot_view');          
         }

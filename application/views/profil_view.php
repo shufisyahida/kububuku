@@ -10,16 +10,21 @@
         	?>
         </div>
       </div>
+	<?php
+	if(!$isAdmin){
+	echo '
 
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-content-add"></i>
-        </a>
-        <ul>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-        </ul>
-      </div>
+	      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
+	        <a class="z-depth-4 btn-floating btn-large red">
+	          <i class="large mdi-content-add"></i>
+	        </a>
+	        <ul>
+	          <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+	          <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+	        </ul>
+	      </div>';
+	  }
+      ?>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
@@ -220,10 +225,14 @@
 								            <div class="col s8 m8 l8">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	<span>'.$value->pengarang.'</span><br>
-								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
+								            	if(!$isAdmin){
+								            		echo'
 								            	<div class="row row-custom-a">
 								            	    <a class="btn-flat disabled">Borrowed</a>
 								            	</div>
+								            	';}
+								            	echo'
 								            </div>
 							          	</div>
 							        </div>
@@ -300,7 +309,7 @@
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{	
-								            		if(!$isAdmin){
+								            		if(!$isAdmin){	
 								            		if($isInCollection[$key])	
 								            		{					    
 									            		if(!$informed[$key])
