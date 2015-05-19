@@ -78,7 +78,7 @@
 					$this->session->set_userdata(''.$username,true);
 										
 					// redirect(base_url('index.php/Dashboard'));
-					redirect(base_url('index.php/Message_admin'));
+					redirect(base_url('index.php/Message'));
 				}
 				else
 				{
