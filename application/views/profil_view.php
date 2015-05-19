@@ -306,6 +306,13 @@
 								            <div class="col s8 m8 l8">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	<span>'.$value->pengarang.'</span><br>
+<<<<<<< HEAD
+								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
+								            
+								            	<div class="row row-custom-a">
+								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
+									            </div>
+=======
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{	
@@ -342,6 +349,7 @@
 									            	}
 								            	}
 								           echo'
+>>>>>>> f5a05292c4e077e772cf24ebb175b256f40c4b63
 								            </div>
 							          	</div>
 							        </div>
