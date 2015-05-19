@@ -17,6 +17,23 @@
 			return $query;
 		}
 
+		function getListUser($limit, $start) 
+		{
+	       	 $this->db->select('*');
+			$this->db->from('non_admin');
+			$this->db->order_by("tanggal_buat", "desc");
+			$this->db->limit($limit, $start);
+			$query = $this->db->get();
+	 
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
+	   }
+
 		function getContact($username)
 		{
 			$this->db->select('email_kontak,fb,twitter,line_id,hp,bbm,wa');

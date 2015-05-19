@@ -29,8 +29,11 @@
 
 		public function index()
 		{
-			$user = $this->non_admin->getAllUser();
-			$buku = $this->buku->getAllBook();
+			//$user = $this->non_admin->getAllUser();
+			//$buku = $this->buku->getAllBook();
+
+            $user = $this->non_admin->getListUser(5,0);
+            $buku = $this->buku->getListBook(5,0);
 
    	           $data['user']=$user;
    	           $data['buku']=$buku;
@@ -42,6 +45,16 @@
             $this->load->view('foot_view');
 		}
 
+        public function getList()
+        {
+            //$thePage = intval($page);
+            $data = array();
+            $page = $_GET['page'];
+            $data["user"] = $this->non_admin->getListUser(5, $page);
+            $data["buku"] = $this->buku->getListBook(5, $page);
+            echo json_encode($data);
+        }
+
         public function deleteUser($username)
         {
             $this->non_admin->deleteUser($username);
@@ -52,10 +65,5 @@
         {
             $this->buku->deleteBook($isbn);
             redirect(base_url('index.php/Manage'));
-        }
-
-        public function getList()
-        {
-        	
         }
 	}

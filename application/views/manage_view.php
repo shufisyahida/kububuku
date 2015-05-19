@@ -12,7 +12,7 @@
 			
 	<div class="col l9">
 		<div class="col l6">
-			<ul class="collection z-depth-1">
+			<ul class="collection z-depth-1" id="user-content">
 				<li class="collection-item"><h5>Users</h5></li>
 				<?php foreach ($user as $key => $value) 
 				{
@@ -47,9 +47,14 @@
 				}
 				?>
 			</ul>
+			<div class="col l12">
+				<a id="more1" style="text-align: center" class="waves-effect waves-light btn-large green">MORE USERS</a>
+			</div>
 		</div>
+
+
 		<div class="col l6">
-			<ul class="collection z-depth-1">
+			<ul class="collection z-depth-1" id="book-content">
 				<li class="collection-item"><h5>Books</h5></li>
 				<?php foreach ($buku as $key => $value) 
 				{
@@ -84,35 +89,202 @@
 				</li>';
 				}?>
 			</ul>
+
+			<div class="col l12">
+				<a id="more2" style="text-align: center" class="waves-effect waves-light btn-large green">MORE BOOKS</a>
+			</div>
 		</div>
-		<div class="col l12">
-			<a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
-		</div>
+		
+
+		
+
 	</div>
 </div>
 <script>
 $('document').ready(function() {
+	var $page = 0;
 	console.log("rede");
-	$('#more').on('click', function(e){
-		e.preventDefault(); //hrefnya di disable
 
-		//$page++;
-		//var $type = $(this).attr('id');
-		console.log("masuk klik");
-		$.ajax({
-				url: "Manage/getList/",
-				type: "GET",
-		})
-		.done(function(response) {
-			console.log("berhasil ");
-			
-		})
-		.fail(function() {
+	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
+	if($("#10").length == 0) {
+		$('#more1').addClass("disabled");
+		$('#more1').removeClass("waves-effect waves-light green");
+	}	
 
-		})
-		.always(function() {
+	$('#more1').on('click', function(e){
+		e.preventDefault(); //hrefnya di-disable
+
+		$page = $page+5;
+		var xmlhttp;
+		if(window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			console.log("yes");
+
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var response = xmlhttp.responseText;
+				var data = JSON.parse(response);
+				console.log(response);
+				console.log(response.length);
+				console.log(data['user'].length);
+				console.log(data['buku'].length);
+
+
+
+				var user = data['user'];
+				var buku = data['buku'];
+				for(i in user) {
+					 var $username = user[i].username;
+			          var $password = user[i].password;
+			          var $nama = user[i].nama;
+			          var $email = user[i].email;
+			          var $domisili = user[i].domisili;
+			          var $fakultas = user[i].fakultas;
+			          var $jenis_kelamin = user[i].jenis_kelamin;
+			          var $status = user[i].status;
+			          var $rank_pemilik = user[i].rank_pemilik;
+			          var $rank_peminjam = user[i].rank_peminjam;
+			          var $foto = user[i].foto;
+			          var $tanggal_lahir = user[i].tanggal_lahir;
+			          var $email_kontak = user[i].email_kontak;
+			          var $fb = user[i].fb;
+			          var $twitter = user[i].twitter;
+			          var $line_id = user[i].line_id;
+			          var $hp = user[i].hp;
+			          var $bbm = user[i].bbm;
+			          var $wa = user[i].wa;
+			          var $tanggal_buat = user[i].tanggal_buat;
+
+					if(response) {
+						$('#more1').addClass("disabled");
+						$('#more1').removeClass("waves-effect waves-light green");
+					} 
+
+					$('#user-content').append(' \
+						<li class="collection-item avatar"> \
+						<div> \
+						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+$username+'" > \
+							<img src="'+$foto+'" alt="" class="circle"> \
+						</a> \
+						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+$username+'" > \
+							<span class="title">'+$nama+'</span> \
+						</a> \
+						<p> \
+							<span class="grey-text" style="font-size: 0.9em;">'+$tanggal_buat+'</span> \
+						</p> \
+						<div id="modal-remove'+$username+'" class="modal"> \
+						<div class="modal-content"> \
+							<h4>Remove User</h4> \
+							<p>Are you sure to remove this user?</p> \
+						</div> \
+						<div class="modal-footer"> \
+							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
+							<a href="localhost/kububuku/index.php/Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+						</div> \
+						</div> \
+							<a href="#modal-remove'+$username+'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a> \
+						</div> \
+						</li>');
+					
+
+				}
+			}
+		}
+		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
+		xmlhttp.send();
+	});
+});
+</script>
+
+<script>
+$('document').ready(function() {
+	var $page = 0;
+	console.log("rede");
+
+	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
+	if($("#10").length == 0) {
+		$('#more2').addClass("disabled");
+		$('#more2').removeClass("waves-effect waves-light green");
+	}	
+
+	$('#more2').on('click', function(e){
+		e.preventDefault(); //hrefnya di-disable
+
+		$page = $page+5;
+		var xmlhttp;
+		if(window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			console.log("yes");
+
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var response = xmlhttp.responseText;
+				var data = JSON.parse(response);
+				console.log(response);
+				console.log(response.length);
+				console.log(data['buku'].length);
+
 			
-		});
+				var buku = data['buku'];
+				for(i in buku) {
+					 var $isbn = buku[i].isbn;
+			          var $judul = buku[i].judul;
+			          var $pengarang = buku[i].pengarang;
+			          var $deskripsi = buku[i].deskripsi;
+			          var $genre = buku[i].genre;
+			          var $penerbit = buku[i].penerbit;
+			          var $tahun_terbit = buku[i].tahun_terbit;
+			          var $jumlah_halaman = buku[i].jumlah_halaman;
+			          var $sampul = buku[i].rank_sampul;
+			          var $tanggal_buat = buku[i].tanggal_buat;
+
+					if(response) {
+						$('#more2').addClass("disabled");
+						$('#more2').removeClass("waves-effect waves-light green");
+					} 
+
+					$('#book-content').append(' \
+						<li class="collection-item avatar"> \
+						<div> \
+							<a href = "localhost/kububuku/index.php/Book/book_info/"'+$isbn+'" > \
+								<img src="'+$sampul+'" alt="" class="cover"> \
+							</a> \
+							<a href = "localhost/kububuku/index.php/Book/book_info/"'+$isbn+'" > \
+								<span class="title">'+$judul+'</span> \
+							</a> \
+							<p> \
+								<span class="grey-text" style="font-size: 0.9em;">'+$tanggal_buat+'</span> \
+							</p> \
+							<div id="modal-remove'+$isbn+'" class="modal"> \
+								<div class="modal-content"> \
+									<h4>Remove Book</h4> \
+									<p>Are you sure to remove this book?</p> \
+								</div> \
+								<div class="modal-footer"> \
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
+									<a href="localhost/index.php/Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+								</div> \
+							</div> \
+							<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
+						</div> \
+						</li>');
+					
+
+				}
+			}
+		}
+		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
+		xmlhttp.send();
 	});
 });
 </script>
