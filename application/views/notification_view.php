@@ -16,27 +16,90 @@
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
-<div class="container custom-table">
+<div class="container custom-table"> 
+
+  
     <ul class="collection">
-    <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="title">Title</span>
-      <p>First Line</p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="mdi-file-folder circle"></i>
-      <span class="title">Title</span>
-      <p>First Line</p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="mdi-action-assessment circle green"></i>
-      <span class="title">Title</span>
-      <p>First Line</p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="mdi-av-play-arrow circle red"></i>
-      <span class="title">Title</span>
-      <p>First Line</p>
-    </li>
+        <?php 
+        if(!empty($resultTanggapan))
+        {
+        foreach($resultTanggapan as $post){ ?>
+            <?php echo 
+            '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookInform/".$post->id.'" >
+        
+              <img src='.$post->foto.' alt="" class="circle">'?>
+            
+              <span class="title"><?php echo $post->user;?> has informed your wishlist</span>
+              <p><?php echo $post->judul;?></p>
+            </a></li>
+        <?php } 
+
+      }?>
+      
+      <?php 
+        if(!empty($resultRequest))
+        {
+        foreach($resultRequest as $post){ ?>
+        <?php echo 
+        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookRequest/".$post->user."/".$post->isbn.'" >
+        
+              <img src='.$post->foto.' alt="" class="circle">'?>
+          <span class="title"><?php echo $post->user;?> has requested your book</span>
+          <p><?php echo $post->judul;?></p>
+        </a></li>
+        <?php } 
+
+      }?>
+
+        <?php 
+            if(!empty($resultAccept))
+            {
+            foreach($resultAccept as $post){ ?>
+
+            <?php echo 
+        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookAccept/".$post->user."/".$post->isbn.'" >
+        
+              <img src='.$post->foto.' alt="" class="circle">'?>
+                <span class="title"><?php echo $post->user;?> has accepted your request</span>
+              <p><?php echo $post->judul;?></p>
+            </a></li>
+             <?php } 
+
+          }?>
+
+      <?php 
+        if(!empty($resultDecline))
+        {
+        foreach($resultDecline as $post){ ?>
+
+        <?php echo 
+        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookDecline/".$post->user."/".$post->isbn.'" >
+        
+              <img src='.$post->foto.' alt="" class="circle">'?>
+            <span class="title"><?php echo $post->user;?> has declined your request</span>
+          <p><?php echo $post->judul;?></p>
+        </a></li>
+      <?php } 
+
+      }?>
+
+      <?php 
+        if(!empty($resultReturn))
+        {
+        foreach($resultReturn as $post){ ?>
+
+        <?php echo 
+        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookReturn/".$post->user."/".$post->isbn.'" >
+        
+              <img src='.$post->foto.' alt="" class="circle">'?>
+            <span class="title"><?php echo $post->user;?> has returned your book</span>
+          <p><?php echo $post->judul;?></p>
+        </a></li>
+      <?php } 
+
+      }?>
+
   </ul>
+
 </div>
+

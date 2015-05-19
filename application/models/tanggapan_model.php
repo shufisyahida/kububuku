@@ -27,6 +27,10 @@
 			$this->db->insert('tanggapan', $data);
 		}
 
+<<<<<<< HEAD
+
+		public function getNotifTanggapan($username)
+=======
 		public function IsInTanggapan($id, $username){
 
 			$this->db->select('*');
@@ -46,21 +50,41 @@
 		}
 
 		/*public function deleteWishlist($username,$isbn)
+>>>>>>> f5a05292c4e077e772cf24ebb175b256f40c4b63
 		{
-			$this->db->where('username',$username)->where('isbn',$isbn);
-			$this->db->delete('wishlist');
+			$this->db->select('*');
+			$this->db->from('tanggapan');
+			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
+			$this->db->where('wishlist.username', $username)->where('tanggapan.is_notified',false);
+			
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
 		}
 
-
-		public function getAllKoleksi($username)
+		public function setTanggapan($username, $id)
 		{
-			 $this->db->select("buku.judul, buku.sampul, buku.deskripsi, buku.pengarang, buku.isbn, buku.genre");
-	  		 $this->db->from('buku');
-	  		 $this->db->join('wishlist', 'wishlist.isbn = buku.isbn');
-	  		 $this->db->where('username',$username);
-	  		 $query = $this->db->get();
-	  		 return $resultWishlist = $query->result();
-		}*/
+			$data=array('tanggapan.is_notified'=>true);
+			$this->db->where('wishlist.username', $username)->where('is_notified',false)->where('tanggapan.id_wishlist', $id);
+			$this->db->update('tanggapan join wishlist on tanggapan.id_wishlist=wishlist.id',$data);
+		}
+
+		public function getAllTanggapan($username){
+			$this->db->select("tanggapan.username as user, buku.judul as judul, non_admin.foto as foto, tanggapan.id_wishlist as id");
+			$this->db->from('tanggapan');
+			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
+			$this->db->join('buku', 'wishlist.isbn = buku.isbn');
+			$this->db->join('non_admin', 'non_admin.username = tanggapan.username');
+			$this->db->where('wishlist.username', $username)->where('tanggapan.is_notified',false);
+			
+			$query=$this->db->get();
+			return $resultTanggapan = $query->result();
+
+		}
 		
 	} // end of Tanggapan
 
