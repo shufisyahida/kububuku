@@ -37,7 +37,7 @@
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="judul" name="judul" type="text" class="validate" value="<?php echo $judul;?>">
-                        <label for="judul">Judul*</label>
+                        <label for="judul">Title*</label>
                         <span class="error"><?php echo $judulErr;?></span>
                     </div>
 
@@ -52,7 +52,7 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="pengarang" name="pengarang" type="text" class="validate" value="<?php echo $pengarang;?>">
-                        <label for="pengarang">Pengarang*</label>
+                        <label for="pengarang">Author*</label>
                         <span class="error"><?php echo $pengarangErr;?></span>
                     </div>
 
@@ -84,31 +84,31 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="penerbit" name="penerbit" type="text" class="validate" value="<?php echo $penerbit;?>">
-                        <label for="penerbit">Penerbit</label>
+                        <label for="penerbit">Publisher</label>
                     </div>
 
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="tahun_terbit" name="tahun_terbit" type="text" class="validate" value="<?php echo $tahun_terbit;?>">
-                        <label for="tahun_terbit">Tahun Terbit</label>
+                        <label for="tahun_terbit">Publish Year</label>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="jumlah_halaman" name="jumlah_halaman" type="text" class="validate" value="<?php echo $jumlah_halaman;?>">
-                        <label for="jumlah_halaman">Jumlah Halaman</label>
+                        <label for="jumlah_halaman">Number of Pages</label>
                     </div>
 
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-face-unlock prefix"></i> -->
                         <input id="sampul" name="sampul" type="url" value="<?php echo $sampul;?>">
-                        <label for="sampul">Sampul URL</label>
+                        <label for="sampul">Cover URL</label>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="deskripsi" name="deskripsi" type="text" class="validate" value="<?php echo $deskripsi;?>">
-                        <label for="deskripsi">Deskripsi</label>
+                        <label for="deskripsi">Description</label>
                     </div>
 
                     <div class="col s12 offset-s1">

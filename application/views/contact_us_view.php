@@ -21,7 +21,7 @@
     <div class="col s12 m12 l12">
       <div class="card-panel white z-depth-1">
        
-        <form method="post" action="<?php echo base_url('index.php/Message/create') ?>">          
+        <form method="post" action="<?php echo base_url('index.php/Message_nonadmin/create') ?>">          
             <div class="row">
                 <div class="col s12 m5 l4">
                     <select id="kategori" name="kategori" type="text" class="validate">

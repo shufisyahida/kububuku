@@ -22,7 +22,7 @@
 		<!--<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>-->
 		<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.imgareaselect.pack.js');?>"></script>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/imgareaselect-default.css');?>" />
-
+		<script type="text/javascript" scr="<?php echo base_url('assets/js/baseURL.js'); ?>"></script>
 
 
 	</head>

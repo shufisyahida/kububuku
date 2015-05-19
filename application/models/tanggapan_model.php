@@ -27,8 +27,30 @@
 			$this->db->insert('tanggapan', $data);
 		}
 
+<<<<<<< HEAD
 
 		public function getNotifTanggapan($username)
+=======
+		public function IsInTanggapan($id, $username){
+
+			$this->db->select('*');
+	        $this->db->from('tanggapan');
+	        $this->db->where('id_wishlist',$id)->where('username',$username);    
+	        $query= $this->db->get()->result();
+
+	        if(sizeof($query)!=0)
+	        {       
+	          	return true;
+	        }
+	        else
+	        {
+	        	return false;
+	        }
+		
+		}
+
+		/*public function deleteWishlist($username,$isbn)
+>>>>>>> f5a05292c4e077e772cf24ebb175b256f40c4b63
 		{
 			$this->db->select('*');
 			$this->db->from('tanggapan');

@@ -37,7 +37,7 @@
 
 		public function getAllWishlist($username)
 		{
-			 $this->db->select("buku.judul, buku.sampul,buku.deskripsi,buku.pengarang, buku.isbn, buku.genre");
+			 $this->db->select("wishlist.id, buku.judul, buku.sampul,buku.deskripsi,buku.pengarang, buku.isbn, buku.genre");
 	  		 $this->db->from('buku');
 	  		 $this->db->join('wishlist', 'wishlist.isbn = buku.isbn');
 	  		 $this->db->where('username',$username);

@@ -10,12 +10,19 @@
             $username = $this->session->userdata('username');
             $isLoggedIn = $this->session->userdata(''.$username);
             
-            // $this->load->model('admin_model');   
+            $this->load->model('buku');   
             // $isAdmin = $this->admin_model->isAdmin($username); 
+            
+            $this->load->model('admin_model');   
+            $isAdmin = $this->admin_model->isAdmin($username); 
             
             if(!$isLoggedIn)
             {
                 redirect(base_url('index.php/Login'));
+            }
+            elseif($isAdmin)
+            {
+                redirect(base_url('index.php/Message'));    
             }
         }
 
@@ -195,7 +202,7 @@
             $this->load->model('non_admin');
             $this->load->model('fakultas');
 
-            $user = $this->buku->getOwner($isbn,false);
+            $user = $this->buku->getListOwner(3,0,$isbn);
             
             for($i=0;$i<sizeof($user);$i++)
             {
@@ -239,32 +246,64 @@
             $this->load->view('foot_view');
         }
 
-        public function deleteBook($isbn)
+         public function getList()
         {
+            //$thePage = intval($page);
+             $this->load->model('non_admin');
+            $this->load->model('fakultas');
+            $data = array();
+            $page = $_GET['page'];
+            $isbn = $_GET['isbn'];
+            $user = $this->buku->getListOwner(3, $page, $isbn);
 
-            $this->load->model('buku');
-            $this->buku->deleteBook($isbn);
-            redirect(base_url('index.php/ManageBook'));
+             for($i=0;$i<sizeof($user);$i++)
+            {
+                //get Faculty
+            $idFak = $user[$i]->fakultas;
+            $namaFak = $this->fakultas->getFaculty($idFak);                       
+            $user[$i]->fakultas = $namaFak;
+
+            //getStatus
+            $username= $user[$i]->username;
+            $statusUser = $this->non_admin->getStatus($username);                      
+            $user[$i]->status = $statusUser;
+
+            //get sex
+            $jenisKelamin = $this->non_admin->getSex($username);
+            $user[$i]->jenis_kelamin = $jenisKelamin;
+            }
+
+            $data['resultOwner'] = $user;
+            //var_dump($data);
+            echo json_encode($data);
         }
 
-        public function updateBook($isbn, $perubahan)
-        {
-            list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
-            $data = array(
-                'isbn' => $isbnNew,
-                'judul' => $judulNew,
-                'pengarang' => $pengarangNew,
-                'deskripsi' => $deskripsiNew,
-                'genre' => $genreNew,
-                'penerbit' => $penerbitNew,
-                'tahun_terbit' => $tahun_terbitNew,
-                'jumlah_halaman' => $jumlah_halamanNew,
-                'sampul' => $sampulNew
-            );
-            $this->load->model('buku');
-            $this->buku->updateBook($isbn, $data);
-            redirect(base_url('index.php/ManageBook'));
-        }
+        // public function deleteBook($isbn)
+        // {
+
+        //     $this->load->model('buku');
+        //     $this->buku->deleteBook($isbn);
+        //     redirect(base_url('index.php/ManageBook'));
+        // }
+
+        // public function updateBook($isbn, $perubahan)
+        // {
+        //     list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
+        //     $data = array(
+        //         'isbn' => $isbnNew,
+        //         'judul' => $judulNew,
+        //         'pengarang' => $pengarangNew,
+        //         'deskripsi' => $deskripsiNew,
+        //         'genre' => $genreNew,
+        //         'penerbit' => $penerbitNew,
+        //         'tahun_terbit' => $tahun_terbitNew,
+        //         'jumlah_halaman' => $jumlah_halamanNew,
+        //         'sampul' => $sampulNew
+        //     );
+        //     $this->load->model('buku');
+        //     $this->buku->updateBook($isbn, $data);
+        //     redirect(base_url('index.php/ManageBook'));
+        // }
             
 
     } // end of Book

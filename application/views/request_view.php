@@ -5,7 +5,7 @@
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
 			    <li><a href="<?php echo base_url('index.php/Message');?>" class="collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('index.php/Request');?>" class="collection-item active">Request</a></li>
+			    <li><a href="<?php echo base_url('index.php/Request_admin');?>" class="collection-item active">Request</a></li>
 			    <li><a href="<?php echo base_url('index.php/Manage');?>" class="collection-item">Manage</a></li>
 		    </ul>
 		</div>		   
@@ -26,8 +26,8 @@
 								<p>
 									by <i><?php echo $post->username;?></i>
 								</p>
-								<a href="<?php echo base_url().'index.php/Request/acceptDeleteBook/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
-								<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
+								<a href="<?php echo base_url().'index.php/Request_admin/acceptDeleteBook/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
+								<a href="<?php echo base_url().'index.php/Request_admin/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
 							</div>
 						</li>
 					<?php }}
@@ -55,8 +55,8 @@
 							<p>
 								by <i><?php echo $post->username;?></i>
 							</p>
-							<a href="<?php echo base_url().'index.php/Request/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
-							<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
+							<a href="<?php echo base_url().'index.php/Request_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
+							<a href="<?php echo base_url().'index.php/Request_admin/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
 							<div id="modal" class="modal">
 							<div class="modal-content">
 								<h4>Accept Update Book</h4>
@@ -159,8 +159,8 @@
 							</div>
 							<div class="modal-footer">
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="<?php echo base_url().'index.php/Request/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
-								<a href="<?php echo base_url().'index.php/Request/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
+								<a href="<?php echo base_url().'index.php/Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+								<a href="<?php echo base_url().'index.php/Request_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
 							</div>
 						</div>
 						</div>

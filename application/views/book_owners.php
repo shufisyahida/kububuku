@@ -33,11 +33,13 @@
         </div>
       </div>
     </div>
+    <div id="content">
     <div class="col s12 m8 l9">
       <div class="card-panel white z-depth-1 col s12 m12 l12">
         <span>
           <div class="row">
             <div class="col s12 m12 l12">
+              <span id="isbn" style="display:none">'.$value->isbn.'</span>
               <h5 class="black-text">'.$value->judul.'</h5>
               <h6 class="black-text">'.$value->pengarang.'</h6>
             </div>
@@ -122,25 +124,147 @@
             </ul>
           </div>
         </div>
-      </div>';
+      </div>
+      ';
         }?>
-    <div class="col l12">
+    </div>
+    <div class="col l12 offset-l3">
       <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
     </div>
   </div>
 </div>
-    
+<script>
+$('document').ready(function() {
+  var $page = 0;
+  console.log("rede");
+  var $baseurl = "http://localhost/kububuku/"
+  //check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
+  // if($("#10").length == 0) {
+  //   $('#more').addClass("disabled");
+  //   $('#more').removeClass("waves-effect waves-light green");
+  // } 
 
- <!--    <?php foreach($result as $post){?>
-    
-         <?php echo $post->isbn;?>
-         <?php echo $post->judul;?>
-         <?php echo $post->pengarang;?>
-         <?php echo $post->deskripsi;?>
-         <?php echo $post->genre;?>
-         <?php echo $post->penerbit;?>
-         <?php echo $post->tahun_terbit;?>
-         <?php echo $post->jumlah_halaman;?>
-         <?php echo $post->sampul;?>
-      
-     <?php }?>  -->
+  $('#more').on('click', function(e){
+    e.preventDefault(); //hrefnya di-disable
+    console.log("klik");
+    $page = $page+3;
+    var $isbn = $('#isbn').text();
+    console.log($isbn);
+    var xmlhttp;
+    if(window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+      console.log("klika");
+    }
+    else
+    {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      console.log("klikb");
+    }
+    xmlhttp.onreadystatechange = function() {
+      console.log("yes");
+
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+      {
+        var response = xmlhttp.responseText;
+        console.log(response);
+        var data = JSON.parse(response);
+        //console.log(response.length);
+        //console.log(data['resultOwner'].length);
+        
+        var owner = data['resultOwner'];
+        console.log(owner);
+        for(i in owner)
+        {
+          var $username = owner[i].username;
+          var $password = owner[i].password;
+          var $nama = owner[i].nama;
+          var $email = owner[i].email;
+          var $domisili = owner[i].domisili;
+          var $fakultas = owner[i].fakultas;
+          var $jenis_kelamin = owner[i].jenis_kelamin;
+          var $status = owner[i].status;
+          var $rank_pemilik = owner[i].rank_pemilik;
+          var $rank_peminjam = owner[i].rank_peminjam;
+          var $foto = owner[i].foto;
+          var $tanggal_lahir = owner[i].tanggal_lahir;
+          var $email_kontak = owner[i].email_kontak;
+          var $fb = owner[i].fb;
+          var $twitter = owner[i].twitter;
+          var $line_id = owner[i].line_id;
+          var $hp = owner[i].hp;
+          var $bbm = owner[i].bbm;
+          var $wa = owner[i].wa;
+          var $tanggal_buat = owner[i].tanggal_buat;
+
+
+          var $hijau = Math.round($rank_pemilik);
+          var $putih = 5-$hijau;
+          var $rankPemilikHijau ="";
+
+          for($i = 0; $i<$hijau;$i++)
+          {
+            $rankPemilikHijau = $rankPemilikHijau + '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+          }
+          var $rankPemilikPutih ="";
+
+          for($i = 0; $i<$putih;$i++)
+          {
+            $rankPemilikPutih+='<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+          }
+
+          var $hijau = Math.round($rank_peminjam);
+          var $putih = 5-$hijau;
+          var $rankPeminjamHijau="";
+
+          for($i = 0; $i<$hijau;$i++)
+          {
+            $rankPeminjamHijau+='<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+          }
+           
+          var $rankPeminjamPutih="";
+          for($i = 0; $i<$putih;$i++)
+          {
+            $rankPeminjamPutih+= '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+          }
+
+          if(response) {
+            $('#more').addClass("disabled");
+            $('#more').removeClass("waves-effect waves-light green");
+          } 
+
+          $('#content').append('<div class="col s12 m4 l4"> \
+                                  <div class="card"> \
+                                    <div class="container custom-container-a"> \
+                                      <a href = "'+$baseurl+"index.php/Profile/showProfile/"+$username+'"> \
+                                      <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
+                                      </a> \
+                                    </div> \
+                                    <a href = "'+$baseurl+"index.php/Profile/showProfile/"+$username+'"> \
+                                      <div class="truncate green-text name-property">'+$nama+'</div> \
+                                    </a> \
+                                    <div class="divider"></div> \
+                                    <div class="custom-container-b"> \
+                                      <ul> \
+                                            <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>'+$fakultas+'</li> \
+                                            <li class="truncate"><i class="green-text tiny mdi-social-person-outline"></i>'+$status+'</li> \
+                                            <li class="truncate"><i class="green-text tiny mdi-social-person"></i>'+$jenis_kelamin+'</li> \
+                                            <li class="truncate"><i class="green-text tiny mdi-action-event"></i>'+$tanggal_lahir+'</li> \
+                                            <li class="truncate"><i class="green-text tiny mdi-maps-place"></i>'+$domisili+'</li> \
+                                      </ul> \
+                                    </div> \
+                                    <div class="divider"></div> \
+                                    <div class="custom-container-b" style="text-align: center;"> \
+                                    <ul> \
+                                      <li>As Owner</li>'+$rankPemilikHijau+$rankPemilikPutih+'</ul> \
+                                    <ul> \
+                                      <li>As Borrower</li>'+$rankPeminjamHijau+$rankPeminjamPutih+' </ul> \
+                                  </div> \
+                              </div>');        
+        }
+      }
+    }
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Book/getList?page="+ $page+"&isbn="+$isbn, true);
+    xmlhttp.send();
+  });
+});
+</script>

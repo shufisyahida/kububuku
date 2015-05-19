@@ -14,55 +14,55 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Admin'));
+                redirect(base_url('index.php/Login'));
             }
-            elseif(!$isAdmin)
+            elseif($isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));    
+                redirect(base_url('index.php/Message'));    
             }
 
         }
 
-        public function index() {
-            $this->load->model('permintaan_ubah_hapus');
-            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequest();
-            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequest();
+        // public function index() {
+        //     $this->load->model('permintaan_ubah_hapus');
+        //     $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequest();
+        //     $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequest();
 
-            $deleteJudul=array();
-            $deleteSampul=array();
-            $updateJudul=array();
-            $updateSampul=array();
+        //     $deleteJudul=array();
+        //     $deleteSampul=array();
+        //     $updateJudul=array();
+        //     $updateSampul=array();
 
-            foreach($deleteRequest as $key=>$value)
-            {
-                $this->load->model('buku');
-                $judul = $this->buku->getJudul($value->isbn);
-                $sampul = $this->buku->getSampul($value->isbn);
-                $deleteJudul[$key] = $judul;
-                $deleteSampul[$key] = $sampul;
-            }
-            foreach($updateRequest as $key=>$value)
-            {
-                $this->load->model('buku');
-                $judul = $this->buku->getJudul($value->isbn);
-                $sampul = $this->buku->getSampul($value->isbn);
-                $updateJudul[$key] = $judul;
-                $updateSampul[$key] = $sampul;
-            }
+        //     foreach($deleteRequest as $key=>$value)
+        //     {
+        //         $this->load->model('buku');
+        //         $judul = $this->buku->getJudul($value->isbn);
+        //         $sampul = $this->buku->getSampul($value->isbn);
+        //         $deleteJudul[$key] = $judul;
+        //         $deleteSampul[$key] = $sampul;
+        //     }
+        //     foreach($updateRequest as $key=>$value)
+        //     {
+        //         $this->load->model('buku');
+        //         $judul = $this->buku->getJudul($value->isbn);
+        //         $sampul = $this->buku->getSampul($value->isbn);
+        //         $updateJudul[$key] = $judul;
+        //         $updateSampul[$key] = $sampul;
+        //     }
 
-            $data['deleteRequest'] = $deleteRequest;
-            $data['updateRequest'] = $updateRequest;
-            $data['deleteJudul'] = $deleteJudul;
-            $data['deleteSampul'] = $deleteSampul;
-            $data['updateJudul'] = $updateJudul;
-            $data['updateSampul'] = $updateSampul;          
+        //     $data['deleteRequest'] = $deleteRequest;
+        //     $data['updateRequest'] = $updateRequest;
+        //     $data['deleteJudul'] = $deleteJudul;
+        //     $data['deleteSampul'] = $deleteSampul;
+        //     $data['updateJudul'] = $updateJudul;
+        //     $data['updateSampul'] = $updateSampul;          
 
-            $this->load->view('head_view');
-            $this->load->view('navbar_admin_view');
-            // $this->load->view('admin');
-            $this->load->view('request_view', $data);
-            $this->load->view('foot_view');
-        }
+        //     $this->load->view('head_view');
+        //     $this->load->view('navbar_admin_view');
+        //     // $this->load->view('admin');
+        //     $this->load->view('request_view', $data);
+        //     $this->load->view('foot_view');
+        // }
 
         public function createDeleteRequest($isbn)
         {
@@ -89,7 +89,7 @@
             $data->pengarangErr='';
             $data->genreErr='';
             $this->load->view('head_view');
-            $this->load->view('navbar_admin_view');
+            $this->load->view('navbar_view');
             $this->load->view('update_book_view', $data);
             $this->load->view('foot_view');
         }
@@ -154,7 +154,7 @@
                 if($error)
                 {
                   $this->load->view('head_view');
-                  $this->load->view('navbar_admin_view');
+                  $this->load->view('navbar_view');
                   $this->load->view('update_book_view', $data);
                   $this->load->view('foot_view');
                 }
@@ -192,48 +192,48 @@
 
         }
 
-        public function acceptDeleteBook($isbn)
-        {
-            $this->load->model('buku');
-            $this->buku->deleteBook($isbn);
+        // public function acceptDeleteBook($isbn)
+        // {
+        //     $this->load->model('buku');
+        //     $this->buku->deleteBook($isbn);
 
-            // $this->load->model('permintaan_ubah_hapus');
-            // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
+        //     // $this->load->model('permintaan_ubah_hapus');
+        //     // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
 
-            redirect(base_url('index.php/Request'));  
-        }
+        //     redirect(base_url('index.php/Request'));  
+        // }
 
-        public function declineRequest($id)
-        {
-            $this->load->model('permintaan_ubah_hapus');
-            $this->permintaan_ubah_hapus->delete($id);
+        // public function declineRequest($id)
+        // {
+        //     $this->load->model('permintaan_ubah_hapus');
+        //     $this->permintaan_ubah_hapus->delete($id);
 
-            redirect(base_url('index.php/Request'));  
-        }
+        //     redirect(base_url('index.php/Request'));  
+        // }
 
-        public function acceptUpdateBook($id, $isbn)
-        {
-            $this->load->model('permintaan_ubah_hapus');
-            $perubahan = $this->permintaan_ubah_hapus->getPerubahan($id);
-            list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
-            $data = array(
-                'isbn' => $isbnNew,
-                'judul' => $judulNew,
-                'pengarang' => $pengarangNew,
-                'deskripsi' => $deskripsiNew,
-                'genre' => $genreNew,
-                'penerbit' => $penerbitNew,
-                'tahun_terbit' => $tahun_terbitNew,
-                'jumlah_halaman' => $jumlah_halamanNew,
-                'sampul' => $sampulNew
-            );
+        // public function acceptUpdateBook($id, $isbn)
+        // {
+        //     $this->load->model('permintaan_ubah_hapus');
+        //     $perubahan = $this->permintaan_ubah_hapus->getPerubahan($id);
+        //     list($isbn, $isbnNew, $judul, $judulNew, $pengarang, $pengarangNew, $deskripsi, $deskripsiNew, $genre, $genreNew, $penerbit, $penerbitNew, $tahun_terbit, $tahun_terbitNew, $jumlah_halaman, $jumlah_halamanNew, $sampul, $sampulNew) = explode(",", $perubahan);
+        //     $data = array(
+        //         'isbn' => $isbnNew,
+        //         'judul' => $judulNew,
+        //         'pengarang' => $pengarangNew,
+        //         'deskripsi' => $deskripsiNew,
+        //         'genre' => $genreNew,
+        //         'penerbit' => $penerbitNew,
+        //         'tahun_terbit' => $tahun_terbitNew,
+        //         'jumlah_halaman' => $jumlah_halamanNew,
+        //         'sampul' => $sampulNew
+        //     );
 
-            $this->load->model('buku');
-            $this->buku->updateBook($isbn, $data);
-            $this->permintaan_ubah_hapus->delete($id);            
+        //     $this->load->model('buku');
+        //     $this->buku->updateBook($isbn, $data);
+        //     $this->permintaan_ubah_hapus->delete($id);            
 
-            redirect(base_url('index.php/Request')); 
-        }
+        //     redirect(base_url('index.php/Request')); 
+        // }
 
 
 

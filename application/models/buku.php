@@ -76,6 +76,25 @@
 			return $resultOwner = $query->result();
 		}
 
+		function getListOwner($limit, $start, $isbn) 
+		{
+	        $this->db->select("*");
+			$this->db->from('non_admin');
+			$this->db->join('koleksi', 'koleksi.username = non_admin.username');
+			$this->db->where('koleksi.isbn',$isbn);
+
+	        $this->db->limit($limit, $start);
+	        $query = $this->db->get();
+	 
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
+	   }
+
 		function isRegisteredBook($isbn)
 		{
 			$this->db->select('*');
