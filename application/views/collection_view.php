@@ -163,5 +163,37 @@
 	</div>
 </div> -->
 
+<script>
+$('document').ready(function() {
 
+  setInterval(function(){ 
+    console.log("OK");
+    var xmlhttp;
+    if(window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("200");
+        var $response = xmlhttp.responseText;
+        var $data = JSON.parse($response);
+
+        if($data['tanggapan']==true || $data['pinjaman']==true || $data['pinjaman2']==true){
+          $('#notif-icon').addClass("red-text");
+          $('#notif-icon').removeClass("lime-text text-lighten-5");
+        }
+      }
+    }
+    
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.send();
+  }, 3000);
+ 
+});
+</script>
  

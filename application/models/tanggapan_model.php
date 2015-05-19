@@ -44,14 +44,24 @@
 	        }
 		}
 
+		public function setTanggapan($username, $id)
+		{
+			$data=array('tanggapan.is_notified'=>true);
+			$this->db->where('wishlist.username', $username)->where('is_notified',false)->where('tanggapan.id_wishlist', $id);
+			$this->db->update('tanggapan join wishlist on tanggapan.id_wishlist=wishlist.id',$data);
+		}
+
 		public function getAllTanggapan($username){
-			$this->db->select('*');
+			$this->db->select("tanggapan.username as user, buku.judul as judul, non_admin.foto as foto, tanggapan.id_wishlist as id");
 			$this->db->from('tanggapan');
 			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
+			$this->db->join('buku', 'wishlist.isbn = buku.isbn');
+			$this->db->join('non_admin', 'non_admin.username = tanggapan.username');
 			$this->db->where('wishlist.username', $username)->where('tanggapan.is_notified',false);
-			$this->db->set('tanggapan.is_notified', true);
-
 			
+			$query=$this->db->get();
+			return $resultTanggapan = $query->result();
+
 		}
 		
 	} // end of Tanggapan
