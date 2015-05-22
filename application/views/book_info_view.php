@@ -2,26 +2,31 @@
       <div class="secondary-header-inner">
         <div class="container custom-container-c">Book Information</div>
       </div>
+      <?php
+      $username = $this->session->userdata('username');
+  if(!$isAdmin){
+  echo '
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
           <i class="large mdi-content-add"></i>
         </a>
-        <ul>
+        <ul>';
           
-          <?php
-            $username = $this->session->userdata('username');
+          
+            
             if(!$adaDiKoleksi)
             {
               echo '<li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
             }
-          ?>
+          
 
-          <?php
+          
             $username = $this->session->userdata('username');
             if(!$adaDiWishlist){
               echo '<li><a href="#modal-wishlist" class="modal-trigger btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>';
              
              }
+           }
             ?>
 
 
@@ -104,12 +109,15 @@ echo '
                     <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
                 </div>
             </div> -->
-
+<?php
+  if(!$isAdmin){
+  echo '
             <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
 
             <!-- <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
 
-            <a href="<?php echo base_url()."index.php/Request/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
+            <a href="'.base_url().'index.php/Request/showUpdateBook/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
+        ';}?>
         </div>
       </div>
     </div>
@@ -134,7 +142,10 @@ echo '
             <?php }?>
             <div class="col s12 m5 l4">
               <div align="right">
-                <h6>Book Owner</h6>
+                <?php
+              if(!$isAdmin){
+              echo '
+                <h6>Book Owner</h6>';}?>
                 <div class="row">
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
@@ -149,7 +160,9 @@ echo '
                   <div class="right col">
                   <?php
                     $isbn = $this->uri->segment(3);
+                    if(!$isAdmin){
                     echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."index.php/Book/show_owner/".$isbn.'">More...</a>';
+                  }
                   ?>
                   </div>
                 </div>
