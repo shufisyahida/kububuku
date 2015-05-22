@@ -27,15 +27,7 @@
 			$this->db->insert('tanggapan', $data);
 		}
 
-<<<<<<< HEAD
 
-
-		
-
-=======
-		// public function getNotifTanggapan($username)
-
->>>>>>> 5da2831d6ec4d1142a3eb407f70eca7783e29567
 		public function IsInTanggapan($id, $username){
 
 			$this->db->select('*');
@@ -54,11 +46,7 @@
 		
 		}
 
-<<<<<<< HEAD
 		public function getNotifTanggapan($username)
-=======
-		public function deleteWishlist($username,$isbn)
->>>>>>> 5da2831d6ec4d1142a3eb407f70eca7783e29567
 		{
 			$this->db->select('*');
 			$this->db->from('tanggapan');

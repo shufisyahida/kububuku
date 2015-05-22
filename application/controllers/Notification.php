@@ -27,8 +27,10 @@
             $this->load->model('tanggapan_model');
             $this->load->model('pinjaman');
             $data["tanggapan"] = $this->tanggapan_model->getNotifTanggapan($username);
-            $data["pinjaman"] = $this->pinjaman->getNotifDipinjam($username);
-            $data["pinjaman2"] = $this->pinjaman->getNotifMeminjam($username);
+            $data["request"] = $this->pinjaman->getNotifRequest($username);
+            $data["accept"] = $this->pinjaman->getNotifAccept($username);
+            $data["decline"] = $this->pinjaman->getNotifDecline($username);
+            $data["return"] = $this->pinjaman->getNotifReturn($username);
             echo json_encode($data);            
         }
 

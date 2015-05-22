@@ -183,7 +183,7 @@ $('document').ready(function() {
         var $response = xmlhttp.responseText;
         var $data = JSON.parse($response);
 
-        if($data['tanggapan']==true || $data['pinjaman']==true || $data['pinjaman2']==true){
+        if($data['tanggapan']==true || $data['request']==true || $data['accept']==true|| $data['decline']==true|| $data['return']==true){
           $('#notif-icon').addClass("red-text");
           $('#notif-icon').removeClass("lime-text text-lighten-5");
         }

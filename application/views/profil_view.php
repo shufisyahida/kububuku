@@ -312,10 +312,7 @@
 								            	<div class="row row-custom-a">
 								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
 									            </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 5da2831d6ec4d1142a3eb407f70eca7783e29567
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{	

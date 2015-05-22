@@ -64,11 +64,52 @@
 			return $query;
 		}
 
-		function getNotifDipinjam($username)
+		function getNotifRequest($username)
 		{
 			$this->db->select('*');
 			$this->db->from('pinjaman');
-			$this->db->where('username_pemilik',$username)->where_in('is_notified',false);
+			$this->db->where('username_pemilik',$username)->where('is_notified',false)->where('status','1');
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
+		}
+		function getNotifReturn($username)
+		{
+			$this->db->select('*');
+			$this->db->from('pinjaman');
+			$this->db->where('username_pemilik',$username)->where('is_notified',false)->where('status','3');
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
+		}
+
+		function getNotifAccept($username)
+		{
+			$this->db->select('*');
+			$this->db->from('pinjaman');
+			$this->db->where('username_peminjam',$username)->where_in('is_notified',false)->where('status','2');
+			$query=$this->db->get();	 
+	        if ($query->num_rows() > 0) {
+	            return true;
+	        }
+	        else {
+	        	return false;
+	        }
+		}
+
+		function getNotifDecline($username)
+		{
+			$this->db->select('*');
+			$this->db->from('pinjaman');
+			$this->db->where('username_peminjam',$username)->where_in('is_notified',false)->where('status','5');
 			$query=$this->db->get();	 
 	        if ($query->num_rows() > 0) {
 	            return true;
@@ -149,19 +190,7 @@
 		}
 
 
-		function getNotifMeminjam($username)
-		{
-			$this->db->select('*');
-			$this->db->from('pinjaman');
-			$this->db->where('username_peminjam',$username)->where_in('is_notified',false);
-			$query=$this->db->get();	 
-	        if ($query->num_rows() > 0) {
-	            return true;
-	        }
-	        else {
-	        	return false;
-	        }
-		}
+		
 		
 		function isRequested($peminjam, $pemilik, $isbn)
 		{
