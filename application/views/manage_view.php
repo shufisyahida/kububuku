@@ -168,10 +168,10 @@ $('document').ready(function() {
 					$('#user-content').append(' \
 						<li class="collection-item avatar"> \
 						<div> \
-						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+$username+'" > \
+						<a href = "Profile/showProfile/'+$username+'" > \
 							<img src="'+$foto+'" alt="" class="circle"> \
 						</a> \
-						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+$username+'" > \
+						<a href = "Profile/showProfile/'+$username+'" > \
 							<span class="title">'+$nama+'</span> \
 						</a> \
 						<p> \
@@ -184,7 +184,7 @@ $('document').ready(function() {
 						</div> \
 						<div class="modal-footer"> \
 							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-							<a href="localhost/kububuku/index.php/Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+							<a href="Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 						</div> \
 						</div> \
 							<a href="#modal-remove'+$username+'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a> \
@@ -233,11 +233,13 @@ $('document').ready(function() {
 				console.log(response);
 				console.log(response.length);
 				console.log(data['buku'].length);
+				console.log(data['buku']);
 
 			
 				var buku = data['buku'];
 				for(i in buku) {
 					 var $isbn = buku[i].isbn;
+					 console.log($isbn);
 			          var $judul = buku[i].judul;
 			          var $pengarang = buku[i].pengarang;
 			          var $deskripsi = buku[i].deskripsi;
@@ -256,10 +258,10 @@ $('document').ready(function() {
 					$('#book-content').append(' \
 						<li class="collection-item avatar"> \
 						<div> \
-							<a href = "localhost/kububuku/index.php/Book/book_info/"'+$isbn+'" > \
+							<a href = "Book/book_info/"'+$isbn+'" > \
 								<img src="'+$sampul+'" alt="" class="cover"> \
 							</a> \
-							<a href = "localhost/kububuku/index.php/Book/book_info/"'+$isbn+'" > \
+							<a href = "Book/book_info/"'+$isbn+'" > \
 								<span class="title">'+$judul+'</span> \
 							</a> \
 							<p> \
@@ -272,7 +274,7 @@ $('document').ready(function() {
 								</div> \
 								<div class="modal-footer"> \
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-									<a href="localhost/index.php/Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+									<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 								</div> \
 							</div> \
 							<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
