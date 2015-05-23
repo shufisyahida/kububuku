@@ -52,8 +52,8 @@
 								
 							<div id="modal-remove'.$value->id.'" class="modal">
 								<div class="modal-content">
-									<h4>Remove Collection</h4>
-									<p>Are you sure to remove this book from collection?</p>
+									<h4>Remove Message</h4>
+									<p>Are you sure to remove this message?</p>
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
@@ -139,8 +139,8 @@ $('document').ready(function() {
 						<span class="email-address grey-text">'+ $waktu +'</span> \
 						<div id="modal-remove'+ $id +'" class="modal"> \
 							<div class = "modal-content"> \
-								<h4>Remove Collection</h4> \
-								<p>Are you sure to remove this book from collection?</p> \
+								<h4>Remove Message</h4> \
+								<p>Are you sure to remove this message?</p> \
 							</div> \
 							<div class="modal-footer"> \
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
