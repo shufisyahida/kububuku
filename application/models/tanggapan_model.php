@@ -28,7 +28,7 @@
 		}
 
 
-		public function IsInTanggapan($id, $username){
+		public function isInTanggapan($id, $username){
 
 			$this->db->select('*');
 	        $this->db->from('tanggapan');

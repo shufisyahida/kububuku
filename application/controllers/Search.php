@@ -198,6 +198,7 @@
                     $this->load->model('non_admin');
                     $this->load->model('fakultas'); 
                     $koleksi = array();
+                    $wishlist = array();
                     foreach ($result as $key => $value)
                     {
                         
@@ -222,10 +223,13 @@
                         //get number of collection
                         $this->load->model('koleksi');
                         $koleksi[$username]= $this->koleksi->getNumOfKoleksi($username);
+                        $this->load->model('wishlist_model');
+                        $wishlist[$username]= $this->wishlist_model->getNumOfWishlist($username);
                     }
                 
                     $data['resultSearchPengguna'] = $result;
                     $data['koleksi']= $koleksi;
+                    $data['wishlist']= $wishlist;
                     $data['notFound'] = null;
                     $data['notMatch'] = null;
                 } 

@@ -142,7 +142,7 @@
                 <h5 class="green-text"><?php echo $koleksi[$post->username] ?></h5>books
               </div>
               <div class="col s6 m6 l6 center">
-                <h5 class="green-text">---</h5>wishlist
+                <h5 class="green-text"><?php echo $wishlist[$post->username] ?></h5>wishlist
               </div>
             </div>
           </div>

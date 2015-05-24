@@ -20,7 +20,7 @@
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table">
-    <form method="post" action="<?php echo base_url('index.php/Profile/editProfile/edit') ?>" >
+    <form method="post" action="<?php echo base_url('index.php/Profile/edit') ?>" >
       <div class="row">
         <h4>Basic Information</h4>
         <div class="card-panel z-depth-1">

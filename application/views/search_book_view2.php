@@ -130,7 +130,7 @@
                         <div class="row row-custom-a">
                           <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
                         </div>';
-                      }
+                      
                       if(!$adaDiWishlist[$key])
                       {
                         echo 
@@ -153,6 +153,7 @@
                         </div>';
                       }
                     }
+                  }
                   ?>
               
             </div>
