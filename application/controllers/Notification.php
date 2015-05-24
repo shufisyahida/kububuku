@@ -50,11 +50,12 @@
 
         }
 
-        public function lookInform($id){
+        public function lookInform($id,$OtherUsername){
             $username = $this->session->userdata('username');
             $this->load->model('tanggapan_model');
             $this->tanggapan_model->setTanggapan($username, $id);
-            redirect(base_url('index.php/Wishlist'));
+
+            redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
         }
 
         public function lookRequest($user, $isbn){
