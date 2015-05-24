@@ -131,13 +131,13 @@
                    $data['hpErr'] = "Phone number should be numeric ";
                     $error = true;
                 }
-                 if (!(strlen($hp)==10||strlen($hp)==11||strlen($hp)==12))
+                 if (!(strlen($hp)==10||strlen($hp)==11||strlen($hp)==12||strlen($hp)==0))
                 {
                    
                    $data['hpErr'] = "Phone number format is not valid";
                     $error = true;
                 }
-                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username))
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-\s]/', $username))
                 {
                    //var_dump($name);
                    $data['usernameErr'] = "Username shouldn't contain special character";
