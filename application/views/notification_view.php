@@ -25,7 +25,7 @@
         {
         foreach($resultTanggapan as $post){ ?>
             <?php echo 
-            '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookInform/".$post->id.'" >
+            '<li class="collection-item avatar"><a href = "'.base_url()."index.php/Notification/lookInform/".$post->id."/".$post->user.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
             
