@@ -223,7 +223,7 @@
 								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if(!$isAdmin){
@@ -304,16 +304,11 @@
 								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
+								            	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
 								            	<span>'.$value->pengarang.'</span><br>
 
-								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
-								            
-								            	<div class="row row-custom-a">
-								            	   	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-inform'.$value->isbn.'">Inform Me</a>
-									            </div>
-
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
+								            								            	
 								            	if($user->username != $this->session->userdata('username'))
 								            	{	
 								            		if(!$isAdmin){	

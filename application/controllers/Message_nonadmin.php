@@ -84,6 +84,22 @@
   //           $this->pesan_model->delete($id);
   //           redirect(base_url('index.php/Message'));
   //       }
+        public function index()
+        {
+            // $data['page_title'] = "CI Hello World App!";
+            $data = array(
+               'kategori' => '',
+               'subject' => '',
+               'content' => '',
+               'kategoriErr' => '',
+               'subjekErr' => '',
+               'kontenErr' => '',         
+            );
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('contact_us_view', $data);
+            $this->load->view('foot_view');
+        }
 
         public function create()
         {        
@@ -91,8 +107,8 @@
             {
                 $username = $this->session->userdata('username');
                 $ktg = $this->input->post('kategori');
-                $judul = $this->input->post('subject');
-                $isi = $this->input->post('content');
+                $subjek = $this->input->post('subject');
+                $konten = $this->input->post('content');
                 if ($ktg=='report'){
                     $kategori=1;
                 }
@@ -102,46 +118,57 @@
                 else{
                     $kategori=3;
                 }
-                $isi = $this->input->post('content');
-             
-                /*$data = array(
-                    'username' => $username,
-                    'kategori' => $kategori,
-                    'judul' => $judul,
-                    'isi' => $isi,
-                    'is_notified' => false,
-                    'isiErr' => ''
+                $data = array(
+                    'kategori' => $ktg,
+                    'subject' => $subjek,
+                    'content' => $konten,
+                    'kategoriErr' => '',
+                    'subjekErr' => '',
+                    'kontenErr' => ''
                 );
-
                 $error = false;
-             
-                }
-                if($isi == '')
+                                
+                if($ktg == '')
                 {
-                  $data['isiErr'] = "Message should not be blank";
-                  $error = true;
+                    $data['kategoriErr'] = "Category should not be blank";
+                    $error = true;
                 }
-               
+                
+                if($konten == '')
+                {
+                    $data['kontenErr'] = "Content should not be blank";
+                    $error = true;
+                }
+                if($subjek == '')
+                {
+                    $data['subjekErr'] = "Subject should not be blank";
+                    $error = true;
+                }
+                               
                 if($error)
                 {
-                  $this->load->view('head_view');
-                  $this->load->view('navbar_view');
-                  $this->load->view('contact_us_view', $data);
-                  $this->load->view('foot_view');
+                    //$data['jenis_kelamin'] = "M";
+                    // $data['fakultas'] = 1;
+                    $this->load->view('head_view');
+                    $this->load->view('navbar_view');
+                    $this->load->view('contact_us_view', $data);
+                    $this->load->view('foot_view');
                 }
                 else
-                {*/
-                   
-                $data = array(
+                {            
+                    $data = array(
                     'username' => $username,
                     'kategori' => $kategori,
                     'is_notified' => false,
-                    'judul' => $judul,
-                    'isi' => $isi
+                    'judul' => $subjek,
+                    'isi' => $konten
                 );
                 $this->load->model('pesan_model');
                 $this->pesan_model->createPesan($data);
                 redirect(base_url('index.php/Request_in'));
+                }     
+                   
+                
                       
             }
             else

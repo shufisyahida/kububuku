@@ -45,6 +45,15 @@
 	  		 return $resultWishlist = $query->result();
 		
 		}
+
+		public function getNumOfWishlist($username)
+		{
+			$this->db->select('*');
+			$this->db->from('wishlist');
+			$this->db->where('username',$username);
+			$query = $this->db->get();
+			return sizeOf($query->result());
+		}
 		
 	} // end of Wishlist
 

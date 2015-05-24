@@ -114,7 +114,7 @@
                       {
                         echo 
                         '
-                        <div id="modal-addcol" class="modal">
+                        <div id="modal-addcol'.$post->isbn.'" class="modal">
                           <div class="modal-content">
                             <h4>Add Collection?</h4>
                             <p>Are you sure to add this book to your collection?</p>
@@ -128,14 +128,14 @@
                         </div>
       
                         <div class="row row-custom-a">
-                          <a href="#modal-addcol" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
+                          <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
                         </div>';
-                      }
+                      
                       if(!$adaDiWishlist[$key])
                       {
                         echo 
                         '
-                        <div id="modal-addwis" class="modal">
+                        <div id="modal-addwis'.$post->isbn.'" class="modal">
                           <div class="modal-content">
                             <h4>Add Wishlist?</h4>
                             <p>Are you sure to add this book to your wishlist?</p>
@@ -149,10 +149,11 @@
                         </div>
       
                         <div class="row row-custom-a">
-                          <a href="#modal-addwis" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
+                          <a href="#modal-addwis'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
                         </div>';
                       }
                     }
+                  }
                   ?>
               
             </div>

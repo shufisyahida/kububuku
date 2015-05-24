@@ -51,13 +51,13 @@
 							<?php echo
 								'<img src='.$updateSampul[$key].' alt="" class="cover">'
 							?>
-							<span class="title"><?php echo $updateJudul[$key];?><a href="#modal" class="modal-trigger"><i class="mdi-action-open-in-new green-text"></i></a></span>
+							<span class="title"><?php echo $updateJudul[$key];?><a href="#modal<?php echo $post->id?>" class="modal-trigger"><i class="mdi-action-open-in-new green-text"></i></a></span>
 							<p>
 								by <i><?php echo $post->username;?></i>
 							</p>
 							<a href="<?php echo base_url().'index.php/Request_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="secondary-content"><i class="mdi-action-done green-text small"></i></a>
 							<a href="<?php echo base_url().'index.php/Request_admin/declineRequest/'.$post->id?>" class="secondary-content-2"><i class="mdi-content-clear red-text small"></i></a>
-							<div id="modal" class="modal">
+							<div id="modal<?php echo $post->id?>" class="modal">
 							<div class="modal-content">
 								<h4>Accept Update Book</h4>
 								<table>
