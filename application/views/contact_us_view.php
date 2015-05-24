@@ -24,21 +24,24 @@
         <form method="post" action="<?php echo base_url('index.php/Message_nonadmin/create') ?>">          
             <div class="row">
                 <div class="col s12 m5 l4">
-                    <select id="kategori" name="kategori" type="text" class="validate">
+                    <select id="kategori" name="kategori" type="text" class="validate" value="<?php echo $kategori;?>">
                         <option value="" disabled selected >Choose Report Category</option>
-                        <option value="report">Report</option>
-                        <option value="suggestion">Suggestion</option>
-                        <option value="personal-req">Personal Request</option>
+                        <option value="report" <?php if($kategori == "report") echo "selected"; ?>>Report</option>
+                        <option value="suggestion" <?php if($kategori == "suggestion") echo "selected"; ?>>Suggestion</option>
+                        <option value="personal-req" <?php if($kategori == "personal-req") echo "selected"; ?>>Personal Request</option>
                     </select>
+                    <span class="error"><?php echo $kategoriErr;?></span>
                 </div>
               
                 <div class="input-field col s12">
-                    <input id="subject-mail" type="text" class="validate" name="subject">
+                    <input id="subject" type="text" class="validate" name="subject" value="<?php echo $subject;?>">
                     <label>Subject</label>
+                    <span class="error"><?php echo $subjekErr;?></span>
                 </div>
                 <div class="input-field col s12">
-                    <textarea id="content-mail" name="content" class="materialize-textarea"></textarea>
+                    <textarea id="content" name="content" class="materialize-textarea" value="<?php echo $content;?>"></textarea>
                     <label for="content-mail">Content</label>
+                    <span class="error"><?php echo $kontenErr;?></span>
                 </div>
                 <div class="col s12">
                     <button class="right btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">SEND</button>

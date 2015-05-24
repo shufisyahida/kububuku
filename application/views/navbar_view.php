@@ -6,7 +6,7 @@
       <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>"><span class="green-text">Edit Profile</span></a></li>
       <li class="divider"></li>
-      <li><a href="<?php echo base_url('index.php/Contact_us')?>"><span class="green-text">Contact Us</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Message_nonadmin')?>"><span class="green-text">Contact Us</span></a></li>
       <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/Auth/logout')?>"><span class="green-text">Logout</span></a></li>
     </ul>
