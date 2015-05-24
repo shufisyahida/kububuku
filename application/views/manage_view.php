@@ -16,10 +16,11 @@
 				<li class="collection-item"><h5>Users</h5></li>
 				<?php foreach ($user as $key => $value) 
 				{
+					$index = 0;
 					$newDate = date("d-m-Y , H:i:s",strtotime($value->tanggal_buat));
 					$day = date('l', strtotime($value->tanggal_buat));
 				echo '
-				<li class="collection-item avatar">
+				<li class="collection-item avatar" id="user-'.$index++.'">
 					<div>
 					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
 						<img src="'.$value->foto.'" alt="" class="circle">
@@ -58,11 +59,12 @@
 				<li class="collection-item"><h5>Books</h5></li>
 				<?php foreach ($buku as $key => $value) 
 				{
+					$index = 0;
 					$newDate = date("d-m-Y , H:i:s",strtotime($value->tanggal_buat));
 					$day = date('l', strtotime($value->tanggal_buat));
 
 					echo'
-				<li class="collection-item avatar">
+				<li class="collection-item avatar" id="book-'.$index++.'">
 					<div>
 					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
 						<img src="'.$value->sampul.'" alt="" class="cover">
@@ -106,10 +108,10 @@ $('document').ready(function() {
 	console.log("rede");
 
 	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
-	if($("#10").length == 0) {
+	if($("#user-5").length == 0) {
 		$('#more1').addClass("disabled");
 		$('#more1').removeClass("waves-effect waves-light green");
-	}	
+	}
 
 	$('#more1').on('click', function(e){
 		e.preventDefault(); //hrefnya di-disable
@@ -190,10 +192,10 @@ $('document').ready(function() {
 							<a href="#modal-remove'+$username+'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a> \
 						</div> \
 						</li>');
-					
-
 				}
 			}
+
+			$('.modal-trigger').leanModal();
 		}
 		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
 		xmlhttp.send();
@@ -205,12 +207,6 @@ $('document').ready(function() {
 $('document').ready(function() {
 	var $page = 0;
 	console.log("rede");
-
-	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
-	if($("#10").length == 0) {
-		$('#more2').addClass("disabled");
-		$('#more2').removeClass("waves-effect waves-light green");
-	}	
 
 	$('#more2').on('click', function(e){
 		e.preventDefault(); //hrefnya di-disable
@@ -247,43 +243,49 @@ $('document').ready(function() {
 			          var $penerbit = buku[i].penerbit;
 			          var $tahun_terbit = buku[i].tahun_terbit;
 			          var $jumlah_halaman = buku[i].jumlah_halaman;
-			          var $sampul = buku[i].rank_sampul;
+			          var $sampul = buku[i].sampul;
 			          var $tanggal_buat = buku[i].tanggal_buat;
 
-					if(response) {
+					if(!data['buku']) {
 						$('#more2').addClass("disabled");
 						$('#more2').removeClass("waves-effect waves-light green");
-					} 
-
-					$('#book-content').append(' \
-						<li class="collection-item avatar"> \
-						<div> \
-							<a href = "Book/book_info/"'+$isbn+'" > \
-								<img src="'+$sampul+'" alt="" class="cover"> \
-							</a> \
-							<a href = "Book/book_info/"'+$isbn+'" > \
-								<span class="title">'+$judul+'</span> \
-							</a> \
-							<p> \
-								<span class="grey-text" style="font-size: 0.9em;">'+$tanggal_buat+'</span> \
-							</p> \
-							<div id="modal-remove'+$isbn+'" class="modal"> \
-								<div class="modal-content"> \
-									<h4>Remove Book</h4> \
-									<p>Are you sure to remove this book?</p> \
+					}
+					else
+					{
+						$('#book-content').append(' \
+							<li class="collection-item avatar"> \
+							<div> \
+								<a href = "Book/book_info/'+$isbn+'" > \
+									<img src="'+$sampul+'" alt="" class="cover"> \
+								</a> \
+								<a href = "Book/book_info/'+$isbn+'" > \
+									<span class="title">'+$judul+'</span> \
+								</a> \
+								<p> \
+									<span class="grey-text" style="font-size: 0.9em;">'+$tanggal_buat+'</span> \
+								</p> \
+								<div id="modal-remove'+$isbn+'" class="modal"> \
+									<div class="modal-content"> \
+										<h4>Remove Book</h4> \
+										<p>Are you sure to remove this book?</p> \
+									</div> \
+									<div class="modal-footer"> \
+										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
+										<a href="index.php/Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+									</div> \
 								</div> \
-								<div class="modal-footer"> \
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-									<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
-								</div> \
+								<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
 							</div> \
-							<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
-						</div> \
-						</li>');
+							</li>');
+					}
+
+						
 					
 
 				}
 			}
+
+			$('.modal-trigger').leanModal();
 		}
 		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
 		xmlhttp.send();

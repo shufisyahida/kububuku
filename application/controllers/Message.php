@@ -44,7 +44,7 @@
             // $this->pagination->initialize($config);
      
             // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $data["pesan"] = $this->pesan_model->getListPesan(10, 0);
+            $data["pesan"] = $this->pesan_model->getListPesan(1, 0);
             // $jsona = json_encode($data);
             // var_dump($jsona);
             
@@ -75,7 +75,7 @@
             //$thePage = intval($page);
             $data = array();
             $page = $_GET['page'];
-            $data["pesan"] = $this->pesan_model->getListPesan(10, $page);
+            $data["pesan"] = $this->pesan_model->getListPesan(1, $page);
             echo json_encode($data);
         }
 

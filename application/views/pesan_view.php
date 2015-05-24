@@ -85,7 +85,7 @@ $('document').ready(function() {
 	$('#more').on('click', function(e){
 		e.preventDefault(); //hrefnya di-disable
 
-		$page = $page+10;
+		$page = $page+1;
 		var xmlhttp;
 		if(window.XMLHttpRequest) {
 			xmlhttp = new XMLHttpRequest();
@@ -103,7 +103,7 @@ $('document').ready(function() {
 				console.log(response);
 				console.log(response.length);
 				console.log(data['pesan'].length);
-
+				$.format.date("2009-12-18 10:54:50.546", "Test: dd/MM/yyyy");
 
 
 				var pesan = data['pesan'];
@@ -121,6 +121,7 @@ $('document').ready(function() {
 					} 
 
 					$('#message-collection').append(' \
+					'+$test+' \
 					<li class="collection-item"> \
 						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+ $username +'> \
 							<span class="email-address">'+ $username +'</span><br> \
@@ -144,7 +145,7 @@ $('document').ready(function() {
 							</div> \
 							<div class="modal-footer"> \
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-								<a href="localhost/kububuku/index.php/Message/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+								<a href="Message/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 							</div> \
 						</div> \
 						<a href="#modal-remove'+ $id +'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a> \
@@ -153,6 +154,8 @@ $('document').ready(function() {
 
 				}
 			}
+
+			$('.modal-trigger').leanModal();
 		}
 		xmlhttp.open("POST","http://localhost/kububuku/index.php/Message/getList?page="+ $page, true);
 		xmlhttp.send();
