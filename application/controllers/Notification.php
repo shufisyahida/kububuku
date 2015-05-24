@@ -51,9 +51,10 @@
         }
 
         public function lookInform($id,$OtherUsername){
-            $username = $this->session->userdata('username');
+            //$username = $this->session->userdata('username');
             $this->load->model('tanggapan_model');
-            $this->tanggapan_model->setTanggapan($username, $id);
+            //$this->tanggapan_model->setTanggapan($username, $id);
+            $this->tanggapan_model->deleteTanggapan($id,$OtherUsername);
 
             redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
         }
