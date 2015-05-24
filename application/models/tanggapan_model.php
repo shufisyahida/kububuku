@@ -62,11 +62,18 @@
 	        }
 		}
 
-		public function setTanggapan($username, $id)
+	/*	public function setTanggapan($username, $id)
 		{
 			$data=array('tanggapan.is_notified'=>true);
 			$this->db->where('wishlist.username', $username)->where('is_notified',false)->where('tanggapan.id_wishlist', $id);
 			$this->db->update('tanggapan join wishlist on tanggapan.id_wishlist=wishlist.id',$data);
+		}*/
+
+		public function deleteTanggapan($id,$OtherUsername)
+		{	
+			$this->db->where('username',$OtherUsername)->where('id_wishlist',$id);
+			$this->db->delete('tanggapan');
+		
 		}
 
 		public function getAllTanggapan($username){
