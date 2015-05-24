@@ -39,7 +39,7 @@
                     'is_notified' => false
                   	);
 				$this->tanggapan_model->addTanggapan($data);
-				redirect(base_url('index.php/Wishlist'));
+				redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
 				
 			}
 			else
