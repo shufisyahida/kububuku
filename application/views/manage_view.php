@@ -14,9 +14,11 @@
 		<div class="col l6">
 			<ul class="collection z-depth-1" id="user-content">
 				<li class="collection-item"><h5>Users</h5></li>
-				<?php foreach ($user as $key => $value) 
+				<?php 
+				$index = 1;
+				foreach ($user as $key => $value) 
 				{
-					$index = 0;
+					
 					$newDate = date("d-m-Y , H:i:s",strtotime($value->tanggal_buat));
 					$day = date('l', strtotime($value->tanggal_buat));
 				echo '
@@ -57,9 +59,11 @@
 		<div class="col l6">
 			<ul class="collection z-depth-1" id="book-content">
 				<li class="collection-item"><h5>Books</h5></li>
-				<?php foreach ($buku as $key => $value) 
+				<?php 
+				$index = 1;
+				foreach ($buku as $key => $value) 
 				{
-					$index = 0;
+					
 					$newDate = date("d-m-Y , H:i:s",strtotime($value->tanggal_buat));
 					$day = date('l', strtotime($value->tanggal_buat));
 
@@ -140,6 +144,10 @@ $('document').ready(function() {
 
 				var user = data['user'];
 				var buku = data['buku'];
+				if(!user) {
+					$('#more1').addClass("disabled");
+					$('#more1').removeClass("waves-effect waves-light green");
+				}
 				for(i in user) {
 					 var $username = user[i].username;
 			          var $password = user[i].password;
@@ -161,11 +169,6 @@ $('document').ready(function() {
 			          var $bbm = user[i].bbm;
 			          var $wa = user[i].wa;
 			          var $tanggal_buat = user[i].tanggal_buat;
-
-					if(response) {
-						$('#more1').addClass("disabled");
-						$('#more1').removeClass("waves-effect waves-light green");
-					} 
 
 					$('#user-content').append(' \
 						<li class="collection-item avatar"> \
@@ -208,6 +211,12 @@ $('document').ready(function() {
 	var $page = 0;
 	console.log("rede");
 
+	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
+	if($("#book-5").length == 0) {
+		$('#more2').addClass("disabled");
+		$('#more2').removeClass("waves-effect waves-light green");
+	}
+
 	$('#more2').on('click', function(e){
 		e.preventDefault(); //hrefnya di-disable
 
@@ -233,6 +242,10 @@ $('document').ready(function() {
 
 			
 				var buku = data['buku'];
+				if(!buku) {
+					$('#more2').addClass("disabled");
+					$('#more2').removeClass("waves-effect waves-light green");
+				}
 				for(i in buku) {
 					 var $isbn = buku[i].isbn;
 					 console.log($isbn);
@@ -246,12 +259,6 @@ $('document').ready(function() {
 			          var $sampul = buku[i].sampul;
 			          var $tanggal_buat = buku[i].tanggal_buat;
 
-					if(!data['buku']) {
-						$('#more2').addClass("disabled");
-						$('#more2').removeClass("waves-effect waves-light green");
-					}
-					else
-					{
 						$('#book-content').append(' \
 							<li class="collection-item avatar"> \
 							<div> \
@@ -277,8 +284,6 @@ $('document').ready(function() {
 								<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
 							</div> \
 							</li>');
-					}
-
 						
 					
 
