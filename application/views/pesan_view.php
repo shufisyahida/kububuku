@@ -77,7 +77,7 @@ $('document').ready(function() {
 	console.log("rede");
 
 	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
-	if($("#10").length == 0) {
+	if($("#5").length == 0) {
 		$('#more').addClass("disabled");
 		$('#more').removeClass("waves-effect waves-light green");
 	}	
@@ -85,7 +85,7 @@ $('document').ready(function() {
 	$('#more').on('click', function(e){
 		e.preventDefault(); //hrefnya di-disable
 
-		$page = $page+1;
+		$page = $page+5;
 		var xmlhttp;
 		if(window.XMLHttpRequest) {
 			xmlhttp = new XMLHttpRequest();
@@ -103,10 +103,14 @@ $('document').ready(function() {
 				console.log(response);
 				console.log(response.length);
 				console.log(data['pesan'].length);
-				$.format.date("2009-12-18 10:54:50.546", "Test: dd/MM/yyyy");
-
 
 				var pesan = data['pesan'];
+				console.log(pesan);
+				if(pesan==false) {
+					$('#more').addClass("disabled");
+					$('#more').removeClass("waves-effect waves-light green");
+				}
+
 				for(i in pesan) {
 					var $id = pesan[i].id;
 					var $username = pesan[i].username;
@@ -115,13 +119,9 @@ $('document').ready(function() {
 					var $judul = pesan[i].judul;
 					var $isi = pesan[i].isi;
 
-					if(response) {
-						$('#more').addClass("disabled");
-						$('#more').removeClass("waves-effect waves-light green");
-					} 
+
 
 					$('#message-collection').append(' \
-					'+$test+' \
 					<li class="collection-item"> \
 						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+ $username +'> \
 							<span class="email-address">'+ $username +'</span><br> \
@@ -151,7 +151,7 @@ $('document').ready(function() {
 						<a href="#modal-remove'+ $id +'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a> \
 					</li>');
 					
-
+					 
 				}
 			}
 
