@@ -92,12 +92,14 @@
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="tahun_terbit" name="tahun_terbit" type="text" class="validate" value="<?php echo $tahun_terbit;?>">
                         <label for="tahun_terbit">Publish Year</label>
+                        <span class="error"><?php echo $tahun_terbitErr;?></span>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="jumlah_halaman" name="jumlah_halaman" type="text" class="validate" value="<?php echo $jumlah_halaman;?>">
                         <label for="jumlah_halaman">Number of Pages</label>
+                        <span class="error"><?php echo $jumlah_halamanErr;?></span>
                     </div>
 
                     <div class="input-field col s4 offset-s2">

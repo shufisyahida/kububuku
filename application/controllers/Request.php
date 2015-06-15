@@ -85,6 +85,8 @@
             $book = $this->buku->getBook($isbn) ;
             $data=$book[0];
             $data->isbnErr='';
+            $data->tahun_terbitErr='';
+            $data->jumlah_halamanErr='';
             $data->judulErr='';
             $data->pengarangErr='';
             $data->genreErr='';
@@ -116,6 +118,8 @@
                     'tahun_terbit' => $tahun_terbit,
                     'jumlah_halaman' => $jumlah_halaman,
                     'sampul' => $sampul,
+                    'jumlah_halamanErr' => '',
+                    'tahun_terbitErr' => '',
                     'isbnErr' => '',
                     'judulErr' => '',
                     'pengarangErr' => '',
@@ -135,6 +139,30 @@
                 {
                   $data['isbnErr'] = "ISBN should not be blank";
                   $error = true;
+                }
+                if (!preg_match("/^[0-9]*$/", $isbn))
+                {
+                   //var_dump($name);
+                   $data['isbnErr'] = "ISBN number should be numeric ";
+                    $error = true;
+                }
+                 if (!preg_match("/^[0-9]*$/", $tahun_terbit))
+                {
+                   //var_dump($name);
+                   $data['tahun_terbitErr'] = "Published Year should be numeric ";
+                    $error = true;
+                }
+                if (!(strlen($tahun_terbit)==4))
+                {
+                   
+                   $data['tahun_terbitErr'] = "Published Year format is not valid";
+                    $error = true;
+                }
+                if (!preg_match("/^[0-9]*$/", $jumlah_halaman))
+                {
+                   //var_dump($name);
+                   $data['jumlah_halamanErr'] = "Number of Page should be numeric ";
+                    $error = true;
                 }
                 if($judul == '')
                 {
