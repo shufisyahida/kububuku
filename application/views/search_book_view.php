@@ -28,13 +28,13 @@
   <div class="row">
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1">
-        <h6>Search Filter</h6>
+        <h6 style="font-size:1.5em">Search Filter</h6>
         <form method="post" action="<?php echo base_url('index.php/Search/searchBook') ?>">
           
           <div class="row">
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
-                    <option value="" disabled selected>Choose Category</option>
+                    <option style="font-size: 0.5em" value="" disabled selected>Choose Category</option>
                     <option value="judul">Title</option>
                     <option value="pengarang">Author</option>
                      <option value="genre">Genre</option>
