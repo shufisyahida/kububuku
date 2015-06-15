@@ -110,6 +110,9 @@
 			elseif($stat==3)
 			{
 				return 'Staff';
+			}
+			else{
+				return 'Alumnus';
 			}				
 
 			return $stat;
