@@ -6,9 +6,11 @@
       <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>"><span class="green-text">Edit Profile</span></a></li>
       <li class="divider"></li>
-      <li><a href="<?php echo base_url('index.php/Message_nonadmin')?>"><span class="green-text">Contact Us</span></a></li>
-      <li class="divider"></li>
       <li><a href="<?php echo base_url('index.php/Auth/logout')?>"><span class="green-text">Logout</span></a></li>
+      <li><a href="<?php echo base_url('index.php/Message_nonadmin')?>"><span class="green-text">Contact Us</span></a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content dropdown-content-custom">
+      <li><a href="<?php echo base_url('index.php/Message_nonadmin')?>"><span class="green-text">Contact Us</span></a></li>
     </ul>
 
     <nav class="green">
@@ -26,6 +28,9 @@
                   <?php echo $this->session->userdata('username');?>
                 </div>
               </div>
+          </a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown2">
+              <i class="lime-text text-lighten-5 mdi-action-settings"></i>
           </a></li>
         </ul>
       </div>
