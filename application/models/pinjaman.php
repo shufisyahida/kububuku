@@ -5,7 +5,8 @@
 		
 		function accept($id)
 		{
-			$data = array('status'=>2);
+			$data['status']= 2;
+			$data['is_notified'] = 0;
 			$this->db->where('id',$id);
 			$this->db->update('pinjaman',$data);
 		}
@@ -33,7 +34,16 @@
 		
 		function decline($id)
 		{
-			$data = array('status'=>5);
+			$data['status']= 5;
+			$data['is_notified'] = 0;
+			$this->db->where('id',$id);
+			$this->db->update('pinjaman',$data);
+		}
+
+		function returnBook($id)
+		{
+			$data['status']= 3;
+			$data['is_notified'] = 0;
 			$this->db->where('id',$id);
 			$this->db->update('pinjaman',$data);
 		}
@@ -209,12 +219,7 @@
 			}
 		}
 
-		function returnBook($id)
-		{
-			$data = array('status'=>3);
-			$this->db->where('id',$id);
-			$this->db->update('pinjaman',$data);
-		}
+		
 
 	} // end of Pinjaman
 
