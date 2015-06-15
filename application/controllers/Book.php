@@ -232,22 +232,26 @@
 
             $user = $this->buku->getListOwner(3,0,$isbn);
             
-            for($i=0;$i<sizeof($user);$i++)
+            if(!empty($user))
             {
-                //get Faculty
-            $idFak = $user[$i]->fakultas;
-            $namaFak = $this->fakultas->getFaculty($idFak);                       
-            $user[$i]->fakultas = $namaFak;
+                for($i=0;$i<sizeof($user);$i++)
+                {
+                    //get Faculty
+                $idFak = $user[$i]->fakultas;
+                $namaFak = $this->fakultas->getFaculty($idFak);                       
+                $user[$i]->fakultas = $namaFak;
 
-            //getStatus
-            $username= $user[$i]->username;
-            $statusUser = $this->non_admin->getStatus($username);                      
-            $user[$i]->status = $statusUser;
+                //getStatus
+                $username= $user[$i]->username;
+                $statusUser = $this->non_admin->getStatus($username);                      
+                $user[$i]->status = $statusUser;
 
-            //get sex
-            $jenisKelamin = $this->non_admin->getSex($username);
-            $user[$i]->jenis_kelamin = $jenisKelamin;
+                //get sex
+                $jenisKelamin = $this->non_admin->getSex($username);
+                $user[$i]->jenis_kelamin = $jenisKelamin;
+                }    
             }
+            
             
 
             $data['resultOwner']= $user;

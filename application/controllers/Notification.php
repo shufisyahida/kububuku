@@ -46,7 +46,7 @@
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('notification_view', $data);
-            var_dump($data);
+            
             $this->load->view('foot_view');
 
         }
