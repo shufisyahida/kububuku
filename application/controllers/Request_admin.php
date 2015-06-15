@@ -25,8 +25,8 @@
 
         public function index() {
             $this->load->model('permintaan_ubah_hapus');
-            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequest();
-            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequest();
+            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(1,0);
+            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequestList(1,0);
 
             $deleteJudul=array();
             $deleteSampul=array();
@@ -235,6 +235,29 @@
             redirect(base_url('index.php/Request_admin')); 
         }
 
+        public function getDeleteList(){
+            $page = $_GET['page'];
+            $this->load->model('permintaan_ubah_hapus');
+            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(1,$page);
+
+            $deleteJudul=array();
+            $deleteSampul=array();
+
+            foreach($deleteRequest as $key=>$value)
+            {
+                $this->load->model('buku');
+                $judul = $this->buku->getJudul($value->isbn);
+                $sampul = $this->buku->getSampul($value->isbn);
+                $deleteJudul[$key] = $judul;
+                $deleteSampul[$key] = $sampul;
+            }
+
+            $data['deleteRequest'] = $deleteRequest;
+            $data['deleteJudul'] = $deleteJudul;
+            $data['deleteSampul'] = $deleteSampul;
+
+            echo json_encode($data);
+        }
 
 
     } // end of Book

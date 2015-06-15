@@ -19,7 +19,7 @@
 
 		function getListUser($limit, $start) 
 		{
-	       	 $this->db->select('*');
+	       	$this->db->select('*');
 			$this->db->from('non_admin');
 			$this->db->order_by("tanggal_buat", "desc");
 			$this->db->limit($limit, $start);

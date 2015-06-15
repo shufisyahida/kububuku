@@ -12,12 +12,13 @@
 			
 	<div class="col l9">
 		<div class="col l6">
-			<ul class="collection z-depth-1">
+			<ul class="collection z-depth-1" id="delete-collection">
 				<li class="collection-item"><h5>Delete Request</h5></li>
 					<?php 
 				  	if(!empty($deleteRequest)){
+				  	$index = 1;
 				  	foreach($deleteRequest as $key => $post){?>
-						<li class="collection-item avatar">
+						<li <?php echo "id='delete-".$index++."'" ?> class="collection-item avatar">
 							<div>
 								<?php echo
 								'<img src='.$deleteSampul[$key].' alt="" class="cover">'
@@ -59,14 +60,18 @@
 						</li>';
 					}?> 
 			</ul>
+			<div class="col l12">
+				<a id="more-delete" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+			</div>
 		</div>
 		<div class="col l6">
 			<ul class="collection z-depth-1">
 				<li class="collection-item"><h5>Update Request</h5></li>
 				<?php 
 			  	if(!empty($updateRequest)){
+			  	$index = 1;
 			  	foreach($updateRequest as $key => $post){?>
-					<li class="collection-item avatar">
+					<li <?php echo "id='delete-".$index++."'" ?> class="collection-item avatar">
 						<div>
 							<?php echo
 								'<img src='.$updateSampul[$key].' alt="" class="cover">'
@@ -215,7 +220,103 @@
 						</li>';
 				}?>
 			</ul>
+			<div class="col l12">
+				<a id="more-update" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+			</div>
 		</div>
 	</div>
 	</div>
 </div>
+<script>
+$('document').ready(function() {
+	var $page = 0;
+	console.log("rede");
+
+	//check jika ada <li> yang memiliki index bernilai 10 maka tombol MORE di-disable
+	if($("#5").length == 0) {
+		$('#more').addClass("disabled");
+		$('#more').removeClass("waves-effect waves-light green");
+	}	
+
+	$('#more-delete').on('click', function(e){
+		e.preventDefault(); //hrefnya di-disable
+
+		$page = $page+1;
+		var xmlhttp;
+		if(window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			console.log("yes");
+
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var response = xmlhttp.responseText;
+				var data = JSON.parse(response);
+				console.log(response);
+				console.log(response.length);
+				console.log(data['deleteRequest'].length);
+
+				var deleteRequest = data['deleteRequest'];
+				//console.log(pesan);
+				if(deleteRequest==false) {
+					$('#more').addClass("disabled");
+					$('#more').removeClass("waves-effect waves-light green");
+				}
+
+				for(i in deleteRequest) {
+					var $id = deleteRequest[i].id;
+					var $username = deleteRequest[i].username;
+					var $isbn = deleteRequest[i].isbn;
+					var $waktu = deleteRequest[i].waktu;
+					var $deleteSampul = deleteRequest[i].deleteJudul;
+
+					$('#delete-collection').append(' \
+					<li class="collection-item avatar">
+							<div>
+								<?php echo
+								'<img src='.$deleteSampul[$key].' alt="" class="cover">'
+								?>
+								<span class="title"><?php echo $deleteJudul[$key];?></span>
+								<p>
+									by <i><?php echo $post->username;?></i>
+								</p>
+								<div id="modal-declineRemove<?php echo $post->id?>" class="modal">
+								<div class="modal-content">
+									<h4>Decline Request</h4>
+									<p>Are you sure to decline this remove request?</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+									<a href="<?php echo base_url().'index.php/Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+								</div>
+							</div>
+							<div id="modal-acceptRemove<?php echo $post->id?>" class="modal">
+								<div class="modal-content">
+									<h4>Accept Request</h4>
+									<p>Are you sure to accept this remove request?</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+									<a href="<?php echo base_url().'index.php/Request_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								</div>
+							</div>
+								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
+								<a href="#modal-declineRemove<?php echo $post->id?>" class="secondary-content-2 modal-trigger"><i class="mdi-content-clear red-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Decline"></i></a>
+							</div>
+						</li>');
+					
+					 
+				}
+			}
+
+			$('.modal-trigger').leanModal();
+		}
+		xmlhttp.open("POST","http://localhost/kububuku/index.php/Request_admin/getDeleteList?page="+ $page, true);
+		xmlhttp.send();
+	});
+});
+</script>

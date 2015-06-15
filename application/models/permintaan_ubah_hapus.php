@@ -19,26 +19,40 @@
 			return $result;
 		}
 
-		function getDeleteRequest()
+		function getDeleteRequestList($limit, $start)
 		{
 			$this->db->select('*');
 			$this->db->from('permintaan_ubah_hapus');
 			$this->db->where('kategori',0);
 
-			$query=$this->db->get();
-
-			return $result = $query->result();
+			$this->db->limit($limit, $start);
+			$query = $this->db->get();
+	 
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
 		}
 
-		function getUpdateRequest()
+		function getUpdateRequestList($limit, $start)
 		{
 			$this->db->select('*');
 			$this->db->from('permintaan_ubah_hapus');
 			$this->db->where('kategori',1);
 
-			$query=$this->db->get();
-
-			return $result = $query->result();
+			$this->db->limit($limit, $start);
+			$query = $this->db->get();
+	 
+	        if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
 		}
 
 		function createPermintaan($data)
