@@ -271,7 +271,7 @@ $('document').ready(function() {
 									</div> \
 									<div class="modal-footer"> \
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-										<a href="index.php/Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+										<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 									</div> \
 								</div> \
 								<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
