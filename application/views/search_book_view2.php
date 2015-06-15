@@ -105,9 +105,6 @@
               <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/Book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
-             
-      
-
                   <?php
                   if(!$isAdmin){
                       if(!$adaDiKoleksi[$key])
@@ -150,6 +147,7 @@
       
                         <div class="row row-custom-a">
                           <a href="#modal-addwis'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
+                          '.'aa'.$post->isbn.'
                         </div>';
                       }
                     }

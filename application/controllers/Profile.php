@@ -20,6 +20,7 @@
             $res['img']= base_url()."uploads/".$image;
             $this->session->set_userdata('foto',$res['img']);           
             $this->load->view('head_view');
+            $this->load->view('navbar_view');
             $this->load->view("edit_profile_picture_view",$res);
             $this->load->view('foot_view');
         }
