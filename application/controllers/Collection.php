@@ -54,9 +54,7 @@
 				'username_pemilik'=> $pemilik,
 				'isbn'=>$isbn_buku,
 				'status'=>1,
-				// 'durasi'=>5,
 				'durasi'=>$durasi_pinjam,
-				'pesan' => NULL,
 				'is_notified' => false
 			);
 
