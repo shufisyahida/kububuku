@@ -107,9 +107,9 @@
                         <label for="sampul">Cover URL</label>
                     </div>
 
-                    <div class="input-field col s4 offset-s1">
+                    <div class="input-field col s10 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
-                        <input id="deskripsi" name="deskripsi" type="text" class="validate" value="<?php echo $deskripsi;?>">
+                        <textarea id="deskripsi" name="deskripsi" type="text" class="validate materialize-textarea" value="<?php echo $deskripsi;?>"></textarea>
                         <label for="deskripsi">Description</label>
                     </div>
 
