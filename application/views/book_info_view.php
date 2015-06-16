@@ -143,9 +143,8 @@ echo '
             <div class="col s12 m5 l4">
               <div align="right">
                 <?php
-              if(!$isAdmin){
-              echo '
-                <h6>Book Owner</h6>';}?>
+                echo '
+                <h6>Book Owner</h6>';?>
                 <div class="row">
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
@@ -160,8 +159,12 @@ echo '
                   <div class="right col">
                   <?php
                     $isbn = $this->uri->segment(3);
-                    if(!$isAdmin){
+                    if(!empty($resultOwner)){
                     echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."index.php/Book/show_owner/".$isbn.'">More...</a>';
+                  }
+                  else
+                  {
+                    echo '<h5>No Owner</h5>'; 
                   }
                   ?>
                   </div>
@@ -187,16 +190,36 @@ echo '
   </div>
 </div>
 
- <!--    <?php foreach($result as $post){?>
+ <script>
+$('document').ready(function() {
+
+  setInterval(function(){ 
+    console.log("OK");
+    var xmlhttp;
+    if(window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("200");
+        var $response = xmlhttp.responseText;
+        var $data = JSON.parse($response);
+
+        if($data['tanggapan']==true || $data['request']==true || $data['accept']==true|| $data['decline']==true|| $data['return']==true){
+          $('#notif-icon').addClass("red-text");
+          $('#notif-icon').removeClass("lime-text text-lighten-5");
+        }
+      }
+    }
     
-         <?php echo $post->isbn;?>
-         <?php echo $post->judul;?>
-         <?php echo $post->pengarang;?>
-         <?php echo $post->deskripsi;?>
-         <?php echo $post->genre;?>
-         <?php echo $post->penerbit;?>
-         <?php echo $post->tahun_terbit;?>
-         <?php echo $post->jumlah_halaman;?>
-         <?php echo $post->sampul;?>
-      
-     <?php }?>  -->
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.send();
+  }, 3000);
+ 
+});
+</script>

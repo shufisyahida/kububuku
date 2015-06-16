@@ -55,78 +55,81 @@
       
           
    <?php
+   if(!empty($resultOwner))
+   {
 
-   foreach($resultOwner as $key=>$value)
-    {
-     echo'
-      <div class="col s12 m4 l4">
-        <div class="card">
-          <div class="container custom-container-a">          
-          <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
-            <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
-          </a>
-          </div>
-          <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
-          <div class="truncate green-text name-property">'.$value->nama.'</div>
-          </a>
-          <div class="divider"></div>       
-          <div class="custom-container-b">
-            <ul>
-              <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>' 
-                .$value->fakultas.                                    
-              '</li>
-              <li class="truncate"><i class="green-text tiny mdi-social-person-outline"></i>' 
-              .$value->status.
-              '</li>
-              <li class="truncate"><i class="green-text tiny mdi-social-person"></i>'
-               .$value->jenis_kelamin.
-              '</li>
-              <li class="truncate"><i class="green-text tiny mdi-action-event"></i>'.$value->tanggal_lahir.'</li>
-              <li class="truncate"><i class="green-text tiny mdi-maps-place"></i>'.$value->domisili.'</li>
-            </ul>
-          </div>
-          <div class="divider"></div>
-          <div class="custom-container-b" style="text-align: center;">
-            <ul>
-              <li>As Owner</li>';
-            
-              $hijau = round($value->rank_pemilik);
-              $putih = 5-$hijau;
+      foreach($resultOwner as $key=>$value)
+      {
+       echo'
+        <div class="col s12 m4 l4">
+          <div class="card">
+            <div class="container custom-container-a">          
+            <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
+              <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
+            </a>
+            </div>
+            <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
+            <div class="truncate green-text name-property">'.$value->nama.'</div>
+            </a>
+            <div class="divider"></div>       
+            <div class="custom-container-b">
+              <ul>
+                <li class="truncate"><i class="green-text tiny mdi-maps-beenhere "></i>' 
+                  .$value->fakultas.                                    
+                '</li>
+                <li class="truncate"><i class="green-text tiny mdi-social-person-outline"></i>' 
+                .$value->status.
+                '</li>
+                <li class="truncate"><i class="green-text tiny mdi-social-person"></i>'
+                 .$value->jenis_kelamin.
+                '</li>
+                <li class="truncate"><i class="green-text tiny mdi-action-event"></i>'.$value->tanggal_lahir.'</li>
+                <li class="truncate"><i class="green-text tiny mdi-maps-place"></i>'.$value->domisili.'</li>
+              </ul>
+            </div>
+            <div class="divider"></div>
+            <div class="custom-container-b" style="text-align: center;">
+              <ul>
+                <li>As Owner</li>';
+              
+                $hijau = round($value->rank_pemilik);
+                $putih = 5-$hijau;
 
-              for($i = 0; $i<$hijau;$i++)
-              {
-                echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
-              }
+                for($i = 0; $i<$hijau;$i++)
+                {
+                  echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+                }
 
-              for($i = 0; $i<$putih;$i++)
-              {
-                echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
-              }
-            echo '
-            </ul>
-            <ul>
-              <li>As Borrower</li>';
-            
-              $hijau = round($value->rank_peminjam);
-              $putih = 5-$hijau;
+                for($i = 0; $i<$putih;$i++)
+                {
+                  echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+                }
+              echo '
+              </ul>
+              <ul>
+                <li>As Borrower</li>';
+              
+                $hijau = round($value->rank_peminjam);
+                $putih = 5-$hijau;
 
-              for($i = 0; $i<$hijau;$i++)
-              {
-                echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
-              }
+                for($i = 0; $i<$hijau;$i++)
+                {
+                  echo '<li class="ranking-star"><i class="fa fa-star fa-lg green-text"></i></li>';
+                }
 
-              for($i = 0; $i<$putih;$i++)
-              {
-                echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
-              }
-            
-            echo'
-            </ul>
+                for($i = 0; $i<$putih;$i++)
+                {
+                  echo '<li class="ranking-star"><i class="fa fa-star-o fa-lg green-text"></i></li>';
+                }
+              
+              echo'
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      ';
-        }?>
+        ';
+          }
+      }?>
     </div>
     <div class="col l12 offset-l3">
       <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
@@ -266,5 +269,38 @@ $('document').ready(function() {
     xmlhttp.open("POST","http://localhost/kububuku/index.php/Book/getList?page="+ $page+"&isbn="+$isbn, true);
     xmlhttp.send();
   });
+});
+</script>
+<script>
+$('document').ready(function() {
+
+  setInterval(function(){ 
+    console.log("OK");
+    var xmlhttp;
+    if(window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("200");
+        var $response = xmlhttp.responseText;
+        var $data = JSON.parse($response);
+
+        if($data['tanggapan']==true || $data['request']==true || $data['accept']==true|| $data['decline']==true|| $data['return']==true){
+          $('#notif-icon').addClass("red-text");
+          $('#notif-icon').removeClass("lime-text text-lighten-5");
+        }
+      }
+    }
+    
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.send();
+  }, 3000);
+ 
 });
 </script>

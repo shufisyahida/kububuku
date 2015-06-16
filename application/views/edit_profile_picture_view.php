@@ -30,36 +30,19 @@
 <div class="container custom-table">
   <h4>Image Upload</h4>
   <div class="card-panel z-depth-1">
-       <?php echo form_open_multipart('index.php/Profile/editProfile/cropimage');?>
-       <div class="row">
-              
-          
+       <?php echo form_open_multipart('index.php/Profile/cropimage');?>
+       <div class="row">        
               <div class="row">
-
-                <!-- <div class="col s12 m5 l5">
-                    <div class="col s12 m12 l12">
-                        <h5>Upload Your Profile Picture</h5>
-                        <input type="file" name="userfile" name="userfile"><br><br>
-                        <input type="submit" value="Submit" class="btn green z-depth-1"/>
-                    </div>
-                    <div class="col s12 m12 l12">
-                        <div id="thumbs" style='max-width:500px'></div>
-                    </div>
-                </div> -->
-
                     <div class="col s12 m7 l7">
                       <div id="cropimage" class="col s12 m5 l5 cropimage">
                           <table width="958">
-
-
-                          <!-- <tr><h3>Image Upload</h3></tr> -->
                           <tr><input type="file" name="userfile" name="userfile"></tr>
                           <tr><input type="hidden" name="image_name" id="image_name" value="<?php echo $img;?>"></tr>
                             
                             <br>
                              <tr>
                               <td></td>
-                              <td><input type="submit" value="SUBMIT" class="btn red"/></td>
+                              <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
                             </tr>
                            </table>
 
@@ -75,11 +58,11 @@
         <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/Profile/editProfile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
+   <a href="<?php echo base_url('index.php/Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
    </div>
 </div>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 
 function getSizes(im,obj)
   {
@@ -122,6 +105,39 @@ $(document).ready(function () {
         onSelectEnd: getSizes
     });
 });
-</script>
+</script>-->
 
+<script>
+$('document').ready(function() {
+
+  setInterval(function(){ 
+    console.log("OK");
+    var xmlhttp;
+    if(window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    }
+    else
+    {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("200");
+        var $response = xmlhttp.responseText;
+        var $data = JSON.parse($response);
+
+        if($data['tanggapan']==true || $data['request']==true || $data['accept']==true|| $data['decline']==true|| $data['return']==true){
+          $('#notif-icon').addClass("red-text");
+          $('#notif-icon').removeClass("lime-text text-lighten-5");
+        }
+      }
+    }
+    
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.send();
+  }, 3000);
+ 
+});
+</script>
 

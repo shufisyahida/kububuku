@@ -57,10 +57,10 @@
             redirect(base_url('index.php/Request_in'));
         }
 
-        public function decline()
+        public function decline($idPinjaman)
         {
-            $id = $this->uri->segment(3);
-            
+            $id = $idPinjaman;
+                        
             $this->load->model('pinjaman');
             $this->pinjaman->decline($id);
 
@@ -124,8 +124,8 @@
                 //var_dump($value);
             }*/
 
-            $this->load->view('head_view');
-            $this->load->view('navbar_view');
+           $this->load->view('head_view');
+           $this->load->view('navbar_view');
             $this->load->view('request_in_view',$data);
             $this->load->view('foot_view');
         }

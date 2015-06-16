@@ -37,6 +37,7 @@
       }?>
       
       <?php 
+
         if(!empty($resultRequest))
         {
         foreach($resultRequest as $post){ ?>
