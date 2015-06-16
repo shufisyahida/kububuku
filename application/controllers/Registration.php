@@ -137,13 +137,13 @@
                    $data['hpErr'] = "Phone number format is not valid";
                     $error = true;
                 }
-                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-\s]/', $username))
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬\-\s]/', $username))
                 {
                    //var_dump($name);
                    $data['usernameErr'] = "Username shouldn't contain special character";
                     $error = true;
                 }
-                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username))
+                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬\-]/', $name))
                 {
                    //var_dump($name);
                    $data['nameErr'] = "Name shouldn't contain special character";
