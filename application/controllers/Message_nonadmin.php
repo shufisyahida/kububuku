@@ -134,12 +134,12 @@
                     $error = true;
                 }
                 
-                if($konten == '')
+                if($konten == '' || empty(ltrim(rtrim($konten))))
                 {
                     $data['kontenErr'] = "Content should not be blank";
                     $error = true;
                 }
-                if($subjek == '')
+                if($subjek == '' || empty(ltrim(rtrim($subjek))))
                 {
                     $data['subjekErr'] = "Subject should not be blank";
                     $error = true;

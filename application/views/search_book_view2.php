@@ -147,7 +147,6 @@
       
                         <div class="row row-custom-a">
                           <a href="#modal-addwis'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
-                          '.'aa'.$post->isbn.'
                         </div>';
                       }
                     }
