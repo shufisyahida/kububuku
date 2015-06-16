@@ -118,7 +118,7 @@
 						}
 						elseif ($status[$index]==2) 
 						{
-							echo '<a data-position="bottom" data-delay="50" data-tooltip="Book Borrowed"class="tooltipped modal-trigger green-text mdi-file-file-upload"></a>';
+							echo '<a data-position="bottom" data-delay="50" data-tooltip="Book Borrowed"class="tooltipped green-text mdi-file-file-upload"></a>';
 						}
 						elseif ($status[$index]==3) 
 						{
