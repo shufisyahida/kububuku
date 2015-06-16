@@ -109,6 +109,27 @@
       
 
                   <?php
+                  if($isAdmin)
+                  {
+                    echo 
+                        '
+                        <div id="modal-addcol'.$post->isbn.'" class="modal">
+                          <div class="modal-content">
+                            <h4>Delete Book</h4>
+                            <p>Are you sure to delete this book?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                    
+                            <a href="'.base_url().'index.php/Manage/deleteBookFromSearch/'.$post->isbn.'"
+                              class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
+                          </div>
+                        </div>
+      
+                        <div class="row row-custom-a">
+                          <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-light btn red white-text">Delete Book</a>
+                        </div>';
+                  }
                   if(!$isAdmin){
                       if(!$adaDiKoleksi[$key])
                       {

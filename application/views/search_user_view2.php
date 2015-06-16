@@ -146,6 +146,34 @@
               </div>
             </div>
           </div>
+          <?php
+          if($isAdmin)
+          {
+            echo '
+            <div class="divider"></div>
+            <div class="custom-container-b">
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div id="modal-addcol'.$post->username.'" class="modal">
+                    <div class="modal-content">
+                      <h4>Delete Book</h4>
+                      <p>Are you sure to delete this book?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+              
+                      <a href="'.base_url().'index.php/Manage/deleteUserFromSearch/'.$post->username.'"
+                        class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
+                    </div>
+                  </div>
+                  <div class="row row-custom-a center">
+                    <a style="margin-top:10px" href="#modal-addcol'.$post->username.'" class="modal-trigger waves-effect waves-light btn red white-text">Delete Book</a>
+                  </div>
+                </div>
+              </div>
+            </div>';
+          }
+          ?>
         </div>
       </div>
       <?php } ?>

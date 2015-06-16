@@ -66,4 +66,16 @@
             $this->buku->deleteBook($isbn);
             redirect(base_url('index.php/Manage'));
         }
+
+        public function deleteUserFromSearch($username)
+        {
+            $this->non_admin->deleteUser($username);
+            redirect(base_url('index.php/Search/homeUser'));
+        }
+
+        public function deleteBookFromSearch($isbn)
+        {
+            $this->buku->deleteBook($isbn);
+            redirect(base_url('index.php/Search/searchBook'));
+        }
 	}
