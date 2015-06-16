@@ -25,31 +25,38 @@
 
         public function index() {
             $this->load->model('permintaan_ubah_hapus');
-            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(1,0);
-            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequestList(1,0);
+            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(10,0);
+            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequestList(10,0);
 
             $deleteJudul=array();
             $deleteSampul=array();
             $updateJudul=array();
             $updateSampul=array();
 
-            foreach($deleteRequest as $key=>$value)
+            if(!empty($deleteRequest))
             {
-                $this->load->model('buku');
-                $judul = $this->buku->getJudul($value->isbn);
-                $sampul = $this->buku->getSampul($value->isbn);
-                $deleteJudul[$key] = $judul;
-                $deleteSampul[$key] = $sampul;
+                foreach($deleteRequest as $key=>$value)
+                {
+                    $this->load->model('buku');
+                    $judul = $this->buku->getJudul($value->isbn);
+                    $sampul = $this->buku->getSampul($value->isbn);
+                    $deleteJudul[$key] = $judul;
+                    $deleteSampul[$key] = $sampul;
+                }    
             }
-            foreach($updateRequest as $key=>$value)
+            
+            if(!empty($updateRequest))
             {
-                $this->load->model('buku');
-                $judul = $this->buku->getJudul($value->isbn);
-                $sampul = $this->buku->getSampul($value->isbn);
-                $updateJudul[$key] = $judul;
-                $updateSampul[$key] = $sampul;
+                foreach($updateRequest as $key=>$value)
+                {
+                    $this->load->model('buku');
+                    $judul = $this->buku->getJudul($value->isbn);
+                    $sampul = $this->buku->getSampul($value->isbn);
+                    $updateJudul[$key] = $judul;
+                    $updateSampul[$key] = $sampul;
+                }    
             }
-
+            
             $data['deleteRequest'] = $deleteRequest;
             $data['updateRequest'] = $updateRequest;
             $data['deleteJudul'] = $deleteJudul;
