@@ -25,8 +25,8 @@
 
         public function index() {
             $this->load->model('permintaan_ubah_hapus');
-            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(1,0);
-            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequestList(1,0);
+            $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(10,0);
+            $updateRequest = $this->permintaan_ubah_hapus->getUpdateRequestList(10,0);
 
             $deleteJudul=array();
             $deleteSampul=array();
