@@ -3,9 +3,9 @@
         <div class="container custom-container-c">
         	<?php
         	if($user->username == $this->session->userdata('username'))
-        		echo 'My Profile';
+        		echo 'Profil Saya';
         	else
-        		echo ''.$user->nama.'\'s Profile';
+        		echo 'Profil'.$user->nama.'';
         	
         	?>
         </div>
@@ -19,8 +19,8 @@
 	          <i class="large mdi-content-add"></i>
 	        </a>
 	        <ul>
-	          <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-	          <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+	          <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+	          <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
 	        </ul>
 	      </div>';
 	  }
@@ -65,7 +65,7 @@
 				<div class="divider"></div>
 				<div class="custom-container-b" style="text-align: center;">
 					<ul>
-						<li>As Owner</li>
+						<li>Sebagai Pemilik</li>
 						<?php
 							$hijau = round($user->rank_pemilik);
 							$putih = 5-$hijau;
@@ -82,7 +82,7 @@
 						?>				
 					</ul>
 					<ul>
-						<li>As Borrower</li>
+						<li>Sebagai Peminjam</li>
 						<?php
 							$hijau = round($user->rank_peminjam);
 							$putih = 5-$hijau;
@@ -105,12 +105,12 @@
 			<div class="row">
 				<?php
         			if($user->username == $this->session->userdata('username'))
-        				echo '<h5>My Collections</h5>';
+        				echo '<h5>Koleksi Saya</h5>';
         			else
-        				echo '<h5>'.$user->nama.'\'s Collections</h5>';
+        				echo '<h5>Koleksi '.$user->nama.'</h5>';
         	
         			?>	
-				<h6>Available</h6>	
+				<h6>Tersedia</h6>	
 			</div>
 			<div class="row">
 				<?php
@@ -127,10 +127,10 @@
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
 								            <div class="col s4 m4 l4">
-								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								              	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	 <a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'">
+								            	 <a href = "'.base_url()."index.php/buku/info/".$value->isbn.'">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
 								            	</a>
 								            	<span>'.$value->pengarang.'</span><br>
@@ -151,7 +151,7 @@
 								            		if(!$isAdmin){
 									            		if(!$requested[$key])
 									            		{
-										            		echo '<form method="post" action="'.base_url().'index.php/Collection/borrow/">
+										            		echo '<form method="post" action="'.base_url().'index.php/koleksi/pinjam/">
 										            			<div id="modal-duration'.$index.'" class="modal">
 																	<div class="modal-content">
 																		<h4>Set Duration (Days)</h4>
@@ -166,7 +166,7 @@
 																	<div class="modal-footer">
 																		<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
 
-																		<!--<a href="'.base_url()."index.php/Collection/borrow/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+																		<!--<a href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
 
 																		<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button></a>
 																	</div>
@@ -187,7 +187,7 @@
 								            		}
 
 								            		// echo '<div class="row row-custom-a">
-								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/Collection/borrow/".$user->username."/".$value->isbn.'">Borrow</a>
+								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."index.php/koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
 								            		// </div>';	
 								            	}
 								           echo'
@@ -202,13 +202,13 @@
 					else
 					{
 						echo '<div class="col s12 m12 l12">
-									<p>No Collections Available</p>
+									<p>Tidak ada koleksi tersedia</p>
 							</div>';
 					}
 				?>
 			</div>
 			<div class="row">
-				<h6>Borrowed</h6>
+				<h6>Dipinjam</h6>
 			</div>
 			<div class="row">
 				<?php
@@ -220,10 +220,10 @@
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
 								            <div class="col s4 m4 l4">
-								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								              	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
+								            	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
 								            	<span>'.$value->pengarang.'</span><br>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if(!$isAdmin){
@@ -240,7 +240,7 @@
 						}
 					} else {
 						echo '<div class="col s12 m12 l12">
-								<p>No Collections Borrowed</p>
+								<p>Tidak ada koleksi dipinjam</p>
 							</div>';
 					}
 				?>
@@ -249,9 +249,9 @@
 			<div class="row">
 				<?php
         			if($user->username == $this->session->userdata('username'))
-        				echo '<h5>My Wishlist</h5>';
+        				echo '<h5>Wishlist Saya</h5>';
         			else
-        				echo '<h5>'.$user->nama.'\'s Wishlist</h5>';
+        				echo '<h5>Wishlist '.$user->nama.'</h5>';
         	
         			?>	
 			</div>
@@ -267,7 +267,7 @@
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
 								            <div class="col s4 m4 l4">
-								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								              	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
 								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
@@ -283,7 +283,7 @@
 
 					else {
 						echo '<div class="col s12 m12 l12">
-								<p>No Entry Wishlist</p>
+								<p>Tidak ada daftar wishlist</p>
 							</div>';
 					}
 				}
@@ -301,10 +301,10 @@
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
 								            <div class="col s4 m4 l4">
-								              	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
+								              	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	<a href="'.base_url('index.php/Book/book_info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
+								            	<a href="'.base_url('index.php/buku/info/'.$value->isbn).'"><span class="card-book-title black-text">'.$value->judul.'</span><br></a>
 								            	<span>'.$value->pengarang.'</span><br>
 
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
@@ -353,7 +353,7 @@
 					} 
 					else {
 						echo '<div class="col s12 m12 l12">
-								<p>No Entry Wishlist</p>
+								<p>Tidak ada daftar wishlist</p>
 							</div>';
 					}
 				
@@ -399,7 +399,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

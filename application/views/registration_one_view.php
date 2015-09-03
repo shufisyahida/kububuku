@@ -7,7 +7,7 @@
 </div>
 <div class="container" style="margin-top:50px;">
     <br><h5>Registration - step 1/2</h5>
-    <form method="post" action="<?php echo base_url('index.php/Registration/register') ?>">
+    <form method="post" action="<?php echo base_url('index.php/pendaftaran/daftar') ?>">
         <div>
             <div class="card-panel z-depth-1">
                 <div class="row" style="margin: 0px auto;">

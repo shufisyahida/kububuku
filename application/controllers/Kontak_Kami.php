@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Message_nonadmin extends CI_Controller
+	class Kontak_Kami extends CI_Controller
 	{
 		public function __construct()
         {
@@ -101,7 +101,7 @@
             $this->load->view('foot_view');
         }
 
-        public function create()
+        public function buat()
         {        
             if(isset($_POST))
             {
@@ -130,18 +130,18 @@
                                 
                 if($ktg == '')
                 {
-                    $data['kategoriErr'] = "Category should not be blank";
+                    $data['kategoriErr'] = "Kategori harus dipilih";
                     $error = true;
                 }
                 
                 if($konten == '' || empty(ltrim(rtrim($konten))))
                 {
-                    $data['kontenErr'] = "Content should not be blank";
+                    $data['kontenErr'] = "Isi tidak boleh kosong";
                     $error = true;
                 }
                 if($subjek == '' || empty(ltrim(rtrim($subjek))))
                 {
-                    $data['subjekErr'] = "Subject should not be blank";
+                    $data['subjekErr'] = "Judul tidak boleh kosong";
                     $error = true;
                 }
                                
@@ -165,7 +165,7 @@
                 );
                 $this->load->model('pesan_model');
                 $this->pesan_model->createPesan($data);
-                redirect(base_url('index.php/Request_in'));
+                redirect(base_url('index.php/permintaan_masuk'));
                 }     
                    
                 

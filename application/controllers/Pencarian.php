@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    class Search extends CI_Controller
+    class Pencarian extends CI_Controller
     {
         public function __construct()
         {
@@ -11,7 +11,7 @@
             }
         }
         
-        public function homeBuku()
+        public function buku()
         {
             $this->load->view('head_view');
              $username = $this->session->userdata('username');
@@ -35,7 +35,7 @@
             $this->load->view('foot_view');
         }
 
-        public function homeUser()
+        public function pengguna()
         {
             $this->load->view('head_view');
              $username = $this->session->userdata('username');
@@ -59,14 +59,14 @@
             $this->load->view('foot_view');
         }
 
-        public function searchBook()
+        public function hasil_buku()
         { 
             $judulPengarang = $this->input->post('keyword');
             $kategori = $this->input->post('kategori');
             $genre = $this->input->post('genre');
 
             // $this->load->model('search_model');
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             $this->load->model('non_admin');
 
             if($judulPengarang!=null)
@@ -80,11 +80,11 @@
              
             if($kategori!=null && $keyword!=null)
             {
-                $result = $this->buku->searchBook($keyword,$kategori);
+                $result = $this->buku_model->searchBook($keyword,$kategori);
              
                 if($result==false)
                 {
-                    $data['notFound'] = "Sorry, no records found";
+                    $data['notFound'] = "Maaf, hasil tidak ditemukan";
                     $data['resultSearchBuku'] = null;
                     $data['notMatch'] = null;
                 }
@@ -103,8 +103,8 @@
                         $username = $this->session->userdata('username');
                         // $this->load->model('pinjaman');
                         // $isRequested = $this->pinjaman->isRequested($username, $user[0]->username, $value->isbn);
-                        $this->load->model('koleksi');
-                        $adaInCollection = $this->koleksi->isInCollection($username, $value->isbn);
+                        $this->load->model('koleksi_model');
+                        $adaInCollection = $this->koleksi_model->isInCollection($username, $value->isbn);
                         $adaDiKoleksi[$key] = $adaInCollection;
                         $this->load->model('wishlist_model');
                         $adaInWishlist = $this->wishlist_model->isInWishlist($username, $value->isbn);
@@ -118,13 +118,13 @@
             }            
             else if($kategori==null)
             {
-                $data['notMatch'] = "Choose Category";
+                $data['notMatch'] = "Pilih kategori";
                 $data['resultSearchBuku'] = null;
                 $data['notFound'] = null;
             }
             else if($keyword==null)
             {
-                $data['notMatch'] = "Enter keyword";
+                $data['notMatch'] = "Masukkan kata kunci";
                 $data['resultSearchBuku'] = null;
                 $data['notFound'] = null;
             }
@@ -152,7 +152,7 @@
             $this->load->view('foot_view');
         }
 
-        public function searchUser()
+        public function hasil_pengguna()
         {       
             $nama = $this->input->post('keyword');
             $kategori = $this->input->post('kategori');
@@ -160,7 +160,7 @@
             $status = $this->input->post('status');
             $faculty = $this->input->post('faculty');
             // $this->load->model('search_model');
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             $this->load->model('non_admin');
 
             if($nama!=null)
@@ -186,7 +186,7 @@
 
                 if($result==false)
                 {
-                    $data['notFound'] = "Sorry, no records found";
+                    $data['notFound'] = "Maaf, hasil tidak ditemukan";
                     $data['resultSearchPengguna'] = null;
                     $data['notMatch'] = null;
                     $data['kategori'] = $kategori;
@@ -221,8 +221,8 @@
                         $value->jenis_kelamin = $jenisKelamin;
 
                         //get number of collection
-                        $this->load->model('koleksi');
-                        $koleksi[$username]= $this->koleksi->getNumOfKoleksi($username);
+                        $this->load->model('koleksi_model');
+                        $koleksi[$username]= $this->koleksi_model->getNumOfKoleksi($username);
                         $this->load->model('wishlist_model');
                         $wishlist[$username]= $this->wishlist_model->getNumOfWishlist($username);
                     }
@@ -236,13 +236,13 @@
             }
             else if($kategori==null)
             {
-                $data['notMatch'] = "Choose Category";
+                $data['notMatch'] = "Pilih Kategori";
                 $data['resultSearchPengguna'] = null;
                 $data['notFound'] = null;
             }
             else if($keyword==null)
             {
-                $data['notMatch'] = "Enter keyword";
+                $data['notMatch'] = "Masukkan Kategori";
                 $data['resultSearchPengguna'] = null;
                 $data['notFound'] = null;
             }

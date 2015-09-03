@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Registration extends CI_Controller
+    class Pendaftaran extends CI_Controller
     {
 
         public function __construct()
@@ -21,13 +21,13 @@
                 if($isAdmin)
                     redirect(base_url('index.php/Message'));
                 else
-                    redirect(base_url('index.php/Request_in'));
+                    redirect(base_url('index.php/permintaan_masuk'));
             }
           
         
         }
         
-        public function cropimage()
+        public function potongGambar()
         {
             $res['img']=$this->non_admin->upload_image();  
             $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);      
@@ -36,11 +36,11 @@
             $this->load->view('foot_view');             
         }
         
-        public function finish()
+        public function selesai()
         {
             $username = $this->session->userdata('username');
             $this->session->set_userdata(''.$username,true);
-            redirect('index.php/Request_in');
+            redirect('index.php/permintaan_masuk');
         }
     
         public function index()
@@ -53,7 +53,7 @@
       
 
 
-        public function register()
+        public function daftar()
         {
             if(isset($_POST))
             {
@@ -233,7 +233,7 @@
                     $this->session->set_userdata('username',$username);
                     //$this->session->set_userdata(''.$username,true);
                    
-                    redirect(base_url('index.php/Registration/step_two'));
+                    redirect(base_url('index.php/pendaftaran/langkah2'));
                 }       
             }
             else
@@ -244,7 +244,7 @@
 
         }
 
-        public function step_one()
+        public function langkah1()
         {
             // $data['page_title'] = "CI Hello World App!";
             $data = array(
@@ -284,7 +284,7 @@
             $this->load->view('foot_view');
         }
 
-        public function step_two()
+        public function langkah2()
         {
             // $data['page_title'] = "CI Hello World App!";
             $data['img']='lee.jpg';           
@@ -295,7 +295,7 @@
            // $this->session->set_userdata(''.$username,true);
         }
 
-        public function updatecropimage()
+        public function perbaruiGambar()
         {
             $img['imgpath']=$this->non_admin->upload_thumbnail();
             //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);

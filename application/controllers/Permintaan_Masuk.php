@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Request_in extends CI_Controller
+    class permintaan_masuk extends CI_Controller
     {
         public function __construct()
         {
@@ -21,7 +21,7 @@
             }
         }
         
-        public function accept($id,$isbn)
+        public function terima($id,$isbn)
         {
             //$id = $this->uri->segment(3);
             $username=$this->session->userdata('username');
@@ -29,13 +29,13 @@
             $this->load->model('pinjaman');
             $this->pinjaman->accept($id);
 
-            $this->load->model('koleksi');
-            $this->koleksi->setStatus($username,$isbn,0);
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,0);
 
-            redirect(base_url('index.php/Request_in'));            
+            redirect(base_url('index.php/permintaan_masuk'));            
         }
 
-        public function confirmReturn()
+        public function konfirmasi_pengembalian()
         {
             //$id = $this->uri->segment(3);
             $id = $this->input->post('idPinjaman');
@@ -48,23 +48,23 @@
             $this->load->model('pinjaman');
             $this->pinjaman->confirmReturn($id);
 
-            $this->load->model('koleksi');
-            $this->koleksi->setStatus($username,$isbn,1);
+            $this->load->model('koleksi_model');
+            $this->koleksi_model->setStatus($username,$isbn,1);
 
             $this->load->model('non_admin');
             $this->non_admin->giveRank($borrower,$rank,true);
 
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('index.php/permintaan_masuk'));
         }
 
-        public function decline($idPinjaman)
+        public function tolak($idPinjaman)
         {
             $id = $idPinjaman;
                         
             $this->load->model('pinjaman');
             $this->pinjaman->decline($id);
 
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('index.php/permintaan_masuk'));
         }
 
         public function index()
@@ -79,14 +79,14 @@
             $status=array();
             $kontak=array();
             $this->load->model('non_admin');
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             foreach($pinjamanMasuk as $key=>$value)
             {                             
                 $resPengguna = $this->non_admin->getUser($value->username_peminjam) ;
                 $user[] = $resPengguna;
                 
                 // var_dump($value->isbn);
-                $resBuku = $this->buku->getBook($value->isbn);
+                $resBuku = $this->buku_model->getBook($value->isbn);
                 $book[]= $resBuku;
 
                 $durasi[]=$value->durasi;

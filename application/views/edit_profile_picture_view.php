@@ -1,8 +1,8 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/Profile/editProfile/')?>">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('index.php/Profile/editPicture')?>"class="active">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('index.php/profil/ubahProfile/')?>">Edit Profile</a></li>
+          <li><a href="<?php echo base_url('index.php/profil/ubahPicture')?>"class="active">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -11,8 +11,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -30,7 +30,7 @@
 <div class="container custom-table">
   <h4>Image Upload</h4>
   <div class="card-panel z-depth-1">
-       <?php echo form_open_multipart('index.php/Profile/cropimage');?>
+       <?php echo form_open_multipart('index.php/profil/potongGambar');?>
        <div class="row">        
               <div class="row">
                     <div class="col s12 m7 l7">
@@ -58,7 +58,7 @@
         <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/Profile/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
+   <a href="<?php echo base_url('index.php/profil/selesai')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">SAVE</button></a>
    </div>
 </div>
 
@@ -78,7 +78,7 @@ function getSizes(im,obj)
       {
         if(confirm("Do you want to save image..!"))
           {
-            $.post('<?php echo base_url("index.php/Registration/updatecropimage/");?>',
+            $.post('<?php echo base_url("index.php/pendaftaran/perbaruiGambar/");?>',
                                                   {
                                                    x_axis : x_axis,
                                                    y_axis : y_axis,
@@ -134,7 +134,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

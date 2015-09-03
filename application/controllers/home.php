@@ -17,7 +17,7 @@
                 if($isAdmin)
                     redirect(base_url('index.php/Message'));
                 else
-                    redirect(base_url('index.php/Request_in'));
+                    redirect(base_url('index.php/permintaan_masuk'));
             }
         }
         

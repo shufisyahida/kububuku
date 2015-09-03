@@ -1,0 +1,79 @@
+index.php/book -> index.php/buku
+addBook -> tambah
+showAddBook -> tambah_baru
+book_info -> info
+show_owner -> pemilik
+getList -> 
+
+
+index.php/collection -> index.php/koleksi
+add -> tambah
+borrow -> pinjam
+delete -> hapus
+index ->
+
+
+index.php/Search -> index.php/Pencarian
+homeBuku -> buku
+homeUser -> pengguna
+searchBook -> hasil_buku
+searchUser -> hasil_pengguna
+
+
+index.php/request_out -> index.php/permintaan_keluar
+cancel -> batal
+index ->
+returnBook -> kembalikan
+
+
+index.php/request_in -> index.php/permintaan_masuk
+accept -> terima
+confirmReturn -> konfirmasi_pengembalian
+decline -> tolak
+index ->
+
+index.php/profile -> index.php/profil
+cropimage -> potongGambar
+edit -> ubah
+editPicture -> ubahGambar
+editProfile -> ubahProfil
+finish -> selesai
+showProfile -> lihatProfil
+updatecropimage -> perbaruiGambar
+deleteUser -> hapusPengguna
+
+
+index.php/pendaftaran -> index.php/registrasi
+cropimage -> potongGambar
+finish -> selesai
+index -> 
+register -> daftar
+step_one -> langkah1
+step_two -> langkah2
+updatecropimage -> perbaruiGambar
+
+
+index.php/Kontak_Kami -> index.php/Kontak_Kami
+index
+create -> buat
+
+
+index.php/notifikasi -> index.php/notifikasi
+chk_notif -> cekNotif
+index
+lookInform
+lookRequest
+lookAccept
+lookDecline
+lookReturn
+
+
+index.php/Wishlist -> index.php/Wishlist
+index
+add -> tambah
+delete -> hapus
+
+
+
+buku -> buku_model
+koleksi -> koleksi_model

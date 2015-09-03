@@ -39,7 +39,7 @@
                     'is_notified' => false
                   	);
 				$this->tanggapan_model->addTanggapan($data);
-				redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
+				redirect(base_url('index.php/profil/lihatProfil/'.$OtherUsername));
 				
 			}
 			else

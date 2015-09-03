@@ -8,8 +8,8 @@
 </div>
 <div class="container" style="margin-top:50px;">
     <br><h5>Registration - step 2/2</h5>
-    <!--<form method="post" action="<?php echo base_url('index.php/Registration/register') ?>">-->
-    <?php echo form_open_multipart('index.php/Registration/cropimage');?>
+    <!--<form method="post" action="<?php echo base_url('index.php/pendaftaran/daftar') ?>">-->
+    <?php echo form_open_multipart('index.php/pendaftaran/potongGambar');?>
         <div class="card-panel z-depth-1">
             <div class="row">
                 <div class="col s12 m7 l7">
@@ -38,7 +38,7 @@
      <div id="thumbs" style='max-width:500px'></div>
    <?php echo form_close();?>
 
-   <a href="<?php echo base_url('index.php/Registration/finish')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
+   <a href="<?php echo base_url('index.php/pendaftaran/selesai')?>" <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1">FINISH</button></a>
 </div>
 
 <script type="text/javascript">
@@ -57,7 +57,7 @@ function getSizes(im,obj)
       {
         if(confirm("Do you want to save image..!"))
           {
-            $.post('<?php echo base_url("index.php/Registration/updatecropimage/");?>',
+            $.post('<?php echo base_url("index.php/pendaftaran/perbaruiGambar/");?>',
                                                   {
                                                    x_axis : x_axis,
                                                    y_axis : y_axis,

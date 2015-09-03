@@ -20,7 +20,7 @@
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));    
+                redirect(base_url('index.php/permintaan_masuk'));    
             }
 
         }
@@ -101,7 +101,7 @@
                     );
                     $this->load->model('pesan');
                     $this->pesan->createPesan($data);
-                    redirect(base_url('index.php/Collection'));
+                    redirect(base_url('index.php/koleksi'));
                 }       
             }
             else

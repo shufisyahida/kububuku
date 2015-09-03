@@ -22,7 +22,7 @@
             }
             else if ($isLoggedIn&&!$isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));
+                redirect(base_url('index.php/permintaan_masuk'));
             }
             // else
             // {

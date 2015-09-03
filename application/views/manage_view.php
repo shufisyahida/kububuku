@@ -24,10 +24,10 @@
 				echo '
 				<li class="collection-item avatar" id="user-'.$index++.'">
 					<div>
-					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+					<a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'" >
 						<img src="'.$value->foto.'" alt="" class="circle">
 					</a>
-					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+					<a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'" >
 						<span class="title">'.$value->nama.'</span>
 					</a>
 						<p>
@@ -70,10 +70,10 @@
 					echo'
 				<li class="collection-item avatar" id="book-'.$index++.'">
 					<div>
-					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
+					<a href = "'.base_url()."index.php/buku/info/".$value->isbn.'" >
 						<img src="'.$value->sampul.'" alt="" class="cover">
 					</a>
-					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
+					<a href = "'.base_url()."index.php/buku/info/".$value->isbn.'" >
 						<span class="title">'.$value->judul.'</span>
 					</a>
 						<p>

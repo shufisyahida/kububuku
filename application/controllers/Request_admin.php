@@ -18,7 +18,7 @@
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));    
+                redirect(base_url('index.php/permintaan_masuk'));    
             }
 
         }
@@ -37,9 +37,9 @@
             {
                 foreach($deleteRequest as $key=>$value)
                 {
-                    $this->load->model('buku');
-                    $judul = $this->buku->getJudul($value->isbn);
-                    $sampul = $this->buku->getSampul($value->isbn);
+                    $this->load->model('buku_model');
+                    $judul = $this->buku_model->getJudul($value->isbn);
+                    $sampul = $this->buku_model->getSampul($value->isbn);
                     $deleteJudul[$key] = $judul;
                     $deleteSampul[$key] = $sampul;
                 }    
@@ -49,9 +49,9 @@
             {
                 foreach($updateRequest as $key=>$value)
                 {
-                    $this->load->model('buku');
-                    $judul = $this->buku->getJudul($value->isbn);
-                    $sampul = $this->buku->getSampul($value->isbn);
+                    $this->load->model('buku_model');
+                    $judul = $this->buku_model->getJudul($value->isbn);
+                    $sampul = $this->buku_model->getSampul($value->isbn);
                     $updateJudul[$key] = $judul;
                     $updateSampul[$key] = $sampul;
                 }    
@@ -83,13 +83,13 @@
         //     );
         //     $this->load->model('permintaan_ubah_hapus');
         //     $this->permintaan_ubah_hapus->createPermintaan($data);
-        //     redirect(base_url('index.php/Book/book_info/'.$isbn));    
+        //     redirect(base_url('index.php/buku/info/'.$isbn));    
         // }
 
         // public function showUpdateBook($isbn)
         // {
-        //     $this->load->model('buku');
-        //     $book = $this->buku->getBook($isbn) ;
+        //     $this->load->model('buku_model');
+        //     $book = $this->buku_model->getBook($isbn) ;
         //     $data=$book[0];
         //     $data->isbnErr='';
         //     $data->judulErr='';
@@ -129,9 +129,9 @@
         //             'genreErr' => ''
         //         );
         //         $error = false;
-        //         $this->load->model('buku');
+        //         $this->load->model('buku_model');
         //         //perlu ini ga?
-        //         $isbnSudahAda = $this->buku->isRegisteredBook($isbnNew);
+        //         $isbnSudahAda = $this->buku_model->isRegisteredBook($isbnNew);
         //         if ($isbnSudahAda && $isbn != $isbnNew) 
         //         {
         //             $data['isbnErr'] = "Book is already in use";
@@ -172,7 +172,7 @@
         //                 $sampul = base_url('assets/img/default-cover.jpg');
         //             }
 
-        //             $book = $this->buku->getBook($isbn);
+        //             $book = $this->buku_model->getBook($isbn);
         //             $book1 = $book[0];                                        
         //             $perubahan = "$book1->isbn,$isbnNew,$book1->judul,$judul,$book1->pengarang,$pengarang,$book1->deskripsi,$deskripsi,$book1->genre,$genre,$book1->penerbit,$penerbit,$book1->tahun_terbit,$tahun_terbit,$book1->jumlah_halaman,$jumlah_halaman,$book1->sampul,$sampul";
                     
@@ -188,7 +188,7 @@
         //             );
         //             $this->load->model('permintaan_ubah_hapus');
         //             $this->permintaan_ubah_hapus->createPermintaan($data);
-        //             redirect(base_url('index.php/Book/book_info/'.$isbn));               
+        //             redirect(base_url('index.php/buku/info/'.$isbn));               
         //         }       
         //     }
         //     else
@@ -201,8 +201,8 @@
 
         public function acceptDeleteBook($isbn)
         {
-            $this->load->model('buku');
-            $this->buku->deleteBook($isbn);
+            $this->load->model('buku_model');
+            $this->buku_model->deleteBook($isbn);
 
             // $this->load->model('permintaan_ubah_hapus');
             // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
@@ -235,8 +235,8 @@
                 'sampul' => $sampulNew
             );
 
-            $this->load->model('buku');
-            $this->buku->updateBook($isbn, $data);
+            $this->load->model('buku_model');
+            $this->buku_model->updateBook($isbn, $data);
             $this->permintaan_ubah_hapus->delete($id);            
 
             redirect(base_url('index.php/Request_admin')); 
@@ -252,9 +252,9 @@
 
             foreach($deleteRequest as $key=>$value)
             {
-                $this->load->model('buku');
-                $judul = $this->buku->getJudul($value->isbn);
-                $sampul = $this->buku->getSampul($value->isbn);
+                $this->load->model('buku_model');
+                $judul = $this->buku_model->getJudul($value->isbn);
+                $sampul = $this->buku_model->getSampul($value->isbn);
                 $deleteJudul[$key] = $judul;
                 $deleteSampul[$key] = $sampul;
             }

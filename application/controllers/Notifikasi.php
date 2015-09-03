@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    class Notification extends CI_Controller
+    class Notifikasi extends CI_Controller
     {        
         public function __construct()
         {
@@ -57,35 +57,35 @@
             //$this->tanggapan_model->setTanggapan($username, $id);
             $this->tanggapan_model->deleteTanggapan($id,$OtherUsername);
 
-            redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
+            redirect(base_url('index.php/profil/lihatProfil/'.$OtherUsername));
         }
 
         public function lookRequest($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setRequest($username, $user, $isbn);
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('index.php/permintaan_masuk'));
         }
 
         public function lookAccept($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setAccept($username, $user, $isbn);
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('index.php/permintaan_keluar'));
         }
 
         public function lookDecline($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setDecline($username, $user, $isbn);
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('index.php/permintaan_keluar'));
         }
 
         public function lookReturn($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setReturn($username, $user, $isbn);
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('index.php/permintaan_masuk'));
         }
     } // end of Notification
 

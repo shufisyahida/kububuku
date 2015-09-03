@@ -68,7 +68,7 @@
 			else
 			{
 				//$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Collection'));
+				redirect(base_url('index.php/koleksi'));
 				//belom betul, ini masih copas else nya wkwkwk
 			}
 		}

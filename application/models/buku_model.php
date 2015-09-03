@@ -1,6 +1,6 @@
 <?php
 
-	class Buku extends CI_Model
+	class Buku_model extends CI_Model
 	{
 
 		function addBook($data)

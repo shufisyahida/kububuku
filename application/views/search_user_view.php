@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>">Books</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/Search/homeUser')?>">Users</a></li>
+          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>">Buku</a></li>
+          <li><a class="active" href="<?php echo base_url('index.php/pencarian/pengguna')?>">Pengguna</a></li>
       </div>
 
       <?php
@@ -14,8 +14,8 @@
             <i class="large mdi-content-add"></i>
           </a>
           <ul>
-            <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-            <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+            <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+            <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
           </ul>
         </div>';
     }
@@ -28,19 +28,19 @@
   <div class="row">
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
-        <h6 style="font-size:1.5em">Search Filter</h6>
-        <form method="post" action="<?php echo base_url('index.php/Search/searchUser') ?>">
+        <h6 style="font-size:1.5em">Filter Pencarian</h6>
+        <form method="post" action="<?php echo base_url('index.php/pencarian/hasil_pengguna') ?>">
           
           
 
           <div class="row">
             <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
-                    <option value="" disabled selected>Choose Category</option>
-                    <option value="nama">Name</option>
-                    <option value="domisili">Domicile</option>
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <option value="nama">Nama</option>
+                    <option value="domisili">Domisili</option>
                      <option value="status">Status</option>
-                    <option value="fakultas">Faculty</option>
+                    <option value="fakultas">Fakultas</option>
                 </select>
             </div>
 
@@ -49,11 +49,11 @@
              
               <keyword>
                 <input id="book-searchkey" type="text" class="validate" name="keyword">
-                <label>Keyword</label>
+                <label>Kata Kunci</label>
               </keyword>
              <location>
               <select id="location" name="location" type="text" class="validate">
-                    <option value="" disabled selected>Choose Domicile</option>
+                    <option value="" disabled selected>Pilih Domisili</option>
                     <option value="Jakarta">Jakarta</option>
                     <option value="Bogor">Bogor</option>
                      <option value="Depok">Depok</option>
@@ -64,7 +64,7 @@
               </location>
               <status>
                 <select id="status" name="status" type="text" class="validate">
-                    <option value="" disabled selected>Choose Status</option>
+                    <option value="" disabled selected>Pilih Status</option>
                     <option value="1">Student</option>
                     <option value="2">Lecturer</option>
                      <option value="3">Staff</option>
@@ -73,7 +73,7 @@
               </status>
               <faculty>
                   <select id="faculty" name="faculty" type="text" class="validate">
-                    <option value="" disabled selected>Choose Faculty</option>
+                    <option value="" disabled selected>Pilih Fakultas</option>
                     <option value="1">Faculty of Medicine</option>
                     <option value="2">Faculty of Dentistry</option>
                      <option value="3">Faculty of Mathematics and Natural Science</option>
@@ -95,7 +95,7 @@
             </div>
             
             <div class="col s12 m12 l12">
-                <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">Search</button>
+                <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">Cari</button>
             </div>
           </div>
           
@@ -174,7 +174,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

@@ -44,7 +44,7 @@
 					$this->session->set_userdata('foto',$foto);
 					
 					// redirect(base_url('index.php/Dashboard'));
-					redirect(base_url('index.php/Request_in'));
+					redirect(base_url('index.php/permintaan_masuk'));
 				}
 				else
 				{

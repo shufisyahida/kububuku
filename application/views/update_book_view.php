@@ -1,7 +1,7 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <div class="container custom-container-c">
-            Update Book
+            Perbarui Buku
         </div>
       </div>
 
@@ -10,7 +10,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -24,7 +24,7 @@
     <div class="card-panel-custom-reg z-depth-1">
         <div class="row">
             <form method="post" action="<?php echo base_url().'index.php/Request/createUpdateRequest/'.$isbn?>" class="col s12">
-              <!-- <a href="<?php echo base_url()."index.php/Book/deleteBook/".$resultBook[0]->isbn?>">DELETE</a> -->
+              <!-- <a href="<?php echo base_url()."index.php/buku/deleteBook/".$resultBook[0]->isbn?>">DELETE</a> -->
 
                 <div id="step-one" class="row">
                                         
@@ -38,7 +38,7 @@
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="judul" name="judul" type="text" class="validate" value="<?php echo $judul;?>">
-                        <label for="judul">Title*</label>
+                        <label for="judul">Judul*</label>
                         <span class="error"><?php echo $judulErr;?></span>
                     </div>
 
@@ -53,13 +53,13 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="pengarang" name="pengarang" type="text" class="validate" value="<?php echo $pengarang;?>">
-                        <label for="pengarang">Author*</label>
+                        <label for="pengarang">Pengarang*</label>
                         <span class="error"><?php echo $pengarangErr;?></span>
                     </div>
 
                     <div class="col s4 offset-s2">
                         <select id="genre" name="genre" type="text" class="validate" >
-                              <option value="">Choose book genre*</option>
+                              <option value="">Pilih Genre Buku*</option>
                               <option value="Biography" <?php if($genre == "Biography") echo "selected"; ?>>Biography</option>  
                               <option value="Comic" <?php if($genre == "Comic") echo "selected"; ?>>Comic</option>
                               <option value="Fantasy" <?php if($genre == "Fantasy") echo "selected"; ?>>Fantasy</option>
@@ -85,38 +85,38 @@
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="penerbit" name="penerbit" type="text" class="validate" value="<?php echo $penerbit;?>">
-                        <label for="penerbit">Publisher</label>
+                        <label for="penerbit">Penerbit</label>
                     </div>
 
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="tahun_terbit" name="tahun_terbit" type="text" class="validate" value="<?php echo $tahun_terbit;?>">
-                        <label for="tahun_terbit">Publish Year</label>
+                        <label for="tahun_terbit">Tahun Terbit</label>
                         <span class="error"><?php echo $tahun_terbitErr;?></span>
                     </div>
 
                     <div class="input-field col s4 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <input id="jumlah_halaman" name="jumlah_halaman" type="text" class="validate" value="<?php echo $jumlah_halaman;?>">
-                        <label for="jumlah_halaman">Number of Pages</label>
+                        <label for="jumlah_halaman">Jumlah Halaman</label>
                         <span class="error"><?php echo $jumlah_halamanErr;?></span>
                     </div>
 
                     <div class="input-field col s4 offset-s2">
                         <!-- <i class="mdi-action-face-unlock prefix"></i> -->
                         <input id="sampul" name="sampul" type="url" value="<?php echo $sampul;?>">
-                        <label for="sampul">Cover URL</label>
+                        <label for="sampul">URL Sampul</label>
                     </div>
 
                     <div class="input-field col s10 offset-s1">
                         <!-- <i class="mdi-action-perm-contact-cal prefix"></i> -->
                         <textarea id="deskripsi" name="deskripsi" type="text" class="validate materialize-textarea" value="<?php echo $deskripsi;?>"><?php echo $deskripsi;?></textarea>
-                        <label for="deskripsi">Description</label>
+                        <label for="deskripsi">Deskripsi</label>
                     </div>
 
                     <div class="col s12 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">UPDATE</button>
+                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">PERBARUI</button>
                     </div>
                 </div>
             </form>
@@ -164,7 +164,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  
