@@ -51,11 +51,11 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+						<a href = "'.base_url()."".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
-						<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+						<a href = "'.base_url()."".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
 						</a>
 								<span>'.$value->username.'</span>

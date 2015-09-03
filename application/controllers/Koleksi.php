@@ -69,12 +69,12 @@
 				// 			Already requested.
 				// 		</div>
 				// 	</div>
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 			}	
 			else
 			{
 				//tampilkan notifikasi sukses
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 				// echo '
 				// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
 				// ';
