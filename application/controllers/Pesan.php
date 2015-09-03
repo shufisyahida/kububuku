@@ -16,11 +16,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Admin'));
+                redirect(base_url('Admin'));
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/permintaan_masuk'));    
+                redirect(base_url('permintaan_masuk'));    
             }
 
         }
@@ -46,7 +46,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
 
             $this->load->model('pesan');
@@ -101,13 +101,13 @@
                     );
                     $this->load->model('pesan');
                     $this->pesan->createPesan($data);
-                    redirect(base_url('index.php/koleksi'));
+                    redirect(base_url('koleksi'));
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
       

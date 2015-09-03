@@ -15,11 +15,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-            	redirect(base_url('index.php/Message'));	
+            	redirect(base_url('Message'));	
             }
 	    }
 
@@ -32,12 +32,12 @@
 
 				$this->load->model('koleksi_model');
 				$this->koleksi_model->addKoleksi($non_admin,$buku);
-				redirect(base_url('index.php/koleksi'));
+				redirect(base_url('koleksi'));
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Login'));
+				redirect(base_url('Login'));
 				//masuk form create buku lalalla
 			}				
 		}
@@ -69,12 +69,12 @@
 				// 			Already requested.
 				// 		</div>
 				// 	</div>
-				redirect('index.php/profil/lihatProfil/'.$pemilik);
+				redirect('profil/lihatProfil/'.$pemilik);
 			}	
 			else
 			{
 				//tampilkan notifikasi sukses
-				redirect('index.php/profil/lihatProfil/'.$pemilik);
+				redirect('profil/lihatProfil/'.$pemilik);
 				// echo '
 				// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
 				// ';
@@ -94,12 +94,12 @@
 
 				$this->load->model('koleksi_model');
 				$this->koleksi_model->deleteKoleksi($username,$isbn);
-				redirect(base_url('index.php/koleksi'));
+				redirect(base_url('koleksi'));
 			}
 			else
 			{
 				//$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/koleksi'));
+				redirect(base_url('koleksi'));
 				//belom betul, ini masih copas else nya wkwkwk
 			}
 		}

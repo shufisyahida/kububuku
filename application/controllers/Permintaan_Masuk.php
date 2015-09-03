@@ -13,11 +13,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('Message'));    
             }
         }
         
@@ -32,7 +32,7 @@
             $this->load->model('koleksi_model');
             $this->koleksi_model->setStatus($username,$isbn,0);
 
-            redirect(base_url('index.php/permintaan_masuk'));            
+            redirect(base_url('permintaan_masuk'));            
         }
 
         public function konfirmasi_pengembalian()
@@ -54,7 +54,7 @@
             $this->load->model('non_admin');
             $this->non_admin->giveRank($borrower,$rank,true);
 
-            redirect(base_url('index.php/permintaan_masuk'));
+            redirect(base_url('permintaan_masuk'));
         }
 
         public function tolak($idPinjaman)
@@ -64,7 +64,7 @@
             $this->load->model('pinjaman');
             $this->pinjaman->decline($id);
 
-            redirect(base_url('index.php/permintaan_masuk'));
+            redirect(base_url('permintaan_masuk'));
         }
 
         public function index()

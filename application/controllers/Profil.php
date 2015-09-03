@@ -9,7 +9,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
 
@@ -154,7 +154,7 @@
                     $this->db->where('username', $username);
                     $this->db->update('non_admin', $data); 
 
-                    redirect(base_url('index.php/profil/lihatProfil/'.$username));
+                    redirect(base_url('profil/lihatProfil/'.$username));
                 }
             }
         }
@@ -196,7 +196,7 @@
 
         public function selesai()
         {
-            redirect('index.php/permintaan_masuk');
+            redirect('permintaan_masuk');
         }
         
         function lihatProfil($username)
@@ -301,7 +301,7 @@
         {
             $this->load->model('non_admin');
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/ManageUser'));
+            redirect(base_url('ManageUser'));
         }
 
     } // end of Profile

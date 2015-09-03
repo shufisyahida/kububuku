@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/admin'));
+                redirect(base_url('admin'));
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/permintaan_masuk'));    
+                redirect(base_url('permintaan_masuk'));    
             }
 
             //$this->load->model("pesan_model");
@@ -31,7 +31,7 @@
 		public function index()
 		{
             // $config = array();
-            // $config["base_url"] = base_url() . "index.php/Message/index";
+            // $config["base_url"] = base_url() . "Message/index";
             // $config["total_rows"] = $this->pesan_model->pesanCount();
             // $config["per_page"] = 2;
             // $config["uri_segment"] = 3;
@@ -82,7 +82,7 @@
         public function delete($id)
         {
             $this->pesan_model->delete($id);
-            redirect(base_url('index.php/Message'));
+            redirect(base_url('Message'));
         }
 
         // public function create()
@@ -141,13 +141,13 @@
         //         );
         //         $this->load->model('pesan_model');
         //         $this->pesan_model->createPesan($data);
-        //         redirect(base_url('index.php/Wishlist'));
+        //         redirect(base_url('Wishlist'));
                       
         //     }
         //     else
         //     {
         //         $this->session->set_userdata('error_login_'.$email,true);
-        //         redirect(base_url('index.php/Login'));
+        //         redirect(base_url('Login'));
         //     }
         // }
 	}

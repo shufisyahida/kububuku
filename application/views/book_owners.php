@@ -9,7 +9,7 @@
         </a>
         <ul>
            <?php $username = $this->session->userdata('username');?>
-          <li><a href="<?php echo base_url()."index.php/koleksi/tambah/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url()."koleksi/tambah/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -64,11 +64,11 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="container custom-container-a">          
-            <a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'">
+            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
               <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
             </a>
             </div>
-            <a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'">
+            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
             <div class="truncate green-text name-property">'.$value->nama.'</div>
             </a>
             <div class="divider"></div>       
@@ -238,11 +238,11 @@ $('document').ready(function() {
           $('#content').append('<div class="col s12 m4 l4"> \
                                   <div class="card"> \
                                     <div class="container custom-container-a"> \
-                                      <a href = "'+$baseurl+"index.php/profil/lihatProfil/"+$username+'"> \
+                                      <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
                                       <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
                                       </a> \
                                     </div> \
-                                    <a href = "'+$baseurl+"index.php/profil/lihatProfil/"+$username+'"> \
+                                    <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
                                       <div class="truncate green-text name-property">'+$nama+'</div> \
                                     </a> \
                                     <div class="divider"></div> \
@@ -266,7 +266,7 @@ $('document').ready(function() {
         }
       }
     }
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/buku/getList?page="+ $page+"&isbn="+$isbn, true);
+    xmlhttp.open("POST","http://localhost/kububuku/buku/getList?page="+ $page+"&isbn="+$isbn, true);
     xmlhttp.send();
   });
 });
@@ -298,7 +298,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

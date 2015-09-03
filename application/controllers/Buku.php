@@ -18,7 +18,7 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             
         }
@@ -134,13 +134,13 @@
                     $username = $this->session->userdata('username');
                     $this->load->model('koleksi_model');
                     $this->koleksi_model->addKoleksi($username, $isbn);
-                    redirect(base_url('index.php/koleksi'));
+                    redirect(base_url('koleksi'));
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
       
@@ -315,7 +315,7 @@
 
         //     $this->load->model('buku_model');
         //     $this->buku_model->deleteBook($isbn);
-        //     redirect(base_url('index.php/ManageBook'));
+        //     redirect(base_url('ManageBook'));
         // }
 
         // public function updateBook($isbn, $perubahan)
@@ -334,7 +334,7 @@
         //     );
         //     $this->load->model('buku_model');
         //     $this->buku_model->updateBook($isbn, $data);
-        //     redirect(base_url('index.php/ManageBook'));
+        //     redirect(base_url('ManageBook'));
         // }
             
 

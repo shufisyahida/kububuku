@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('Message'));    
             }
         }
         
@@ -26,7 +26,7 @@
         {
             $this->db->where('id',$id);
             $this->db->delete('pinjaman');
-            redirect(base_url('index.php/permintaan_keluar'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function index()
@@ -85,7 +85,7 @@
             $this->load->model('non_admin');
             $this->non_admin->giveRank($owner,$rank,false);
 
-            redirect(base_url('index.php/permintaan_keluar'));
+            redirect(base_url('permintaan_keluar'));
         }
 
     } // end of Request_out
