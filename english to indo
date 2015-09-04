@@ -96,9 +96,18 @@ deleteUserFromSearch -> hapusPenggunaDariPencarian
 deleteBookFromSearch -> hapusBukuDariPencarian
 
 index.php/message -> index.php/pesan
+getList -> lihatDaftar
+delete -> hapus
 
 index.php/pesan -> index.php/message1 //ga kepake
 
 index.php/Request -> index.php/Permintaan
+createDeleteRequest -> buatPermintaanHapus
+showUpdateBook -> lihatPembaruanBuku
+createUpdateRequest -> buatPermintaanPembaruan
 
 index.php/Request_admin -> index.php/Permintaan_admin
+acceptDeleteBook -> terimaPenghapusanBuku
+declineRequest -> tolak
+acceptUpdateBook -> terimaPembaruanBuku
+getDeleteList -> daftarPenghapusan

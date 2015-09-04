@@ -3,17 +3,17 @@
 	<div class="row">
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
-				<li class="collection-header"><span class="title-t">Admin System</span></li>
-			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item active">Request</a></li>
-			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Manage</a></li>
+				<li class="collection-header"><span class="title-t">Sistem Admin</span></li>
+			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Pesan</a></li>
+			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item active">Permintaan</a></li>
+			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Kelola</a></li>
 		    </ul>
 		</div>		   
 			
 	<div class="col l9">
 		<div class="col l6">
 			<ul class="collection z-depth-1" id="delete-collection">
-				<li class="collection-item"><h5>Delete Request</h5></li>
+				<li class="collection-item"><h5>Permintaan Penghapusan</h5></li>
 					<?php 
 				  	if(!empty($deleteRequest)){
 				  	$index = 1;
@@ -29,26 +29,26 @@
 								</p>
 								<div id="modal-declineRemove<?php echo $post->id?>" class="modal">
 								<div class="modal-content">
-									<h4>Decline Request</h4>
-									<p>Are you sure to decline this remove request?</p>
+									<h4>Tolak Permintaan</h4>
+									<p>Apakah anda yakin untuk menolak permintaan penghapusan ini?</p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="<?php echo base_url().'permintaan_admin/tolak/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
 								</div>
 							</div>
 							<div id="modal-acceptRemove<?php echo $post->id?>" class="modal">
 								<div class="modal-content">
-									<h4>Accept Request</h4>
-									<p>Are you sure to accept this remove request?</p>
+									<h4>Terima Permintaan</h4>
+									<p>Apakah anda yakin untuk menolak permintaan penghapusan ini?</p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="<?php echo base_url().'permintaan_admin/terimaPenghapusanBuku/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 								</div>
 							</div>
-								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
-								<a href="#modal-declineRemove<?php echo $post->id?>" class="secondary-content-2 modal-trigger"><i class="mdi-content-clear red-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Decline"></i></a>
+								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Terima"></i></a>
+								<a href="#modal-declineRemove<?php echo $post->id?>" class="secondary-content-2 modal-trigger"><i class="mdi-content-clear red-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Tolak"></i></a>
 							</div>
 						</li>
 					<?php }}
@@ -61,12 +61,12 @@
 					}?> 
 			</ul>
 			<div class="col l12">
-				<a id="more-delete" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+				<a id="more-delete" style="text-align: center" class="waves-effect waves-light btn-large green">Permintaan lainnya</a>
 			</div>
 		</div>
 		<div class="col l6">
 			<ul class="collection z-depth-1">
-				<li class="collection-item"><h5>Update Request</h5></li>
+				<li class="collection-item"><h5>Permintaan Pembaruan</h5></li>
 				<?php 
 			  	if(!empty($updateRequest)){
 			  	$index = 1;
@@ -83,26 +83,26 @@
 
 							<div id="modal-declineUpdate<?php echo $post->id?>" class="modal">
 								<div class="modal-content">
-									<h4>Decline Request</h4>
-									<p>Are you sure to decline this update request?</p>
+									<h4>Tolak Permintaan</h4>
+									<p>Apakah anda yakin untuk menolak permintaan pembaruan ini?</p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="<?php echo base_url().'permintaan_admin/tolak/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Tolak</a>
 								</div>
 							</div>
 							<div id="modal-acceptUpdate<?php echo $post->id?>" class="modal">
 								<div class="modal-content">
-									<h4>Accept Request</h4>
-									<p>Are you sure to accept this update request?</p>
+									<h4>Terima Permintaan</h4>
+									<p>Apakah anda yakin untuk menerima permintaan pembaruan ini?</p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Update</a>
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="<?php echo base_url().'permintaan_admin/terimaPembaruanBuku/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Perbarui</a>
 								</div>
 							</div>
-							<a href="#modal-acceptUpdate<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
-							<a href="#modal-declineUpdate<?php echo $post->id?>" class="secondary-content-2 modal-trigger"><i class="mdi-content-clear red-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Decline"></i></a>
+							<a href="#modal-acceptUpdate<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Terima"></i></a>
+							<a href="#modal-declineUpdate<?php echo $post->id?>" class="secondary-content-2 modal-trigger"><i class="mdi-content-clear red-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Tolak"></i></a>
 							<div id="modal<?php echo $post->id?>" class="modal">
 							<div class="modal-content">
 								<h4>Accept Update Book</h4>
@@ -204,9 +204,9 @@
 							    </table>
 							</div>
 							<div class="modal-footer">
-								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
-								<a href="<?php echo base_url().'permintaan_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
+								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+								<a href="<?php echo base_url().'permintaan_admin/tolak/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Tolak</a>
+								<a href="<?php echo base_url().'permintaan_admin/terimaPembaruanBuku/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Terima</a>
 							</div>
 						</div>
 						</div>
@@ -221,7 +221,7 @@
 				}?>
 			</ul>
 			<div class="col l12">
-				<a id="more-update" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+				<a id="more-update" style="text-align: center" class="waves-effect waves-light btn-large green">Permintaan lainnya</a>
 			</div>
 		</div>
 	</div>
@@ -291,7 +291,7 @@ $('document').ready(function() {
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+									<a href="<?php echo base_url().'permintaan_admin/tolak/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
 								</div>
 							</div>
 							<div id="modal-acceptRemove<?php echo $post->id?>" class="modal">
@@ -301,7 +301,7 @@ $('document').ready(function() {
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="<?php echo base_url().'permintaan_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="<?php echo base_url().'permintaan_admin/terimaPenghapusanBuku/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 								</div>
 							</div>
 								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
@@ -315,7 +315,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/permintaan_admin/getDeleteList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/permintaan_admin/daftarPenghapusan?page="+ $page, true);
 		xmlhttp.send();
 	});
 });

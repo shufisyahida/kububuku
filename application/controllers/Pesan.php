@@ -70,7 +70,7 @@
         //     $this->load->view('pesan',$data);
         // }
 
-        public function getList()
+        public function lihatDaftar()
         {
             //$thePage = intval($page);
             $data = array();
@@ -79,7 +79,7 @@
             echo json_encode($data);
         }
 
-        public function delete($id)
+        public function hapus($id)
         {
             $this->pesan_model->delete($id);
             redirect(base_url('pesan'));

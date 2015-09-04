@@ -45,7 +45,7 @@
             $this->load->view('foot_view');
 		}
 
-        public function getList()
+        public function lihatDaftar()
         {
             //$thePage = intval($page);
             $data = array();
@@ -55,13 +55,13 @@
             echo json_encode($data);
         }
 
-        public function deleteUser($username)
+        public function hapusPengguna($username)
         {
             $this->non_admin->deleteUser($username);
             redirect(base_url('kelola'));
         }
 
-        public function deleteBook($isbn)
+        public function hapusBuku($isbn)
         {
             $this->buku_model->deleteBook($isbn);
             redirect(base_url('kelola'));

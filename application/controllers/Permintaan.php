@@ -64,7 +64,7 @@
         //     $this->load->view('foot_view');
         // }
 
-        public function createDeleteRequest($isbn)
+        public function buatPermintaanHapus($isbn)
         {
             $data = array(
                 'username'=>$this->session->userdata('username'),
@@ -79,7 +79,7 @@
             redirect(base_url('buku/info/'.$isbn));    
         }
 
-        public function showUpdateBook($isbn)
+        public function lihatPembaruanBuku($isbn)
         {
             $this->load->model('buku_model');
             $book = $this->buku_model->getBook($isbn) ;
@@ -95,7 +95,7 @@
             $this->load->view('update_book_view', $data);
             $this->load->view('foot_view');
         }
-        public function createUpdateRequest($isbn)
+        public function buatPermintaanPembaruan($isbn)
         {
             if(isset($_POST))
             {

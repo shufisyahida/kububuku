@@ -118,7 +118,7 @@
                           <div class="modal-footer">
                             <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
                     
-                            <a href="'.base_url().'kelola/deleteBookFromSearch/'.$post->isbn.'"
+                            <a href="'.base_url().'kelola/hapusBukuFromSearch/'.$post->isbn.'"
                               class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
                           </div>
                         </div>

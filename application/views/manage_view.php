@@ -3,17 +3,17 @@
 	<div class="row">
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
-				<li class="collection-header"><span class="title-t">Admin System</span></li>
-			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Request</a></li>
-			    <li><a href="<?php echo base_url('kelola');?>" class="active collection-item">Manage</a></li>
+				<li class="collection-header"><span class="title-t">Sistem Admin</span></li>
+			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Pesan</a></li>
+			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Permintaan</a></li>
+			    <li><a href="<?php echo base_url('kelola');?>" class="active collection-item">Kelola</a></li>
 		    </ul>
 		</div>		   
 			
 	<div class="col l9">
 		<div class="col l6">
 			<ul class="collection z-depth-1" id="user-content">
-				<li class="collection-item"><h5>Users</h5></li>
+				<li class="collection-item"><h5>Pengguna</h5></li>
 				<?php 
 				$index = 1;
 				foreach ($user as $key => $value) 
@@ -36,12 +36,12 @@
 
 						<div id="modal-remove'.$value->username.'" class="modal">
 							<div class="modal-content">
-								<h4>Remove User</h4>
-								<p>Are you sure to remove this user?</p>
+								<h4>Hapus Pengguna</h4>
+								<p>Apakah anda yakin untuk menghapus pengguna ini?</p>
 							</div>
 							<div class="modal-footer">
-								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url().'kelola/deleteUser/'.$value->username.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+								<a href="'.base_url().'kelola/hapusPengguna/'.$value->username.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
 							</div>
 						</div>
 						<a href="#modal-remove'.$value->username.'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a>
@@ -51,14 +51,14 @@
 				?>
 			</ul>
 			<div class="col l12">
-				<a id="more1" style="text-align: center" class="waves-effect waves-light btn-large green">MORE USERS</a>
+				<a id="more1" style="text-align: center" class="waves-effect waves-light btn-large green">Pengguna Lainnya</a>
 			</div>
 		</div>
 
 
 		<div class="col l6">
 			<ul class="collection z-depth-1" id="book-content">
-				<li class="collection-item"><h5>Books</h5></li>
+				<li class="collection-item"><h5>Buku</h5></li>
 				<?php 
 				$index = 1;
 				foreach ($buku as $key => $value) 
@@ -82,12 +82,12 @@
 
 						<div id="modal-remove'.$value->isbn.'" class="modal">
 							<div class="modal-content">
-								<h4>Remove Book</h4>
-								<p>Are you sure to remove this book?</p>
+								<h4>Hapus Buku</h4>
+								<p>Apakah anda yakin untuk menghapus buku ini?</p>
 							</div>
 							<div class="modal-footer">
-								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url().'kelola/deleteBook/'.$value->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+								<a href="'.base_url().'kelola/hapusBuku/'.$value->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
 							</div>
 						</div>
 						<a href="#modal-remove'.$value->isbn.'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a>
@@ -97,7 +97,7 @@
 			</ul>
 
 			<div class="col l12">
-				<a id="more2" style="text-align: center" class="waves-effect waves-light btn-large green">MORE BOOKS</a>
+				<a id="more2" style="text-align: center" class="waves-effect waves-light btn-large green">Buku Lainnya</a>
 			</div>
 		</div>
 		
@@ -184,12 +184,12 @@ $('document').ready(function() {
 						</p> \
 						<div id="modal-remove'+$username+'" class="modal"> \
 						<div class="modal-content"> \
-							<h4>Remove User</h4> \
-							<p>Are you sure to remove this user?</p> \
+							<h4>Hapus pengguna</h4> \
+							<p>Apakah anda yakin untuk menghapus pengguna ini?</p> \
 						</div> \
 						<div class="modal-footer"> \
-							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-							<a href="Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a> \
+							<a href="Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
 						</div> \
 						</div> \
 							<a href="#modal-remove'+$username+'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a> \
@@ -200,7 +200,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/kelola/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/kelola/lihatdaftar?page="+ $page, true);
 		xmlhttp.send();
 	});
 });
@@ -273,12 +273,12 @@ $('document').ready(function() {
 								</p> \
 								<div id="modal-remove'+$isbn+'" class="modal"> \
 									<div class="modal-content"> \
-										<h4>Remove Book</h4> \
-										<p>Are you sure to remove this book?</p> \
+										<h4>Hapus buku</h4> \
+										<p>Apakah anda yakin untuk menghapus buku ini?</p> \
 									</div> \
 									<div class="modal-footer"> \
-										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a> \
-										<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a> \
+										<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
 									</div> \
 								</div> \
 								<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \
@@ -292,7 +292,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/kelola/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/kelola/lihatdaftar?page="+ $page, true);
 		xmlhttp.send();
 	});
 });

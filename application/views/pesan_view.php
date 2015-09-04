@@ -3,10 +3,10 @@
 	<div class="row">
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
-				<li class="collection-header"><span class="title-t">Admin System</span></li>
-			    <li><a href="<?php echo base_url('pesan');?>" class="active collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Request</a></li>
-			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Manage</a></li>
+				<li class="collection-header"><span class="title-t">Sistem Admin</span></li>
+			    <li><a href="<?php echo base_url('pesan');?>" class="active collection-item">Pesan</a></li>
+			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Permintaan</a></li>
+			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Kelola</a></li>
 		    </ul>
 		</div>		   
 			
@@ -43,7 +43,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a>
-									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="'.base_url().'pesan/hapus/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
 								</div>
 							</div>
 							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
@@ -52,12 +52,12 @@
 								
 							<div id="modal-remove'.$value->id.'" class="modal">
 								<div class="modal-content">
-									<h4>Remove Message</h4>
-									<p>Are you sure to remove this message?</p>
+									<h4>Hapus Pesan</h4>
+									<p>Apakah anda yakin untuk menghapus pesan ini?</p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="'.base_url().'pesan/hapus/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
 								</div>
 							</div>
 							<a href="#modal-remove'.$value->id.'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a>
@@ -66,7 +66,7 @@
 			</ul>
 
 			<div class="col l12">
-				<a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+				<a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">Pesan lainnya</a>
 			</div>
 		</div>
 	</div>
@@ -133,7 +133,7 @@ $('document').ready(function() {
 							</div> \
 							<div class="modal-footer"> \
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a> \
-								<a href="localhost/kububuku/pesan/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+								<a href="localhost/kububuku/pesan/hapus/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 							</div> \
 						</div> \
 						<a class="modal-trigger" href="#modal-message'+ $id +'"><span class="title-t">'+ $judul +'<span></a><br> \
@@ -157,7 +157,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/pesan/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/pesan/lihatDaftar?page="+ $page, true);
 		xmlhttp.send();
 	});
 });

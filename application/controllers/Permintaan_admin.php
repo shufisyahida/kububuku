@@ -199,7 +199,7 @@
 
         // }
 
-        public function acceptDeleteBook($isbn)
+        public function terimaPenghapusanBuku($isbn)
         {
             $this->load->model('buku_model');
             $this->buku_model->deleteBook($isbn);
@@ -210,7 +210,7 @@
             redirect(base_url('permintaan_admin'));  
         }
 
-        public function declineRequest($id)
+        public function tolak($id)
         {
             $this->load->model('permintaan_ubah_hapus');
             $this->permintaan_ubah_hapus->delete($id);
@@ -218,7 +218,7 @@
             redirect(base_url('permintaan_admin'));  
         }
 
-        public function acceptUpdateBook($id, $isbn)
+        public function terimaPembaruanBuku($id, $isbn)
         {
             $this->load->model('permintaan_ubah_hapus');
             $perubahan = $this->permintaan_ubah_hapus->getPerubahan($id);
@@ -242,7 +242,7 @@
             redirect(base_url('permintaan_admin')); 
         }
 
-        public function getDeleteList(){
+        public function daftarPenghapusan(){
             $page = $_GET['page'];
             $this->load->model('permintaan_ubah_hapus');
             $deleteRequest = $this->permintaan_ubah_hapus->getDeleteRequestList(1,$page);

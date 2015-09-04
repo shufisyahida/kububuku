@@ -162,7 +162,7 @@
                     <div class="modal-footer">
                       <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
               
-                      <a href="'.base_url().'kelola/deleteUserFromSearch/'.$post->username.'"
+                      <a href="'.base_url().'kelola/hapusPenggunaFromSearch/'.$post->username.'"
                         class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
                     </div>
                   </div>

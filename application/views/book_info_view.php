@@ -43,7 +43,7 @@
         </div>
         <div class="modal-footer">
             <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
-            <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Laporkan</a>
+            <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Laporkan</a>
         </div>
     </div>
 
@@ -96,8 +96,8 @@ echo '
             </div>' ?>
 
 
-            <!-- <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
-            <!-- <a href="<?php echo base_url()."permintaan/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/lihatPembaruanBuku/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
 
             <!-- <div id="modal-report" class="modal">
                 <div class="modal-content">
@@ -106,7 +106,7 @@ echo '
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
+                    <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
                 </div>
             </div> -->
 <?php
@@ -114,9 +114,9 @@ echo '
   echo '
             <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Laporkan buku ini"><i class="mdi-content-report"></i></a>
 
-            <!-- <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
 
-            <a href="'.base_url().'permintaan/showUpdateBook/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Perbarui buku ini"><i class="mdi-editor-mode-edit"></i></a>
+            <a href="'.base_url().'permintaan/lihatPembaruanBuku/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Perbarui buku ini"><i class="mdi-editor-mode-edit"></i></a>
         ';}?>
         </div>
       </div>
