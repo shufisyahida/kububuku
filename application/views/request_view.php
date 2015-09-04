@@ -4,9 +4,15 @@
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
+<<<<<<< HEAD
 			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Message</a></li>
 			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item active">Request</a></li>
 			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Manage</a></li>
+=======
+			    <li><a href="<?php echo base_url('Message');?>" class="collection-item">Message</a></li>
+			    <li><a href="<?php echo base_url('Request_admin');?>" class="collection-item active">Request</a></li>
+			    <li><a href="<?php echo base_url('Manage');?>" class="collection-item">Manage</a></li>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 		    </ul>
 		</div>		   
 			
@@ -34,7 +40,11 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<div id="modal-acceptRemove<?php echo $post->id?>" class="modal">
@@ -44,7 +54,11 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
@@ -88,7 +102,11 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<div id="modal-acceptUpdate<?php echo $post->id?>" class="modal">
@@ -98,7 +116,11 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Update</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Update</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<a href="#modal-acceptUpdate<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
@@ -205,8 +227,13 @@
 							</div>
 							<div class="modal-footer">
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 								<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
 								<a href="<?php echo base_url().'permintaan_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
+=======
+								<a href="<?php echo base_url().'Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+								<a href="<?php echo base_url().'Request_admin/acceptUpdateBook/'.$post->id.'/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Accept</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 							</div>
 						</div>
 						</div>
@@ -291,7 +318,11 @@ $('document').ready(function() {
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/declineRequest/'.$post->id?>" class="black-text waves-effect waves-green btn-flat modal-action">Decline</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<div id="modal-acceptRemove<?php echo $post->id?>" class="modal">
@@ -301,7 +332,11 @@ $('document').ready(function() {
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+<<<<<<< HEAD
 									<a href="<?php echo base_url().'permintaan_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+=======
+									<a href="<?php echo base_url().'Request_admin/acceptDeleteBook/'.$post->isbn?>" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 								<a href="#modal-acceptRemove<?php echo $post->id?>" class="secondary-content modal-trigger"><i class="mdi-action-done green-text small tooltipped" data-position="right" data-delay="10" data-tooltip="Accept"></i></a>
@@ -315,7 +350,11 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
+<<<<<<< HEAD
 		xmlhttp.open("POST","http://localhost/kububuku/permintaan_admin/getDeleteList?page="+ $page, true);
+=======
+		xmlhttp.open("POST","http://localhost/kububuku/Request_admin/getDeleteList?page="+ $page, true);
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 		xmlhttp.send();
 	});
 });

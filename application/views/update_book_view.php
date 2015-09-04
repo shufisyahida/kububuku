@@ -23,7 +23,11 @@
     <!-- <br><h5>Add Book</h5> -->
     <div class="card-panel-custom-reg z-depth-1">
         <div class="row">
+<<<<<<< HEAD
             <form method="post" action="<?php echo base_url().'permintaan/createUpdateRequest/'.$isbn?>" class="col s12">
+=======
+            <form method="post" action="<?php echo base_url().'Request/createUpdateRequest/'.$isbn?>" class="col s12">
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
               <!-- <a href="<?php echo base_url()."buku/deleteBook/".$resultBook[0]->isbn?>">DELETE</a> -->
 
                 <div id="step-one" class="row">

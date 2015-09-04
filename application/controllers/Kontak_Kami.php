@@ -18,7 +18,11 @@
             }
             elseif($isAdmin)
             {
+<<<<<<< HEAD
                 redirect(base_url('pesan'));    
+=======
+                redirect(base_url('Message'));    
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
             }
 
             //$this->load->model("pesan_model");
@@ -31,7 +35,11 @@
 		// public function index()
 		// {
   //           // $config = array();
+<<<<<<< HEAD
   //           // $config["base_url"] = base_url() . "pesan/index";
+=======
+  //           // $config["base_url"] = base_url() . "Message/index";
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
   //           // $config["total_rows"] = $this->pesan_model->pesanCount();
   //           // $config["per_page"] = 2;
   //           // $config["uri_segment"] = 3;
@@ -82,7 +90,11 @@
   //       public function delete($id)
   //       {
   //           $this->pesan_model->delete($id);
+<<<<<<< HEAD
   //           redirect(base_url('pesan'));
+=======
+  //           redirect(base_url('Message'));
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
   //       }
         public function index()
         {

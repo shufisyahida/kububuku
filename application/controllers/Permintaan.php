@@ -18,7 +18,11 @@
             }
             elseif($isAdmin)
             {
+<<<<<<< HEAD:application/controllers/Permintaan.php
                 redirect(base_url('pesan'));    
+=======
+                redirect(base_url('Message'));    
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request.php
             }
 
         }
@@ -228,7 +232,11 @@
         //     // $this->load->model('permintaan_ubah_hapus');
         //     // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
 
+<<<<<<< HEAD:application/controllers/Permintaan.php
         //     redirect(base_url('permintaan'));  
+=======
+        //     redirect(base_url('Request'));  
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request.php
         // }
 
         // public function declineRequest($id)
@@ -236,7 +244,11 @@
         //     $this->load->model('permintaan_ubah_hapus');
         //     $this->permintaan_ubah_hapus->delete($id);
 
+<<<<<<< HEAD:application/controllers/Permintaan.php
         //     redirect(base_url('permintaan'));  
+=======
+        //     redirect(base_url('Request'));  
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request.php
         // }
 
         // public function acceptUpdateBook($id, $isbn)
@@ -260,7 +272,11 @@
         //     $this->buku_model->updateBook($isbn, $data);
         //     $this->permintaan_ubah_hapus->delete($id);            
 
+<<<<<<< HEAD:application/controllers/Permintaan.php
         //     redirect(base_url('permintaan')); 
+=======
+        //     redirect(base_url('Request')); 
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request.php
         // }
 
 

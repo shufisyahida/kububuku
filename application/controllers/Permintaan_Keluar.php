@@ -18,7 +18,11 @@
             }
             elseif($isAdmin)
             {
+<<<<<<< HEAD
                 redirect(base_url('pesan'));    
+=======
+                redirect(base_url('Message'));    
+>>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
             }
         }
         
