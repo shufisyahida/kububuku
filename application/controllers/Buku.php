@@ -315,11 +315,7 @@
 
         //     $this->load->model('buku_model');
         //     $this->buku_model->deleteBook($isbn);
-<<<<<<< HEAD
         //     redirect(base_url('kelolaBook'));
-=======
-        //     redirect(base_url('ManageBook'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
         // }
 
         // public function updateBook($isbn, $perubahan)
@@ -338,11 +334,7 @@
         //     );
         //     $this->load->model('buku_model');
         //     $this->buku_model->updateBook($isbn, $data);
-<<<<<<< HEAD
         //     redirect(base_url('kelolaBook'));
-=======
-        //     redirect(base_url('ManageBook'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
         // }
             
 

@@ -4,15 +4,9 @@
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
-<<<<<<< HEAD
 			    <li><a href="<?php echo base_url('pesan');?>" class="active collection-item">Message</a></li>
 			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Request</a></li>
 			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Manage</a></li>
-=======
-			    <li><a href="<?php echo base_url('Message');?>" class="active collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('Request_admin');?>" class="collection-item">Request</a></li>
-			    <li><a href="<?php echo base_url('Manage');?>" class="collection-item">Manage</a></li>
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 		    </ul>
 		</div>		   
 			
@@ -49,11 +43,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a>
-<<<<<<< HEAD
 									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
-=======
-									<a href="'.base_url().'Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
@@ -67,11 +57,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-<<<<<<< HEAD
 									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
-=======
-									<a href="'.base_url().'Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 								</div>
 							</div>
 							<a href="#modal-remove'.$value->id.'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a>
@@ -147,11 +133,7 @@ $('document').ready(function() {
 							</div> \
 							<div class="modal-footer"> \
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a> \
-<<<<<<< HEAD
 								<a href="localhost/kububuku/pesan/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
-=======
-								<a href="localhost/kububuku/Message/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 							</div> \
 						</div> \
 						<a class="modal-trigger" href="#modal-message'+ $id +'"><span class="title-t">'+ $judul +'<span></a><br> \
@@ -175,11 +157,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-<<<<<<< HEAD
 		xmlhttp.open("POST","http://localhost/kububuku/pesan/getList?page="+ $page, true);
-=======
-		xmlhttp.open("POST","http://localhost/kububuku/Message/getList?page="+ $page, true);
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 		xmlhttp.send();
 	});
 });

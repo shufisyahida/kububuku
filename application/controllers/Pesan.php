@@ -14,11 +14,7 @@
             
             if(!$isLoggedIn)
             {
-<<<<<<< HEAD
                 redirect(base_url('admin'));
-=======
-                redirect(base_url('Admin'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
             }
             elseif(!$isAdmin)
             {
@@ -85,21 +81,9 @@
 
         public function delete($id)
         {
-<<<<<<< HEAD
             $this->pesan_model->delete($id);
             redirect(base_url('pesan'));
         }
-=======
-            parent::__construct();
-            $username = $this->session->userdata('username');
-            if(!$this->session->userdata(''.$username))
-            {
-                redirect(base_url('Login'));
-            }
-
-            $this->load->model('pesan');
-        }*/
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 
         // public function create()
         // {        
@@ -148,7 +132,6 @@
         //         else
         //         {
                    
-<<<<<<< HEAD
         //         $data = array(
         //             'username' => $username,
         //             'kategori' => $kategori,
@@ -167,26 +150,5 @@
         //         redirect(base_url('Login'));
         //     }
         // }
-=======
-                    $data = array(
-                        'username' => $username,
-                        'kategori' => $kategori,
-                        'isi' => $isi,
-                        'is_notified' => false,
-                    );
-                    $this->load->model('pesan');
-                    $this->pesan->createPesan($data);
-                    redirect(base_url('koleksi'));
-                }       
-            }
-            else
-            {
-                $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('Login'));
-            }
-        }
-      
-
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
 	}
 ?>

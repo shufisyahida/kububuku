@@ -207,11 +207,7 @@
             // $this->load->model('permintaan_ubah_hapus');
             // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
 
-<<<<<<< HEAD:application/controllers/Permintaan_admin.php
             redirect(base_url('permintaan_admin'));  
-=======
-            redirect(base_url('Request_admin'));  
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request_admin.php
         }
 
         public function declineRequest($id)
@@ -219,11 +215,7 @@
             $this->load->model('permintaan_ubah_hapus');
             $this->permintaan_ubah_hapus->delete($id);
 
-<<<<<<< HEAD:application/controllers/Permintaan_admin.php
             redirect(base_url('permintaan_admin'));  
-=======
-            redirect(base_url('Request_admin'));  
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request_admin.php
         }
 
         public function acceptUpdateBook($id, $isbn)
@@ -247,11 +239,7 @@
             $this->buku_model->updateBook($isbn, $data);
             $this->permintaan_ubah_hapus->delete($id);            
 
-<<<<<<< HEAD:application/controllers/Permintaan_admin.php
             redirect(base_url('permintaan_admin')); 
-=======
-            redirect(base_url('Request_admin')); 
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Request_admin.php
         }
 
         public function getDeleteList(){

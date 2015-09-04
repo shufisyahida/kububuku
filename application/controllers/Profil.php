@@ -301,11 +301,7 @@
         {
             $this->load->model('non_admin');
             $this->non_admin->deleteUser($username);
-<<<<<<< HEAD
             redirect(base_url('kelolaUser'));
-=======
-            redirect(base_url('ManageUser'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea
         }
 
     } // end of Profile

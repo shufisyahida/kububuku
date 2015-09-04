@@ -58,21 +58,13 @@
         public function deleteUser($username)
         {
             $this->non_admin->deleteUser($username);
-<<<<<<< HEAD:application/controllers/Kelola.php
             redirect(base_url('kelola'));
-=======
-            redirect(base_url('Manage'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Manage.php
         }
 
         public function deleteBook($isbn)
         {
             $this->buku_model->deleteBook($isbn);
-<<<<<<< HEAD:application/controllers/Kelola.php
             redirect(base_url('kelola'));
-=======
-            redirect(base_url('Manage'));
->>>>>>> aa7fe68d208827e9a7a4a04466d9fb86915065ea:application/controllers/Manage.php
         }
 
         public function deleteUserFromSearch($username)
