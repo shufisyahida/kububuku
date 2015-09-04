@@ -15,11 +15,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('pesan'));    
             }
         }
 

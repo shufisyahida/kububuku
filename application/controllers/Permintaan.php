@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Request extends CI_Controller
+    class Permintaan extends CI_Controller
     {
 
         public function __construct()
@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('pesan'));    
             }
 
         }
@@ -76,7 +76,7 @@
             );
             $this->load->model('permintaan_ubah_hapus');
             $this->permintaan_ubah_hapus->createPermintaan($data);
-            redirect(base_url('index.php/buku/info/'.$isbn));    
+            redirect(base_url('buku/info/'.$isbn));    
         }
 
         public function showUpdateBook($isbn)
@@ -209,13 +209,13 @@
                     );
                     $this->load->model('permintaan_ubah_hapus');
                     $this->permintaan_ubah_hapus->createPermintaan($data);
-                    redirect(base_url('index.php/buku/info/'.$isbn));               
+                    redirect(base_url('buku/info/'.$isbn));               
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
 
         }
@@ -228,7 +228,7 @@
         //     // $this->load->model('permintaan_ubah_hapus');
         //     // $this->permintaan_ubah_hapus->delete($username, $isbn, 0);
 
-        //     redirect(base_url('index.php/Request'));  
+        //     redirect(base_url('permintaan'));  
         // }
 
         // public function declineRequest($id)
@@ -236,7 +236,7 @@
         //     $this->load->model('permintaan_ubah_hapus');
         //     $this->permintaan_ubah_hapus->delete($id);
 
-        //     redirect(base_url('index.php/Request'));  
+        //     redirect(base_url('permintaan'));  
         // }
 
         // public function acceptUpdateBook($id, $isbn)
@@ -260,7 +260,7 @@
         //     $this->buku_model->updateBook($isbn, $data);
         //     $this->permintaan_ubah_hapus->delete($id);            
 
-        //     redirect(base_url('index.php/Request')); 
+        //     redirect(base_url('permintaan')); 
         // }
 
 

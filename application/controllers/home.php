@@ -15,9 +15,9 @@
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
                 if($isAdmin)
-                    redirect(base_url('index.php/Message'));
+                    redirect(base_url('pesan'));
                 else
-                    redirect(base_url('index.php/permintaan_masuk'));
+                    redirect(base_url('permintaan_masuk'));
             }
         }
         
