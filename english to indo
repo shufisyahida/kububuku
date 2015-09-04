@@ -77,3 +77,28 @@ delete -> hapus
 
 buku -> buku_model
 koleksi -> koleksi_model
+
+
+
+genre buku belom
+
+
+
+
+
+
+
+index.php/Manage -> index.php/kelola
+getList -> lihatDaftar
+deleteUser -> hapusPengguna
+deleteBook -> hapusBuku
+deleteUserFromSearch -> hapusPenggunaDariPencarian
+deleteBookFromSearch -> hapusBukuDariPencarian
+
+index.php/message -> index.php/pesan
+
+index.php/pesan -> index.php/message1 //ga kepake
+
+index.php/Request -> index.php/Permintaan
+
+index.php/Request_admin -> index.php/Permintaan_admin

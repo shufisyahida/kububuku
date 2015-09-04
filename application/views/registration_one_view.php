@@ -1,13 +1,13 @@
 <div class="header_wrapper"> <!-- end div ini ada di masing-masing view of reqin, reqout, coll, dan wishlist-->
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="<?php echo base_url('index.php/Login') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('Login') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
       </div>
     </nav>
 </div>
 <div class="container" style="margin-top:50px;">
     <br><h5>Registration - step 1/2</h5>
-    <form method="post" action="<?php echo base_url('index.php/pendaftaran/daftar') ?>">
+    <form method="post" action="<?php echo base_url('pendaftaran/daftar') ?>">
         <div>
             <div class="card-panel z-depth-1">
                 <div class="row" style="margin: 0px auto;">

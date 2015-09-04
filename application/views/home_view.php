@@ -53,7 +53,7 @@
                             <div class="carousel-caption">
                               <h3>First slide label</h3>
                               <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                              <p><a class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" href="<?php echo base_url('index.php/Login') ?>" role="button">Go to KubuBuku</a></p>
+                              <p><a class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" href="<?php echo base_url('Login') ?>" role="button">Go to KubuBuku</a></p>
                             </div>
                         </div>
                        
@@ -65,7 +65,7 @@
                             <div class="carousel-caption">
                               <h3>Second slide label</h3>
                               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                              <p><a class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" href="<?php echo base_url('index.php/Login') ?>" role="button">Go to KubuBuku</a></p>
+                              <p><a class="waves-effect waves-light btn-large z-depth-3 grey lighten-1" href="<?php echo base_url('Login') ?>" role="button">Go to KubuBuku</a></p>
                             </div>
                         </div>
                     </div>  
@@ -89,7 +89,7 @@
                     <div class="caption right-align">
                         <h3>Welcome to KubuBuku!</h3>
                         <h5 class="light white-text text-lighten-3">Borrowing a book has never been this easy.</h5>
-                        <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('index.php/Login') ?>" role="button">Go to KubuBuku</a></p></div>
+                        <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('Login') ?>" role="button">Go to KubuBuku</a></p></div>
                     </div>
                 </li>
                 <li>
@@ -97,7 +97,7 @@
                     <div class="caption left-align">
                         <h3>KubuBuku</h3>
                         <h5 class="light white-text text-lighten-3">Here's our bookville.</h5>
-                        <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('index.php/Login') ?>" role="button">Go to KubuBuku</a></p></div>
+                        <div><p><a class="waves-effect waves-light btn-large z-depth-1 grey lighten-1" href="<?php echo base_url('Login') ?>" role="button">Go to KubuBuku</a></p></div>
                     </div>
                 </li>
             </ul>

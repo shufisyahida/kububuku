@@ -7,7 +7,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
 
@@ -57,35 +57,35 @@
             //$this->tanggapan_model->setTanggapan($username, $id);
             $this->tanggapan_model->deleteTanggapan($id,$OtherUsername);
 
-            redirect(base_url('index.php/profil/lihatProfil/'.$OtherUsername));
+            redirect(base_url('profil/lihatProfil/'.$OtherUsername));
         }
 
         public function lookRequest($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setRequest($username, $user, $isbn);
-            redirect(base_url('index.php/permintaan_masuk'));
+            redirect(base_url('permintaan_masuk'));
         }
 
         public function lookAccept($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setAccept($username, $user, $isbn);
-            redirect(base_url('index.php/permintaan_keluar'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function lookDecline($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setDecline($username, $user, $isbn);
-            redirect(base_url('index.php/permintaan_keluar'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function lookReturn($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setReturn($username, $user, $isbn);
-            redirect(base_url('index.php/permintaan_masuk'));
+            redirect(base_url('permintaan_masuk'));
         }
     } // end of Notification
 

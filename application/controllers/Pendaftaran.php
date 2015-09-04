@@ -19,9 +19,9 @@
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
                 if($isAdmin)
-                    redirect(base_url('index.php/Message'));
+                    redirect(base_url('pesan'));
                 else
-                    redirect(base_url('index.php/permintaan_masuk'));
+                    redirect(base_url('permintaan_masuk'));
             }
           
         
@@ -40,7 +40,7 @@
         {
             $username = $this->session->userdata('username');
             $this->session->set_userdata(''.$username,true);
-            redirect('index.php/permintaan_masuk');
+            redirect('permintaan_masuk');
         }
     
         public function index()
@@ -233,13 +233,13 @@
                     $this->session->set_userdata('username',$username);
                     //$this->session->set_userdata(''.$username,true);
                    
-                    redirect(base_url('index.php/pendaftaran/langkah2'));
+                    redirect(base_url('pendaftaran/langkah2'));
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }              
 
         }
@@ -312,14 +312,14 @@
         //       $this->load->model('non_admin');
         //       $this->non_admin->setPhoto($username,$photo);
 
-        //       redirect(base_url('index.php/Dashboard'));
+        //       redirect(base_url('Dashboard'));
 
 
         //   }
         //   else
         //   {
         //       $this->session->set_userdata('error_login_'.$email,true);
-        //       redirect(base_url('index.php/Login'));
+        //       redirect(base_url('Login'));
 
         //   }
 

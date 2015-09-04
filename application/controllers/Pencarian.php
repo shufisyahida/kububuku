@@ -7,7 +7,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
         
