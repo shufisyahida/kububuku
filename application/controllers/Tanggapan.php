@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-            	redirect(base_url('index.php/Message'));	
+            	redirect(base_url('pesan'));	
             }
 	    }
 
@@ -39,13 +39,21 @@
                     'is_notified' => false
                   	);
 				$this->tanggapan_model->addTanggapan($data);
-				redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
+<<<<<<< HEAD
+				redirect(base_url('profil/lihatProfil/'.$OtherUsername));
+=======
+<<<<<<< HEAD
+				redirect(base_url('profil/lihatProfil/'.$OtherUsername));
+=======
+				redirect(base_url(''.$OtherUsername));
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 				
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Login'));
+				redirect(base_url('Login'));
 				//masuk form create buku lalalla
 			}				
 		}

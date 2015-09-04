@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Profile extends CI_Controller
+    class Profil extends CI_Controller
     {
         
         public function __construct()
@@ -9,11 +9,11 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
 
-        public function cropimage()
+        public function potongGambar()
         {
             $this->load->model('non_admin');
             $image = $this->non_admin->upload_image();  
@@ -25,7 +25,7 @@
             $this->load->view('foot_view');
         }
 
-        public function edit()
+        public function ubah()
         {
             if(isset($_POST))
             {
@@ -154,12 +154,20 @@
                     $this->db->where('username', $username);
                     $this->db->update('non_admin', $data); 
 
-                    redirect(base_url('index.php/Profile/showProfile/'.$username));
+<<<<<<< HEAD
+                    redirect(base_url('profil/lihatProfil/'.$username));
+=======
+<<<<<<< HEAD
+                    redirect(base_url('profil/lihatProfil/'.$username));
+=======
+                    redirect(base_url(''.$username));
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
                 }
             }
         }
 
-        public function editPicture()
+        public function ubahGambar()
         {
             // $data['page_title'] = "CI Hello World App!";
             $username = $this->session->userdata('username');
@@ -174,7 +182,7 @@
             $this->load->view('foot_view');
         }
 
-        public function editProfile()
+        public function ubahProfile()
         {
             // $data['page_title'] = "CI Hello World App!";
             $username = $this->session->userdata('username');
@@ -194,20 +202,20 @@
             $this->load->view('foot_view');
         }
 
-        public function finish()
+        public function selesai()
         {
-            redirect('index.php/Request_in');
+            redirect('permintaan_masuk');
         }
         
-        function showProfile($username)
+        function lihatProfil($username)
         {
             // $Myusername = $this->session->userdata('username');
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username);
-            $this->load->model('koleksi');
+            $this->load->model('koleksi_model');
             
-            $koleksiAvailable = $this->koleksi->getKoleksiAvailable($username);
-            $koleksiBorrowed = $this->koleksi->getKoleksiBorrowed($username);
+            $koleksiAvailable = $this->koleksi_model->getKoleksiAvailable($username);
+            $koleksiBorrowed = $this->koleksi_model->getKoleksiBorrowed($username);
             // if($Myusername==$username){
             //     $data['MyWishlist'] = $this->wishlist_model->getAllWishlist($Myusername);
             // }
@@ -255,7 +263,7 @@
                 $this->load->model('tanggapan_model');
                 $isInformed = $this->tanggapan_model->isInTanggapan($value->id, $username);
                 $informed[$key] = $isInformed;
-                $isInCollection[$key] = $this->koleksi->isInCollection($username, $value->isbn);
+                $isInCollection[$key] = $this->koleksi_model->isInCollection($username, $value->isbn);
             }         
             
             // var_dump($koleksiAvailable);
@@ -290,18 +298,18 @@
             $this->load->view('foot_view');
         }
 
-        public function updatecropimage()
+        public function perbaruiGambar()
         {
             $img['imgpath']=$this->non_admin->upload_thumbnail();
             //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
             echo $img=$img['imgpath'];
         }
 
-        public function deleteUser($username)
+        public function hapusPengguna($username)
         {
             $this->load->model('non_admin');
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/ManageUser'));
+            redirect(base_url('kelolaUser'));
         }
 
     } // end of Profile

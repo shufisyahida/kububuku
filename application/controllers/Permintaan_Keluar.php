@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Request_out extends CI_Controller
+    class permintaan_keluar extends CI_Controller
     {
         
         public function __construct()
@@ -14,19 +14,19 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('pesan'));    
             }
         }
         
-        public function cancel($id)
+        public function batal($id)
         {
             $this->db->where('id',$id);
             $this->db->delete('pinjaman');
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function index()
@@ -41,14 +41,14 @@
             $status=array();
             $kontak=array();
             $this->load->model('non_admin');
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             foreach($pinjamanKeluar as $key=>$value)
             {                             
                 $resPengguna = $this->non_admin->getUser($value->username_pemilik) ;
                 $user[] = $resPengguna;
                 
                 // var_dump($value->isbn);
-                $resBuku = $this->buku->getBook($value->isbn);
+                $resBuku = $this->buku_model->getBook($value->isbn);
                 $book[]= $resBuku;
 
                 $durasi[]=$value->durasi;
@@ -70,7 +70,7 @@
             $this->load->view('foot_view');                        
         }
 
-        public function returnBook()
+        public function kembalikan()
         {
             //$id = $this->uri->segment(3);
 
@@ -85,7 +85,7 @@
             $this->load->model('non_admin');
             $this->non_admin->giveRank($owner,$rank,false);
 
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('permintaan_keluar'));
         }
 
     } // end of Request_out

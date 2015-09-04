@@ -4,9 +4,9 @@
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
-			    <li><a href="<?php echo base_url('index.php/Message');?>" class="collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('index.php/Request_admin');?>" class="collection-item">Request</a></li>
-			    <li><a href="<?php echo base_url('index.php/Manage');?>" class="active collection-item">Manage</a></li>
+			    <li><a href="<?php echo base_url('pesan');?>" class="collection-item">Message</a></li>
+			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Request</a></li>
+			    <li><a href="<?php echo base_url('kelola');?>" class="active collection-item">Manage</a></li>
 		    </ul>
 		</div>		   
 			
@@ -24,10 +24,23 @@
 				echo '
 				<li class="collection-item avatar" id="user-'.$index++.'">
 					<div>
-					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
+					<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
 						<img src="'.$value->foto.'" alt="" class="circle">
 					</a>
-					<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+					<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+<<<<<<< HEAD
+=======
+=======
+					<a href = "'.base_url()."".$value->username.'" >
+						<img src="'.$value->foto.'" alt="" class="circle">
+					</a>
+					<a href = "'.base_url()."".$value->username.'" >
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 						<span class="title">'.$value->nama.'</span>
 					</a>
 						<p>
@@ -41,7 +54,7 @@
 							</div>
 							<div class="modal-footer">
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url().'index.php/Manage/deleteUser/'.$value->username.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								<a href="'.base_url().'kelola/deleteUser/'.$value->username.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 							</div>
 						</div>
 						<a href="#modal-remove'.$value->username.'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a>
@@ -70,10 +83,10 @@
 					echo'
 				<li class="collection-item avatar" id="book-'.$index++.'">
 					<div>
-					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
+					<a href = "'.base_url()."buku/info/".$value->isbn.'" >
 						<img src="'.$value->sampul.'" alt="" class="cover">
 					</a>
-					<a href = "'.base_url()."index.php/Book/book_info/".$value->isbn.'" >
+					<a href = "'.base_url()."buku/info/".$value->isbn.'" >
 						<span class="title">'.$value->judul.'</span>
 					</a>
 						<p>
@@ -87,7 +100,7 @@
 							</div>
 							<div class="modal-footer">
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-								<a href="'.base_url().'index.php/Manage/deleteBook/'.$value->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+								<a href="'.base_url().'kelola/deleteBook/'.$value->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 							</div>
 						</div>
 						<a href="#modal-remove'.$value->isbn.'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a>
@@ -200,7 +213,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/kelola/getList?page="+ $page, true);
 		xmlhttp.send();
 	});
 });
@@ -292,7 +305,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/index.php/Manage/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/kelola/getList?page="+ $page, true);
 		xmlhttp.send();
 	});
 });

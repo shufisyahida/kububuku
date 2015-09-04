@@ -1,6 +1,6 @@
     <div class="secondary-header">
       <div class="secondary-header-inner">
-        <div class="container custom-container-c">Book Owner</div>
+        <div class="container custom-container-c">Pemilik Buku</div>
       </div>
 
       <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
@@ -9,7 +9,7 @@
         </a>
         <ul>
            <?php $username = $this->session->userdata('username');?>
-          <li><a href="<?php echo base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url()."koleksi/tambah/".$resultBook[0]->isbn."/".$username?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -64,11 +64,25 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="container custom-container-a">          
-            <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
+            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
               <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
             </a>
             </div>
-            <a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'">
+            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
+<<<<<<< HEAD
+=======
+=======
+            <a href = "'.base_url()."".$value->username.'">
+              <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
+            </a>
+            </div>
+            <a href = "'.base_url()."".$value->username.'">
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
             <div class="truncate green-text name-property">'.$value->nama.'</div>
             </a>
             <div class="divider"></div>       
@@ -90,7 +104,7 @@
             <div class="divider"></div>
             <div class="custom-container-b" style="text-align: center;">
               <ul>
-                <li>As Owner</li>';
+                <li>Sebagai Pemilik</li>';
               
                 $hijau = round($value->rank_pemilik);
                 $putih = 5-$hijau;
@@ -107,7 +121,7 @@
               echo '
               </ul>
               <ul>
-                <li>As Borrower</li>';
+                <li>Sebagai Peminjam</li>';
               
                 $hijau = round($value->rank_peminjam);
                 $putih = 5-$hijau;
@@ -132,7 +146,7 @@
       }?>
     </div>
     <div class="col l12 offset-l3">
-      <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">MORE</a>
+      <a id="more" style="text-align: center" class="waves-effect waves-light btn-large green">SELENGKAPNYA</a>
     </div>
   </div>
 </div>
@@ -238,11 +252,27 @@ $('document').ready(function() {
           $('#content').append('<div class="col s12 m4 l4"> \
                                   <div class="card"> \
                                     <div class="container custom-container-a"> \
-                                      <a href = "'+$baseurl+"index.php/Profile/showProfile/"+$username+'"> \
+<<<<<<< HEAD
+                                      <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
                                       <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
                                       </a> \
                                     </div> \
-                                    <a href = "'+$baseurl+"index.php/Profile/showProfile/"+$username+'"> \
+                                    <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
+=======
+<<<<<<< HEAD
+                                      <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
+                                      <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
+                                      </a> \
+                                    </div> \
+                                    <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
+=======
+                                      <a href = "'+$baseurl+""+$username+'"> \
+                                      <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
+                                      </a> \
+                                    </div> \
+                                    <a href = "'+$baseurl+""+$username+'"> \
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
                                       <div class="truncate green-text name-property">'+$nama+'</div> \
                                     </a> \
                                     <div class="divider"></div> \
@@ -266,7 +296,7 @@ $('document').ready(function() {
         }
       }
     }
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Book/getList?page="+ $page+"&isbn="+$isbn, true);
+    xmlhttp.open("POST","http://localhost/kububuku/buku/getList?page="+ $page+"&isbn="+$isbn, true);
     xmlhttp.send();
   });
 });
@@ -298,7 +328,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

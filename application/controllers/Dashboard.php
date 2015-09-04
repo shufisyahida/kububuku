@@ -15,21 +15,21 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-                redirect(base_url('index.php/Message'));    
+                redirect(base_url('pesan'));    
             }
         }
 
         public function index()
         {
             // $username = $this->session->userdata('username');
-            // $this->load->model('koleksi');
-            // $data['resultAvailable'] = $this->koleksi->getKoleksiAvailable($username);
-            // //$this->load->model('koleksi');
-            // $data['resultBorrowed'] = $this->koleksi->getKoleksiBorrowed($username);
+            // $this->load->model('koleksi_model');
+            // $data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
+            // //$this->load->model('koleksi_model');
+            // $data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('dashboard_view');

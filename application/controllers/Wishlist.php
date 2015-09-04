@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-            	redirect(base_url('index.php/Message'));	
+            	redirect(base_url('pesan'));	
             }
 	    }
 
@@ -43,14 +43,14 @@
 				$username = $this->session->userdata('username');
 				$this->load->model('wishlist_model');
 				$this->wishlist_model->addWishlist($username,$isbn);
-				redirect(base_url('index.php/Wishlist'));
+				redirect(base_url('Wishlist'));
 				
 
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Login'));
+				redirect(base_url('Login'));
 				//masuk form create buku lalalla
 			}				
 		}
@@ -63,12 +63,12 @@
 				$username = $this->session->userdata('username'); 
 				$this->load->model('wishlist_model');
 				$this->wishlist_model->deleteWishlist($username,$isbn);
-				redirect(base_url('index.php/Wishlist'));
+				redirect(base_url('Wishlist'));
 			}
 			else
 			{
 				//$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Collection'));
+				redirect(base_url('koleksi'));
 				//belom betul, ini masih copas else nya wkwkwk
 			}
 		}

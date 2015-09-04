@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    class Notification extends CI_Controller
+    class Notifikasi extends CI_Controller
     {        
         public function __construct()
         {
@@ -7,7 +7,7 @@
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
 
@@ -57,35 +57,43 @@
             //$this->tanggapan_model->setTanggapan($username, $id);
             $this->tanggapan_model->deleteTanggapan($id,$OtherUsername);
 
-            redirect(base_url('index.php/Profile/showProfile/'.$OtherUsername));
+<<<<<<< HEAD
+            redirect(base_url('profil/lihatProfil/'.$OtherUsername));
+=======
+<<<<<<< HEAD
+            redirect(base_url('profil/lihatProfil/'.$OtherUsername));
+=======
+            redirect(base_url(''.$OtherUsername));
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
         }
 
         public function lookRequest($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setRequest($username, $user, $isbn);
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('permintaan_masuk'));
         }
 
         public function lookAccept($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setAccept($username, $user, $isbn);
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function lookDecline($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setDecline($username, $user, $isbn);
-            redirect(base_url('index.php/Request_out'));
+            redirect(base_url('permintaan_keluar'));
         }
 
         public function lookReturn($user, $isbn){
             $username = $this->session->userdata('username');
             $this->load->model('pinjaman');
             $this->pinjaman->setReturn($username, $user, $isbn);
-            redirect(base_url('index.php/Request_in'));
+            redirect(base_url('permintaan_masuk'));
         }
     } // end of Notification
 

@@ -4,9 +4,9 @@
 		<div class="col l3">
 			<ul class="collection with-header z-depth-1">
 				<li class="collection-header"><span class="title-t">Admin System</span></li>
-			    <li><a href="<?php echo base_url('index.php/Message');?>" class="active collection-item">Message</a></li>
-			    <li><a href="<?php echo base_url('index.php/Request_admin');?>" class="collection-item">Request</a></li>
-			    <li><a href="<?php echo base_url('index.php/Manage');?>" class="collection-item">Manage</a></li>
+			    <li><a href="<?php echo base_url('pesan');?>" class="active collection-item">Message</a></li>
+			    <li><a href="<?php echo base_url('permintaan_admin');?>" class="collection-item">Request</a></li>
+			    <li><a href="<?php echo base_url('kelola');?>" class="collection-item">Manage</a></li>
 		    </ul>
 		</div>		   
 			
@@ -32,7 +32,15 @@
 
 					echo '
 						<li class="collection-item" id="'. $index++ .'">
-							<a href = "'.base_url()."index.php/Profile/showProfile/".$value->username.'" >
+<<<<<<< HEAD
+							<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+=======
+<<<<<<< HEAD
+							<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+=======
+							<a href = "'.base_url()."".$value->username.'" >
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 								<span class="email-address">'.$value->username.'</span><br>
 							</a>
 
@@ -43,7 +51,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a>
-									<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 								</div>
 							</div>
 							<a class="modal-trigger" href="#modal-message'.$value->id.'"><span class="title-t">'.$value->judul.'<span></a><br>
@@ -57,7 +65,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="'.base_url().'index.php/Message/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
+									<a href="'.base_url().'pesan/delete/'.$value->id.'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a>
 								</div>
 							</div>
 							<a href="#modal-remove'.$value->id.'" class=" modal-trigger secondary-content "><i class="mdi-content-clear red-text small"></i></a>
@@ -123,7 +131,15 @@ $('document').ready(function() {
 
 					$('#message-collection').append(' \
 					<li class="collection-item"> \
-						<a href = "localhost/kububuku/index.php/Profile/showProfile/'+ $username +'> \
+<<<<<<< HEAD
+						<a href = "localhost/kububuku/profil/lihatProfil/'+ $username +'> \
+=======
+<<<<<<< HEAD
+						<a href = "localhost/kububuku/profil/lihatProfil/'+ $username +'> \
+=======
+						<a href = "localhost/kububuku/'+ $username +'> \
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 							<span class="email-address">'+ $username +'</span><br> \
 						</a> \
 						<div id="modal-message'+ $id +'" class="modal"> \
@@ -133,7 +149,7 @@ $('document').ready(function() {
 							</div> \
 							<div class="modal-footer"> \
 								<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">OK</a> \
-								<a href="localhost/kububuku/index.php/Message/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
+								<a href="localhost/kububuku/pesan/delete/'+ $id +'" class="black-text waves-effect waves-green btn-flat modal-action">Remove</a> \
 							</div> \
 						</div> \
 						<a class="modal-trigger" href="#modal-message'+ $id +'"><span class="title-t">'+ $judul +'<span></a><br> \
@@ -157,7 +173,7 @@ $('document').ready(function() {
 
 			$('.modal-trigger').leanModal();
 		}
-		xmlhttp.open("POST","http://localhost/kububuku/index.php/Message/getList?page="+ $page, true);
+		xmlhttp.open("POST","http://localhost/kububuku/pesan/getList?page="+ $page, true);
 		xmlhttp.send();
 	});
 });

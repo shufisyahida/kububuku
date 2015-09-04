@@ -17,12 +17,12 @@
 
             if($isLoggedIn&&$isAdmin)
             {
-                // redirect(base_url('index.php/Dashboard'));
-                redirect(base_url('index.php/Message'));
+                // redirect(base_url('Dashboard'));
+                redirect(base_url('pesan'));
             }
             else if ($isLoggedIn&&!$isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));
+                redirect(base_url('permintaan_masuk'));
             }
             // else
             // {

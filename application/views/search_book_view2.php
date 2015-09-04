@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="<?php echo base_url('index.php/Search/homeBuku') ?>">Books</a></li>
-          <li><a  href="<?php echo base_url('index.php/Search/homeUser')?>">Users</a></li>
+          <li><a class="active" href="<?php echo base_url('pencarian/buku') ?>">Buku</a></li>
+          <li><a  href="<?php echo base_url('pencarian/pengguna')?>">Pengguna</a></li>
       </div>
 
       <?php
@@ -14,8 +14,8 @@
             <i class="large mdi-content-add"></i>
           </a>
           <ul>
-            <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-            <li><a href="'.base_url().'index.php/Search/homeBuku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+            <li><a href="'.base_url().'pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+            <li><a href="'.base_url().'pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
           </ul>
         </div>';
     }
@@ -28,26 +28,26 @@
   <div class="row">
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1">
-        <h6 style="font-size:1.5em">Search Filter</h6>
-        <form method="post" action="<?php echo base_url('index.php/Search/searchBook') ?>">
+        <h6 style="font-size:1.5em">Filter Pencarian</h6>
+        <form method="post" action="<?php echo base_url('pencarian/hasil_buku') ?>">
           
           <div class="row">
              <div class="col s12 m12 l12">
                 <select id="kategori" name="kategori" type="text" class="validate">
-                    <option value="" disabled selected>Choose Category</option>
-                    <option value="judul">Title</option>
-                    <option value="pengarang">Author</option>
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <option value="judul">Judul</option>
+                    <option value="pengarang">Pengarang</option>
                      <option value="genre">Genre</option>
                 </select>
             </div>
             <div class="input-field col s12">
               <keyword>
               <input id="book-searchkey" type="text" class="validate" name="keyword">
-              <label>Keyword</label>
+              <label>Kata Kunci</label>
             </keyword>
              <genre>
               <select id="genre" name="genre" type="text" class="validate">
-                     <option value="">Choose book genre</option>
+                     <option value="">Pilih Genre Buku</option>
                       <option value="Biography" >Biography</option>  
                       <option value="Comic" >Comic</option>
                       <option value="Fantasy" >Fantasy</option>
@@ -85,10 +85,10 @@
       <!-- <div class="col s12 m12 l6"> -->
         <?php if($notFound!=null){?>
         <span><?php echo $notFound ?>.</span>
-        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('index.php/Book/showAddBook')?>">addBook</button> -->
+        <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('buku/tambah_baru')?>">addBook</button> -->
         <br>
         <?php if(!$isAdmin){
-          echo'<a class="green-text" href="'.base_url().'index.php/Book/showAddBook">Add new book to your collection?</a>';
+          echo'<a class="green-text" href="'.base_url().'buku/tambah_baru">Add new book to your collection?</a>';
         }?>
           <?php } ?>
       <!-- </div> -->
@@ -98,11 +98,11 @@
           <div class="row row-custom-a">
             <div class="col s4 m4 l4">
               <?php echo
-                      '<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+                      '<a href="'.base_url()."buku/info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
                     ?>
             </div>
             <div class="col s8 m8 l8">
-              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'index.php/Book/book_info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
+              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'buku/info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
                   <?php
@@ -118,7 +118,7 @@
                           <div class="modal-footer">
                             <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
                     
-                            <a href="'.base_url().'index.php/Manage/deleteBookFromSearch/'.$post->isbn.'"
+                            <a href="'.base_url().'kelola/deleteBookFromSearch/'.$post->isbn.'"
                               class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
                           </div>
                         </div>
@@ -140,7 +140,7 @@
                           <div class="modal-footer">
                             <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
                     
-                            <a href="'.base_url()."index.php/Collection/add/".$post->isbn."/".$username.'"
+                            <a href="'.base_url()."koleksi/tambah/".$post->isbn."/".$username.'"
                               class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
                           </div>
                         </div>
@@ -161,7 +161,7 @@
                           <div class="modal-footer">
                             <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
                     
-                            <a href="'.base_url()."index.php/Wishlist/add/".$post->isbn.'"
+                            <a href="'.base_url()."Wishlist/tambah/".$post->isbn.'"
                               class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
                           </div>
                         </div>
@@ -238,7 +238,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

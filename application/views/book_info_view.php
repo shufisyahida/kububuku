@@ -1,6 +1,6 @@
     <div class="secondary-header">
       <div class="secondary-header-inner">
-        <div class="container custom-container-c">Book Information</div>
+        <div class="container custom-container-c">Informasi Buku</div>
       </div>
       <?php
       $username = $this->session->userdata('username');
@@ -38,12 +38,12 @@
 <div class="container custom-table">
     <div id="modal-report" class="modal">
         <div class="modal-content">
-            <h4>Report Book</h4>
-            <p>Are you sure to report this book to admin?</p>
+            <h4>Laporkan Buku</h4>
+            <p>Anda yakin untuk melaporkan buku ini kepada admin?</p>
         </div>
         <div class="modal-footer">
-            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-            <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Report</a>
+            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+            <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Laporkan</a>
         </div>
     </div>
 
@@ -57,7 +57,7 @@ echo '
         <div class="modal-footer">
           <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
   
-          <a href="'.base_url()."index.php/Collection/add/".$resultBook[0]->isbn."/".$username.'"
+          <a href="'.base_url()."koleksi/tambah/".$resultBook[0]->isbn."/".$username.'"
             class="waves-effect waves-green btn-flat modal-action">ADD</a>
         </div>
       </div>
@@ -72,7 +72,7 @@ echo '
         <div class="modal-footer">
           <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
   
-          <a href="'.base_url()."index.php/Wishlist/add/".$resultBook[0]->isbn.'"
+          <a href="'.base_url()."Wishlist/tambah/".$resultBook[0]->isbn.'"
             class="waves-effect waves-green btn-flat modal-action">ADD</a>
         </div>
       </div>
@@ -96,8 +96,8 @@ echo '
             </div>' ?>
 
 
-            <!-- <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
-            <!-- <a href="<?php echo base_url()."index.php/Request/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/showUpdateBook/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
 
             <!-- <div id="modal-report" class="modal">
                 <div class="modal-content">
@@ -106,17 +106,17 @@ echo '
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
+                    <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
                 </div>
             </div> -->
 <?php
   if(!$isAdmin){
   echo '
-            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a>
+            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Laporkan buku ini"><i class="mdi-content-report"></i></a>
 
-            <!-- <a href="<?php echo base_url()."index.php/Request/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
+            <!-- <a href="<?php echo base_url()."permintaan/createDeleteRequest/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
 
-            <a href="'.base_url().'index.php/Request/showUpdateBook/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a>
+            <a href="'.base_url().'permintaan/showUpdateBook/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Perbarui buku ini"><i class="mdi-editor-mode-edit"></i></a>
         ';}?>
         </div>
       </div>
@@ -144,12 +144,20 @@ echo '
               <div align="right">
                 <?php
                 echo '
-                <h6>Book Owner</h6>';?>
+                <h6>Pemilik Buku</h6>';?>
                 <div class="row">
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
-                    <a href = "'.base_url()."index.php/Profile/showProfile/".$row->username.'" >
+<<<<<<< HEAD
+                    <a href = "'.base_url()."profil/lihatProfil/".$row->username.'" >
+=======
+<<<<<<< HEAD
+                    <a href = "'.base_url()."profil/lihatProfil/".$row->username.'" >
+=======
+                    <a href = "'.base_url()."".$row->username.'" >
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
                       <img class="responsive-img circle" img src='.$row->foto.'>
                     </a>
                   </div>' ?>
@@ -160,7 +168,7 @@ echo '
                   <?php
                     $isbn = $this->uri->segment(3);
                     if(!empty($resultOwner)){
-                    echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."index.php/Book/show_owner/".$isbn.'">More...</a>';
+                    echo '<a class="waves-effect waves-green btn-flat" href="'.base_url()."buku/pemilik/".$isbn.'">Selengkapnya...</a>';
                   }
                   else
                   {
@@ -176,8 +184,8 @@ echo '
           <div class="row">
              <?php foreach($resultBook as $row){?>
             <div class="detail-info-book col">
-              <span><?php echo $post->jumlah_halaman;?> pages </span><br>
-              <span>Published by <?php echo $post->penerbit;?></span><br>
+              <span><?php echo $post->jumlah_halaman;?> halaman </span><br>
+              <span>Diterbitkan oleh <?php echo $post->penerbit;?></span><br>
               <br>
               <span>ISBN13 <?php echo $post->isbn;?></span>
               <?php } ?>
@@ -217,7 +225,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

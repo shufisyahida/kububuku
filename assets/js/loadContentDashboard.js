@@ -14,6 +14,6 @@ function loadCollection() {
 		console.log(xmlhttp.responseText);
 	}
 	var baseurl = base_url();
-	xmlhttp.open("POST",baseurl + "index.php/Collection", true);
+	xmlhttp.open("POST",baseurl + "koleksi", true);
 	xmlhttp.send();
 }
