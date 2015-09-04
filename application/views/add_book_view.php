@@ -10,8 +10,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <!-- <br><h5>Add Book</h5> -->
     <div class="card-panel-custom-reg z-depth-1">
         <div class="row">
-            <form method="post" action="<?php echo base_url('index.php/buku/tambah') ?>" class="col s12">
+            <form method="post" action="<?php echo base_url('buku/tambah') ?>" class="col s12">
 
                 <div id="step-one" class="row">
                                         
@@ -163,7 +163,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

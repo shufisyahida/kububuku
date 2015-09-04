@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-            	redirect(base_url('index.php/Message'));	
+            	redirect(base_url('pesan'));	
             }
 	    }
 
@@ -39,13 +39,13 @@
                     'is_notified' => false
                   	);
 				$this->tanggapan_model->addTanggapan($data);
-				redirect(base_url('index.php/profil/lihatProfil/'.$OtherUsername));
+				redirect(base_url(''.$OtherUsername));
 				
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Login'));
+				redirect(base_url('Login'));
 				//masuk form create buku lalalla
 			}				
 		}

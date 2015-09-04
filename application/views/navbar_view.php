@@ -2,22 +2,22 @@
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
       <li><a href="<?php 
       $username = $this->session->userdata('username');
-      echo base_url()."index.php/profil/lihatProfil/".$username?>"><span class="green-text">Profil</span></a></li>
+      echo base_url()."".$username?>"><span class="green-text">Profil</span></a></li>
       <li class="divider"></li>
-      <li><a href="<?php echo base_url('index.php/profil/ubahProfile/')?>"><span class="green-text">Ubah Profil</span></a></li>
+      <li><a href="<?php echo base_url('profil/ubahProfile/')?>"><span class="green-text">Ubah Profil</span></a></li>
       <li class="divider"></li>
-      <li><a href="<?php echo base_url('index.php/Auth/logout')?>"><span class="green-text">Logout</span></a></li>
+      <li><a href="<?php echo base_url('Auth/logout')?>"><span class="green-text">Logout</span></a></li>
     </ul>
     <ul id="dropdown2" class="dropdown-content dropdown-content-custom">
-      <li><a href="<?php echo base_url('index.php/Kontak_Kami')?>"><span class="green-text">Kontak Kami</span></a></li>
+      <li><a href="<?php echo base_url('Kontak_Kami')?>"><span class="green-text">Kontak Kami</span></a></li>
     </ul>
 
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="<?php echo base_url('index.php/permintaan_masuk/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('permintaan_masuk/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
         <ul class="right hide-on-med-and-down">
-          <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cari Buku atau Pengguna" href="<?php echo base_url('index.php/pencarian/buku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
-          <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Notifikasi" href="<?php echo base_url('index.php/notifikasi/') ?>"><i class="lime-text text-lighten-5 mdi-social-notifications" id="notif-icon"></i></a></li>
+          <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cari Buku atau Pengguna" href="<?php echo base_url('pencarian/buku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
+          <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Notifikasi" href="<?php echo base_url('notifikasi/') ?>"><i class="lime-text text-lighten-5 mdi-social-notifications" id="notif-icon"></i></a></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
               <div class="row">
                 <div class="col s5 offset-s1 m4 l4 center">

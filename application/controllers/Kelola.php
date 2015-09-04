@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Manage extends CI_Controller
+	class Kelola extends CI_Controller
 	{
 		public function __construct()
         {
@@ -14,11 +14,11 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Admin'));
+                redirect(base_url('Admin'));
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/permintaan_masuk'));    
+                redirect(base_url('permintaan_masuk'));    
             }
 
             $this->load->model('non_admin');
@@ -58,24 +58,24 @@
         public function deleteUser($username)
         {
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/Manage'));
+            redirect(base_url('kelola'));
         }
 
         public function deleteBook($isbn)
         {
             $this->buku_model->deleteBook($isbn);
-            redirect(base_url('index.php/Manage'));
+            redirect(base_url('kelola'));
         }
 
         public function deleteUserFromSearch($username)
         {
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/pencarian/pengguna'));
+            redirect(base_url('pencarian/pengguna'));
         }
 
         public function deleteBookFromSearch($isbn)
         {
             $this->buku_model->deleteBook($isbn);
-            redirect(base_url('index.php/pencarian/hasil_buku'));
+            redirect(base_url('pencarian/hasil_buku'));
         }
 	}

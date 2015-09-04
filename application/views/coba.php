@@ -63,7 +63,7 @@
     <h1>eKnowledgetree Programming Blog - For More Knowledge Please Visit @ <a href="http://www.eknowledgetree.com/" background-color="red">  
     eKnowledgeTree</a></h1>  
 </div>
- <?php echo form_open_multipart('index.php/pendaftaran/potongGambar');?>
+ <?php echo form_open_multipart('pendaftaran/potongGambar');?>
 <div id="cropimage"  class="cropimage">
  <table width="958">
  
@@ -104,7 +104,7 @@ function getSizes(im,obj)
 			{
 				if(confirm("Do you want to save image..!"))
 					{
-						$.post('<?php echo base_url("index.php/pendaftaran/perbaruiGambar/");?>',
+						$.post('<?php echo base_url("pendaftaran/perbaruiGambar/");?>',
                                                   {
                                                    x_axis : x_axis,
                                                    y_axis : y_axis,

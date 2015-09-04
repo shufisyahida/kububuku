@@ -9,7 +9,7 @@
 //            $username = $this->session->userdata('username');
 //            if(!$this->session->userdata(''.$username))
 //            {
-//                redirect(base_url('index.php/Login'));
+//                redirect(base_url('Login'));
 //            }
 //		}
 
@@ -43,21 +43,21 @@
 					$this->session->set_userdata(''.$username,true);
 					$this->session->set_userdata('foto',$foto);
 					
-					// redirect(base_url('index.php/Dashboard'));
-					redirect(base_url('index.php/permintaan_masuk'));
+					// redirect(base_url('Dashboard'));
+					redirect(base_url('permintaan_masuk'));
 				}
 				else
 				{
 					$this->session->set_userdata('email',$email);
 					$this->session->set_userdata('error_login_'.$email,true);
-					redirect(base_url('index.php/Login/login_failed'));
+					redirect(base_url('Login/login_failed'));
 				}		
 			}
 			else
 			{
 				$this->session->set_userdata('email',$email);
 				$this->session->set_userdata('error_login_'.$email,true);
-				redirect(base_url('index.php/Login/login_failed'));
+				redirect(base_url('Login/login_failed'));
 			}
 		}
 
@@ -77,34 +77,34 @@
 					
 					$this->session->set_userdata(''.$username,true);
 										
-					// redirect(base_url('index.php/Dashboard'));
-					redirect(base_url('index.php/Message'));
+					// redirect(base_url('Dashboard'));
+					redirect(base_url('pesan'));
 				}
 				else
 				{
 					$this->session->set_userdata('username',$username);
 					$this->session->set_userdata('error_login_'.$username,true);
-					redirect(base_url('index.php/Admin/loginAdmin_failed'));
+					redirect(base_url('Admin/loginAdmin_failed'));
 				}		
 			}
 			else
 			{
 				$this->session->set_userdata('username',$username);
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Admin/loginAdmin_failed'));
+				redirect(base_url('Admin/loginAdmin_failed'));
 			}
 		}
 
 		public function logout()
 		{
 			$this->session->sess_destroy();
-			redirect(base_url('index.php/Login'));
+			redirect(base_url('Login'));
 		}
 
 		public function logoutAdmin()
 		{
 			$this->session->sess_destroy();
-			redirect(base_url('index.php/Admin'));
+			redirect(base_url('Admin'));
 		}
 
 	} // end of Auth

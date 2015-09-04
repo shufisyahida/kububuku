@@ -1,8 +1,8 @@
   <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>">Buku</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/pencarian/pengguna')?>">Pengguna</a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>">Buku</a></li>
+          <li><a class="active" href="<?php echo base_url('pencarian/pengguna')?>">Pengguna</a></li>
       </div>
 
       <?php
@@ -14,8 +14,8 @@
             <i class="large mdi-content-add"></i>
           </a>
           <ul>
-            <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-            <li><a href="'.base_url().'index.php/pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+            <li><a href="'.base_url().'pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+            <li><a href="'.base_url().'pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
           </ul>
         </div>';
     }
@@ -29,7 +29,7 @@
     <div class="col s12 m4 l3">
       <div class="card-panel white z-depth-1 tabs-wrapper">
         <h6 style="font-size:1.5em">Filter Pencarian</h6>
-        <form method="post" action="<?php echo base_url('index.php/pencarian/hasil_pengguna') ?>">
+        <form method="post" action="<?php echo base_url('pencarian/hasil_pengguna') ?>">
           
           
 
@@ -174,7 +174,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

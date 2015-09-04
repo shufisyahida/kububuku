@@ -1,10 +1,10 @@
 <div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-          <li><a class="active" href="<?php echo base_url('index.php/permintaan_masuk') ?>">Permintaan Masuk</a></li>
-          <li><a href="<?php echo base_url('index.php/permintaan_keluar') ?>">Permintaan Keluar</a></li>
-          <li><a href="<?php echo base_url('index.php/koleksi') ?>">Koleksi</a></li>
-          <li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
+          <li><a class="active" href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
+          <li><a href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
+          <li><a href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
+          <li><a href="<?php echo base_url('Wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
 
@@ -13,8 +13,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -52,11 +52,11 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'" >
+						<a href = "'.base_url()."".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
-							<a href = "'.base_url()."index.php/profil/lihatProfil/".$value->username.'" >
+							<a href = "'.base_url()."".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
 							</a>
 								<span>'.$value->username.'</span>
@@ -67,11 +67,11 @@
 						<td>
 
 						<div class="borrower">
-						<a href = "'.base_url()."index.php/buku/info/".$buku[0]->isbn.'" >
+						<a href = "'.base_url()."buku/info/".$buku[0]->isbn.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$buku[0]->sampul.'">
 						</a>
 							<div class="custom-borrower">
-						<a href = "'.base_url()."index.php/buku/info/".$buku[0]->isbn.'" >
+						<a href = "'.base_url()."buku/info/".$buku[0]->isbn.'" >
 								<span>'.$buku[0]->judul.'</span><br>
 						</a>
 								<span>'.$buku[0]->pengarang.'</span>
@@ -95,7 +95,7 @@
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
 					
-									<a href="'.base_url()."index.php/permintaan_masuk/terima/".$idPinjaman[$index]."/".$buku[0]->isbn.'"
+									<a href="'.base_url()."permintaan_masuk/terima/".$idPinjaman[$index]."/".$buku[0]->isbn.'"
 		 								class="waves-effect waves-green btn-flat modal-action">Accept</a>
 								</div>
 							</div>';
@@ -108,7 +108,7 @@
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="'.base_url()."index.php/permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Decline</a>
+									<a href="'.base_url()."permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Decline</a>
 								</div>
 							</div>';
 
@@ -130,11 +130,11 @@
 									</p>
 								</div>
 								<div class="modal-footer">';
-									echo '<a href="'.base_url()."index.php/permintaan_masuk/konfirmasi_pengembalian/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
+									echo '<a href="'.base_url()."permintaan_masuk/konfirmasi_pengembalian/".$idPinjaman[$index]."/".$buku[0]->isbn.'" class="waves-effect waves-green btn-flat modal-action">OK</a>
 								</div>
 							</div>';*/
 
-							echo '<form method="post" action="'.base_url().'index.php/permintaan_masuk/konfirmasi_pengembalian/">
+							echo '<form method="post" action="'.base_url().'permintaan_masuk/konfirmasi_pengembalian/">
 			            			<div id="modal-ranking'.$index.'" class="modal">
 										<div class="modal-content">
 											<h4>Returning Confirmation</h4>
@@ -248,7 +248,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/notifikasi/cekNotif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

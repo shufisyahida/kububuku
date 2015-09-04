@@ -8,7 +8,7 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
@@ -25,7 +25,7 @@
         {
         foreach($resultTanggapan as $post){ ?>
             <?php echo 
-            '<li class="collection-item avatar"><a href = "'.base_url()."index.php/notifikasi/lookInform/".$post->id."/".$post->user.'" >
+            '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookInform/".$post->id."/".$post->user.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
             
@@ -42,7 +42,7 @@
         {
         foreach($resultRequest as $post){ ?>
         <?php echo 
-        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/notifikasi/lookRequest/".$post->user."/".$post->isbn.'" >
+        '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookRequest/".$post->user."/".$post->isbn.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
           <span class="title"><?php echo $post->user;?> has requested your book</span>
@@ -58,7 +58,7 @@
             foreach($resultAccept as $post){ ?>
 
             <?php echo 
-        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/notifikasi/lookAccept/".$post->user."/".$post->isbn.'" >
+        '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookAccept/".$post->user."/".$post->isbn.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
                 <span class="title"><?php echo $post->user;?> has accepted your request</span>
@@ -74,7 +74,7 @@
         foreach($resultDecline as $post){ ?>
 
         <?php echo 
-        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/notifikasi/lookDecline/".$post->user."/".$post->isbn.'" >
+        '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookDecline/".$post->user."/".$post->isbn.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
             <span class="title"><?php echo $post->user;?> has declined your request</span>
@@ -90,7 +90,7 @@
         foreach($resultReturn as $post){ ?>
 
         <?php echo 
-        '<li class="collection-item avatar"><a href = "'.base_url()."index.php/notifikasi/lookReturn/".$post->user."/".$post->isbn.'" >
+        '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookReturn/".$post->user."/".$post->isbn.'" >
         
               <img src='.$post->foto.' alt="" class="circle">'?>
             <span class="title"><?php echo $post->user;?> has returned your book</span>
