@@ -2,7 +2,15 @@
     <ul id="dropdown1" class="dropdown-content dropdown-content-custom">
       <li><a href="<?php 
       $username = $this->session->userdata('username');
+<<<<<<< HEAD
       echo base_url()."profil/lihatProfil/".$username?>"><span class="green-text">Profil</span></a></li>
+=======
+<<<<<<< HEAD
+      echo base_url()."profil/lihatProfil/".$username?>"><span class="green-text">Profil</span></a></li>
+=======
+      echo base_url()."".$username?>"><span class="green-text">Profil</span></a></li>
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
       <li class="divider"></li>
       <li><a href="<?php echo base_url('profil/ubahProfile/')?>"><span class="green-text">Ubah Profil</span></a></li>
       <li class="divider"></li>

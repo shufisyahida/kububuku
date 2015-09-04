@@ -149,7 +149,15 @@ echo '
                 <?php foreach($resultOwner as $row){?>
                   <?php echo 
                   '<div class=" right col s4 m4 l4">
+<<<<<<< HEAD
                     <a href = "'.base_url()."profil/lihatProfil/".$row->username.'" >
+=======
+<<<<<<< HEAD
+                    <a href = "'.base_url()."profil/lihatProfil/".$row->username.'" >
+=======
+                    <a href = "'.base_url()."".$row->username.'" >
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
                       <img class="responsive-img circle" img src='.$row->foto.'>
                     </a>
                   </div>' ?>

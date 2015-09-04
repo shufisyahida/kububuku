@@ -154,7 +154,15 @@
                     $this->db->where('username', $username);
                     $this->db->update('non_admin', $data); 
 
+<<<<<<< HEAD
                     redirect(base_url('profil/lihatProfil/'.$username));
+=======
+<<<<<<< HEAD
+                    redirect(base_url('profil/lihatProfil/'.$username));
+=======
+                    redirect(base_url(''.$username));
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
+>>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
                 }
             }
         }
