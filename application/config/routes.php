@@ -41,7 +41,7 @@
 $route['default_controller'] = "Home";
 $route['404_override'] = '';
 // $route['buku/(\d+)/info'] = "book/info/$1";
-$route['(\d+)'] = "profil/lihatProfil/$1";
+$route['([a-z1-9]+)'] = "profil/lihatProfil/$1";
 
 
 /* End of file routes.php */

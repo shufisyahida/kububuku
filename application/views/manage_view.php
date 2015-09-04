@@ -24,10 +24,17 @@
 				echo '
 				<li class="collection-item avatar" id="user-'.$index++.'">
 					<div>
+<<<<<<< HEAD
 					<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
 						<img src="'.$value->foto.'" alt="" class="circle">
 					</a>
 					<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+=======
+					<a href = "'.base_url()."".$value->username.'" >
+						<img src="'.$value->foto.'" alt="" class="circle">
+					</a>
+					<a href = "'.base_url()."".$value->username.'" >
+>>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
 						<span class="title">'.$value->nama.'</span>
 					</a>
 						<p>
