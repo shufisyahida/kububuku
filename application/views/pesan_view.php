@@ -32,15 +32,7 @@
 
 					echo '
 						<li class="collection-item" id="'. $index++ .'">
-<<<<<<< HEAD
 							<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
-=======
-<<<<<<< HEAD
-							<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
-=======
-							<a href = "'.base_url()."".$value->username.'" >
->>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
->>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 								<span class="email-address">'.$value->username.'</span><br>
 							</a>
 
@@ -131,15 +123,7 @@ $('document').ready(function() {
 
 					$('#message-collection').append(' \
 					<li class="collection-item"> \
-<<<<<<< HEAD
 						<a href = "localhost/kububuku/profil/lihatProfil/'+ $username +'> \
-=======
-<<<<<<< HEAD
-						<a href = "localhost/kububuku/profil/lihatProfil/'+ $username +'> \
-=======
-						<a href = "localhost/kububuku/'+ $username +'> \
->>>>>>> cdbdbd16cb0674ba072e4cf8f054c5356006c5ac
->>>>>>> b1ea0958e989272157a1a07999071226fdea9f93
 							<span class="email-address">'+ $username +'</span><br> \
 						</a> \
 						<div id="modal-message'+ $id +'" class="modal"> \
