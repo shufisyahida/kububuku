@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Book extends CI_Controller
+    class Buku extends CI_Controller
     {
 
         public function __construct()
@@ -10,7 +10,7 @@
             $username = $this->session->userdata('username');
             $isLoggedIn = $this->session->userdata(''.$username);
             
-            $this->load->model('buku');   
+            $this->load->model('buku_model');   
             // $isAdmin = $this->admin_model->isAdmin($username); 
             
             $this->load->model('admin_model');   
@@ -18,12 +18,12 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             
         }
 
-        public function addBook()
+        public function tambah()
         {        
             if(isset($_POST))
             {
@@ -54,55 +54,55 @@
                     'genreErr' => ''
                 );
                 $error = false;
-                $this->load->model('buku');
-                $isbnSudahAda = $this->buku->isRegisteredBook($isbn);
+                $this->load->model('buku_model');
+                $isbnSudahAda = $this->buku_model->isRegisteredBook($isbn);
                 if ($isbnSudahAda) 
                 {
-                  $data['isbnErr'] = "Book is already in use";
+                  $data['isbnErr'] = "Buku sudah ada";
                   $error = true;
                 }
                 if($isbn == '')
                 {
-                  $data['isbnErr'] = "ISBN should not be blank";
+                  $data['isbnErr'] = "ISBN tidak boleh kosong";
                   $error = true;
                 }
                 if (!preg_match("/^[0-9]*$/", $isbn))
                 {
                    //var_dump($name);
-                   $data['isbnErr'] = "ISBN number should be numeric ";
+                   $data['isbnErr'] = "ISBN harus berbentuk angka ";
                     $error = true;
                 }
                  if (!preg_match("/^[0-9]*$/", $tahun_terbit))
                 {
                    //var_dump($name);
-                   $data['tahun_terbitErr'] = "Published Year should be numeric ";
+                   $data['tahun_terbitErr'] = "Tahun Terbit harus berbentuk angka ";
                     $error = true;
                 }
                 if (!(strlen($tahun_terbit)==4))
                 {
                    
-                   $data['tahun_terbitErr'] = "Published Year format is not valid";
+                   $data['tahun_terbitErr'] = "Format Tahun Terbit salah";
                     $error = true;
                 }
                 if (!preg_match("/^[0-9]*$/", $jumlah_halaman))
                 {
                    //var_dump($name);
-                   $data['jumlah_halamanErr'] = "Number of Page should be numeric ";
+                   $data['jumlah_halamanErr'] = "Jumlah Halaman harus berbentuk angka ";
                     $error = true;
                 }
                 if($judul == '')
                 {
-                  $data['judulErr'] = "Title should not be blank";
+                  $data['judulErr'] = "Judul tidak boleh kosong";
                   $error = true;
                 }
                 if($pengarang == '')
                 {
-                  $data['pengarangErr'] = "Author should not be blank";
+                  $data['pengarangErr'] = "Pengarang tidak boleh kosong";
                   $error = true;
                 }
                 if($genre == '')
                 {
-                  $data['genreErr'] = "Genre should not be blank";
+                  $data['genreErr'] = "Genre tidak boleh kosong";
                   $error = true;
                 }
                 if($error)
@@ -129,22 +129,22 @@
                         'jumlah_halaman' => $jumlah_halaman,
                         'sampul' => $sampul
                     );
-                    $this->load->model('buku');
-                    $this->buku->addBook($data);
+                    $this->load->model('buku_model');
+                    $this->buku_model->addBook($data);
                     $username = $this->session->userdata('username');
-                    $this->load->model('koleksi');
-                    $this->koleksi->addKoleksi($username, $isbn);
-                    redirect(base_url('index.php/Collection'));
+                    $this->load->model('koleksi_model');
+                    $this->koleksi_model->addKoleksi($username, $isbn);
+                    redirect(base_url('koleksi'));
                 }       
             }
             else
             {
                 $this->session->set_userdata('error_login_'.$email,true);
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
         }
       
-        public function showAddBook()
+        public function tambah_baru()
         {
             // $data['page_title'] = "CI Hello World App!";
             $data = array(
@@ -185,18 +185,18 @@
             $this->load->view('foot_view');
         }
 
-        public function book_info($isbn)
+        public function info($isbn)
         {
             //$isbn = $this->session->userdata('isbn');
-            $this->load->model('buku');
-            $data['resultBook'] = $this->buku->getBook($isbn);
-            $data['resultOwner']= $this->buku->getOwner($isbn,true);
+            $this->load->model('buku_model');
+            $data['resultBook'] = $this->buku_model->getBook($isbn);
+            $data['resultOwner']= $this->buku_model->getOwner($isbn,true);
             $username = $this->session->userdata('username');
             $this->load->model('wishlist_model');
             $adaDiWishlist = $this->wishlist_model->IsInWishlist($username,$isbn);
             $data['adaDiWishlist']= $adaDiWishlist;
-            $this->load->model('koleksi');
-            $adaDiKoleksi = $this->koleksi->isInCollection($username, $isbn);        
+            $this->load->model('koleksi_model');
+            $adaDiKoleksi = $this->koleksi_model->isInCollection($username, $isbn);        
             $data['adaDiKoleksi']= $adaDiKoleksi;
 
 
@@ -224,13 +224,13 @@
             $this->load->view('foot_view');
         }
       
-        public function show_owner($isbn)
+        public function pemilik($isbn)
         {
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             $this->load->model('non_admin');
             $this->load->model('fakultas');
 
-            $user = $this->buku->getListOwner(3,0,$isbn);
+            $user = $this->buku_model->getListOwner(3,0,$isbn);
             
             if(!empty($user))
             {
@@ -255,7 +255,7 @@
             
 
             $data['resultOwner']= $user;
-            $data['resultBook'] = $this->buku->getBook($isbn);
+            $data['resultBook'] = $this->buku_model->getBook($isbn);
 
             $this->load->view('head_view');
             $username = $this->session->userdata('username');
@@ -286,7 +286,7 @@
             $data = array();
             $page = $_GET['page'];
             $isbn = $_GET['isbn'];
-            $user = $this->buku->getListOwner(3, $page, $isbn);
+            $user = $this->buku_model->getListOwner(3, $page, $isbn);
 
              for($i=0;$i<sizeof($user);$i++)
             {
@@ -313,9 +313,9 @@
         // public function deleteBook($isbn)
         // {
 
-        //     $this->load->model('buku');
-        //     $this->buku->deleteBook($isbn);
-        //     redirect(base_url('index.php/ManageBook'));
+        //     $this->load->model('buku_model');
+        //     $this->buku_model->deleteBook($isbn);
+        //     redirect(base_url('ManageBook'));
         // }
 
         // public function updateBook($isbn, $perubahan)
@@ -332,9 +332,9 @@
         //         'jumlah_halaman' => $jumlah_halamanNew,
         //         'sampul' => $sampulNew
         //     );
-        //     $this->load->model('buku');
-        //     $this->buku->updateBook($isbn, $data);
-        //     redirect(base_url('index.php/ManageBook'));
+        //     $this->load->model('buku_model');
+        //     $this->buku_model->updateBook($isbn, $data);
+        //     redirect(base_url('ManageBook'));
         // }
             
 

@@ -8,7 +8,7 @@
 <div class="container" style="margin-top:100px;">
     <div class="card-panel card-panel-custom-cp z-depth-1">
         <div class="row">
-            <form method="post" action="<?php echo base_url('index.php/Auth/loginAdmin') ?>" class="col s12">
+            <form method="post" action="<?php echo base_url('Auth/loginAdmin') ?>" class="col s12">
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
                         <i class="green-text mdi-social-person prefix"></i>
@@ -41,5 +41,5 @@
             echo "gagal";
         }
     ?>-->
- <!--   <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('index.php/Sso/login') ?>">Create an account</a></h6>    -->
+ <!--   <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('Sso/login') ?>">Create an account</a></h6>    -->
 </div>

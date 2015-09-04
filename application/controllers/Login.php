@@ -15,9 +15,9 @@
             if(!empty($hasLoggedIn) && $hasLoggedIn)
             {
                 if($isAdmin)
-                    redirect(base_url('index.php/Message'));
+                    redirect(base_url('Message'));
                 else
-                    redirect(base_url('index.php/Request_in'));
+                    redirect(base_url('permintaan_masuk'));
             }
         }
         
@@ -30,8 +30,8 @@
 
             if($loggedin)
             {
-                // redirect(base_url('index.php/Dashboard'));
-                redirect(base_url('index.php/Request_in'));
+                // redirect(base_url('Dashboard'));
+                redirect(base_url('permintaan_masuk'));
             }
             else
             {
@@ -40,7 +40,7 @@
                 $this->load->view('foot_view');
             }
             // elseif ($this->session->set_userdata('error_login_'.$email,true)) {
-            //    redirect(base_url('index.php/Login'));
+            //    redirect(base_url('Login'));
             // }        	
         }
 

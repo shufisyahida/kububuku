@@ -1,10 +1,10 @@
 	<div class="secondary-header">
       <div class="secondary-header-inner">
         <ul>
-           <li><a href="<?php echo base_url('index.php/Request_in') ?>">Request In</a></li>
-          <li><a href="<?php echo base_url('index.php/Request_out') ?>">Request Out</a></li>
-          <li><a class="active" href="<?php echo base_url('index.php/Collection') ?>">Collection</a></li>
-          <li><a href="<?php echo base_url('index.php/Wishlist') ?>">Wishlist</a></li>
+           <li><a href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
+          <li><a href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
+          <li><a class="active" href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
+          <li><a href="<?php echo base_url('Wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
 
@@ -13,8 +13,8 @@
           <i class="large mdi-content-add"></i>
         </a>
         <ul>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('index.php/Search/homeBuku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
       </div>
     </div>
@@ -23,7 +23,7 @@
 
 <!-- <div class="container custom-table"> -->
 	<div class="container custom-table">
-		<h4>Borrowed</h4>
+		<h4>Dipinjam</h4>
 		<div class="row">
 		<?php 
 		if(!empty($resultBorrowed))
@@ -34,13 +34,13 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
+		            			'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">
+		            			'<a href="'.base_url()."buku/info/".$post->isbn.'">
 
 		                		<span class="card-title black-text">'.$post->judul.'</span><br>
 		                		</a>';?>
@@ -58,7 +58,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-										<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
 									</div>
 								</div>'
 								?>
@@ -71,7 +71,7 @@
 		}
 		else
 		{
-			echo'<h5>No Collections Borrowed</h5>';
+			echo'<h5>Tidak ada</h5>';
 		}
 		?>  
   		</div>
@@ -81,7 +81,7 @@
 	<p class="divider"></p>
 
 	<div class="container custom-table2">
-		<h4>Available</h4>
+		<h4>Tersedia</h4>
 	  	<div class="row">
 	  	<?php 
 	  	if(!empty($resultAvailable))
@@ -92,13 +92,13 @@
 		        	<div class="row row-custom-a">
 		        		<div class="col s4 m4 l4">
 		            		<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+		            			'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
 		            		?>
 		          		</div>
 		          		<div class="col s8 m8 l8">
 		              		<div class="col s11 m11 l11">
 		              			<?php echo
-		            			'<a href="'.base_url()."index.php/Book/book_info/".$post->isbn.'">';?>
+		            			'<a href="'.base_url()."buku/info/".$post->isbn.'">';?>
 		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
 		                		<?php echo'</a>';?>
 		                		<span><?php echo $post->pengarang;?></span><br>
@@ -115,7 +115,7 @@
 									</div>
 									<div class="modal-footer">
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-										<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
 									</div>
 								</div>'
 								?>
@@ -128,7 +128,7 @@
 		}
 		else
 		{
-			echo'<h5>No Collections Available</h5>';
+			echo'<h5>Tidak ada</h5>';
 		}
 
 		?>  
@@ -147,7 +147,7 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="'.base_url()."index.php/Collection/delete/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
+		<a href="'.base_url()."koleksi/hapus/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
 	</div>
 	<?php }?> 
 </div> -->
@@ -190,7 +190,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notification/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

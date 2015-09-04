@@ -14,15 +14,15 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Admin'));
+                redirect(base_url('Admin'));
             }
             elseif(!$isAdmin)
             {
-                redirect(base_url('index.php/Request_in'));    
+                redirect(base_url('permintaan_masuk'));    
             }
 
             $this->load->model('non_admin');
-            $this->load->model('buku');
+            $this->load->model('buku_model');
             
         }
 
@@ -30,10 +30,10 @@
 		public function index()
 		{
 			//$user = $this->non_admin->getAllUser();
-			//$buku = $this->buku->getAllBook();
+			//$buku = $this->buku_model->getAllBook();
 
             $user = $this->non_admin->getListUser(5,0);
-            $buku = $this->buku->getListBook(5,0);
+            $buku = $this->buku_model->getListBook(5,0);
 
    	           $data['user']=$user;
    	           $data['buku']=$buku;
@@ -51,31 +51,31 @@
             $data = array();
             $page = $_GET['page'];
             $data["user"] = $this->non_admin->getListUser(5, $page);
-            $data["buku"] = $this->buku->getListBook(5, $page);
+            $data["buku"] = $this->buku_model->getListBook(5, $page);
             echo json_encode($data);
         }
 
         public function deleteUser($username)
         {
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/Manage'));
+            redirect(base_url('Manage'));
         }
 
         public function deleteBook($isbn)
         {
-            $this->buku->deleteBook($isbn);
-            redirect(base_url('index.php/Manage'));
+            $this->buku_model->deleteBook($isbn);
+            redirect(base_url('Manage'));
         }
 
         public function deleteUserFromSearch($username)
         {
             $this->non_admin->deleteUser($username);
-            redirect(base_url('index.php/Search/homeUser'));
+            redirect(base_url('pencarian/pengguna'));
         }
 
         public function deleteBookFromSearch($isbn)
         {
-            $this->buku->deleteBook($isbn);
-            redirect(base_url('index.php/Search/searchBook'));
+            $this->buku_model->deleteBook($isbn);
+            redirect(base_url('pencarian/hasil_buku'));
         }
 	}

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Collection extends CI_Controller
+	class Koleksi extends CI_Controller
 	{
 
 		public function __construct()
@@ -15,34 +15,34 @@
             
             if(!$isLoggedIn)
             {
-                redirect(base_url('index.php/Login'));
+                redirect(base_url('Login'));
             }
             elseif($isAdmin)
             {
-            	redirect(base_url('index.php/Message'));	
+            	redirect(base_url('Message'));	
             }
 	    }
 
-		public function add($buku, $non_admin)
+		public function tambah($buku, $non_admin)
 		{
 			if(isset($_POST))
 			{
 				//$non_admin = $this->input->post('$non_admin');
 				//$buku = $this->input->post('buku');	
 
-				$this->load->model('koleksi');
-				$this->koleksi->addKoleksi($non_admin,$buku);
-				redirect(base_url('index.php/Collection'));
+				$this->load->model('koleksi_model');
+				$this->koleksi_model->addKoleksi($non_admin,$buku);
+				redirect(base_url('koleksi'));
 			}
 			else
 			{
 				$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Login'));
+				redirect(base_url('Login'));
 				//masuk form create buku lalalla
 			}				
 		}
     	
-		public function borrow()
+		public function pinjam()
 		{
 			// var_dump($this->input->post('username'));
 			$peminjam = $this->session->userdata('username');
@@ -69,19 +69,19 @@
 				// 			Already requested.
 				// 		</div>
 				// 	</div>
-				redirect('index.php/Profile/showProfile/'.$pemilik);
+				redirect(''.$pemilik);
 			}	
 			else
 			{
 				//tampilkan notifikasi sukses
-				redirect('index.php/Profile/showProfile/'.$pemilik);
+				redirect(''.$pemilik);
 				// echo '
 				// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
 				// ';
 			}			
 		}
 	
-		public function delete($isbn)
+		public function hapus($isbn)
 		{
 			if(isset($_POST))
 			{
@@ -92,14 +92,14 @@
 				//$isbn = $this->session->userdata('isbn'); 
 				// $isbn = $this->input->get('isbn');
 
-				$this->load->model('koleksi');
-				$this->koleksi->deleteKoleksi($username,$isbn);
-				redirect(base_url('index.php/Collection'));
+				$this->load->model('koleksi_model');
+				$this->koleksi_model->deleteKoleksi($username,$isbn);
+				redirect(base_url('koleksi'));
 			}
 			else
 			{
 				//$this->session->set_userdata('error_login_'.$username,true);
-				redirect(base_url('index.php/Collection'));
+				redirect(base_url('koleksi'));
 				//belom betul, ini masih copas else nya wkwkwk
 			}
 		}
@@ -107,10 +107,10 @@
 		public function index()
 		{
 			$username = $this->session->userdata('username');
-			$this->load->model('koleksi');
-			$data['resultAvailable'] = $this->koleksi->getKoleksiAvailable($username);
-			//$this->load->model('koleksi');
-			$data['resultBorrowed'] = $this->koleksi->getKoleksiBorrowed($username);
+			$this->load->model('koleksi_model');
+			$data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
+			//$this->load->model('koleksi_model');
+			$data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
 			$this->load->view('collection_view', $data);

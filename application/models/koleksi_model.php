@@ -1,6 +1,6 @@
 <?php
 
-	class Koleksi extends CI_Model
+	class Koleksi_model extends CI_Model
 	{
 
 		public function addKoleksi($non_admin,$buku)
@@ -74,7 +74,6 @@
 			// $this->db->where('id',$id);
 			// $this->db->update('pinjaman',$data);
 		}
-
 	} // end of Koleksi
 
 ?>
