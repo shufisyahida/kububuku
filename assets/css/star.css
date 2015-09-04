@@ -1,0 +1,42 @@
+  .tombol{
+    /*display: inline-block;*/
+    /*background-color: red;*/
+    background: url('http://localhost/belajar/assets/images/star.png');
+    /*border: 2px solid #000;*/
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+  }
+  .tombol.t1{
+    margin-left: 0px;
+  }
+  .tombol.t2{
+    margin-left: 50px;
+  }
+  .tombol.t3{
+    margin-left: 100px;
+  }
+  .tombol.t4{
+    margin-left: 150px;
+  }
+  .tombol.t5{
+    margin-left: 200px;
+  }
+  .backstar{
+    background-color: rgba(50,120,50,0.3);
+    width: 0px;
+    height: 50px;
+  }
+  .star{
+    background-color: #38B449;
+    background-size: 30px 30px;
+    width: 50px;
+      
+  }
+  .hide{
+    display: none;
+  }
+/*  input{
+    padding: 20px;
+  }*/
