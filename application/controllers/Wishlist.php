@@ -34,7 +34,7 @@
 	    	
 	    }
 	    
-	    public function add($isbn)
+	    public function tambah($isbn)
 		{
 			if(isset($_POST))
 			{

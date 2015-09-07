@@ -116,7 +116,18 @@
 
                     <div class="col s12 offset-s1">
                         <!-- <i class="mdi-action-account-circle prefix"></i> -->
-                        <button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">PERBARUI</button>
+                        <!--<button id="regbtn" class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">PERBARUI</button>-->
+                        <button id="regbtn" class="modal-trigger btn waves-effect waves-light green right-align z-depth-1" href="#modal-posting">Perbarui</button>
+                    </div>
+                    <div id="modal-posting" class="modal">
+                        <div class="modal-content">
+                          <h4>Update Book</h4>
+                          <p>Are you sure to update this book?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+                          <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Update</button>
+                        </div>
                     </div>
                 </div>
             </form>
