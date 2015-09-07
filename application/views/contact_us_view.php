@@ -44,8 +44,20 @@
                     <span class="error"><?php echo $kontenErr;?></span>
                 </div>
                 <div class="col s12">
-                    <button class="right btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">KIRIM</button>
+                    <!--<button class="right btn custom-btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post">KIRIM</button>
+                    -->
+                    <button class="modal-trigger right btn custom-btn waves-effect waves-light green right-align z-depth-1" href="#modal-contactus">KIRIM</button>
                 </div>
+                <div id="modal-contactus" class="modal">
+                        <div class="modal-content">
+                          <h4>Contact Us</h4>
+                          <p>Are you sure to sent this message?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+                          <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Sent</button>
+                        </div>
+                    </div>
             </div>
           
         </form>

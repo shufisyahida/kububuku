@@ -84,6 +84,12 @@
   //           $this->pesan_model->delete($id);
   //           redirect(base_url('pesan'));
   //       }
+        public function index2()
+        {
+            // $data['page_title'] = "CI Hello World App!";
+          redirect(base_url('permintaan_masuk'));
+            
+        }
         public function index()
         {
             // $data['page_title'] = "CI Hello World App!";
@@ -165,7 +171,14 @@
                 );
                 $this->load->model('pesan_model');
                 $this->pesan_model->createPesan($data);
-                redirect(base_url('permintaan_masuk'));
+
+                 //$this->session->set_flashdata('notification', 'Pesan berhasil terkirim');
+                //redirect(base_url('permintaan_masuk'));
+
+               echo '<script type="text/javascript">'; 
+                echo 'alert("Pesan anda telah terkirim");'; 
+                echo 'window.location.href = "index2";';
+                echo '</script>';
                 }     
                    
                 

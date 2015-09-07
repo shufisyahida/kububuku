@@ -20,7 +20,16 @@
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
-
+<div id="modal-terkirim" class="modal">
+    <div class="modal-content">
+        <h4>Contact Us</h4>
+        <p>Are you sure to sent this message?</p>
+    </div>
+    <div class="modal-footer">
+        <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+        <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Sent</button>
+    </div>
+</div>
 <div class="container custom-table">
 	<div class="card-panel z-depth-1">
 		<table class="bordered hoverable responsive-table">
