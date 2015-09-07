@@ -2,7 +2,7 @@
       <div class="secondary-header-inner">
         <ul>
           <li><a href="<?php echo base_url('profil/ubahProfile/')?>" class="active" href="">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('profil/ubahPicture')?>">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('profil/ubahGambar')?>">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -154,7 +154,19 @@
         </div> 
       </div>
       <div class="row right">
-        <button class="btn green waves-effect waves-light" type="submit" name="action" method="post">SAVE</button>
+        <!--<button class="btn green waves-effect waves-light" type="submit" name="action" method="post">SAVE</button>
+        -->
+        <button id="regbtn" class="modal-trigger btn waves-effect waves-light green right-align z-depth-1" href="#modal-editprofile">SAVE</button>
+      </div>
+      <div id="modal-editprofile" class="modal">
+        <div class="modal-content">
+            <h4>Edit Profile</h4>
+            <p>Are you sure to edit your profile?</p>
+        </div>
+        <div class="modal-footer">
+            <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+            <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Save</button>
+        </div>
       </div>
     </form>
 </div>

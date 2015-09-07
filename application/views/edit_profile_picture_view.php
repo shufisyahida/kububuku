@@ -2,7 +2,7 @@
       <div class="secondary-header-inner">
         <ul>
           <li><a href="<?php echo base_url('profil/ubahProfile/')?>">Edit Profile</a></li>
-          <li><a href="<?php echo base_url('profil/ubahPicture')?>"class="active">Edit Profile Picture</a></li>
+          <li><a href="<?php echo base_url('profil/ubahGambar')?>"class="active">Edit Profile Picture</a></li>
         </ul>
       </div>
 
@@ -42,10 +42,21 @@
                             <br>
                              <tr>
                               <td></td>
-                              <td><input type="submit" value="Submit" class="action-button shadow animate red"/></td>
+                              <td>
+                                <button class="modal-trigger waves-effect waves-light red right-align z-depth-1" href="#modal-submit">Submit</button>
+                              </td>
                             </tr>
                            </table>
-
+                           <div id="modal-submit" class="modal">
+                              <div class="modal-content">
+                                <h4>Edit Profile Picture</h4>
+                                <p>Are you sure to edit your profile picture?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
+                                <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Save</button>
+                              </div>
+                          </div>
                           <div style="margin:0 auto; width:600px">
                               <!-- <h6>Please drag on the image</h6> -->
                               <img src="<?php echo $img; ?>" id="photo" style='max-width:500px' >
