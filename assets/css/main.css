@@ -266,8 +266,8 @@ li.ranking-star {
 
 .action-content {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 8px;
+  right: 1px;
 }
 
 .collection a.collection-item {

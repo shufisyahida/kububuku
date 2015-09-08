@@ -1,12 +1,4 @@
-	<div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-	    <a class="z-depth-1 btn-floating btn-large red">
-	      	<i class="large mdi-content-add"></i>
-	    </a>
-	    <ul>
-	      	<li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-	      	<li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-	    </ul>
-	</div>
+
 </div><!--end div buat head-wrapper di navbar_view-->
 
 <div class="container custom-table2">
@@ -32,7 +24,7 @@
 		</div>
 		<div class="col m9 l9" id="content">
 			<div class="col s12 m12 l12 green card-panel">
-				<h5>Koleksi <?php echo $this->session->userdata('username'); ?></h4>
+				<h5>Koleksi Tersedia</h4>
 			</div>
 			<div class="row">
 		  	<?php 
@@ -40,26 +32,26 @@
 		  	{
 		  	foreach($resultAvailable as $post){?>
 				<div class="col s12 m12 l6">
-			    	<div class="card  card-book">
-			        	<div class="row row-custom-a">
-			        		<div class="col s4 m4 l4">
-			            		<?php echo
-			            			'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
-			            		?>
-			          		</div>
-			          		<div class="col s8 m8 l8">
-			              		<div class="col s11 m11 l11">
-			              			<?php echo
-			            			'<a href="'.base_url()."buku/info/".$post->isbn.'">';?>
-			                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
-			                		<?php echo'</a>';?>
-			                		<span><?php echo $post->pengarang;?></span><br>
-			                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
-			              		</div>
-			              		<div class="col s1 m1 l1">
-			              			<?php
-			                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
-			                		 echo 
+			    	<div class="card card-book">
+	            		<div class="row row-custom-a">
+							<div class="col s4 m4 l4">
+							<?php echo
+								'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+							?>
+							</div>
+							<div class="col s8 m8 l8">
+						  		<div class="col s11 m11 l11">
+						  			<?php echo
+									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';?>
+										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
+										<span><?php echo $post->pengarang;?></span><br>
+						    		<?php echo'</a>';?>
+						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
+						  		</div>
+						  		<div class="col s1 m1 l1">
+						  			<?php
+						    		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+						    		 echo 
 									'<div id="modal-remove2'.$post->isbn.'" class="modal">
 										<div class="modal-content">
 											<h4>Remove Collection</h4>
@@ -71,9 +63,9 @@
 										</div>
 									</div>'
 									?>
-			              		</div>
-			          		</div>
-			        	</div>
+						  		</div>
+							</div>
+						</div>
 			      	</div>
 			    </div>
 			<?php }
@@ -91,7 +83,7 @@
 		  	</div>
 			
 			<div class="col s12 m12 l12 green card-panel">
-				<h5>Buku yang Dipinjam</h5>
+				<h5>Koleksi Dipinjam</h5>
 			</div>
 			<div class="row">
 			<?php 
