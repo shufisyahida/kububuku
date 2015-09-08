@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Koleksi extends CI_Controller
+	class koleksi extends CI_Controller
 	{
 
 		public function __construct()
@@ -69,12 +69,12 @@
 				// 			Already requested.
 				// 		</div>
 				// 	</div>
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 			}	
 			else
 			{
 				//tampilkan notifikasi sukses
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 				// echo '
 				// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
 				// ';

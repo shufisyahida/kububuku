@@ -4,7 +4,7 @@
            <li><a href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
           <li><a href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
           <li><a  href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
-          <li><a class="active" href="<?php echo base_url('Wishlist') ?>">Wishlist</a></li>
+          <li><a class="active" href="<?php echo base_url('wishlist') ?>">Wishlist</a></li>
         </ul>
       </div>
 

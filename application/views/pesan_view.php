@@ -32,7 +32,7 @@
 
 					echo '
 						<li class="collection-item" id="'. $index++ .'">
-							<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+							<a href = "'.base_url()."".$value->username.'" >
 								<span class="email-address">'.$value->username.'</span><br>
 							</a>
 
@@ -123,7 +123,7 @@ $('document').ready(function() {
 
 					$('#message-collection').append(' \
 					<li class="collection-item"> \
-						<a href = "localhost/kububuku/profil/lihatProfil/'+ $username +'> \
+						<a href = "localhost/kububuku/'+ $username +'> \
 							<span class="email-address">'+ $username +'</span><br> \
 						</a> \
 						<div id="modal-message'+ $id +'" class="modal"> \
