@@ -258,9 +258,9 @@ $('document').ready(function() {
                                     <div class="divider"></div> \
                                     <div class="custom-container-b" style="text-align: center;"> \
                                     <ul> \
-                                      <li>As Owner</li>'+$rankPemilikHijau+$rankPemilikPutih+'</ul> \
+                                      <li>Sebagai Pemilik</li>'+$rankPemilikHijau+$rankPemilikPutih+'</ul> \
                                     <ul> \
-                                      <li>As Borrower</li>'+$rankPeminjamHijau+$rankPeminjamPutih+' </ul> \
+                                      <li>Sebagai Peminjam</li>'+$rankPeminjamHijau+$rankPeminjamPutih+' </ul> \
                                   </div> \
                               </div>');        
         }

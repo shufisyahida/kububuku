@@ -98,26 +98,26 @@
 						{
 							echo '<div id="modal-accept'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Accept Borrower?</h4>
+									<h4>Terima Peminjaman?</h4>
 									<p></p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
 					
 									<a href="'.base_url()."permintaan_masuk/terima/".$idPinjaman[$index]."/".$buku[0]->isbn.'"
-		 								class="waves-effect waves-green btn-flat modal-action">Accept</a>
+		 								class="waves-effect waves-green btn-flat modal-action">Terima</a>
 								</div>
 							</div>';
 					
 
 							echo '<div id="modal-decline'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Decline Borrower?</h4>
+									<h4>Tolak Peminjaman?</h4>
 									<p></p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-									<a href="'.base_url()."permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Decline</a>
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="'.base_url()."permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Tolak</a>
 								</div>
 							</div>';
 
@@ -146,8 +146,8 @@
 							echo '<form method="post" action="'.base_url().'permintaan_masuk/konfirmasi_pengembalian/">
 			            			<div id="modal-ranking'.$index.'" class="modal">
 										<div class="modal-content">
-											<h4>Returning Confirmation</h4>
-											<p>Book has been returned, give some rank for the borrower.</p>
+											<h4>Konfirmasi Pengembalian</h4>
+											<p>Buku telah dikembalikan, beri nilai untuk peminjam.</p>
 											
 												<p class="range-field">
 
@@ -169,7 +169,7 @@
 											
 										</div>
 										<div class="modal-footer">
-											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Batal</a>
 											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
 										</div>
 									</div>
@@ -187,7 +187,7 @@
 						echo '
 							<div id="modal-contact'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Contact</h4><br>';
+									<h4>Kontak</h4><br>';
 									$res = $kontak[$index];
 						           	foreach ($res as $key => $value) 
            							{
@@ -217,7 +217,7 @@
 									
 						 echo'</div>
 							<div class="modal-footer">
-								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
+								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Keluar</a>
 								</div>
 							</div>';
 

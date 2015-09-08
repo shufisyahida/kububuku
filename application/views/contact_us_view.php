@@ -50,12 +50,12 @@
                 </div>
                 <div id="modal-contactus" class="modal">
                         <div class="modal-content">
-                          <h4>Contact Us</h4>
-                          <p>Are you sure to sent this message?</p>
+                          <h4>Kontak Kami</h4>
+                          <p>Apakah anda yakin untuk mengirim pesan ini?</p>
                         </div>
                         <div class="modal-footer">
-                          <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
-                          <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Sent</button>
+                          <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</button>
+                          <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Kirim</button>
                         </div>
                     </div>
             </div>
