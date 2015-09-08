@@ -417,3 +417,11 @@ h5.book-title{
   margin-right: auto;
   margin-top: 30px;
 }
+
+
+
+/*ELKA*/
+.card-panel h5 {
+  text-align: center;
+  color: green;
+}

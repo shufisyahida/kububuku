@@ -6,10 +6,11 @@
     </nav>
 </div>
 <div class="container" style="margin-top:50px;">
-    <br><h5>Registration - step 1/2</h5>
+    <!-- <br><h5>Registration - step 1/2</h5> -->
     <form method="post" action="<?php echo base_url('pendaftaran/daftar') ?>">
         <div>
             <div class="card-panel z-depth-1">
+                <br><h5>Buat Akun</h5>
                 <div class="row" style="margin: 0px auto;">
                     <div class="input-field col m6 l8">
                         <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>" maxlength="20">
