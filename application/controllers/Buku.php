@@ -7,24 +7,31 @@
         {
             parent::__construct();
             
-            $username = $this->session->userdata('username');
-            $isLoggedIn = $this->session->userdata(''.$username);
+            // $username = $this->session->userdata('username');
+            // $isLoggedIn = $this->session->userdata(''.$username);
             
             $this->load->model('buku_model');   
             // $isAdmin = $this->admin_model->isAdmin($username); 
             
             $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username); 
+            // $isAdmin = $this->admin_model->isAdmin($username); 
             
-            if(!$isLoggedIn)
-            {
-                redirect(base_url('Login'));
-            }
+            // if(!$isLoggedIn)
+            // {
+            //     redirect(base_url('Login'));
+            // }
             
         }
 
         public function tambah()
         {        
+           //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             if(isset($_POST))
             {
                 $isbn = $this->input->post('isbn');
@@ -146,7 +153,14 @@
       
         public function tambah_baru()
         {
-            // $data['page_title'] = "CI Hello World App!";
+           
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $data = array(
                 'isbn' => '',
                 'judul' => '',
@@ -202,13 +216,14 @@
 
         	$this->load->view('head_view');
             
-            $username = $this->session->userdata('username');
-            
-            $this->load->model('admin_model');   
+            $username = $this->session->userdata('username');              
             $isAdmin = $this->admin_model->isAdmin($username);    
             
+            $isLoggedIn = $this->session->userdata(''.$username); 
             
-            if($isAdmin)
+            if(!$isLoggedIn)
+                $this->load->view('navbar_x_view');      
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -216,8 +231,8 @@
             {
                 $this->load->view('navbar_view');
             }
-            $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username); 
+             
+           
             $data['isAdmin']=$isAdmin;
             
             $this->load->view('book_info_view', $data);
@@ -226,6 +241,13 @@
       
         public function pemilik($isbn)
         {
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $this->load->model('buku_model');
             $this->load->model('non_admin');
             $this->load->model('fakultas');
@@ -261,11 +283,9 @@
             $username = $this->session->userdata('username');
             
             $this->load->model('admin_model');   
-            
             $isAdmin = $this->admin_model->isAdmin($username);    
-            
-            
-            if($isAdmin)
+
+           if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -280,7 +300,14 @@
 
          public function getList()
         {
-            //$thePage = intval($page);
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
+
              $this->load->model('non_admin');
             $this->load->model('fakultas');
             $data = array();
