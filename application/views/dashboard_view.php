@@ -14,19 +14,25 @@
 		<div class="col m3 l3">
 			<ul class="collection z-depth-1">
 			    <li class="collection-item avatar">
-			      	<img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle">
+			      	<img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property">
+			      	<h6>Fallon Candra</h6>
 			      	<span class="title"><?php echo $this->session->userdata('username');?></span>
 			      	<p><a>Edit Profile</a></p>
 			    </li>
 		    </ul>
 		    <ul class="collection with-header z-depth-1">
-			    <li><a onclick="loadCollection()" class="collection-item">Collection</a></li>
-			    <li><a onclick="loadWishlist()" class="collection-item">Wishlist</a></li>
-			    <li><a onclick="loadReqin()" class="collection-item">Request in</a></li>
-			    <li><a onclick="loadReqout()" class="collection-item">Request out</a></li>
+		    	<li><a class="collection-item">Beranda</a></li>
+		    	<li class="divider"></li>
+			    <li><a class="collection-item">Koleksi</a></li>
+			    <li class="divider"></li>
+			    <li><a class="collection-item">Peminjaman Masuk</a></li>
+			    <li class="divider"></li>
+			    <li><a class="collection-item">Peminjaman Keluar</a></li>
 		    </ul>
 		</div>
-		<div class="col m9 l9" id="content"></div>
+		<div class="col m9 l9" id="content">
+			
+		</div>
 	</div>
 </div>
 <script type="text/javascript" src="<?php echo base_url('assets/js/baseURL.js'); ?>"></script>
