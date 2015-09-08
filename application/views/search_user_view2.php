@@ -117,13 +117,13 @@
         <div class="card">
           <div class="container custom-container-a">
              <?php echo
-             '<a href = "'.base_url()."profil/lihatProfil/".$post->username.'">
+             '<a href = "'.base_url()."".$post->username.'">
               <img class="avatar-property circle responsive-img" src="'.$post->foto.'">
             </a>'
             ?>
           
           </div>
-          <div class="truncate green-text name-property"><?php echo '<a href="'.base_url().'profil/lihatProfil/'.$post->username.'">'?><?php echo $post->nama;?></a></div>
+          <div class="truncate green-text name-property"><?php echo '<a href="'.base_url().''.$post->username.'">'?><?php echo $post->nama;?></a></div>
           <div class="divider"></div>
           <div class="custom-container-b">
             <ul>
