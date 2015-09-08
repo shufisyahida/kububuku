@@ -64,11 +64,11 @@
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="container custom-container-a">          
-            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
+            <a href = "'.base_url()."".$value->username.'">
               <img class="avatar-property circle responsive-img" src="'.$value->foto.'"> 
             </a>
             </div>
-            <a href = "'.base_url()."profil/lihatProfil/".$value->username.'">
+            <a href = "'.base_url()."".$value->username.'">
             <div class="truncate green-text name-property">'.$value->nama.'</div>
             </a>
             <div class="divider"></div>       
@@ -238,11 +238,11 @@ $('document').ready(function() {
           $('#content').append('<div class="col s12 m4 l4"> \
                                   <div class="card"> \
                                     <div class="container custom-container-a"> \
-                                      <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
+                                      <a href = "'+$baseurl+""+$username+'"> \
                                       <img class="avatar-property circle responsive-img" src="'+$foto+'"> \
                                       </a> \
                                     </div> \
-                                    <a href = "'+$baseurl+"profil/lihatProfil/"+$username+'"> \
+                                    <a href = "'+$baseurl+""+$username+'"> \
                                       <div class="truncate green-text name-property">'+$nama+'</div> \
                                     </a> \
                                     <div class="divider"></div> \
@@ -258,9 +258,9 @@ $('document').ready(function() {
                                     <div class="divider"></div> \
                                     <div class="custom-container-b" style="text-align: center;"> \
                                     <ul> \
-                                      <li>As Owner</li>'+$rankPemilikHijau+$rankPemilikPutih+'</ul> \
+                                      <li>Sebagai Pemilik</li>'+$rankPemilikHijau+$rankPemilikPutih+'</ul> \
                                     <ul> \
-                                      <li>As Borrower</li>'+$rankPeminjamHijau+$rankPeminjamPutih+' </ul> \
+                                      <li>Sebagai Peminjam</li>'+$rankPeminjamHijau+$rankPeminjamPutih+' </ul> \
                                   </div> \
                               </div>');        
         }

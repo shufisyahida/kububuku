@@ -141,7 +141,7 @@
         //         );
         //         $this->load->model('pesan_model');
         //         $this->pesan_model->createPesan($data);
-        //         redirect(base_url('Wishlist'));
+        //         redirect(base_url('wishlist'));
                       
         //     }
         //     else

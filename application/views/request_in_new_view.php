@@ -1,37 +1,37 @@
-<div class="secondary-header">
-      <div class="secondary-header-inner">
-        <ul>
-          <li><a class="active" href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
-          <li><a href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
-          <li><a href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
-          <li><a href="<?php echo base_url('wishlist') ?>">Wishlist</a></li>
-        </ul>
-      </div>
-
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-content-add"></i>
-        </a>
-        <ul>
-          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-        </ul>
-      </div>
-    </div>
-
+	<div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
+	    <a class="z-depth-1 btn-floating btn-large red">
+	      	<i class="large mdi-content-add"></i>
+	    </a>
+	    <ul>
+	      	<li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
+	      	<li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
+	    </ul>
+	</div>
 </div><!--end div buat head-wrapper di navbar_view-->
-<div id="modal-terkirim" class="modal">
-    <div class="modal-content">
-        <h4>Contact Us</h4>
-        <p>Are you sure to sent this message?</p>
-    </div>
-    <div class="modal-footer">
-        <button  href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</button>
-        <button class="black-text waves-effect waves-green btn-flat modal-action"  type="submit" name="action" method="post">Sent</button>
-    </div>
-</div>
-<div class="container custom-table">
-	<div class="card-panel z-depth-1">
+
+<div class="container custom-table2">
+	<div class="row">
+		<div class="col m3 l3">
+			<ul class="collection z-depth-1">
+			    <li class="collection-item avatar">
+			      	<img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property">
+			      	<h6>Fallon Candra</h6>
+			      	<span class="title"><?php echo $this->session->userdata('username');?></span>
+			      	<p><a>Edit Profile</a></p>
+			    </li>
+		    </ul>
+		    <ul class="collection with-header z-depth-1">
+		    	<li><a class="collection-item">Beranda</a></li>
+		    	<li class="divider"></li>
+			    <li><a href="<?php echo base_url('koleksi'); ?>" class="collection-item">Koleksi</a></li>
+			    <li class="divider"></li>
+			    <li><a href="<?php echo base_url('permintaan_masuk'); ?>" class="collection-item active">Peminjaman Masuk</a></li>
+			    <li class="divider"></li>
+			    <li><a href="<?php echo base_url('permintaan_keluar'); ?>" class="collection-item">Peminjaman Keluar</a></li>
+		    </ul>
+		</div>
+		<div class="col m9 l9" id="content">
+			<div class="card-panel z-depth-1">
 		<table class="bordered hoverable responsive-table">
 	        <thead>
 				<tr>
@@ -98,26 +98,26 @@
 						{
 							echo '<div id="modal-accept'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Terima Peminjaman?</h4>
+									<h4>Accept Borrower?</h4>
 									<p></p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
 					
 									<a href="'.base_url()."permintaan_masuk/terima/".$idPinjaman[$index]."/".$buku[0]->isbn.'"
-		 								class="waves-effect waves-green btn-flat modal-action">Terima</a>
+		 								class="waves-effect waves-green btn-flat modal-action">Accept</a>
 								</div>
 							</div>';
 					
 
 							echo '<div id="modal-decline'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Tolak Peminjaman?</h4>
+									<h4>Decline Borrower?</h4>
 									<p></p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
-									<a href="'.base_url()."permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Tolak</a>
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+									<a href="'.base_url()."permintaan_masuk/tolak/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Decline</a>
 								</div>
 							</div>';
 
@@ -146,8 +146,8 @@
 							echo '<form method="post" action="'.base_url().'permintaan_masuk/konfirmasi_pengembalian/">
 			            			<div id="modal-ranking'.$index.'" class="modal">
 										<div class="modal-content">
-											<h4>Konfirmasi Pengembalian</h4>
-											<p>Buku telah dikembalikan, beri nilai untuk peminjam.</p>
+											<h4>Returning Confirmation</h4>
+											<p>Book has been returned, give some rank for the borrower.</p>
 											
 												<p class="range-field">
 
@@ -169,7 +169,7 @@
 											
 										</div>
 										<div class="modal-footer">
-											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Batal</a>
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
 											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
 										</div>
 									</div>
@@ -187,7 +187,7 @@
 						echo '
 							<div id="modal-contact'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Kontak</h4><br>';
+									<h4>Contact</h4><br>';
 									$res = $kontak[$index];
 						           	foreach ($res as $key => $value) 
            							{
@@ -217,7 +217,7 @@
 									
 						 echo'</div>
 							<div class="modal-footer">
-								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Keluar</a>
+								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
 								</div>
 							</div>';
 
@@ -236,113 +236,8 @@
 	        </tbody>
   		</table>
   	</div>
+		</div>
+	</div>
 </div>
-
-<script type="text/javascript">
-	
-</script>
-<script>
-$('document').ready(function() {
-
-  setInterval(function(){ 
-    console.log("OK");
-    var xmlhttp;
-    if(window.XMLHttpRequest) {
-      xmlhttp = new XMLHttpRequest();
-    }
-    else
-    {
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-
-      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        console.log("200");
-        var $response = xmlhttp.responseText;
-        var $data = JSON.parse($response);
-
-        if($data['tanggapan']==true || $data['request']==true || $data['accept']==true|| $data['decline']==true|| $data['return']==true){
-          $('#notif-icon').addClass("red-text");
-          $('#notif-icon').removeClass("lime-text text-lighten-5");
-        }
-      }
-    }
-    
-    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
-    xmlhttp.send();
-  }, 3000);
- 
-});
-</script>
-
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-    $(".tombol.t1").click(function(){
-        // $(".star").animate({width: "50px"}, "slow");
-        $(".star").css("width", "50px");
-        $("#hasil").val("1");
-    });
-    $(".tombol.t1").mouseenter(function(){
-        $(".backstar").css("width", "50px");
-    });
-    $(".tombol.t1").mouseleave(function(){
-        $(".backstar").css("width", "0px");
-    });
-
-
-    $(".tombol.t2").click(function(){
-        // $(".star").animate({width: "100px"}, "slow");
-        $(".star").css("width", "100px");
-        $("#hasil").val("2");
-    });
-    $(".tombol.t2").mouseenter(function(){
-        $(".backstar").css("width", "100px");
-    });
-    $(".tombol.t2").mouseleave(function(){
-        $(".backstar").css("width", "0px");
-    });
-
-
-    $(".tombol.t3").click(function(){
-        // $(".star").animate({width: "150px"}, "slow");
-        $(".star").css("width", "150px");
-        $("#hasil").val("3");
-    });
-    $(".tombol.t3").mouseenter(function(){
-        $(".backstar").css("width", "150px");
-    });
-    $(".tombol.t3").mouseleave(function(){
-        $(".backstar").css("width", "0px");
-    });
-
-
-    $(".tombol.t4").click(function(){
-        // $(".star").animate({width: "200px"}, "slow");
-        $(".star").css("width", "200px");
-        $("#hasil").val("4");
-    });
-    $(".tombol.t4").mouseenter(function(){
-        $(".backstar").css("width", "200px");
-    });
-    $(".tombol.t4").mouseleave(function(){
-        $(".backstar").css("width", "0px");
-    });
-
-
-    $(".tombol.t5").click(function(){
-        // $(".star").animate({width: "250px"}, "slow");
-        $(".star").css("width", "250px");
-        $("#hasil").val("5");
-    });
-    $(".tombol.t5").mouseenter(function(){
-        $(".backstar").css("width", "250px");
-    });
-    $(".tombol.t5").mouseleave(function(){
-        $(".backstar").css("width", "0px");
-    });
-});
-
-
-</script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/baseURL.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/loadContentDashboard.js'); ?>"></script>

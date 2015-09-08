@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Koleksi extends CI_Controller
+	class koleksi extends CI_Controller
 	{
 
 		public function __construct()
@@ -69,12 +69,12 @@
 				// 			Already requested.
 				// 		</div>
 				// 	</div>
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 			}	
 			else
 			{
 				//tampilkan notifikasi sukses
-				redirect('profil/lihatProfil/'.$pemilik);
+				redirect(''.$pemilik);
 				// echo '
 				// 	<a class="btn" onload="Materialize.toast("Borrowing success", 4000)"></a>
 				// ';
@@ -108,13 +108,13 @@
 		{
 			$username = $this->session->userdata('username');
 			$this->load->model('koleksi_model');
+			$this->load->model('wishlist_model');
 			$data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
-			//$this->load->model('koleksi_model');
 			$data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
+			$data['resultWishlist'] = $this->wishlist_model->getAllWishlist($username);
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
 			$this->load->view('collection_view', $data);
-			//$this->load->view('collection_view', $data2);
 			$this->load->view('foot_view');
 		}
 

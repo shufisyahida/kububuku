@@ -57,7 +57,7 @@
             //$this->tanggapan_model->setTanggapan($username, $id);
             $this->tanggapan_model->deleteTanggapan($id,$OtherUsername);
 
-            redirect(base_url('profil/lihatProfil/'.$OtherUsername));
+            redirect(base_url(''.$OtherUsername));
         }
 
         public function lookRequest($user, $isbn){

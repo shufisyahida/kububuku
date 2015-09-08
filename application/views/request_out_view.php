@@ -4,7 +4,7 @@
 				<li><a href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
 				<li><a class="active" href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
 				<li><a href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
-				<li><a href="<?php echo base_url('Wishlist') ?>">Wishlist</a></li>
+				<li><a href="<?php echo base_url('wishlist') ?>">Wishlist</a></li>
 			</ul>
 		</div>
 
@@ -51,11 +51,11 @@
 						<td>'.$count.'</td>
 						<td>
 						<div class="borrower">
-						<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+						<a href = "'.base_url()."".$value->username.'" >
 							<img class="img-icon-borrower circle responsive-img" src="'.$value->foto.'">
 						</a>
 							<div class="custom-borrower">
-						<a href = "'.base_url()."profil/lihatProfil/".$value->username.'" >
+						<a href = "'.base_url()."".$value->username.'" >
 								<span>'.$value->nama.'</span><br>
 						</a>
 								<span>'.$value->username.'</span>
@@ -90,12 +90,12 @@
 
 							echo '<div id="modal-cancel'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Cancel Request?</h4>
+									<h4>Batalkan Permintaan?</h4>
 									<p></p>
 								</div>
 								<div class="modal-footer">
-									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>';
-									echo '<a href="'.base_url()."permintaan_keluar/batal/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">YES</a>
+									<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Tidak</a>';
+									echo '<a href="'.base_url()."permintaan_keluar/batal/".$idPinjaman[$index].'" class="waves-effect waves-green btn-flat modal-action">Ya</a>
 								</div>
 							</div>';
 							
@@ -126,8 +126,9 @@
 							echo '<form method="post" action="'.base_url().'permintaan_keluar/kembalikan/">
 			            			<div id="modal-return'.$index.'" class="modal">
 										<div class="modal-content">
-											<h4>Return Book</h4>
-											<p>Waiting for the owner confirmation, give some rank for the owner.</p>
+											<h4>Kembalikan Buku</h4>
+
+											<p>Menunggu konfirmasi dari pemilik, beri nilai untuk pemilik.</p>
 												<p class="range-field">
 
 													<div class="star">
@@ -147,7 +148,7 @@
 											
 										</div>
 										<div class="modal-footer">
-											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+											<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Batal</a>
 											<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">OK</button></a>
 										</div>
 									</div>
@@ -165,7 +166,7 @@
 						echo '
 							<div id="modal-contact'.$index.'" class="modal">
 								<div class="modal-content">
-									<h4>Contact</h4><br>';
+									<h4>Kontak</h4><br>';
 									$res = $kontak[$index];
 						           	foreach ($res as $key => $value) 
            							{
@@ -195,7 +196,7 @@
 									
 						 echo'</div>
 							<div class="modal-footer">
-								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">CLOSE</a>
+								<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Keluar</a>
 								</div>
 							</div>';
 
