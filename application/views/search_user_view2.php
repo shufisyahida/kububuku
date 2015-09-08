@@ -39,7 +39,7 @@
                     <option value="" disabled selected>Pilih Kategori</option>
                     <option value="nama">Nama</option>
                     <option value="domisili">Domisili</option>
-                     <option value="status">Status</option>
+                    <option value="status">Status</option>
                     <option value="fakultas">Fakultas</option>
                 </select>
             </div>
