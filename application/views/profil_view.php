@@ -154,7 +154,7 @@
 										            		echo '<form method="post" action="'.base_url().'koleksi/pinjam/">
 										            			<div id="modal-duration'.$index.'" class="modal">
 																	<div class="modal-content">
-																		<h4>Set Duration (Days)</h4>
+																		<h4>Durasi Peminjaman (Hari)</h4>
 																		
 																			<p class="range-field">
 																				<input type="range" name="duration" id="duration" min="1" max="100" />
@@ -164,24 +164,24 @@
 																		
 																	</div>
 																	<div class="modal-footer">
-																		<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+																		<a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">BATAL</a>
 
-																		<!--<a href="'.base_url()."koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">SET</a> -->
+																		<!--<a href="'.base_url()."koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">PINJAM</a> -->
 
-																		<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">SET</button></a>
+																		<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">PINJAM</button></a>
 																	</div>
 																</div>
 															</form>';
 
 															echo '<div class="row row-custom-a">
-										            	    	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-duration'.$index.'">Borrow</a>
+										            	    	<a class="modal-trigger waves-effect waves-green black-text btn-flat" href="#modal-duration'.$index.'">Pinjam</a>
 										            		</div>';	
 									            		}
 									            		else
 									            		{
 									            			echo'
 									            			<div class="row row-custom-a">
-											            	    <a class="btn-flat disabled">Requested</a>
+											            	    <a class="btn-flat disabled">Tunggu Konfirmasi</a>
 											            	</div>';
 									            		}
 								            		}
@@ -229,7 +229,7 @@
 								            	if(!$isAdmin){
 								            		echo'
 								            	<div class="row row-custom-a">
-								            	    <a class="btn-flat disabled">Borrowed</a>
+								            	    <a class="btn-flat disabled">Anda Pinjam</a>
 								            	</div>
 								            	';}
 								            	echo'
