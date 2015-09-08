@@ -147,7 +147,7 @@
             </div>
           </div>
           <?php
-          if($isAdmin)
+          if($isLoggedIn&&$isAdmin)
           {
             echo '
             <div class="divider"></div>

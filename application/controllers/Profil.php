@@ -6,15 +6,22 @@
         public function __construct()
         {
             parent::__construct();
+            // $username = $this->session->userdata('username');
+            // if(!$this->session->userdata(''.$username))
+            // {
+            //     redirect(base_url('Login'));
+            // }
+        }
+
+        public function potongGambar()
+        {
+            //check if user has logged in
             $username = $this->session->userdata('username');
             if(!$this->session->userdata(''.$username))
             {
                 redirect(base_url('Login'));
             }
-        }
 
-        public function potongGambar()
-        {
             $this->load->model('non_admin');
             $image = $this->non_admin->upload_image();  
             $res['img']= base_url()."uploads/".$image;
@@ -27,6 +34,13 @@
 
         public function ubah()
         {
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             if(isset($_POST))
             {
                 $username = $this->session->userdata('username');
@@ -161,7 +175,13 @@
 
         public function ubahGambar()
         {
-            // $data['page_title'] = "CI Hello World App!";
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $username = $this->session->userdata('username');
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
@@ -176,7 +196,13 @@
 
         public function ubahProfile()
         {
-            // $data['page_title'] = "CI Hello World App!";
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $username = $this->session->userdata('username');
             $this->load->model('non_admin');
             $user = $this->non_admin->getUser($username) ;
@@ -270,10 +296,16 @@
             $username = $this->session->userdata('username');
             
             $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username);    
+            $isAdmin = $this->admin_model->isAdmin($username);   
+
+            $loggedIn = $this->session->userdata(''.$username);
             
             
-            if($isAdmin)
+            if(!$loggedIn)
+            {
+                $this->load->view('navbar_x_view');   
+            }
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -292,6 +324,13 @@
 
         public function perbaruiGambar()
         {
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $img['imgpath']=$this->non_admin->upload_thumbnail();
             //$this->session->set_userdata('foto',base_url()."uploads/".$img['imgpath']);
             echo $img=$img['imgpath'];
@@ -299,6 +338,13 @@
 
         public function hapusPengguna($username)
         {
+            //check if user has logged in
+            $username = $this->session->userdata('username');
+            if(!$this->session->userdata(''.$username))
+            {
+                redirect(base_url('Login'));
+            }
+
             $this->load->model('non_admin');
             $this->non_admin->deleteUser($username);
             redirect(base_url('kelolaUser'));
