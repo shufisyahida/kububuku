@@ -77,7 +77,7 @@
 		}
 
 		public function getAllTanggapan($username){
-			$this->db->select("tanggapan.username as user, buku.judul as judul, non_admin.foto as foto, tanggapan.id_wishlist as id");
+			$this->db->select("waktu,tanggapan.username as user_inform, buku.judul as judul, non_admin.foto as foto, tanggapan.id_wishlist as id");
 			$this->db->from('tanggapan');
 			$this->db->join('wishlist', 'wishlist.id = tanggapan.id_wishlist');
 			$this->db->join('buku', 'wishlist.isbn = buku.isbn');

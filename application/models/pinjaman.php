@@ -157,7 +157,7 @@
 		}
 		function notifRequest($username)
 		{
-			$this->db->select('username_peminjam as user, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
+			$this->db->select('waktu,username_peminjam as user_request, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
 			$this->db->from('pinjaman');
 			$this->db->join('buku','pinjaman.isbn=buku.isbn');
 			$this->db->join('non_admin', 'non_admin.username = pinjaman.username_peminjam');
@@ -168,7 +168,7 @@
 
 		function notifAccept($username)
 		{
-			$this->db->select('username_pemilik as user, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
+			$this->db->select('waktu,username_pemilik as user_accept, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
 			$this->db->from('pinjaman');
 			$this->db->join('buku','pinjaman.isbn=buku.isbn');
 			$this->db->join('non_admin', 'non_admin.username = pinjaman.username_pemilik');
@@ -179,7 +179,7 @@
 
 		function notifDecline($username)
 		{
-			$this->db->select('username_pemilik as user, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
+			$this->db->select('waktu,username_pemilik as user_decline, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
 			$this->db->from('pinjaman');
 			$this->db->join('buku','pinjaman.isbn=buku.isbn');
 			$this->db->join('non_admin', 'non_admin.username = pinjaman.username_pemilik');
@@ -190,7 +190,7 @@
 
 		function notifReturn($username)
 		{
-			$this->db->select('username_peminjam as user, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
+			$this->db->select('waktu,username_peminjam as user_return, buku.judul as judul, non_admin.foto as foto, buku.isbn as isbn');
 			$this->db->from('pinjaman');
 			$this->db->join('buku','pinjaman.isbn=buku.isbn');
 			$this->db->join('non_admin', 'non_admin.username = pinjaman.username_peminjam');
@@ -206,7 +206,7 @@
 		{
 			$this->db->select('*');
 			$this->db->from('pinjaman');
-			$this->db->where('username_peminjam',$peminjam)->where('username_pemilik',$pemilik)->where('isbn',$isbn);		
+			$this->db->where('username_peminjam',$peminjam)->where('username_pemilik',$pemilik)->where('isbn',$isbn)->where('status !=',5);		
 			$query= $this->db->get()->result();
 
 			if(sizeof($query)!=0)
