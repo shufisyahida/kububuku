@@ -10,6 +10,7 @@
 		<!-- Materialize CSS -->
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css') ?>" media="screen,projection"/>
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/materialize.css') ?>">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!-- Custom CSS -->
 		<link href="<?php echo base_url('assets/css/main.css') ?>" rel="stylesheet">
