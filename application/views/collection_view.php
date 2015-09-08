@@ -1,168 +1,206 @@
-	<div class="secondary-header">
-      <div class="secondary-header-inner">
-        <ul>
-           <li><a href="<?php echo base_url('permintaan_masuk') ?>">Permintaan Masuk</a></li>
-          <li><a href="<?php echo base_url('permintaan_keluar') ?>">Permintaan Keluar</a></li>
-          <li><a class="active" href="<?php echo base_url('koleksi') ?>">Koleksi</a></li>
-          <li><a href="<?php echo base_url('wishlist') ?>">Wishlist</a></li>
-        </ul>
-      </div>
-
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-content-add"></i>
-        </a>
-        <ul>
-          <li><a href="<?php echo base_url('pencarian/buku') ?>"	class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-          <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-        </ul>
-      </div>
-    </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
 
-<!-- <div class="container custom-table"> -->
-	<div class="container custom-table">
-		<h4>Dipinjam</h4>
-		<div class="row">
-		<?php 
-		if(!empty($resultBorrowed))
-		{
-		foreach($resultBorrowed as $post){ ?>
-			<div class="col s12 m12 l6">
-		    	<div class="card card-book">
-		        	<div class="row row-custom-a">
-		        		<div class="col s4 m4 l4">
-		            		<?php echo
-		            			'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>';
-		            		?>
-		          		</div>
-		          		<div class="col s8 m8 l8">
-		              		<div class="col s11 m11 l11">
-		              			<?php echo
-		            			'<a href="'.base_url()."buku/info/".$post->isbn.'">
+<div class="container custom-table2">
+	<div class="row">
+		<div class="col m3 l3">
+			<ul class="collection z-depth-1">
+			    <li class="collection-item">
+			      	<center>
+				      <a href="<?php echo base_url($this->session->userdata('username')); ?>"><img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property"></a>
+				      	<h5 class="green-text"><a>Fallon Candra</a></h5>
+				    </center>
+			    </li>
+		    </ul>
+		    <ul class="collection with-header z-depth-1">
+		    	<li><a href="<?php echo base_url('dashboard'); ?>" class="collection-item">Beranda</a></li>
+		    	<li class="divider"></li>
+			    <li><a href="<?php echo base_url('koleksi'); ?>" class="collection-item active">Koleksi</a></li>
+			    <li class="divider"></li>
+			    <li><a href="<?php echo base_url('permintaan_masuk'); ?>" class="collection-item">Peminjaman Masuk</a></li>
+			    <li class="divider"></li>
+			    <li><a href="<?php echo base_url('permintaan_keluar'); ?>" class="collection-item">Peminjaman Keluar</a></li>
+		    </ul>
+		</div>
+		<div class="col m9 l9" id="content">
+			<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+				<h5>Koleksi Tersedia</h4>
+			</div>
+			<div class="row">
+		  	<?php 
+		  	if(!empty($resultAvailable))
+		  	{
+		  	foreach($resultAvailable as $post){?>
+				<div class="col s12 m12 l6">
+			    	<div class="card card-book">
+	            		<div class="row row-custom-a">
+							<div class="col s4 m4 l4">
+							<?php echo
+								'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+							?>
+							</div>
+							<div class="col s8 m8 l8">
+						  		<div class="col s11 m11 l11">
+						  			<?php echo
+									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';?>
+										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
+										<span><?php echo $post->pengarang;?></span><br>
+						    		<?php echo'</a>';?>
+						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+						  		</div>
+						  		<div class="col s1 m1 l1">
+						  			<?php
+						    		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+						    		 echo 
+									'<div id="modal-remove2'.$post->isbn.'" class="modal">
+										<div class="modal-content">
+											<h4>Remove Collection</h4>
+											<p>Are you sure to remove this book from collection?</p>
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+											<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										</div>
+									</div>'
+									?>
+						  		</div>
+							</div>
+						</div>
+			      	</div>
+			    </div>
+			<?php }
+			}
+			else
+			{
+				echo'
+				<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+					<h6>Tidak ada koleksi</h6>
+				</div>
+				';
+			}
 
-		                		<span class="card-title black-text">'.$post->judul.'</span><br>
-		                		</a>';?>
-		                		<span><?php echo $post->pengarang;?></span><br>
-		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
-		              		</div>
-		              		<div class="col s1 m1 l1">
-		                		<?php
-		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Hapus" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
-		                		 echo 
-								'<div id="modal-remove'.$post->isbn.'" class="modal">
-									<div class="modal-content">
-										<h4>Hapus Koleksi</h4>
-										<p>Apakah anda yakin untuk menghapus buku dari koleksi?</p>
-									</div>
-									<div class="modal-footer">
-										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
-										<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
-									</div>
-								</div>'
-								?>
-		              		</div>
-		          		</div>
-		        	</div>
-		      	</div>
-		    </div>
-		<?php }
-		}
-		else
-		{
-			echo'<h5>Tidak ada</h5>';
-		}
-		?>  
-  		</div>
-		<!-- </div> -->
-	</div>
+			?>  
+		  	</div>
+			
+			<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+				<h5>Koleksi Dipinjam</h5>
+			</div>
+			<div class="row">
+			<?php 
+			if(!empty($resultBorrowed))
+			{
+			foreach($resultBorrowed as $post){ ?>
+				<div class="col s12 m12 l6">
+			    	<div class="card card-book">
+	            		<div class="row row-custom-a">
+							<div class="col s4 m4 l4">
+							<?php echo
+								'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+							?>
+							</div>
+							<div class="col s8 m8 l8">
+						  		<div class="col s11 m11 l11">
+						  			<?php echo
+									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';?>
+										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
+										<span><?php echo $post->pengarang;?></span><br>
+						    		<?php echo'</a>';?>
+						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+						  		</div>
+						  		<div class="col s1 m1 l1">
+						  			<?php
+						    		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+						    		 echo 
+									'<div id="modal-remove2'.$post->isbn.'" class="modal">
+										<div class="modal-content">
+											<h4>Remove Collection</h4>
+											<p>Are you sure to remove this book from collection?</p>
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+											<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										</div>
+									</div>'
+									?>
+						  		</div>
+							</div>
+						</div>
+			      	</div>
+			    </div>
+			<?php }
+			}
+			else
+			{
+				echo'
+				<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+					<h6>Tidak ada buku yang dipinjam</h6>
+				</div>
+				';
+			}
+			?>  
+	  		</div>
 
-	<p class="divider"></p>
-
-	<div class="container custom-table2">
-		<h4>Tersedia</h4>
-	  	<div class="row">
-	  	<?php 
-	  	if(!empty($resultAvailable))
-	  	{
-	  	foreach($resultAvailable as $post){?>
-			<div class="col s12 m12 l6">
-		    	<div class="card  card-book">
-		        	<div class="row row-custom-a">
-		        		<div class="col s4 m4 l4">
-		            		<?php echo
-		            			'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
-		            		?>
-		          		</div>
-		          		<div class="col s8 m8 l8">
-		              		<div class="col s11 m11 l11">
-		              			<?php echo
-		            			'<a href="'.base_url()."buku/info/".$post->isbn.'">';?>
-		                		<span class="card-title black-text"><?php echo $post->judul;?></span><br>
-		                		<?php echo'</a>';?>
-		                		<span><?php echo $post->pengarang;?></span><br>
-		                		<span class="tag-property white-text green"><?php echo $post->genre;?></span>
-		              		</div>
-		              		<div class="col s1 m1 l1">
-		              			<?php
-		                		echo '<a data-position="bottom" data-delay="50" data-tooltip="Hapus" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
-		                		 echo 
-								'<div id="modal-remove2'.$post->isbn.'" class="modal">
-									<div class="modal-content">
-										<h4>Hapus Koleksi</h4>
-										<p>Apakah anda yakin untuk menghapus buku dari koleksi?</p>
-									</div>
-									<div class="modal-footer">
-										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
-										<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
-									</div>
-								</div>'
-								?>
-		              		</div>
-		          		</div>
-		        	</div>
-		      	</div>
-		    </div>
-		<?php }
-		}
-		else
-		{
-			echo'<h5>Tidak ada</h5>';
-		}
-
-		?>  
-	  	</div>
+	  		<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+				<h5>Wishlist</h5>
+			</div>
+			<div class="row">
+    <?php 
+    if(!empty($resultWishlist))
+    {
+    foreach($resultWishlist as $post){ ?>
+      	<div class="col s12 m12 l6">
+          	<div class="card card-book">
+	            		<div class="row row-custom-a">
+							<div class="col s4 m4 l4">
+							<?php echo
+								'<a href="'.base_url()."buku/info/".$post->isbn.'"> <img class="responsive-img" src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+							?>
+							</div>
+							<div class="col s8 m8 l8">
+						  		<div class="col s11 m11 l11">
+						  			<?php echo
+									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';?>
+										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
+										<span><?php echo $post->pengarang;?></span><br>
+						    		<?php echo'</a>';?>
+						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+						  		</div>
+						  		<div class="col s1 m1 l1">
+						  			<?php
+						    		echo '<a data-position="bottom" data-delay="50" data-tooltip="Remove" align="right" class="tooltipped modal-trigger action-content" href="#modal-remove2'.$post->isbn.'"><i class="red-text mdi-content-clear"></i></a>';
+						    		 echo 
+									'<div id="modal-remove2'.$post->isbn.'" class="modal">
+										<div class="modal-content">
+											<h4>Remove Collection</h4>
+											<p>Are you sure to remove this book from collection?</p>
+										</div>
+										<div class="modal-footer">
+											<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+											<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+										</div>
+									</div>'
+									?>
+						  		</div>
+							</div>
+						</div>
+			      	</div>	
+        </div>
+    <?php }
+    }
+    else
+    {
+      	echo'
+		<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+			<h6>Tidak ada wishlist</h6>
+		</div>
+		';
+    }
+    ?>  
+    </div>
   	</div>
-
-<!-- </div> -->
-
-
-<!-- Modal Structure -->
-<!-- <div id="modal-remove" class="modal">
-	<?php foreach($resultBorrowed as $post){?>
-	<div class="modal-content">
-		<h4>Remove Collection</h4>
-		<p>Are you sure to remove this book from collection?</p>
+		</div>
 	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="'.base_url()."koleksi/hapus/".$post->isbn.' class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
-	</div>
-	<?php }?> 
-</div> -->
-
-<!-- <div id="modal-remove2" class="modal">
-	<div class="modal-content">
-		<h4>Remove Collection</h4>
-		<p>Are you sure to remove this book from collection?</p>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-		<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">remove</a>
-	</div>
-</div> -->
-
+</div>
 <script>
 $('document').ready(function() {
 
@@ -196,4 +234,3 @@ $('document').ready(function() {
  
 });
 </script>
- 
