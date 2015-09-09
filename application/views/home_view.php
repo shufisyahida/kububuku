@@ -22,8 +22,8 @@
             <div class="homeNavbar">
                 <!-- <a href="<?php echo base_url('permintaan_masuk/') ?>" class="logoKububuku"><img class="home-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a> -->
                 <ul class="right">
-                  <li><a class="" href="<?php echo base_url('pencarian/buku') ?>">Login</a></li>
-                  <li><a class="" href="<?php echo base_url('notifikasi/') ?>">Daftar</a></li>
+                  <li><a class="" href="<?php echo base_url('Login') ?>">Login</a></li>
+                  <li><a class="" href="<?php echo base_url('Sso/login') ?>">Daftar</a></li>
                 </ul>
 
             </div>
@@ -35,8 +35,13 @@
             <div class="homeCari">
                 <h5>Cari Buku</h5>
                 <div>
-                    <input type="text">
-                </div>                
+                    <form method="post" action="<?php echo base_url('pencarian/hasil_buku') ?>">
+                        <input type="text" id="book-searchkey" name="keyword">
+                        <input class="hide" id="kategori" name="kategori" value="judul" type="text">
+                        <button class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post"><i class="lime-text text-lighten-5 mdi-action-search"></i></button>
+                    </form>
+                </div>
+
             </div>       
         </div>
     </section>
@@ -44,15 +49,18 @@
     <section>
         <div class="homeLatar lime lighten-5">
             <div class="makna">
-                <p>
-                    KubuBuku adalah portal pinjam meminjam buku antar sivitas akademika Universitas indonesia. 
-                </p>    
+                <p class="besar">KubuBuku</p><p> adalah portal pinjam meminjam buku antar sivitas akademika </p><p class="besar">Universitas indonesia</p>    
             </div>    
         </div>
     </section>
     <section>
         <div class="homeLatar green">
-            
+            <div class="gabung">
+                <p>
+                    Ayo gabung bersama KubuBuku
+                </p>                
+                <a href="<?php echo base_url('Sso/login') ?>">Login via SSO</a>              
+            </div>
         </div>
     </section>
     </body>

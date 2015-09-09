@@ -425,6 +425,11 @@ h5.book-title{
   text-align: center;
   color: #4caf50;
 }
+.card-panel p {
+  color: #4caf50;
+  font-size: 15px;
+  text-align: center;
+}
 
 .langkah{
   /*background-color: green;*/
@@ -522,7 +527,7 @@ img.home-logo{
 
 .homeCari{
   /*text-align: center;*/
-  width: 500px;
+  width: 510px;
   margin: 50px auto;  
 }
 
@@ -530,24 +535,55 @@ img.home-logo{
   background-color: white !important;
   padding: 0px 10px;
   font-size: 20px;
-  width: 500px;
+  width: 400px;
 }
 
 .homeCari h5{
   color: #fff;
 }
+.homrCari button{
+  padding: 10px 20px;
+}
 
 .makna{
   /*position: relative;*/
-  width: 600px;
+  width: 800px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 200px;
-  font-size: 35px;
+  font-size: 30px;
   color: #4caf50;
+  text-align: center;
 }
 
 .makna p{
   margin: 0px;
+  display: inline;
+}
+.makna p.besar{
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.gabung{
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
   text-align: center;
+}
+
+.gabung p{
+  color: #fff;
+  font-size: 30px;
+  margin: 50px 0px;
+}
+
+.gabung a{
+  padding: 20px;
+  color: #4caf50;  
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: 500;
 }
