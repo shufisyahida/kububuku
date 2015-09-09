@@ -5,26 +5,11 @@
         	if($user->username == $this->session->userdata('username'))
         		echo 'Profil Saya';
         	else
-        		echo 'Profil'.$user->nama.'';
+        		echo 'Profil '.$user->nama.'';
         	
         	?>
         </div>
       </div>
-	<?php
-	if(!$isAdmin){
-	echo '
-
-	      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-	        <a class="z-depth-4 btn-floating btn-large red">
-	          <i class="large mdi-content-add"></i>
-	        </a>
-	        <ul>
-	          <li><a href="'.base_url().'pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-	          <li><a href="'.base_url().'pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-	        </ul>
-	      </div>';
-	  }
-      ?>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
@@ -105,12 +90,20 @@
 			<div class="row">
 				<?php
         			if($user->username == $this->session->userdata('username'))
-        				echo '<h5>Koleksi Saya</h5>';
+        				echo 
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+							<h5>Koleksi Saya</h5>
+						</div>';
         			else
-        				echo '<h5>Koleksi '.$user->nama.'</h5>';
+        				echo 
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+							<h5>Koleksi '.$user->nama.'</h5>
+						</div>';
         	
         			?>	
-				<h6>Tersedia</h6>	
+				<div class="col s12 m12 l12 green lighten-1 lime-text text-lighten-5">
+					<h6>Tersedia</h6>
+				</div>
 			</div>
 			<div class="row">
 				<?php
@@ -201,13 +194,16 @@
 					}
 					else
 					{
-						echo '<div class="col s12 m12 l12">
-									<p>Tidak ada koleksi tersedia</p>
-							</div>';
+						echo'
+						<br><br>
+						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+							<h6>Tidak ada koleksi</h6>
+						</div>
+						';
 					}
 				?>
 			</div>
-			<div class="row">
+			<div class="col s12 m12 l12 green lighten-1 lime-text text-lighten-5">
 				<h6>Dipinjam</h6>
 			</div>
 			<div class="row">
@@ -239,9 +235,12 @@
 							    </div>';
 						}
 					} else {
-						echo '<div class="col s12 m12 l12">
-								<p>Tidak ada koleksi dipinjam</p>
-							</div>';
+						echo'
+						<br><br>
+						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+							<h6>Tidak ada yang dipinjam</h6>
+						</div>
+						';
 					}
 				?>
 			</div>
@@ -249,9 +248,15 @@
 			<div class="row">
 				<?php
         			if($user->username == $this->session->userdata('username'))
-        				echo '<h5>Wishlist Saya</h5>';
+        				echo 
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+							<h5>Wishlist Saya</h5>
+						</div>';
         			else
-        				echo '<h5>Wishlist '.$user->nama.'</h5>';
+        				echo 
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+							<h5>Wishlist '.$user->nama.'</h5>
+						</div>';
         	
         			?>	
 			</div>
@@ -352,9 +357,11 @@
 						}
 					} 
 					else {
-						echo '<div class="col s12 m12 l12">
-								<p>Tidak ada daftar wishlist</p>
-							</div>';
+						echo'
+						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+							<h6>Tidak ada daftar wishlist</h6>
+						</div>
+						';
 					}
 				
 

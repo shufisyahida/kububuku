@@ -4,11 +4,11 @@
         public function __construct()
         {
             parent::__construct();
-            $username = $this->session->userdata('username');
-            if(!$this->session->userdata(''.$username))
-            {
-                redirect(base_url('Login'));
-            }
+            // $username = $this->session->userdata('username');
+            // if(!$this->session->userdata(''.$username))
+            // {
+            //     redirect(base_url('Login'));
+            // }
         }
         
         public function buku()
@@ -17,10 +17,13 @@
              $username = $this->session->userdata('username');
             
             $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username);    
+            $isAdmin = $this->admin_model->isAdmin($username);   
+
+            $isLoggedIn = $this->session->userdata(''.$username); 
             
-            
-            if($isAdmin)
+            if(!$isLoggedIn)
+                $this->load->view('navbar_x_view');   
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -42,9 +45,12 @@
             
             $this->load->model('admin_model');   
             $isAdmin = $this->admin_model->isAdmin($username);    
+
+             $isLoggedIn = $this->session->userdata(''.$username); 
             
-            
-            if($isAdmin)
+            if(!$isLoggedIn)
+                $this->load->view('navbar_x_view');              
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -134,10 +140,13 @@
             $username = $this->session->userdata('username');
             
             $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username);    
+            $isAdmin = $this->admin_model->isAdmin($username);
+
+            $isLoggedIn = $this->session->userdata(''.$username); 
             
-            
-            if($isAdmin)
+            if(!$isLoggedIn)
+                $this->load->view('navbar_x_view');      
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -145,9 +154,9 @@
             {
                 $this->load->view('navbar_view');
             }
-            $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username); 
+           
             $data['isAdmin']=$isAdmin;
+            $data['isLoggedIn']=$isLoggedIn;
             $this->load->view('search_book_view2',$data);
             $this->load->view('foot_view');
         }
@@ -254,8 +263,11 @@
             $this->load->model('admin_model');   
             $isAdmin = $this->admin_model->isAdmin($username);    
             
+            $isLoggedIn = $this->session->userdata(''.$username); 
             
-            if($isAdmin)
+            if(!$isLoggedIn)
+                $this->load->view('navbar_x_view');  
+            else if($isAdmin)
             {
                 $this->load->view('navbar_admin_view');
             }
@@ -263,9 +275,9 @@
             {
                 $this->load->view('navbar_view');
             }
-            $this->load->model('admin_model');   
-            $isAdmin = $this->admin_model->isAdmin($username); 
+           
             $data['isAdmin']=$isAdmin;
+            $data['isLoggedIn']=$isLoggedIn;
             $this->load->view('search_user_view2',$data);
             $this->load->view('foot_view');          
         }

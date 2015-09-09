@@ -78,7 +78,7 @@
 					$this->session->set_userdata(''.$username,true);
 										
 					// redirect(base_url('Dashboard'));
-					redirect(base_url('pesan'));
+					redirect(base_url('Pesan'));
 				}
 				else
 				{

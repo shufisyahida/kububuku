@@ -23,8 +23,8 @@
 
             //$this->load->model("pesan_model");
             //$this->load->library("pagination");
-
             $this->load->model('pesan_model');
+           
             
         }
 
@@ -42,7 +42,7 @@
             // $config['next_tag_close'] = '</strong>';
      
             // $this->pagination->initialize($config);
-     
+             
             // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $data["pesan"] = $this->pesan_model->getListPesan(5, 0);
             // $jsona = json_encode($data);

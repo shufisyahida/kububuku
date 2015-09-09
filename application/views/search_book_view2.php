@@ -106,7 +106,7 @@
               <span><?php echo $post->pengarang;?></span><br>
               <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
                   <?php
-                  if($isAdmin)
+                  if($isLoggedIn&&$isAdmin)
                   {
                     echo 
                         '
@@ -127,7 +127,7 @@
                           <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-light btn red white-text">Delete Book</a>
                         </div>';
                   }
-                  if(!$isAdmin){
+                  if($isLoggedIn&&!$isAdmin){
                       if(!$adaDiKoleksi[$key])
                       {
                         echo 
