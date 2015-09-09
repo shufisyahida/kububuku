@@ -249,7 +249,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/chk_notif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  

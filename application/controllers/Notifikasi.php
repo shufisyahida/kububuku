@@ -19,7 +19,7 @@
             $this->load->view('foot_view');
         }*/
 
-         public function chk_notif()
+         public function cekNotif()
         {
             $username = $this->session->userdata('username');
             $data = array();

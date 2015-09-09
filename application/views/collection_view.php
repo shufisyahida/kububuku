@@ -228,7 +228,7 @@ $('document').ready(function() {
       }
     }
     
-    xmlhttp.open("POST","http://localhost/kububuku/notifikasi/cekNotif", true);
+    xmlhttp.open("POST","http://localhost/kububuku/index.php/Notifikasi/cekNotif", true);
     xmlhttp.send();
   }, 3000);
  
