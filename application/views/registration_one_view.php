@@ -77,7 +77,7 @@
                     <div class="col s12 m6 l8">
                         <label for="gender">Jenis Kelamin*</label>
                         <select id="gender" name="gender" type="text" class="validate" >
-                            <option value="">Choose your gender</option>
+                            <option value="">Pilih jenis kelamin</option>
                             <option value="M" <?php if($jenis_kelamin == "M") echo "selected"; ?>>Pria</option>
                             <option value="F" <?php if($jenis_kelamin == "F") echo "selected"; ?>>Wanita</option>
                         </select>
@@ -88,7 +88,7 @@
                     <div class="col s12 m6 l8">
                         <label for="faculty">Fakultas*</label>
                         <select id="faculty" name="faculty" type="text" class="validate" >
-                              <option value="">Pilih Fakultas</option>
+                              <option value="">Pilih fakultas</option>
                               <option value="1" <?php if($fakultas == "1") echo "selected"; ?>>Fakultas Kedokteran</option>
                               <option value="2" <?php if($fakultas == "2") echo "selected"; ?>>Fakultas Kedokteran Gigi</option>
                               <option value="3" <?php if($fakultas == "3") echo "selected"; ?>>Fakultas Matematika dan Pengetahuan Alam</option>

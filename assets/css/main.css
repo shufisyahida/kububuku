@@ -475,10 +475,16 @@ h5.book-title{
   display: none;
 }
 
-
-.homeLatar{
+section{
+  display: table;
   height: 600px;
   width: 100%;
+}
+
+.homeLatar{
+  display: table-cell;  
+  position: relative;
+  margin-top: 0px;
 }
 
 .logoKububuku{
@@ -492,6 +498,10 @@ img.home-logo{
   height: auto;
 }
 
+.homeNavbar{
+  height: 60px;
+}
+
 .homeNavbar li{
   display: inline-block;
   margin: 0px 30px;
@@ -501,6 +511,43 @@ img.home-logo{
   font-size: 20px
 }
 
+.logoBesar{
+  text-align: center;
+  margin-top: 80px;
+}
+.logoBesar img{  
+  max-height: 100px;
+  height: auto;
+}
+
 .homeCari{
-  background-color: white;
+  /*text-align: center;*/
+  width: 500px;
+  margin: 50px auto;  
+}
+
+.homeCari input{
+  background-color: white !important;
+  padding: 0px 10px;
+  font-size: 20px;
+  width: 500px;
+}
+
+.homeCari h5{
+  color: #fff;
+}
+
+.makna{
+  /*position: relative;*/
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+  font-size: 35px;
+  color: #4caf50;
+}
+
+.makna p{
+  margin: 0px;
+  text-align: center;
 }

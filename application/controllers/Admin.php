@@ -45,7 +45,7 @@
         {
             $data['notif'] = '
                 <div id="cp-login" class="error">
-                <span>Login failed. Try again!</span>
+                <span>Log In gagal. Coba lagi!</span>
                 </div>
             ';
             $this->load->view('head_view');

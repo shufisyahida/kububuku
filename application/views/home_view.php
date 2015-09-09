@@ -16,22 +16,44 @@
     </head>
 
     <body>
+    <section>
         <div class="homeLatar green">
 
-        <a href="<?php echo base_url('permintaan_masuk/') ?>" class="logoKububuku"><img class="home-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
-        <ul class="homeNavbar right">
-          <li><a class="" href="<?php echo base_url('pencarian/buku') ?>">Login</a></li>
-          <li><a class="" href="<?php echo base_url('notifikasi/') ?>">Daftar</a></li>
-        </ul>
+            <div class="homeNavbar">
+                <!-- <a href="<?php echo base_url('permintaan_masuk/') ?>" class="logoKububuku"><img class="home-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a> -->
+                <ul class="right">
+                  <li><a class="" href="<?php echo base_url('pencarian/buku') ?>">Login</a></li>
+                  <li><a class="" href="<?php echo base_url('notifikasi/') ?>">Daftar</a></li>
+                </ul>
 
-        <input type="text">
-            
+            </div>
+
+            <div class="logoBesar">
+                <img class="responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>">
+            </div>
+
+            <div class="homeCari">
+                <h5>Cari Buku</h5>
+                <div>
+                    <input type="text">
+                </div>                
+            </div>       
         </div>
+    </section>
+
+    <section>
         <div class="homeLatar lime lighten-5">
-            
+            <div class="makna">
+                <p>
+                    KubuBuku adalah portal pinjam meminjam buku antar sivitas akademika Universitas indonesia. 
+                </p>    
+            </div>    
         </div>
+    </section>
+    <section>
         <div class="homeLatar green">
             
         </div>
+    </section>
     </body>
 </html>         

@@ -44,6 +44,7 @@ $route['404_override'] = '';
 $route['koleksi'] = "Koleksi";
 $route['notifikasi'] = "Notifikasi";
 $route['wishlist'] = "Wishlist";
+$route['login'] = "Login";
 $route['([a-z1-9]+)'] = "profil/lihatProfil/$1";
 
 
