@@ -61,6 +61,7 @@
                 $email = $this->input->post('email');
                 $username = $this->input->post('username');                
                 $password = $this->input->post('password');
+                $verpassword = $this->input->post('verpassword');
                 //$photo = $this->input->post('pic');
                 $gender = $this->input->post('gender');
                 $faculty = $this->input->post('faculty');
@@ -99,6 +100,7 @@
                    'emailErr' => '',
                    'usernameErr' => '',
                    'passwordErr' => '',
+                   'verpasswordErr' => '',
                    'domisiliErr' => '',
                    'mailErr' => '',
                    'facultyErr' => '',
@@ -106,92 +108,98 @@
                    'statusErr' => '',
                    'birthdayErr' => ''
                 );
+                $data['img']='lee.jpg'; 
                 $error = false;
                 $this->load->model('non_admin');
                 $emailSudahAda = $this->non_admin->isRegisteredEmail($email);
                 $usernameSudahAda = $this->non_admin->isRegisteredUsername($username);
                 if ($emailSudahAda) 
                 {
-                    $data['emailErr'] = "Email is already in use";
+                    $data['emailErr'] = "Email sudah digunakan";
                     $error = true;
                 }
                 if ($usernameSudahAda) 
                 {
-                    $data['usernameErr'] = "Username is already in use";
+                    $data['usernameErr'] = "Username sudah digunakan";
                     $error = true;
                 }
                 if($name == '')
                 {
-                    $data['nameErr'] = "Name should not be blank";
+                    $data['nameErr'] = "Nama tidak boleh kosong";
                     $error = true;
                 }
                 if (!preg_match("/^[0-9]*$/", $hp))
                 {
                    //var_dump($name);
-                   $data['hpErr'] = "Phone number should be numeric ";
+                   $data['hpErr'] = "Nomor Telepon harus berbentuk angka ";
                     $error = true;
                 }
                  if (!(strlen($hp)==10||strlen($hp)==11||strlen($hp)==12||strlen($hp)==0))
                 {
                    
-                   $data['hpErr'] = "Phone number format is not valid";
+                   $data['hpErr'] = "Format nomor telepon salah";
                     $error = true;
                 }
                 if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬\-\s]/', $username))
                 {
                    //var_dump($name);
-                   $data['usernameErr'] = "Username shouldn't contain special character";
+                   $data['usernameErr'] = "Username tidak boleh mengandung special character";
                     $error = true;
                 }
                 if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬\-]/', $name))
                 {
                    //var_dump($name);
-                   $data['nameErr'] = "Name shouldn't contain special character";
+                   $data['nameErr'] = "Nama tidak boleh mengandung special character";
                     $error = true;
                 }
                 if($email == '')
                 {
-                    $data['emailErr'] = "Email should not be blank";
+                    $data['emailErr'] = "Email tidak boleh kosong";
                     $error = true;
                 }
                 if($username == '')
                 {
-                    $data['usernameErr'] = "Username should not be blank";
+                    $data['usernameErr'] = "Username tidak boleh kosong";
                     $error = true;
                 }
                 if($password == '')
                 {
-                    $data['passwordErr'] = "Password should not be blank";
+                    $data['passwordErr'] = "Password tidak boleh kosong";
+                    $error = true;
+                }
+                if($password != $verpassword)
+                {
+                    $data['verpasswordErr'] = "Password tidak sama";
                     $error = true;
                 }
                 if($domisili == '')
                 {
-                    $data['domisiliErr'] = "Domicile should not be blank";
+                    $data['domisiliErr'] = "Domisili tidak boleh kosong";
                     $error = true;
                 }
                 if($mail == '')
                 {
-                    $data['mailErr'] = "Mail should not be blank";
+                    $data['mailErr'] = "Email tidak boleh kosong";
                     $error = true;
                 }
                 if($faculty == '')
                 {
-                    $data['facultyErr'] = "Faculty should not be blank";
+                    $data['facultyErr'] = "Fakultas tidak boleh kosong";
                     $error = true;
                 }
                 if($gender == '')
                 {
-                    $data['genderErr'] = "Gender should not be blank";
+                    $data['genderErr'] = "Jenis kelamin tidak boleh kosong";
                     $error = true;
                 }
                 if($status == '')
                 {
-                    $data['statusErr'] = "Status should not be blank";
+                    $data['statusErr'] = "Status tidak boleh kosong";
                     $error = true;
                 }
                 if($birthday == '')
                 {
-                    $data['birthdayErr'] = "Birthday should not be blank";
+                    $data['birthdayErr'] = "Tanggal lahir tidak boleh kosong";
                     $error = true;
                 }
                
@@ -227,6 +235,7 @@
                        'bbm' => $bbm,
                        'wa' => $wa
                     );
+                    $data['img']='lee.jpg'; 
                     $this->load->model('non_admin');
                     $this->non_admin->createUser($data);
 
@@ -272,6 +281,7 @@
                'emailErr' => '',
                'usernameErr' => '',
                'passwordErr' => '',
+               'verpasswordErr' => '',
                'domisiliErr' => '',
                'mailErr' => '',
                'facultyErr' => '',
@@ -279,6 +289,7 @@
                'statusErr' => '',
                'birthdayErr' => ''
             );
+            $data['img']='lee.jpg'; 
             $this->load->view('head_view');
             $this->load->view('registration_one_view', $data);
             $this->load->view('foot_view');

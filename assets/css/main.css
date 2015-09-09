@@ -423,5 +423,84 @@ h5.book-title{
 /*ELKA*/
 .card-panel h5 {
   text-align: center;
-  color: green;
+  color: #4caf50;
+}
+
+.langkah{
+  /*background-color: green;*/
+  position: relative;
+  height: 50px;
+  width: 532px;
+  margin: 30px auto;
+}
+
+.garis{
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  width: 420px;
+  margin-top: 25px;
+  margin-left: 40px;
+  border-top: 4px solid #4caf50;
+  
+}
+
+.steps{
+  position: absolute;
+  z-index: 2;
+  margin: 0px auto;
+}
+
+.step {
+  display: inline-block;
+  margin: 0px 40px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background: #4caf50;
+  border: 2px solid #4caf50;
+  color: #fff;
+  text-align: center;
+  font: 26px Arial, sans-serif;
+}
+
+.aktip {
+  background: #fff;
+  border: 3px solid #4caf50;
+  color: #4caf50;
+}
+
+.hide{
+  display: none;
+}
+
+
+.homeLatar{
+  height: 600px;
+  width: 100%;
+}
+
+.logoKububuku{
+  float: left;
+  margin: 15px;
+}
+
+img.home-logo{
+  /*width: 800px;*/
+  max-height: 30px;
+  height: auto;
+}
+
+.homeNavbar li{
+  display: inline-block;
+  margin: 0px 30px;
+}
+.homeNavbar li a{
+  color: #fff;
+  font-size: 20px
+}
+
+.homeCari{
+  background-color: white;
 }
