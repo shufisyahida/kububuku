@@ -25,7 +25,8 @@
         {
           foreach ($notif as $key => $value) 
           {
-
+            $newDate = date("d-m-Y , H:i:s",strtotime($value->waktu));
+            $day = date('l', strtotime($value->waktu));
             if(property_exists($value, 'user_inform'))
             {
               echo 
@@ -35,7 +36,9 @@
                   
                     <span class="title"><?php echo $value->user_inform;?> has informed your wishlist</span>
                     <p><?php echo $value->judul;?></p>
-                  </a></li>
+                  </a>  
+                  <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
+                </li>
               <?php
             }
             else if (property_exists($value, 'user_request')) 
@@ -46,7 +49,9 @@
                     <img src='.$value->foto.' alt="" class="circle">'?>
                 <span class="title"><?php echo $value->user_request;?> has requested your book</span>
                 <p><?php echo $value->judul;?></p>
-              </a></li>
+              </a>
+               <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
+            </li>
               <?php
             }
             else if (property_exists($value, 'user_accept')) 
@@ -57,7 +62,9 @@
                     <img src='.$value->foto.' alt="" class="circle">'?>
                       <span class="title"><?php echo $value->user_accept;?> has accepted your request</span>
                     <p><?php echo $value->judul;?></p>
-                  </a></li>
+                  </a>
+                   <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
+                </li>
                    <?php 
             }
             else if (property_exists($value, 'user_decline')) 
@@ -68,7 +75,9 @@
                     <img src='.$value->foto.' alt="" class="circle">'?>
                   <span class="title"><?php echo $value->user_decline;?> has declined your request</span>
                 <p><?php echo $value->judul;?></p>
-              </a></li>
+              </a>
+               <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
+            </li>
             <?php
             }
             else if (property_exists($value, 'user_return'))
@@ -79,7 +88,9 @@
                     <img src='.$value->foto.' alt="" class="circle">'?>
                   <span class="title"><?php echo $value->user_return;?> has returned your book</span>
                 <p><?php echo $value->judul;?></p>
-              </a></li>
+              </a>
+               <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
+            </li>
             <?php 
             }
           }     
