@@ -7,14 +7,14 @@
 </div>
 <div class="container" style="margin-top:50px;">
     <!-- <br><h5>Registration - step 1/2</h5> -->
-    <form method="post" action="<?php echo base_url('pendaftaran/daftar') ?>">
+    <form method="post" action="<?php echo base_url('pendaftaran/daftar2') ?>">
         <div>
             <div class="card-panel z-depth-1">
-                <br><h5>Buat Akun</h5>
+                <br><h5>Biodata</h5>
                 <div class="langkah">                     
                     <div class="steps">
-                        <div class="step step1 aktip">1</div>
-                        <div class="step step2">2</div>
+                        <div class="step step1">1</div>
+                        <div class="step step2 aktip">2</div>
                         <div class="step step3">3</div>
                         <div class="step step4">4</div>
                     </div>
@@ -23,7 +23,7 @@
                 
                 
                 
-                <div class="row langkah1" style="margin: 0px auto;">
+                <div class="row langkah1 hide" style="margin: 0px auto;">
                     <div class="input-field col m6 l8">
                         <input id="username" name="username" type="text" class="validate" value="<?php echo $username;?>" maxlength="20">
                         <label for="username">Username*</label>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="row langkah2 hide">
+                <div class="row langkah2">
                     <div class="input-field col s12 m6 l8">
                         <input id="name" name="name" type="text" class="validate" value="<?php echo $nama;?>" maxlength="40">
                         <label for="name">Nama*</label>
@@ -243,26 +243,26 @@
     $(document).ready(function() {
         $('select').material_select();
     
-        $(".lanjutkan1").click(function(){
-            $(".langkah2").removeClass("hide");
-            $(".langkah1").addClass("hide");
-            $(".step1").removeClass("aktip");
-            $(".step2").addClass("aktip");
-        });
+        // $(".lanjutkan1").click(function(){
+        //     $(".langkah2").removeClass("hide");
+        //     $(".langkah1").addClass("hide");
+        //     $(".step1").removeClass("aktip");
+        //     $(".step2").addClass("aktip");
+        // });
 
-        $(".lanjutkan2").click(function(){
-            $(".langkah3").removeClass("hide");
-            $(".langkah2").addClass("hide");
-            $(".step2").removeClass("aktip");
-            $(".step3").addClass("aktip");
-        });
+        // $(".lanjutkan2").click(function(){
+        //     $(".langkah3").removeClass("hide");
+        //     $(".langkah2").addClass("hide");
+        //     $(".step2").removeClass("aktip");
+        //     $(".step3").addClass("aktip");
+        // });
 
-        $(".lanjutkan3").click(function(){
-            $(".langkah4").removeClass("hide");
-            $(".langkah3").addClass("hide");
-            $(".step3").removeClass("aktip");
-            $(".step4").addClass("aktip");
-        });
+        // $(".lanjutkan3").click(function(){
+        //     $(".langkah4").removeClass("hide");
+        //     $(".langkah3").addClass("hide");
+        //     $(".step3").removeClass("aktip");
+        //     $(".step4").addClass("aktip");
+        // });
 
     });
     // $('.datepicker').pickadate({

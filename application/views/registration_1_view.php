@@ -7,7 +7,7 @@
 </div>
 <div class="container" style="margin-top:50px;">
     <!-- <br><h5>Registration - step 1/2</h5> -->
-    <form method="post" action="<?php echo base_url('pendaftaran/daftar') ?>">
+    <form method="post" action="<?php echo base_url('pendaftaran/daftar1') ?>">
         <div>
             <div class="card-panel z-depth-1">
                 <br><h5>Buat Akun</h5>
@@ -243,26 +243,26 @@
     $(document).ready(function() {
         $('select').material_select();
     
-        $(".lanjutkan1").click(function(){
-            $(".langkah2").removeClass("hide");
-            $(".langkah1").addClass("hide");
-            $(".step1").removeClass("aktip");
-            $(".step2").addClass("aktip");
-        });
+        // $(".lanjutkan1").click(function(){
+        //     $(".langkah2").removeClass("hide");
+        //     $(".langkah1").addClass("hide");
+        //     $(".step1").removeClass("aktip");
+        //     $(".step2").addClass("aktip");
+        // });
 
-        $(".lanjutkan2").click(function(){
-            $(".langkah3").removeClass("hide");
-            $(".langkah2").addClass("hide");
-            $(".step2").removeClass("aktip");
-            $(".step3").addClass("aktip");
-        });
+        // $(".lanjutkan2").click(function(){
+        //     $(".langkah3").removeClass("hide");
+        //     $(".langkah2").addClass("hide");
+        //     $(".step2").removeClass("aktip");
+        //     $(".step3").addClass("aktip");
+        // });
 
-        $(".lanjutkan3").click(function(){
-            $(".langkah4").removeClass("hide");
-            $(".langkah3").addClass("hide");
-            $(".step3").removeClass("aktip");
-            $(".step4").addClass("aktip");
-        });
+        // $(".lanjutkan3").click(function(){
+        //     $(".langkah4").removeClass("hide");
+        //     $(".langkah3").addClass("hide");
+        //     $(".step3").removeClass("aktip");
+        //     $(".step4").addClass("aktip");
+        // });
 
     });
     // $('.datepicker').pickadate({

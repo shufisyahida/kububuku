@@ -417,3 +417,173 @@ h5.book-title{
   margin-right: auto;
   margin-top: 30px;
 }
+
+
+
+/*ELKA*/
+.card-panel h5 {
+  text-align: center;
+  color: #4caf50;
+}
+.card-panel p {
+  color: #4caf50;
+  font-size: 15px;
+  text-align: center;
+}
+
+.langkah{
+  /*background-color: green;*/
+  position: relative;
+  height: 50px;
+  width: 532px;
+  margin: 30px auto;
+}
+
+.garis{
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  width: 420px;
+  margin-top: 25px;
+  margin-left: 40px;
+  border-top: 4px solid #4caf50;
+  
+}
+
+.steps{
+  position: absolute;
+  z-index: 2;
+  margin: 0px auto;
+}
+
+.step {
+  display: inline-block;
+  margin: 0px 40px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background: #4caf50;
+  border: 2px solid #4caf50;
+  color: #fff;
+  text-align: center;
+  font: 26px Arial, sans-serif;
+}
+
+.aktip {
+  background: #fff;
+  border: 3px solid #4caf50;
+  color: #4caf50;
+}
+
+.hide{
+  display: none;
+}
+
+section{
+  display: table;
+  height: 600px;
+  width: 100%;
+}
+
+.homeLatar{
+  display: table-cell;  
+  position: relative;
+  margin-top: 0px;
+}
+
+.logoKububuku{
+  float: left;
+  margin: 15px;
+}
+
+img.home-logo{
+  /*width: 800px;*/
+  max-height: 30px;
+  height: auto;
+}
+
+.homeNavbar{
+  height: 60px;
+}
+
+.homeNavbar li{
+  display: inline-block;
+  margin: 0px 30px;
+}
+.homeNavbar li a{
+  color: #fff;
+  font-size: 20px
+}
+
+.logoBesar{
+  text-align: center;
+  margin-top: 80px;
+}
+.logoBesar img{  
+  max-height: 100px;
+  height: auto;
+}
+
+.homeCari{
+  /*text-align: center;*/
+  width: 510px;
+  margin: 50px auto;  
+}
+
+.homeCari input{
+  background-color: white !important;
+  padding: 0px 10px;
+  font-size: 20px;
+  width: 400px;
+}
+
+.homeCari h5{
+  color: #fff;
+}
+.homrCari button{
+  padding: 10px 20px;
+}
+
+.makna{
+  /*position: relative;*/
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+  font-size: 30px;
+  color: #4caf50;
+  text-align: center;
+}
+
+.makna p{
+  margin: 0px;
+  display: inline;
+}
+.makna p.besar{
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.gabung{
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.gabung p{
+  color: #fff;
+  font-size: 30px;
+  margin: 50px 0px;
+}
+
+.gabung a{
+  padding: 20px;
+  color: #4caf50;  
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: 500;
+}

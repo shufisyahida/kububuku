@@ -41,5 +41,5 @@
             echo "gagal";
         }
     ?>-->
-    <h6 class="custom-h6">Not a member? <a class="green-text" href="<?php echo base_url('Sso/login') ?>">Create an account</a></h6>    
+    <h6 class="custom-h6">Belum punya akun? <a class="green-text" href="<?php echo base_url('Sso/login') ?>">Daftar baru</a></h6>    
 </div>
