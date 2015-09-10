@@ -143,7 +143,7 @@
 			?>  
 	  		</div>
 
-	  		<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
+	  		<div id="#wishlist" class="col s12 m12 l12 green lime-text text-lighten-5 card">
 				<h5>Wishlist</h5>
 			</div>
 			<div class="row">

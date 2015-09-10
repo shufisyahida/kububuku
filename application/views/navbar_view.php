@@ -14,7 +14,7 @@
 
     <nav class="green">
       <div class="nav-container nav-wrapper">
-        <a href="<?php echo base_url('permintaan_masuk/') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
+        <a href="<?php echo base_url('dashboard') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
         <ul class="right hide-on-med-and-down">
           <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cari Buku atau Pengguna" href="<?php echo base_url('pencarian/buku') ?>"><i class="lime-text text-lighten-5 mdi-action-search"></i></a></li>
           <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Notifikasi" href="<?php echo base_url('notifikasi/') ?>"><i class="lime-text text-lighten-5 mdi-social-notifications" id="notif-icon"></i></a></li>

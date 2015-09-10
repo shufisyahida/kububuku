@@ -43,7 +43,7 @@
 				$username = $this->session->userdata('username');
 				$this->load->model('wishlist_model');
 				$this->wishlist_model->addWishlist($username,$isbn);
-				redirect(base_url('wishlist'));
+				redirect(base_url('koleksi#wishlist'));
 				
 
 			}
