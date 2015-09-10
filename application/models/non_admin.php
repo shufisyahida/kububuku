@@ -77,11 +77,11 @@
 
             if($jk=='M')
             {
-            	return 'Male';
+            	return 'Pria';
             }				
 			elseif($jk=='F')
 			{
-				return 'Female';
+				return 'Wanita';
 			}
 		}
 
@@ -101,18 +101,18 @@
 
             if($stat==1)
 			{
-				return 'Student';
+				return 'Mahasiswa';
 			}	
 			elseif($stat==2)
 			{
-				return 'Lecturer';
+				return 'Dosen';
 			}	
 			elseif($stat==3)
 			{
-				return 'Staff';
+				return 'Staf';
 			}
 			else{
-				return 'Alumnus';
+				return 'Alumni';
 			}				
 
 			return $stat;

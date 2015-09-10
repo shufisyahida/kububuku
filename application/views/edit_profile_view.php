@@ -67,6 +67,7 @@
                               <option value="11" <?php if($fakultas == "11") echo "selected"; ?>>Fakultas Ilmu Komputer</option>
                               <option value="12" <?php if($fakultas == "12") echo "selected"; ?>>Fakultas Ilmu Keperawatan</option>
                               <option value="13" <?php if($fakultas == "13") echo "selected"; ?>>Fakultas Farmasi</option>
+                              <option value="13" <?php if($fakultas == "14") echo "selected"; ?>>Fakultas Ilmu Administrasi</option>
                               <option value="50" <?php if($fakultas == "50") echo "selected"; ?>>Vokasi</option>
                               <option value="51" <?php if($fakultas == "51") echo "selected"; ?>>Pascasarjana</option>
                               <option value="51" <?php if($fakultas == "52") echo "selected"; ?>>Non Fakultas</option>

@@ -535,11 +535,11 @@ img.home-logo{
   background-color: white !important;
   padding: 0px 10px;
 
-  font-size: 18px;
-  width: 400px;
+/*  font-size: 18px;
+  width: 400px;*/
 
-  /*font-size: 20px;
-  width: 600px;*/
+  font-size: 20px;
+  width: 600px;
 
 }
 
