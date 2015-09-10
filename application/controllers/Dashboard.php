@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-    class Dashboard extends CI_Controller
+    class dashboard extends CI_Controller
     {
 
         public function __construct()
@@ -25,17 +25,19 @@
 
         public function index()
         {
-            // $username = $this->session->userdata('username');
-            // $this->load->model('koleksi_model');
-            // $data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
-            // //$this->load->model('koleksi_model');
-            // $data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
+            
+            /*$this->load->model('buku_model');
+            $this->load->model('koleksi_model');
+            $data['resultBukuPopuler'] = $this->koleksi_model->getBukuPopuler(5,0);
+            $data['resultBukuBaru'] = $this->buku_model->getBukuBaru(5,0);*/
+
             $this->load->view('head_view');
             $this->load->view('navbar_view');
             $this->load->view('dashboard_view');
-            //$this->load->view('collection_view', $data2);
+            //$this->load->view('dashboard_view, $data);
             $this->load->view('foot_view');
         }
+
 
     } // end of Dashboard
 

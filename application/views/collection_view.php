@@ -8,12 +8,12 @@
 			    <li class="collection-item">
 			      	<center>
 				      <a href="<?php echo base_url($this->session->userdata('username')); ?>"><img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property"></a>
-				      	<h5 class="green-text"><a><?php echo $user->nama ?></a></h5>
+				      	<h5 class="green-text"><a><?php echo $name ?></a></h5>
 				    </center>
 			    </li>
 		    </ul>
 		    <ul class="collection with-header z-depth-1">
-		    	<li><a href="<?php echo base_url('dashboard'); ?>" class="collection-item">Beranda</a></li>
+		    	<li><a href="<?php echo base_url('beranda'); ?>" class="collection-item">Beranda</a></li>
 		    	<li class="divider"></li>
 			    <li><a href="<?php echo base_url('koleksi'); ?>" class="collection-item active">Koleksi</a></li>
 			    <li class="divider"></li>

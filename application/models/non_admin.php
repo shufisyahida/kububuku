@@ -143,6 +143,21 @@
 
 			return $username;
 		}
+		function getName($username)
+		{
+			$this->db->select('nama');
+			$this->db->from('non_admin');
+			$this->db->where('username',$username);
+
+			$query= $this->db->get()->result();
+			
+			foreach ($query as $key => $value) 
+			{
+				$name=$value->nama;
+			}
+
+			return $name;
+		}
 
 		function giveRank($username,$rank,$isBorrower)
 		{
