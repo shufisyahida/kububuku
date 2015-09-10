@@ -31,7 +31,7 @@
             if($loggedin)
             {
                 // redirect(base_url('Dashboard'));
-                redirect(base_url('permintaan_masuk'));
+                redirect(base_url('Dashboard'));
             }
             else
             {

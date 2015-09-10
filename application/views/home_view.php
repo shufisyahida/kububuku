@@ -28,20 +28,18 @@
 
             </div>
 
-            <div class="logoBesar">
+            <center><div class="logoBesar">
                 <img class="responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>">
-            </div>
+            </div></center>
 
             <div class="homeCari">
-                <h5>Cari Buku</h5>
-                <div>
+                <h5>Cari Buku di sini...</h5>
+                <center>
                     <form method="post" action="<?php echo base_url('pencarian/hasil_buku') ?>">
                         <input type="text" id="book-searchkey" name="keyword">
                         <input class="hide" id="kategori" name="kategori" value="judul" type="text">
-                        <button class="btn waves-effect waves-light green right-align z-depth-1" type="submit" name="action" method="post"><i class="lime-text text-lighten-5 mdi-action-search"></i></button>
                     </form>
-                </div>
-
+                </center>
             </div>       
         </div>
     </section>
@@ -61,7 +59,12 @@
                 </p>                
                 <a href="<?php echo base_url('Sso/login') ?>">Login via SSO</a>              
             </div>
+            <center>
+                <br>
+                <p class="lime-text text-lighten-5">Sudah punya akun? Login <a href="<?php echo base_url('Login') ?>">di sini</a></p>
+            </center>
         </div>
+        
     </section>
     </body>
 </html>         
