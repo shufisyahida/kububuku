@@ -32,7 +32,7 @@
             $res['img']=$this->non_admin->upload_image();  
             $this->session->set_userdata('foto',base_url()."uploads/".$res['img']);      
             $this->load->view('head_view');
-            $this->load->view("registration_two_view",$res);
+            $this->load->view("registration_4_view",$res);
             $this->load->view('foot_view');             
         }
         
