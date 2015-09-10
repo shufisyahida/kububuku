@@ -214,7 +214,7 @@
 								            	if(!$isAdmin){
 								            		echo'
 								            	<div class="row row-custom-a">
-								            	    <a class="btn-flat disabled">Anda Pinjam</a>
+								            	    <a class="btn-flat disabled">Terpinjam</a>
 								            	</div>
 								            	';}
 								            	echo'

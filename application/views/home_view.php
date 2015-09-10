@@ -77,7 +77,7 @@
     <section>
         <div class="homeLatar lime lighten-5">
             <div class="makna">
-                <p class="besar">KubuBuku</p><p> adalah portal pinjam meminjam buku antar sivitas akademika </p><p class="besar">Universitas indonesia</p>    
+                <p class="besar">KubuBuku</p><p> adalah portal pinjam meminjam buku antar sivitas akademika </p><p class="besar">Universitas Indonesia</p>    
             </div>    
         </div>
     </section>
@@ -87,7 +87,7 @@
                 <p>
                     Ayo gabung bersama KubuBuku
                 </p>                
-                <a href="<?php echo base_url('Sso/login') ?>">Login via SSO</a>              
+                <a href="<?php echo base_url('Sso/login') ?>">Daftar</a>              
             </div>
             <center>
                 <br>

@@ -24,14 +24,14 @@
 echo '
       <div id="modal-addcol" class="modal">
         <div class="modal-content">
-          <h4>Add Collection?</h4>
-          <p>Are you sure to add this book to your collection?</p>
+          <h4>Tambah ke koleksi?</h4>
+          <p>Apakah anda yakin untuk menambahkan buku ini ke koleksi anda?</p>
         </div>
         <div class="modal-footer">
-          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
   
           <a href="'.base_url()."koleksi/tambah/".$resultBook[0]->isbn."/".$username.'"
-            class="waves-effect waves-green btn-flat modal-action">ADD</a>
+            class="waves-effect waves-green btn-flat modal-action">Tambah</a>
         </div>
       </div>
       ';
@@ -39,14 +39,14 @@ echo '
   echo '
       <div id="modal-wishlist" class="modal">
         <div class="modal-content">
-          <h4>Add Wishlist?</h4>
-          <p>Are you sure to add this book to your Wishlist?</p>
+          <h4>Tambah ke wishlist?</h4>
+          <p>Apakah anda yakin untuk menambahkan buku ini ke koleksi anda?</p>
         </div>
         <div class="modal-footer">
-          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+          <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
   
           <a href="'.base_url()."Wishlist/tambah/".$resultBook[0]->isbn.'"
-            class="waves-effect waves-green btn-flat modal-action">ADD</a>
+            class="waves-effect waves-green btn-flat modal-action">Tambah</a>
         </div>
       </div>
       ';

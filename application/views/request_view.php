@@ -66,7 +66,7 @@
 		</div>
 		<div class="col l6">
 			<ul class="collection z-depth-1">
-				<li class="collection-item"><h5>Permintaan Pembaruan</h5></li>
+				<li class="collection-item"><h5>Permintaan Pengubahan</h5></li>
 				<?php 
 			  	if(!empty($updateRequest)){
 			  	$index = 1;
@@ -84,7 +84,7 @@
 							<div id="modal-declineUpdate<?php echo $post->id?>" class="modal">
 								<div class="modal-content">
 									<h4>Tolak Permintaan</h4>
-									<p>Apakah anda yakin untuk menolak permintaan pembaruan ini?</p>
+									<p>Apakah anda yakin untuk menolak permintaan pengubahan ini?</p>
 								</div>
 								<div class="modal-footer">
 									<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>

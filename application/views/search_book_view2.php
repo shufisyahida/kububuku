@@ -72,7 +72,7 @@
         <!-- <button class="btn custom-btn waves-effect waves-light green right-align z-depth-1" href="<?php echo base_url('buku/tambah_baru')?>">addBook</button> -->
         <br>
         <?php if(!$isAdmin){
-          echo'<a class="green-text" href="'.base_url().'buku/tambah_baru">Add new book to your collection?</a>';
+          echo'<a class="green-text" href="'.base_url().'buku/tambah_baru">Tambahkan buku baru ke koleksi?</a>';
         }?>
           <?php } ?>
       <!-- </div> -->
