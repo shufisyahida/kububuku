@@ -91,12 +91,12 @@
 				<?php
         			if($user->username == $this->session->userdata('username'))
         				echo 
-	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 							<h5>Koleksi Saya</h5>
 						</div>';
         			else
         				echo 
-	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 							<h5>Koleksi '.$user->nama.'</h5>
 						</div>';
         	
@@ -130,17 +130,6 @@
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
-								     //        		$requested = false;
-								     //        		$this->db->select('*');
-													// $this->db->from('pinjaman');
-													// $this->db->where('username_peminjam',$this->session->userdata('username'))->where('username_pemilik',$user->username)->where('isbn',$value->isbn);		
-													// $query= $this->db->get()->result();
-
-													// if(sizeof($query)!=0) {				
-													// 	$requested = true;
-													// }
-
-								     //        		if(!$requested)
 								            		if(!$isAdmin){
 									            		if(!$requested[$key])
 									            		{
@@ -178,10 +167,6 @@
 											            	</div>';
 									            		}
 								            		}
-
-								            		// echo '<div class="row row-custom-a">
-								            	 //    	<a class="waves-effect waves-green black-text btn-flat" href="'.base_url()."koleksi/pinjam/".$user->username."/".$value->isbn.'">Borrow</a>
-								            		// </div>';	
 								            	}
 								           echo'
 								            </div>
@@ -196,7 +181,7 @@
 					{
 						echo'
 						<br><br>
-						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+						<div class="col s12 m12 l12 green-text text-darken-3">
 							<h6>Tidak ada koleksi</h6>
 						</div>
 						';
@@ -237,7 +222,7 @@
 					} else {
 						echo'
 						<br><br>
-						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+						<div class="col s12 m12 l12 green-text text-darken-3">
 							<h6>Tidak ada yang dipinjam</h6>
 						</div>
 						';
@@ -249,53 +234,17 @@
 				<?php
         			if($user->username == $this->session->userdata('username'))
         				echo 
-	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 							<h5>Wishlist Saya</h5>
 						</div>';
         			else
         				echo 
-	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+	        			'<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 							<h5>Wishlist '.$user->nama.'</h5>
 						</div>';
         	
         			?>	
 			</div>
-
-			<!-- <div class="row">
-				<?php
-				if(empty($OtherWishlist)) {
-					if(!empty($MyWishlist))
-					{
-						foreach($MyWishlist as $key => $value)
-						{
-							echo '<div class="col s12 m12 l6">
-							        <div class="card card-book">
-							          	<div class="row row-custom-a">
-								            <div class="col s4 m4 l4">
-								              	<a href="'.base_url('buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
-								            </div>
-								            <div class="col s8 m8 l8">
-								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
-								            	<span>'.$value->pengarang.'</span><br>
-								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>
-								   
-								            </div>
-							          	</div>
-							        </div>
-							    </div>';
-						}
-					} 
-
-					else {
-						echo '<div class="col s12 m12 l12">
-								<p>Tidak ada daftar wishlist</p>
-							</div>';
-					}
-				}
-			
-				?>
-			</div> -->
-
 			<div class="row">
 				<?php
 					if(!empty($wishlist))
@@ -358,7 +307,7 @@
 					} 
 					else {
 						echo'
-						<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+						<div class="col s12 m12 l12 green-text text-darken-3">
 							<h6>Tidak ada daftar wishlist</h6>
 						</div>
 						';
@@ -367,15 +316,6 @@
 
 				?>
 			</div>
-			<!-- <div>
-				<?php if(!empty($OtherWishlist)) {
-					foreach($OtherWishlist as $key => $value)
-						{
-			 			 
-							   }
-						}
-				?>
-	        </div> -->
 		</div>
 	</div>
 </div>
