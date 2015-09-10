@@ -67,6 +67,7 @@
                         <input type="text" id="book-searchkey" name="keyword" placeholder="Judul buku">
 
                         <input class="hide" id="kategori" name="kategori" value="judul" type="text">
+                        <button class="hide" type="submit" name="action" method="post"></button>
                     </form>
                 </center>
             </div>       
