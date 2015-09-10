@@ -109,9 +109,13 @@
 			$username = $this->session->userdata('username');
 			$this->load->model('koleksi_model');
 			$this->load->model('wishlist_model');
+			$this->load->model('non_admin');
+
 			$data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
 			$data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
 			$data['resultWishlist'] = $this->wishlist_model->getAllWishlist($username);
+			$data['user'] = $this->non_admin->getUser($username);
+
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');
 			$this->load->view('collection_view', $data);

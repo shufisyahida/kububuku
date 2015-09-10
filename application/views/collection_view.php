@@ -8,7 +8,7 @@
 			    <li class="collection-item">
 			      	<center>
 				      <a href="<?php echo base_url($this->session->userdata('username')); ?>"><img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property"></a>
-				      	<h5 class="green-text"><a>Fallon Candra</a></h5>
+				      	<h5 class="green-text"><a><?php echo $user->nama ?></a></h5>
 				    </center>
 			    </li>
 		    </ul>
