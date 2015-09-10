@@ -534,13 +534,8 @@ img.home-logo{
 .homeCari input{
   background-color: white !important;
   padding: 0px 10px;
-
-/*  font-size: 18px;
-  width: 400px;*/
-
   font-size: 20px;
   width: 600px;
-
 }
 
 .homeCari h5{
@@ -550,6 +545,14 @@ img.home-logo{
 }
 .homrCari button{
   padding: 10px 20px;
+}
+
+.input-white-bg{
+  background-color: white !important;
+  padding: 0px 10px;
+  font-size: 20px;
+  width: 600px;
+  color: #000;
 }
 
 .makna{

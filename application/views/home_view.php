@@ -65,7 +65,6 @@
                 <center>
                     <form method="post" action="<?php echo base_url('pencarian/hasil_buku') ?>">
                         <input type="text" id="book-searchkey" name="keyword" placeholder="Judul buku">
-
                         <input class="hide" id="kategori" name="kategori" value="judul" type="text">
                         <button class="hide" type="submit" name="action" method="post"></button>
                     </form>
