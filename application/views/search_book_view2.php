@@ -4,22 +4,6 @@
           <li><a class="active" href="<?php echo base_url('pencarian/buku') ?>">Buku</a></li>
           <li><a  href="<?php echo base_url('pencarian/pengguna')?>">Pengguna</a></li>
       </div>
-
-      <?php
-  if(!$isAdmin){
-  echo '
-
-        <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-          <a class="z-depth-4 btn-floating btn-large red">
-            <i class="large mdi-content-add"></i>
-          </a>
-          <ul>
-            <li><a href="'.base_url().'pencarian/buku" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
-            <li><a href="'.base_url().'pencarian/buku" class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
-          </ul>
-        </div>';
-    }
-      ?>
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->
@@ -94,86 +78,95 @@
       <!-- </div> -->
       <?php if($resultSearchBuku!=null){?>
       <?php foreach($resultSearchBuku as $key => $post){?>
-        <div class="card">
-          <div class="row row-custom-a">
-            <div class="col s4 m4 l4">
-              <?php echo
-                      '<a href="'.base_url()."buku/info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
-                    ?>
-            </div>
-            <div class="col s8 m8 l8">
-              <span class="card-book-title black-text"><?php echo '<a href="'.base_url().'buku/info/'.$post->isbn.'">'?> <?php echo $post->judul;?></a></span><br>
-              <span><?php echo $post->pengarang;?></span><br>
-              <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
-                  <?php
-                  if($isLoggedIn&&$isAdmin)
-                  {
-                    echo 
-                        '
-                        <div id="modal-addcol'.$post->isbn.'" class="modal">
-                          <div class="modal-content">
-                            <h4>Delete Book</h4>
-                            <p>Are you sure to delete this book?</p>
-                          </div>
-                          <div class="modal-footer">
-                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    
-                            <a href="'.base_url().'kelola/hapusBukuFromSearch/'.$post->isbn.'"
-                              class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
-                          </div>
-                        </div>
-      
-                        <div class="row row-custom-a">
-                          <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-light btn red white-text">Delete Book</a>
-                        </div>';
-                  }
-                  if($isLoggedIn&&!$isAdmin){
-                      if(!$adaDiKoleksi[$key])
-                      {
-                        echo 
-                        '
-                        <div id="modal-addcol'.$post->isbn.'" class="modal">
-                          <div class="modal-content">
-                            <h4>Add Collection?</h4>
-                            <p>Are you sure to add this book to your collection?</p>
-                          </div>
-                          <div class="modal-footer">
-                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    
-                            <a href="'.base_url()."koleksi/tambah/".$post->isbn."/".$username.'"
-                              class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
-                          </div>
-                        </div>
-      
-                        <div class="row row-custom-a">
-                          <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Collection</a>
-                        </div>';
-                      
-                      if(!$adaDiWishlist[$key])
-                      {
-                        echo 
-                        '
-                        <div id="modal-addwis'.$post->isbn.'" class="modal">
-                          <div class="modal-content">
-                            <h4>Add Wishlist?</h4>
-                            <p>Are you sure to add this book to your wishlist?</p>
-                          </div>
-                          <div class="modal-footer">
-                            <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    
-                            <a href="'.base_url()."Wishlist/tambah/".$post->isbn.'"
-                              class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
-                          </div>
-                        </div>
-      
-                        <div class="row row-custom-a">
-                          <a href="#modal-addwis'.$post->isbn.'" class="modal-trigger waves-effect waves-green black-text btn-flat">Add to Wishlist</a>
-                        </div>';
-                      }
-                    }
-                  }
+        <div class="col s12 m6 l6">
+          <div class="card card-book">
+            <div class="row row-custom-a">
+              <div class="col s4 m4 l4">
+                <?php echo
+                        '<a href="'.base_url()."buku/info/".$post->isbn.'"> <img src='.$post->sampul.' alt="book-cover" class="responsive-img"></a>'
+                      ?>
+              </div>
+              <div class="col s8 m8 l8">
+                <div class="col s11 m11 l11">
+                  <?php echo
+                  '<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';
                   ?>
-              
+                    <h6 class="truncate black-text"><?php echo $post->judul;?></h6>
+                    <h6 class="truncate"><?php echo $post->pengarang;?></h6>
+                  <?php echo
+                  '</a>'
+                  ;?>
+                  <span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+                      <?php
+                      if($isLoggedIn&&$isAdmin)
+                      {
+                        echo 
+                            '
+                            <div id="modal-addcol'.$post->isbn.'" class="modal">
+                              <div class="modal-content">
+                                <h4>Delete Book</h4>
+                                <p>Are you sure to delete this book?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                        
+                                <a href="'.base_url().'kelola/hapusBukuFromSearch/'.$post->isbn.'"
+                                  class="black-text waves-effect waves-green btn-flat modal-action">DELETE</a>
+                              </div>
+                            </div>
+          
+                            <div class="row row-custom-a">
+                              <a href="#modal-addcol'.$post->isbn.'" class="modal-trigger waves-effect waves-light btn red white-text">Delete Book</a>
+                            </div>';
+                      }
+                      if($isLoggedIn&&!$isAdmin){
+                          if(!$adaDiKoleksi[$key])
+                          {
+                            echo 
+                            '
+                            <div id="modal-addcol'.$post->isbn.'" class="modal">
+                              <div class="modal-content">
+                                <h4>Add Collection?</h4>
+                                <p>Are you sure to add this book to your collection?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                        
+                                <a href="'.base_url()."koleksi/tambah/".$post->isbn."/".$username.'"
+                                  class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
+                              </div>
+                            </div>
+          
+                            
+                            <a href="#modal-addcol'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Koleksi" class="tooltipped" href=""><i class="material-icons green-text">add_circle</i></a>
+                            ';
+                          
+                          if(!$adaDiWishlist[$key])
+                          {
+                            echo 
+                            '
+                            <div id="modal-addwis'.$post->isbn.'" class="modal">
+                              <div class="modal-content">
+                                <h4>Add Wishlist?</h4>
+                                <p>Are you sure to add this book to your wishlist?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+                        
+                                <a href="'.base_url()."Wishlist/tambah/".$post->isbn.'"
+                                  class="black-text waves-effect waves-green btn-flat modal-action">ADD</a>
+                              </div>
+                            </div>
+          
+                            
+                            <a href="#modal-addcol'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Wishlist" class="tooltipped" href=""><i class="material-icons green-text">favorite</i></a>
+                            ';
+                          }
+                        }
+                      }
+                      ?>
+                  </div>
+              </div>
             </div>
           </div>
         </div>

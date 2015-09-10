@@ -114,7 +114,7 @@
 			$data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
 			$data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
 			$data['resultWishlist'] = $this->wishlist_model->getAllWishlist($username);
-			$data['user'] = $this->non_admin->getUser($username);
+			$data['name'] = $this->non_admin->getName($username);
 
 			$this->load->view('head_view');
 			$this->load->view('navbar_view');

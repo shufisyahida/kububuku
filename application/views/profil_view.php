@@ -119,14 +119,15 @@
 							echo '<div class="col s12 m12 l6">
 							        <div class="card card-book">
 							          	<div class="row row-custom-a">
+							          	<div class="col col s11 m11 l11">
 								            <div class="col s4 m4 l4">
 								              	<a href="'.base_url('buku/info/'.$value->isbn).'"><img src="'.$value->sampul.'" alt="book-cover" class="responsive-img"></a>
 								            </div>
 								            <div class="col s8 m8 l8">
-								            	 <a href = "'.base_url()."buku/info/".$value->isbn.'">
-								            	<span class="card-book-title black-text">'.$value->judul.'</span><br>
-								            	</a>
-								            	<span>'.$value->pengarang.'</span><br>
+								            	<a data-position="bottom" data-delay="50" data-tooltip="'.$value->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$value->isbn.'">
+													<h6 class="truncate black-text">'.$value->judul.'</h6>
+													<h6 class="truncate">'.$value->pengarang.'</h6>
+									    		</a>
 								            	<span class="tag-property white-text green">'.$value->genre.'</span><br><br>';
 								            	if($user->username != $this->session->userdata('username'))
 								            	{
@@ -151,6 +152,7 @@
 																		<!--<a href="'.base_url()."koleksi/pinjam/".$user->username."/".$value->isbn."/".$duration.'" class="waves-effect waves-green btn-flat black-text modal-action" type="submit">PINJAM</a> -->
 
 																		<a href="#modal-message"><button type="submit" name="action" method="post" class="waves-effect waves-green btn-flat black-text modal-action">PINJAM</button></a>
+
 																	</div>
 																</div>
 															</form>';
@@ -169,7 +171,9 @@
 								            		}
 								            	}
 								           echo'
+								        
 								            </div>
+								        </div>
 							          	</div>
 							        </div>
 							    </div>';

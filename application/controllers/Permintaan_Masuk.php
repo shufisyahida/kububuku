@@ -101,6 +101,7 @@
             $data['idPinjaman']=$id;
             $data['status']=$status;
             $data['kontak']=$kontak;
+            $data['name'] = $this->non_admin->getName($username);
             
           
           /*  $count=0;
