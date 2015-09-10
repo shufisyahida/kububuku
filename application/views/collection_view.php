@@ -23,7 +23,7 @@
 		    </ul>
 		</div>
 		<div class="col m9 l9" id="content">
-			<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+			<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 				<h5>Koleksi Tersedia</h4>
 			</div>
 			<div class="row">
@@ -42,10 +42,13 @@
 							<div class="col s8 m8 l8">
 						  		<div class="col s11 m11 l11">
 						  			<?php echo
-									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';?>
+									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';
+									?>
 										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
 										<span><?php echo $post->pengarang;?></span><br>
-						    		<?php echo'</a>';?>
+						    		<?php echo
+						    		'</a>'
+						    		;?>
 						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
 						  		</div>
 						  		<div class="col s1 m1 l1">
@@ -82,7 +85,7 @@
 			?>  
 		  	</div>
 			
-			<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+			<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 				<h5>Koleksi Dipinjam</h5>
 			</div>
 			<div class="row">
@@ -140,7 +143,7 @@
 			?>  
 	  		</div>
 
-	  		<div class="col s12 m12 l12 green lime-text text-lighten-5 card-panel">
+	  		<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
 				<h5>Wishlist</h5>
 			</div>
 			<div class="row">
