@@ -19,12 +19,14 @@
 		}
 		function getBukuPopuler($limit, $start)
 		{
-			$this->db->select('*');
+			$this->db->select('buku.isbn,buku.sampul,buku.pengarang,buku.judul,buku.genre, COUNT(koleksi.isbn) as total');
 			$this->db->from('koleksi');
-			$this->db->order_by("tanggal_buat", "desc");
+			$this->db->join('buku', 'buku.isbn = koleksi.isbn');
+			$this->db->group_by('koleksi.isbn');
+			$this->db->order_by("total", "desc");
 			$this->db->limit($limit, $start);
-			$resultBukuBaru = $this->db->get()->result();
-			return $resultBukuBaru;
+			$resultBukuPopuler = $this->db->get()->result();
+			return $resultBukuPopuler;
 		}
 
 		public function getKoleksiAvailable($username)

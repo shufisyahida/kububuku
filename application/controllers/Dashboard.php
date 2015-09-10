@@ -25,16 +25,18 @@
 
         public function index()
         {
-            
-            /*$this->load->model('buku_model');
+            $username = $this->session->userdata('username');
+            $this->load->model('non_admin');
+            $this->load->model('buku_model');
             $this->load->model('koleksi_model');
-            $data['resultBukuPopuler'] = $this->koleksi_model->getBukuPopuler(5,0);
-            $data['resultBukuBaru'] = $this->buku_model->getBukuBaru(5,0);*/
+            $data['resultBukuPopuler'] = $this->koleksi_model->getBukuPopuler(4,0);
+            $data['resultBukuBaru'] = $this->buku_model->getBukuBaru(4,0);
+            $data['name'] = $this->non_admin->getName($username);
 
             $this->load->view('head_view');
             $this->load->view('navbar_view');
-            $this->load->view('dashboard_view');
-            //$this->load->view('dashboard_view, $data);
+            //$this->load->view('dashboard_view');
+            $this->load->view('dashboard_view', $data);
             $this->load->view('foot_view');
         }
 
