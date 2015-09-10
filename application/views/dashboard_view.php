@@ -24,7 +24,15 @@
 		</div>
 		<div class="col m9 l9" id="content">
 			<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
-				<h5>Buku Terpopuler</h4>
+				<h5>Cari Buku di sini...</h5>
+				<form method="post" action="<?php echo base_url('pencarian/hasil_buku') ?>">
+                    <input class="input-white-bg" type="text" id="book-searchkey" name="keyword" placeholder="Judul buku">
+                    <input class="hide" id="kategori" name="kategori" value="judul" type="text">
+                    <button class="hide" type="submit" name="action" method="post"></button>
+                </form>
+			</div>
+			<div class="col s12 m12 l12 green lime-text text-lighten-5 card">
+				<h5>Buku Terpopuler</h5>
 			</div>
 			<div class="row">
 		  	<?php 
@@ -45,11 +53,11 @@
 									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';
 									?>
 										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
-										<span><?php echo $post->pengarang;?></span><br>
+										<h6 class="truncate"><?php echo $post->pengarang;?></h6>
 						    		<?php echo
 						    		'</a>'
 						    		;?>
-						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br><br>
+						    		<span class="tag-property white-text green"><?php echo $post->genre;?></span><br>
 						  		</div>
 						  		<div class="col s1 m1 l1">
 						  			<?php
