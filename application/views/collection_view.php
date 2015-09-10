@@ -32,7 +32,7 @@
 		  	{
 		  	foreach($resultAvailable as $post){?>
 				<div class="col s12 m12 l6">
-			    	<div class="card card-book">
+			    	<div class="card" style="height:180px">
 	            		<div class="row row-custom-a">
 							<div class="col s4 m4 l4">
 							<?php echo
@@ -45,7 +45,7 @@
 									'<a data-position="bottom" data-delay="50" data-tooltip="'.$post->judul.'" class="tooltipped" href="'.base_url()."buku/info/".$post->isbn.'">';
 									?>
 										<h6 class="truncate black-text"><?php echo $post->judul;?></h6>
-										<span><?php echo $post->pengarang;?></span><br>
+										<h6 class="truncate"><?php echo $post->pengarang;?></h6>
 						    		<?php echo
 						    		'</a>'
 						    		;?>
