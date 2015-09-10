@@ -34,7 +34,7 @@
               
                     <img src='.$value->foto.' alt="" class="circle">';?>
                   
-                    <span class="title"><?php echo $value->user_inform;?> has informed your wishlist</span>
+                    <span class="title"><?php echo $value->user_inform;?> merespon wishlist anda</span>
                     <p><?php echo $value->judul;?></p>
                   </a>  
                   <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
@@ -47,7 +47,7 @@
               '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookRequest/".$value->user_request."/".$value->isbn.'" >
               
                     <img src='.$value->foto.' alt="" class="circle">'?>
-                <span class="title"><?php echo $value->user_request;?> has requested your book</span>
+                <span class="title"><?php echo $value->user_request;?> ingin meminjam buku anda</span>
                 <p><?php echo $value->judul;?></p>
               </a>
                <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
@@ -60,7 +60,7 @@
               '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookAccept/".$value->user_accept."/".$value->isbn.'" >
               
                     <img src='.$value->foto.' alt="" class="circle">'?>
-                      <span class="title"><?php echo $value->user_accept;?> has accepted your request</span>
+                      <span class="title"><?php echo $value->user_accept;?> menerima permintaan peminjaman anda</span>
                     <p><?php echo $value->judul;?></p>
                   </a>
                    <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
@@ -73,7 +73,7 @@
               '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookDecline/".$value->user_decline."/".$value->isbn.'" >
               
                     <img src='.$value->foto.' alt="" class="circle">'?>
-                  <span class="title"><?php echo $value->user_decline;?> has declined your request</span>
+                  <span class="title"><?php echo $value->user_decline;?> menolak permintaan peminjaman anda</span>
                 <p><?php echo $value->judul;?></p>
               </a>
                <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>
@@ -86,7 +86,7 @@
               '<li class="collection-item avatar"><a href = "'.base_url()."notifikasi/lookReturn/".$value->user_return."/".$value->isbn.'" >
               
                     <img src='.$value->foto.' alt="" class="circle">'?>
-                  <span class="title"><?php echo $value->user_return;?> has returned your book</span>
+                  <span class="title"><?php echo $value->user_return;?> sudah mengembalikan buku anda</span>
                 <p><?php echo $value->judul;?></p>
               </a>
                <?php echo '<span class="email-address grey-text">'.$day." , ".$newDate.'</span>';?>

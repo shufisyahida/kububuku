@@ -46,6 +46,9 @@ $route['notifikasi'] = "Notifikasi";
 $route['wishlist'] = "Wishlist";
 $route['login'] = "Login";
 $route['dashboard'] = "Dashboard";
+$route['admin'] = "Admin";
+$route['pesan'] = "Pesan";
+$route['kelola'] = "Kelola";
 $route['([a-z1-9]+)'] = "profil/lihatProfil/$1";
 
 

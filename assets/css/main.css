@@ -518,7 +518,7 @@ img.home-logo{
 
 .logoBesar{
   text-align: center;
-  margin-top: 80px;
+  margin-top: 170px;
 }
 .logoBesar img{  
   max-height: 100px;
@@ -534,12 +534,14 @@ img.home-logo{
 .homeCari input{
   background-color: white !important;
   padding: 0px 10px;
-  font-size: 20px;
+  font-size: 18px;
   width: 400px;
 }
 
 .homeCari h5{
   color: #fff;
+  font-weight: 500;
+  font-size: 25px;
 }
 .homrCari button{
   padding: 10px 20px;
@@ -574,7 +576,7 @@ img.home-logo{
 }
 
 .gabung p{
-  color: #fff;
+  color: #f9fbe7;
   font-size: 30px;
   margin: 50px 0px;
 }
@@ -582,8 +584,12 @@ img.home-logo{
 .gabung a{
   padding: 20px;
   color: #4caf50;  
-  background-color: #fff;
+  background-color: #f9fbe7;
   border-radius: 10px;
   font-size: 40px;
   font-weight: 500;
+}
+
+.langkah4 #cropimage{
+  width: 500px;
 }
