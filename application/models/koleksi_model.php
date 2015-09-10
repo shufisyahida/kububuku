@@ -19,7 +19,7 @@
 		}
 		function getBukuPopuler($limit, $start)
 		{
-			$this->db->select('buku.cover, buku.judul, COUNT(koleksi.isbn) as total');
+			$this->db->select('buku.isbn,buku.sampul,buku.pengarang,buku.judul,buku.genre, COUNT(koleksi.isbn) as total');
 			$this->db->from('koleksi');
 			$this->db->join('buku', 'buku.isbn = koleksi.isbn');
 			$this->db->group_by('koleksi.isbn');

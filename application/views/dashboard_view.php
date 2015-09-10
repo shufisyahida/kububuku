@@ -8,7 +8,7 @@
 			    <li class="collection-item">
 			      	<center>
 				      <a href="<?php echo base_url($this->session->userdata('username')); ?>"><img src="<?php $gambar = $this->session->userdata('foto'); echo $gambar;?>" alt="" class="circle avatar-property"></a>
-				      	<h5 class="green-text"><a><?php echo $user->nama ?></a></h5>
+				      	<h5 class="green-text"><a><?php echo $name ?></a></h5>
 				    </center>
 			    </li>
 		    </ul>
@@ -28,9 +28,9 @@
 			</div>
 			<div class="row">
 		  	<?php 
-		  	if(!empty($resultAvailable))
+		  	if(!empty($resultBukuPopuler))
 		  	{
-		  	foreach($resultAvailable as $post){?>
+		  	foreach($resultBukuPopuler as $post){?>
 				<div class="col s12 m12 l6">
 			    	<div class="card card-book">
 	            		<div class="row row-custom-a">
@@ -90,9 +90,9 @@
 			</div>
 			<div class="row">
 			<?php 
-			if(!empty($resultBorrowed))
+			if(!empty($resultBukuBaru))
 			{
-			foreach($resultBorrowed as $post){ ?>
+			foreach($resultBukuBaru as $post){ ?>
 				<div class="col s12 m12 l6">
 			    	<div class="card card-book">
 	            		<div class="row row-custom-a">
