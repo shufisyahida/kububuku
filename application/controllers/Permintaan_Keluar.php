@@ -62,7 +62,8 @@
             $data['durasi']=$durasi;
             $data['idPinjaman']=$id;
             $data['status']=$status;
-            $data['kontak']=$kontak;         
+            $data['kontak']=$kontak;
+            $data['name'] = $this->non_admin->getName($username);         
                                
             $this->load->view('head_view');
             $this->load->view('navbar_view');
