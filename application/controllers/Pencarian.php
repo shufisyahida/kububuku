@@ -10,6 +10,20 @@
             //     redirect(base_url('Login'));
             // }
         }
+
+        public function index()
+        {
+            $username = $this->session->userdata('username');
+            $this->load->model('koleksi_model');
+            $this->load->model('wishlist_model');
+            $data['resultAvailable'] = $this->koleksi_model->getKoleksiAvailable($username);
+            $data['resultBorrowed'] = $this->koleksi_model->getKoleksiBorrowed($username);
+            $data['resultWishlist'] = $this->wishlist_model->getAllWishlist($username);
+            $this->load->view('head_view');
+            $this->load->view('navbar_view');
+            $this->load->view('pencarian_view', $data);
+            $this->load->view('foot_view');
+        }
         
         public function buku()
         {

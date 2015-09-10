@@ -73,7 +73,7 @@
 			else
 			{
 				echo'
-				<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+				<div class="col s12 m12 l12 green-text text-darken-3">
 					<h6>Tidak ada koleksi</h6>
 				</div>
 				';
@@ -132,7 +132,7 @@
 			else
 			{
 				echo'
-				<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+				<div class="col s12 m12 l12 green-text text-darken-3">
 					<h6>Tidak ada buku yang dipinjam</h6>
 				</div>
 				';
@@ -190,7 +190,7 @@
     else
     {
       	echo'
-		<div class="col s12 m12 l12 green lighten-3 green-text text-darken-3">
+		<div class="col s12 m12 l12 green-text text-darken-3">
 			<h6>Tidak ada wishlist</h6>
 		</div>
 		';
