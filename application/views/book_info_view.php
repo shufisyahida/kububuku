@@ -2,35 +2,7 @@
       <div class="secondary-header-inner">
         <div class="container custom-container-c">Informasi Buku</div>
       </div>
-      <?php
-      $username = $this->session->userdata('username');
-  if(!$isAdmin){
-  echo '
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
-        <a class="z-depth-4 btn-floating btn-large red">
-          <i class="large mdi-content-add"></i>
-        </a>
-        <ul>';
-          
-          
-            
-            if(!$adaDiKoleksi)
-            {
-              echo '<li><a href="#modal-addcol" class="modal-trigger btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add this book to Collection"><i class="large mdi-action-book"></i></a></li>';
-            }
-          
-
-          
-            $username = $this->session->userdata('username');
-            if(!$adaDiWishlist){
-              echo '<li><a href="#modal-wishlist" class="modal-trigger btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add this book to Wishlist"><i class="large mdi-action-favorite"></i></a></li>';
-             
-             }
-           }
-            ?>
-
-
-        </ul>
+      <?php $username = $this->session->userdata('username');?>
       </div>
     </div>
 
@@ -46,6 +18,7 @@
             <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Laporkan</a>
         </div>
     </div>
+
 
 <?php
 echo '
@@ -93,30 +66,14 @@ echo '
           echo
           '<div class="card-panel white z-depth-1">
             <img class="responsive-img" img src='.$post->sampul.'>
-            </div>' ?>
-
-
-            <!-- <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
-            <!-- <a href="<?php echo base_url()."permintaan/lihatPembaruanBuku/".$resultBook[0]->isbn?>" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Modify this book"><i class="mdi-editor-mode-edit"></i></a> -->
-
-            <!-- <div id="modal-report" class="modal">
-                <div class="modal-content">
-                    <h4>Report Book?</h4>
-                    <p>Are you sure to report this book to admin?</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-                    <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="waves-effect waves-green btn-flat modal-action">Reports</a>
-                </div>
-            </div> -->
+          </div>' ?>
 <?php
   if(!$isAdmin){
   echo '
-            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Laporkan buku ini"><i class="mdi-content-report"></i></a>
-
-            <!-- <a href="<?php echo base_url()."permintaan/buatPermintaanHapus/".$resultBook[0]->isbn?>" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Report this book"><i class="mdi-content-report"></i></a> -->
-
-            <a href="'.base_url().'permintaan/lihatPembaruanBuku/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="top" data-delay="10" data-tooltip="Perbarui buku ini"><i class="mdi-editor-mode-edit"></i></a>
+            <a href="#modal-addcol" class="modal-trigger waves-effect waves-light green btn-large"><i class="material-icons left">add_circle</i>Koleksi</a><br>
+            <a href="#modal-wishlist" class="modal-trigger waves-effect waves-light green btn-large"><i class="material-icons left">favorite</i>Wishlist</a><br>
+            <a href="#modal-report" class="modal-trigger waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="bottom" data-delay="10" data-tooltip="Laporkan buku ini"><i class="mdi-content-report"></i></a>
+            <a href="'.base_url().'permintaan/lihatPembaruanBuku/'.$resultBook[0]->isbn.'" class="waves-effect waves-light btn-floating green right-align z-depth-1 tooltipped" data-position="bottom" data-delay="10" data-tooltip="Perbarui buku ini"><i class="mdi-editor-mode-edit"></i></a>
         ';}?>
         </div>
       </div>
@@ -127,7 +84,7 @@ echo '
         <span>
           <div class="row">
             <div class="col s12 m12 l12">
-              <h5 class="black-text"><?php echo $post->judul;?></h5>
+              <h5 style="text-align:left" class="black-text"><?php echo $post->judul;?></h5>
               <h6 class="black-text"><?php echo $post->pengarang;?></h6>
             </div>
             <div class="col s12 m12 l12">
@@ -137,7 +94,7 @@ echo '
           <div class="divider"></div>
           <div class="row">
             <div class="col s12 m7 l8">
-              <p><?php echo $post->deskripsi;?></p>
+              <p style="text-align:left" class="black-text"><?php echo $post->deskripsi;?></p>
             </div>
             <?php }?>
             <div class="col s12 m5 l4">
