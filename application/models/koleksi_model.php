@@ -17,6 +17,15 @@
 			$this->db->where('username',$username)->where('isbn',$isbn);
 			$this->db->delete('koleksi');
 		}
+		function getBukuPopuler($limit, $start)
+		{
+			$this->db->select('*');
+			$this->db->from('koleksi');
+			$this->db->order_by("tanggal_buat", "desc");
+			$this->db->limit($limit, $start);
+			$resultBukuBaru = $this->db->get()->result();
+			return $resultBukuBaru;
+		}
 
 		public function getKoleksiAvailable($username)
 		{

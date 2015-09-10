@@ -13,7 +13,7 @@
 			    </li>
 		    </ul>
 		    <ul class="collection with-header z-depth-1">
-		    	<li><a href="<?php echo base_url('dashboard'); ?>" class="collection-item">Beranda</a></li>
+		    	<li><a href="<?php echo base_url('beranda'); ?>" class="collection-item">Beranda</a></li>
 		    	<li class="divider"></li>
 			    <li><a href="<?php echo base_url('koleksi'); ?>" class="collection-item">Koleksi</a></li>
 			    <li class="divider"></li>

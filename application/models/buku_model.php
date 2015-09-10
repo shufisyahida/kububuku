@@ -16,7 +16,16 @@
 			$query = $this->db->get()->result();
 			return $query;
 		}
-
+		function getBukuBaru($limit, $start)
+		{
+			$this->db->select('*');
+			$this->db->from('buku');
+			$this->db->order_by("tanggal_buat", "desc");
+			$this->db->limit($limit, $start);
+			$resultBukuBaru = $this->db->get()->result();
+			return $resultBukuBaru;
+		}
+		
 		function getListBook($limit, $start) 
 		{
 	        $this->db->select('*');
