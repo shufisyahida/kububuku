@@ -274,3 +274,74 @@ $('document').ready(function() {
  
 });
 </script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    $(".tombol.t1").click(function(){
+        // $(".star").animate({width: "50px"}, "slow");
+        $(".star").css("width", "50px");
+        $("#hasil").val("1");
+    });
+    $(".tombol.t1").mouseenter(function(){
+        $(".backstar").css("width", "50px");
+    });
+    $(".tombol.t1").mouseleave(function(){
+        $(".backstar").css("width", "0px");
+    });
+
+
+    $(".tombol.t2").click(function(){
+        // $(".star").animate({width: "100px"}, "slow");
+        $(".star").css("width", "100px");
+        $("#hasil").val("2");
+    });
+    $(".tombol.t2").mouseenter(function(){
+        $(".backstar").css("width", "100px");
+    });
+    $(".tombol.t2").mouseleave(function(){
+        $(".backstar").css("width", "0px");
+    });
+
+
+    $(".tombol.t3").click(function(){
+        // $(".star").animate({width: "150px"}, "slow");
+        $(".star").css("width", "150px");
+        $("#hasil").val("3");
+    });
+    $(".tombol.t3").mouseenter(function(){
+        $(".backstar").css("width", "150px");
+    });
+    $(".tombol.t3").mouseleave(function(){
+        $(".backstar").css("width", "0px");
+    });
+
+
+    $(".tombol.t4").click(function(){
+        // $(".star").animate({width: "200px"}, "slow");
+        $(".star").css("width", "200px");
+        $("#hasil").val("4");
+    });
+    $(".tombol.t4").mouseenter(function(){
+        $(".backstar").css("width", "200px");
+    });
+    $(".tombol.t4").mouseleave(function(){
+        $(".backstar").css("width", "0px");
+    });
+
+
+    $(".tombol.t5").click(function(){
+        // $(".star").animate({width: "250px"}, "slow");
+        $(".star").css("width", "250px");
+        $("#hasil").val("5");
+    });
+    $(".tombol.t5").mouseenter(function(){
+        $(".backstar").css("width", "250px");
+    });
+    $(".tombol.t5").mouseleave(function(){
+        $(".backstar").css("width", "0px");
+    });
+});
+
+</script>

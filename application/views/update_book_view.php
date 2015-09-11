@@ -5,7 +5,7 @@
         </div>
       </div>
 
-      <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
+      <!-- <div class="fixed-action-btn" style="bottom: 45px; right: 40px;">
         <a class="z-depth-4 btn-floating btn-large red">
           <i class="large mdi-content-add"></i>
         </a>
@@ -13,7 +13,7 @@
           <li><a href="<?php echo base_url('pencarian/buku') ?>" class="btn-floating  teal lighten-2 tooltipped" data-position="left" data-delay="10" data-tooltip="Add Collection"><i class="large mdi-action-book"></i></a></li>
           <li><a class="btn-floating yellow darken-1 tooltipped"  data-position="left" data-delay="10" data-tooltip="Add Wishlist"><i class="large mdi-action-favorite"></i></a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
 
 </div><!--end div buat head-wrapper di navbar_view-->

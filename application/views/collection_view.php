@@ -57,12 +57,12 @@
 						    		 echo 
 									'<div id="modal-remove2'.$post->isbn.'" class="modal">
 										<div class="modal-content">
-											<h4>Remove Collection</h4>
-											<p>Are you sure to remove this book from collection?</p>
+											<h4>Hapus Koleksi</h4>
+											<p>Apakah anda yakin untuk menghapus buku ini dari koleksi?</p>
 										</div>
 										<div class="modal-footer">
-											<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
-											<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">remove</a>
+											<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a>
+											<a href="'.base_url()."koleksi/hapus/".$post->isbn.'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a>
 										</div>
 									</div>'
 									?>
