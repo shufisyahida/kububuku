@@ -42,7 +42,7 @@
         <a href="<?php echo base_url('') ?>" class="brand-logo"><img class="img-logo responsive-img" src="<?php echo base_url('assets/img/logo-horizontal.png') ?>"></a>
         <ul class="right hide-on-med-and-down">
           <li><a class="" href="<?php echo base_url('Login') ?>">Login</a></li>
-                  <li><a class="" href="<?php echo base_url('Sso/login') ?>">Daftar</a></li>
+                  <li><a class="" href="<?php echo base_url('Pendaftaran/langkah1') ?>">Daftar</a></li>
         </ul>
       </div>
     </nav>
@@ -86,7 +86,7 @@
                 <p>
                     Ayo gabung bersama KubuBuku
                 </p>                
-                <a href="<?php echo base_url('Sso/login') ?>">Daftar</a>              
+                <a href="<?php echo base_url('Pendaftaran/langkah1') ?>">Daftar</a>              
             </div>
             <center>
                 <br>

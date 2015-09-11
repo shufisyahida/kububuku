@@ -41,5 +41,5 @@
             echo "gagal";
         }
     ?>-->
-    <h6 class="custom-h6">Belum punya akun? <a class="green-text" href="<?php echo base_url('Sso/login') ?>">Daftar baru</a></h6>    
+    <h6 class="custom-h6">Belum punya akun? <a class="green-text" href="<?php echo base_url('Pendaftaran/langkah1') ?>">Daftar baru</a></h6>    
 </div>
