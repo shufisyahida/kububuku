@@ -31,7 +31,7 @@
 						<span class="title">'.$value->nama.'</span>
 					</a>
 						<p>
-							<span class="grey-text" style="font-size: 0.9em;">'.$day.' , '.$newDate.'</span>
+							<span class="grey-text" style="font-size: 0.9em;">'.$value->tanggal_buat.'</span>
 						</p>
 
 						<div id="modal-remove'.$value->username.'" class="modal">
@@ -77,7 +77,7 @@
 						<span class="title">'.$value->judul.'</span>
 					</a>
 						<p>
-							<span class="grey-text" style="font-size: 0.9em;">'.$day.' , '.$newDate.'</span>
+							<span class="grey-text" style="font-size: 0.9em;">'.$value->tanggal_buat.'</span>
 						</p>
 
 						<div id="modal-remove'.$value->isbn.'" class="modal">
@@ -173,10 +173,10 @@ $('document').ready(function() {
 					$('#user-content').append(' \
 						<li class="collection-item avatar"> \
 						<div> \
-						<a href = "Profile/showProfile/'+$username+'" > \
+						<a href = "'+$username+'" > \
 							<img src="'+$foto+'" alt="" class="circle"> \
 						</a> \
-						<a href = "Profile/showProfile/'+$username+'" > \
+						<a href = "'+$username+'" > \
 							<span class="title">'+$nama+'</span> \
 						</a> \
 						<p> \
@@ -189,7 +189,7 @@ $('document').ready(function() {
 						</div> \
 						<div class="modal-footer"> \
 							<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a> \
-							<a href="Manage/deleteUser/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
+							<a href="kelola/hapusPengguna/'+$username+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
 						</div> \
 						</div> \
 							<a href="#modal-remove'+$username+'" class="modal-trigger secondary-content"><i class="mdi-content-clear red-text small"></i></a> \
@@ -262,10 +262,10 @@ $('document').ready(function() {
 						$('#book-content').append(' \
 							<li class="collection-item avatar"> \
 							<div> \
-								<a href = "Book/book_info/'+$isbn+'" > \
+								<a href = "buku/info/'+$isbn+'" > \
 									<img src="'+$sampul+'" alt="" class="cover"> \
 								</a> \
-								<a href = "Book/book_info/'+$isbn+'" > \
+								<a href = "buku/info/'+$isbn+'" > \
 									<span class="title">'+$judul+'</span> \
 								</a> \
 								<p> \
@@ -278,7 +278,7 @@ $('document').ready(function() {
 									</div> \
 									<div class="modal-footer"> \
 										<a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Batal</a> \
-										<a href="Manage/deleteBook/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
+										<a href="kelola/hapusBuku/'+$isbn+'" class="black-text waves-effect waves-green btn-flat modal-action">Hapus</a> \
 									</div> \
 								</div> \
 								<a href="#modal-remove'+$isbn+'" class="secondary-content modal-trigger"><i class="mdi-content-clear red-text small"></i></a> \

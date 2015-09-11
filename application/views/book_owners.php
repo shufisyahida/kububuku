@@ -61,6 +61,7 @@
       foreach($resultOwner as $key=>$value)
       {
        echo'
+       <div id="content2">
         <div class="col s12 m4 l4">
           <div class="card">
             <div class="container custom-container-a">          
@@ -126,6 +127,7 @@
               </ul>
             </div>
           </div>
+        </div>
         </div>
         ';
           }
@@ -235,7 +237,7 @@ $('document').ready(function() {
             $('#more').removeClass("waves-effect waves-light green");
           } 
 
-          $('#content').append('<div class="col s12 m4 l4"> \
+          $('#content2').append('<div class="col s12 m4 l4"> \
                                   <div class="card"> \
                                     <div class="container custom-container-a"> \
                                       <a href = "'+$baseurl+""+$username+'"> \
