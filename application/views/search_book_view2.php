@@ -138,7 +138,7 @@
                             </div>
           
                             
-                            <a href="#modal-addcol'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Koleksi" class="tooltipped" href=""><i class="material-icons green-text">add_circle</i></a>
+                            <a href="#modal-addcol'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Koleksi" class="modal-trigger tooltipped" ><i class=" material-icons green-text ">add_circle</i></a>
                             ';
                           
                           if(!$adaDiWishlist[$key])
@@ -159,7 +159,7 @@
                             </div>
           
                             
-                            <a href="#modal-addwis'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Wishlist" class="tooltipped" href=""><i class="material-icons green-text">favorite</i></a>
+                            <a href="#modal-addwis'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Wishlist" class="modal-trigger tooltipped" href=""><i class="material-icons green-text">favorite</i></a>
                             ';
                           }
                         }
