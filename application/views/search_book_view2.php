@@ -126,8 +126,8 @@
                             '
                             <div id="modal-addcol'.$post->isbn.'" class="modal">
                               <div class="modal-content">
-                                <h4>Add Collection?</h4>
-                                <p>Are you sure to add this book to your collection?</p>
+                                <h4>Tambah ke koleksi?</h4>
+                                <p>Apakah anda yakin untuk menambah buku ini ke koleksi anda?</p>
                               </div>
                               <div class="modal-footer">
                                 <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
@@ -147,8 +147,8 @@
                             '
                             <div id="modal-addwis'.$post->isbn.'" class="modal">
                               <div class="modal-content">
-                                <h4>Add Wishlist?</h4>
-                                <p>Are you sure to add this book to your wishlist?</p>
+                                <h4>Tambah ke wishlist?</h4>
+                                <p>Apakah anda yakin untuk menambah buku ini ke wishlist anda?</p>
                               </div>
                               <div class="modal-footer">
                                 <a href="#" class="black-text waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
@@ -159,7 +159,7 @@
                             </div>
           
                             
-                            <a href="#modal-addcol'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Wishlist" class="tooltipped" href=""><i class="material-icons green-text">favorite</i></a>
+                            <a href="#modal-addwis'.$post->isbn.'" data-position="bottom" data-delay="50" data-tooltip="Tambah ke Wishlist" class="tooltipped" href=""><i class="material-icons green-text">favorite</i></a>
                             ';
                           }
                         }

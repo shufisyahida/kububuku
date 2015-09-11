@@ -277,13 +277,13 @@
 									            			echo'
 									            			<div id="modal-inform'.$value->isbn.'" class="modal">
 														        <div class="modal-content">
-														          <h4>Inform This Book?</h4>
-														          <p>Are you sure to inform that you have this book?</p>
+														          <h4>Beri respon?</h4>
+														          <p>Apakah anda yakin untuk memberitahunya bahwa anda punya buku ini?</p>
 														        </div>
 														        <div class="modal-footer">
-														          <a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Cancel</a>
+														          <a href="#" class="waves-effect waves-red btn-flat black-text modal-action modal-close">Batal</a>
 														  
-														          <a href="'.base_url()."Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat black-text modal-action">INFORM</a>
+														          <a href="'.base_url()."Tanggapan/add/".$value->isbn."/".$user->username.'" class="waves-effect waves-green btn-flat black-text modal-action">Ya</a>
 														         
 														        </div>
 														    </div>
